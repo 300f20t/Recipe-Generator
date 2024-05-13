@@ -552,6 +552,20 @@
         "dependencies": []
       },
       "path": "~/Mirror axes"
+    },
+    {
+      "name": "FurnaceCTGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "furnace_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceCTGUIMenu.java",
+          "src/main/java/net/mcreator/justctgui/client/gui/FurnaceCTGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [
