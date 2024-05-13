@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="[2,)"
 license="MIT License"
 
 [[mods]]
@@ -14,11 +14,21 @@ authors="300f20t, MCreator"
 # End of user code block mod configuration
 
 [[dependencies.just_ctgui]]
+    modId="neoforge"
+    type="required"
+    versionRange="[20.4.223,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.just_ctgui]]
     modId="minecraft"
-    mandatory=true
-    versionRange="[1.20.1]"
+    type="required"
+    versionRange="[1.20.4]"
     ordering="NONE"
     side="BOTH"
 
 
 
+
+[[mixins]]
+    config="mixins.just_ctgui.json"
