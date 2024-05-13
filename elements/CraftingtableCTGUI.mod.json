@@ -1,0 +1,546 @@
+{
+  "_fv": 60,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "the_button_is_pressed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Diagonalispressed"
+          },
+          "x": 308,
+          "y": 10
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "the_button_is_pressed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Verticalispressed"
+          },
+          "x": 398,
+          "y": 10
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "the_button_is_pressed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Horizontalispressed"
+          },
+          "x": 220,
+          "y": 10
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "the_button_is_pressed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Noneispressed"
+          },
+          "x": 116,
+          "y": 10
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "the_button_is_pressed.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "Allispressed"
+          },
+          "x": 46,
+          "y": 10
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_all",
+          "text": "all",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Allmirroraxis"
+          },
+          "width": 40,
+          "height": 20,
+          "x": 6,
+          "y": 8
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_diagonal",
+          "text": "diagonal",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Diagonalmirroraxis"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 240,
+          "y": 8
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_horizontal",
+          "text": "horizontal",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Horizontalmirroraxis"
+          },
+          "width": 77,
+          "height": 20,
+          "x": 141,
+          "y": 8
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_none",
+          "text": "none",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Nonemirroraxis"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 69,
+          "y": 8
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_vertical",
+          "text": "vertical",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Verticalmirroraxis"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 330,
+          "y": 8
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "name",
+          "name": "recipe_name",
+          "width": 120,
+          "height": 20,
+          "x": 2,
+          "y": 44
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "generated",
+          "name": "file_name",
+          "width": 120,
+          "height": 20,
+          "x": 2,
+          "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_recipe_name",
+          "text": {
+            "fixedValue": "Recipe name:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 2,
+          "y": 35
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_file_name",
+          "text": {
+            "fixedValue": "File name:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 2,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_generate",
+          "text": "Generate",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Generateracipes"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 312,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_save",
+          "text": "Save",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Scriptswriter"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 312,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_close",
+          "text": "Close",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GUIclose"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 312,
+          "y": 98
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot0incraftingtableCTGUI"
+          },
+          "x": 150,
+          "y": 53
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot1incraftingtableCTGUI"
+          },
+          "x": 168,
+          "y": 53
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 2,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot2incraftingtableCTGUI"
+          },
+          "x": 186,
+          "y": 53
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 3,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot3incraftingtableCTGUI"
+          },
+          "x": 150,
+          "y": 71
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 4,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot4incraftingtableCTGUI"
+          },
+          "x": 168,
+          "y": 71
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 5,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot5incraftingtableCTGUI"
+          },
+          "x": 186,
+          "y": 71
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 6,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot6incraftingtableCTGUI"
+          },
+          "x": 150,
+          "y": 89
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 7,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot7incraftingtableCTGUI"
+          },
+          "x": 168,
+          "y": 89
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 8,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot8incraftingtableCTGUI"
+          },
+          "x": 186,
+          "y": 89
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crafting_table.png",
+          "use1Xscale": false,
+          "x": 216,
+          "y": 71
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 9,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot9incraftingtableCTGUI"
+          },
+          "x": 249,
+          "y": 71
+        }
+      },
+      {
+        "type": "tooltip",
+        "data": {
+          "name": "tooltip_attention_this_configuration_wil",
+          "text": {
+            "fixedValue": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!"
+          },
+          "displayCondition": {
+            "name": "ATTENTION"
+          },
+          "width": 24,
+          "height": 24,
+          "x": 4,
+          "y": 166
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "popup_hint.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "ATTENTION"
+          },
+          "x": 8,
+          "y": 170
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "Is_shapeless",
+          "text": "Is shapeless?",
+          "x": 6,
+          "y": 134
+        }
+      },
+      {
+        "type": "checkbox",
+        "data": {
+          "name": "Is_mirrored",
+          "text": "Is mirrored?",
+          "x": 6,
+          "y": 107
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "Mirror axis:"
+          },
+          "color": {
+            "value": -4610825,
+            "falpha": 0.0
+          },
+          "x": 6,
+          "y": -2
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_language",
+          "text": "Language",
+          "isUndecorated": false,
+          "width": 67,
+          "height": 20,
+          "x": 312,
+          "y": 170
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 4,
+      "sy": 4,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

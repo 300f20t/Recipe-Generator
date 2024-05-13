@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "just_ctgui",
+  "version": "0.0.1_alpha_build_1",
+  "name": "Just CTGUI",
+  "authors": [
+    "300f20t, MCreator"
+  ],
+  "contact": {
+    "homepage": "https://mcreator.net",
+    "sources": ""
+  },
+  "license": "MIT License",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.mcreator.justctgui.JustCtguiMod"
+    ],
+    "client": [
+      "net.mcreator.justctgui.ClientInit"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "~1.18",
+    "java": ">=17"
+  }
+}

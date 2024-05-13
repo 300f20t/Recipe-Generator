@@ -1,0 +1,730 @@
+{
+  "mod_elements": [
+    {
+      "name": "Ctguicommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ctguicommand",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/command/CtguicommandCommand.java"
+        ]
+      }
+    },
+    {
+      "name": "OpencraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "opencraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/OpencraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CraftingtableCTGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/client/gui/CraftingtableCTGUIScreen.java",
+          "src/main/java/net/mcreator/justctgui/world/inventory/CraftingtableCTGUIMenu.java",
+          "src/main/java/net/mcreator/justctgui/network/CraftingtableCTGUIButtonMessage.java",
+          "src/main/java/net/mcreator/justctgui/network/CraftingtableCTGUISlotMessage.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "Generateracipes",
+      "type": "procedure",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generateracipes",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GenerateracipesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Iteminslot0incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_0incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot0incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot1incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_1incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot1incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot2incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_2incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot2incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot3incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_3incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot3incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot4incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_4incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot4incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot5incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_5incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot5incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot6incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_6incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot6incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot7incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_7incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot7incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot8incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_8incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot8incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Iteminslot9incraftingtableCTGUI",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "iteminslot_9incraftingtable_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/Iteminslot9incraftingtableCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "Scriptswriter",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "scriptswriter",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/ScriptswriterProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GUIclose",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gu_iclose",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GUIcloseProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Recipeshape",
+      "type": "procedure",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipeshape",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/RecipeshapeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ATTENTION",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attention",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/ATTENTIONProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Allmirroraxis",
+      "type": "procedure",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "allmirroraxis",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/AllmirroraxisProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Verticalmirroraxis",
+      "type": "procedure",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "verticalmirroraxis",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/VerticalmirroraxisProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Nonemirroraxis",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nonemirroraxis",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/NonemirroraxisProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Horizontalmirroraxis",
+      "type": "procedure",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "horizontalmirroraxis",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/HorizontalmirroraxisProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Diagonalmirroraxis",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diagonalmirroraxis",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/DiagonalmirroraxisProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Allispressed",
+      "type": "procedure",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "allispressed",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/AllispressedProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Verticalispressed",
+      "type": "procedure",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "verticalispressed",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/VerticalispressedProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Noneispressed",
+      "type": "procedure",
+      "sortid": 24,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "noneispressed",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/NoneispressedProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Horizontalispressed",
+      "type": "procedure",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "horizontalispressed",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/HorizontalispressedProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    },
+    {
+      "name": "Diagonalispressed",
+      "type": "procedure",
+      "sortid": 26,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "diagonalispressed",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/DiagonalispressedProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Mirror axes"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "item_in_slot_0_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_1_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_2_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_3_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_4_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_5_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_6_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_7_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_8_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_9_crafting_table",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "Generated_recipe",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "Recipe_name",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "generated_global",
+      "type": "file",
+      "scope": "global",
+      "value": "new File(\"\")"
+    },
+    {
+      "name": "generated_count",
+      "type": "number",
+      "scope": "global",
+      "value": "1.0"
+    },
+    {
+      "name": "Pre_generated_recipe",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "Is_mirrored",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "Is_shapeless",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "Mirror_axis",
+      "type": "string",
+      "scope": "global",
+      "value": "\"NONE\""
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "language_map": {
+    "en_us": {
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.just_ctgui.craftingtable_ctgui.name": "name",
+      "gui.just_ctgui.craftingtable_ctgui.label_mirror_axis": "Mirror axis:",
+      "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
+      "gui.just_ctgui.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
+      "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
+      "gui.just_ctgui.craftingtable_ctgui.recipe_name": "name",
+      "gui.just_ctgui.craftingtable_ctgui.label_recipe_name": "Recipe name:",
+      "gui.just_ctgui.craftingtable_ctgui.button_language": "Language",
+      "gui.just_ctgui.craftingtable_ctgui.button_none": "none",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
+      "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
+      "gui.just_ctgui.craftingtable_ctgui.label_file_name": "File name:",
+      "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
+      "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
+      "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
+      "gui.just_ctgui.craftingtable_ctgui.button_vertical": "vertical",
+      "gui.just_ctgui.craftingtable_ctgui.button_close": "Close",
+      "gui.just_ctgui.craftingtable_ctgui.label_empty": "Mirror axis:",
+      "gui.just_ctgui.craftingtable_ctgui.button_diagonal": "diagonal",
+      "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
+      "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Mirror axes",
+        "children": []
+      },
+      {
+        "name": "Getting items in Slots",
+        "children": []
+      },
+      {
+        "name": "GUIs",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "just_ctgui",
+    "modName": "Just CTGUI",
+    "version": "0.0.5_alpha_build_5",
+    "author": "300f20t, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "MIT License",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.justctgui"
+  },
+  "mcreatorVersion": 202400118518
+}
