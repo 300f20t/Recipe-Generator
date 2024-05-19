@@ -1,6 +1,11 @@
 # Just-CTGUI
 ### [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/fabric-api_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/fabric-api) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/modrinth_vector.svg)**](https://modrinth.com/mod/just-ctgui)
 
+### **Information for those who want to build this:**
+
+MCreator plugins: File manager, Remote workspaces support.
+Minecraft version: 1.20.4 NeoForge
+
 ### **What is this mod and how to use it?**
 
 **The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language. To be more precise, it is not an additional mod for Craft Tweaker, but simply adds a visual editor to the game and automatic code generation in Zen Script.**
