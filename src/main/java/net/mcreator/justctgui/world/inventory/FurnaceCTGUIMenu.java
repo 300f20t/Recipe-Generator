@@ -82,7 +82,7 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 115, 35) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 124, 35) {
 			private final int slot = 0;
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 35) {

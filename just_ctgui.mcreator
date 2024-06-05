@@ -562,6 +562,7 @@
       "registry_name": "furnace_ctgui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceCTGUIMenu.java",
           "src/main/java/net/mcreator/justctgui/client/gui/FurnaceCTGUIScreen.java"
         ]
@@ -644,8 +645,40 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
+      },
+      "path": "~/Generators"
+    },
+    {
+      "name": "GenerateRemovingRecipes",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_removing_recipes",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GenerateRemovingRecipesProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators"
+    },
+    {
+      "name": "GenerateRemovingFurnaceRecipes",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_removing_furnace_recipes",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GenerateRemovingFurnaceRecipesProcedure.java"
+        ],
+        "dependencies": []
       },
       "path": "~/Generators"
     }
@@ -765,28 +798,39 @@
   "language_map": {
     "en_us": {
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.just_ctgui.craftingtable_ctgui.name": "name",
-      "gui.just_ctgui.craftingtable_ctgui.label_mirror_axis": "Mirror axis:",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.just_ctgui.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
-      "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
       "gui.just_ctgui.craftingtable_ctgui.recipe_name": "name",
+      "gui.just_ctgui.furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.craftingtable_ctgui.button_language": "Language",
       "gui.just_ctgui.craftingtable_ctgui.button_none": "none",
-      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
       "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
       "gui.just_ctgui.craftingtable_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
-      "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
       "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.craftingtable_ctgui.button_vertical": "vertical",
-      "gui.just_ctgui.craftingtable_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.label_empty": "Mirror axis:",
+      "gui.just_ctgui.craftingtable_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.button_diagonal": "diagonal",
+      "gui.just_ctgui.furnace_ctgui.label_xp": "XP:",
+      "gui.just_ctgui.furnace_ctgui.file_name": "generated1",
+      "gui.just_ctgui.furnace_ctgui.label_recipe_name": "Recipe name:",
+      "gui.just_ctgui.furnace_ctgui.XP": "1.0",
+      "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.just_ctgui.craftingtable_ctgui.name": "name",
+      "gui.just_ctgui.craftingtable_ctgui.label_mirror_axis": "Mirror axis:",
+      "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
+      "gui.just_ctgui.furnace_ctgui.button_close": "Close",
+      "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_ctgui.label_time": "Time(seconds):",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
+      "gui.just_ctgui.furnace_ctgui.button_save": "Save",
+      "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
+      "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
-      "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate"
+      "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_ctgui.time": "10"
     }
   },
   "foldersRoot": {

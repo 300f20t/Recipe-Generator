@@ -38,7 +38,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	Button button_generate;
 	Button button_save;
 	Button button_close;
-	Button button_language;
 
 	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -61,7 +60,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		if (ATTENTIONProcedure.execute())
-			if (mouseX > leftPos + -122 && mouseX < leftPos + -98 && mouseY > topPos + 129 && mouseY < topPos + 153)
+			if (mouseX > leftPos + 254 && mouseX < leftPos + 278 && mouseY > topPos + 5 && mouseY < topPos + 29)
 				guiGraphics.renderTooltip(font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil"), mouseX, mouseY);
 	}
 
@@ -75,7 +74,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 
 		if (ATTENTIONProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/popup_hint.png"), this.leftPos + -118, this.topPos + 133, 0, 0, 16, 16, 16, 16);
+			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/popup_hint.png"), this.leftPos + 258, this.topPos + 9, 0, 0, 16, 16, 16, 16);
 		}
 		RenderSystem.disableBlend();
 	}
@@ -95,9 +94,9 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -124, -2, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -124, -3, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -124, 34, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_empty"), -120, -39, -4610825, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_empty"), -124, -35, -3355393, false);
 	}
 
 	@Override
@@ -154,7 +153,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(0, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		}).bounds(this.leftPos + -120, this.topPos + -29, 40, 20).build();
+		}).bounds(this.leftPos + -124, this.topPos + -25, 40, 20).build();
 		guistate.put("button:button_all", button_all);
 		this.addRenderableWidget(button_all);
 		button_diagonal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_diagonal"), e -> {
@@ -162,7 +161,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(1, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		}).bounds(this.leftPos + 114, this.topPos + -29, 67, 20).build();
+		}).bounds(this.leftPos + 39, this.topPos + -25, 67, 20).build();
 		guistate.put("button:button_diagonal", button_diagonal);
 		this.addRenderableWidget(button_diagonal);
 		button_horizontal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_horizontal"), e -> {
@@ -170,7 +169,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(2, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		}).bounds(this.leftPos + 15, this.topPos + -29, 77, 20).build();
+		}).bounds(this.leftPos + -38, this.topPos + -25, 77, 20).build();
 		guistate.put("button:button_horizontal", button_horizontal);
 		this.addRenderableWidget(button_horizontal);
 		button_none = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_none"), e -> {
@@ -178,7 +177,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(3, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		}).bounds(this.leftPos + -57, this.topPos + -29, 46, 20).build();
+		}).bounds(this.leftPos + -84, this.topPos + -25, 46, 20).build();
 		guistate.put("button:button_none", button_none);
 		this.addRenderableWidget(button_none);
 		button_vertical = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_vertical"), e -> {
@@ -186,7 +185,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(4, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
-		}).bounds(this.leftPos + 204, this.topPos + -29, 67, 20).build();
+		}).bounds(this.leftPos + 106, this.topPos + -25, 67, 20).build();
 		guistate.put("button:button_vertical", button_vertical);
 		this.addRenderableWidget(button_vertical);
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_generate"), e -> {
@@ -213,10 +212,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		}).bounds(this.leftPos + 186, this.topPos + 61, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
-		button_language = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_language"), e -> {
-		}).bounds(this.leftPos + 186, this.topPos + 133, 67, 20).build();
-		guistate.put("button:button_language", button_language);
-		this.addRenderableWidget(button_language);
 		Is_shapeless = Checkbox.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 97)
 
 				.build();
