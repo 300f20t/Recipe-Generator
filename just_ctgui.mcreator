@@ -84,7 +84,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Generators"
     },
     {
       "name": "Iteminslot0incraftingtableCTGUI",
@@ -628,6 +629,25 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "GenerateFurnaceRecieps",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_furnace_recieps",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GenerateFurnaceReciepsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators"
     }
   ],
   "variable_elements": [
@@ -782,6 +802,10 @@
       },
       {
         "name": "GUIs",
+        "children": []
+      },
+      {
+        "name": "Generators",
         "children": []
       }
     ]
