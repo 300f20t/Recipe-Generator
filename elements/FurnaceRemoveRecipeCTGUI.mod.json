@@ -24,7 +24,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 240,
+          "x": 168,
           "y": 71
         }
       },
@@ -42,7 +42,7 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
-          "x": 168,
+          "x": 240,
           "y": 71
         }
       },

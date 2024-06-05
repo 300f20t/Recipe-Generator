@@ -566,6 +566,68 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "OpenFurnaceCTGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_furnace_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/OpenFurnaceCTGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CraftingTableRemoveRecipeCTGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_remove_recipe_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/world/inventory/CraftingTableRemoveRecipeCTGUIMenu.java",
+          "src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemoveRecipeCTGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "FurnaceRemoveRecipeCTGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "furnace_remove_recipe_ctgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceRemoveRecipeCTGUIMenu.java",
+          "src/main/java/net/mcreator/justctgui/client/gui/FurnaceRemoveRecipeCTGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [

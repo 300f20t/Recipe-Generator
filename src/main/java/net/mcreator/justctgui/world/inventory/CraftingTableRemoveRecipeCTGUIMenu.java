@@ -25,7 +25,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class CraftingTableRemoveRecipeCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -38,11 +38,11 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public FurnaceCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(JustCtguiModMenus.FURNACE_CTGUI.get(), id);
+	public CraftingTableRemoveRecipeCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(JustCtguiModMenus.CRAFTING_TABLE_REMOVE_RECIPE_CTGUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(2);
+		this.internal = new ItemStackHandler(10);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -82,11 +82,35 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 115, 35) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 17) {
 			private final int slot = 0;
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 35) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 17) {
 			private final int slot = 1;
+		}));
+		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 61, 17) {
+			private final int slot = 2;
+		}));
+		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 25, 35) {
+			private final int slot = 3;
+		}));
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 43, 35) {
+			private final int slot = 4;
+		}));
+		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 61, 35) {
+			private final int slot = 5;
+		}));
+		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 25, 53) {
+			private final int slot = 6;
+		}));
+		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 43, 53) {
+			private final int slot = 7;
+		}));
+		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 61, 53) {
+			private final int slot = 8;
+		}));
+		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 124, 35) {
+			private final int slot = 9;
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
@@ -115,16 +139,16 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 2) {
-				if (!this.moveItemStackTo(itemstack1, 2, this.slots.size(), true))
+			if (index < 10) {
+				if (!this.moveItemStackTo(itemstack1, 10, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
-				if (index < 2 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 2 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 10, false)) {
+				if (index < 10 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 10 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 2, 2 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 10, 10 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;

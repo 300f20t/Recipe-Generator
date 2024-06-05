@@ -11,66 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Diagonalispressed"
-          },
-          "x": 308,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Verticalispressed"
-          },
-          "x": 398,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Horizontalispressed"
-          },
-          "x": 220,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Noneispressed"
-          },
-          "x": 116,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Allispressed"
-          },
-          "x": 46,
-          "y": 10
-        }
-      },
-      {
         "type": "button",
         "data": {
           "name": "button_all",

@@ -8,19 +8,19 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
-import net.mcreator.justctgui.world.inventory.FurnaceCTGUIMenu;
+import net.mcreator.justctgui.world.inventory.FurnaceRemoveRecipeCTGUIMenu;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu> {
-	private final static HashMap<String, Object> guistate = FurnaceCTGUIMenu.guistate;
+public class FurnaceRemoveRecipeCTGUIScreen extends AbstractContainerScreen<FurnaceRemoveRecipeCTGUIMenu> {
+	private final static HashMap<String, Object> guistate = FurnaceRemoveRecipeCTGUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
 
-	public FurnaceCTGUIScreen(FurnaceCTGUIMenu container, Inventory inventory, Component text) {
+	public FurnaceRemoveRecipeCTGUIScreen(FurnaceRemoveRecipeCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -31,7 +31,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("just_ctgui:textures/screens/furnace_ctgui.png");
+	private static final ResourceLocation texture = new ResourceLocation("just_ctgui:textures/screens/furnace_remove_recipe_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

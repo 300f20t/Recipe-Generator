@@ -14,11 +14,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.justctgui.procedures.VerticalispressedProcedure;
-import net.mcreator.justctgui.procedures.NoneispressedProcedure;
-import net.mcreator.justctgui.procedures.HorizontalispressedProcedure;
-import net.mcreator.justctgui.procedures.DiagonalispressedProcedure;
-import net.mcreator.justctgui.procedures.AllispressedProcedure;
 import net.mcreator.justctgui.procedures.ATTENTIONProcedure;
 import net.mcreator.justctgui.network.CraftingtableCTGUIButtonMessage;
 
@@ -76,21 +71,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		if (DiagonalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 182, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (VerticalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 272, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (HorizontalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 94, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (NoneispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + -10, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (AllispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + -80, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
 
 		guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 

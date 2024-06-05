@@ -25,7 +25,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class FurnaceRemoveRecipeCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -38,8 +38,8 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public FurnaceCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(JustCtguiModMenus.FURNACE_CTGUI.get(), id);
+	public FurnaceRemoveRecipeCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(JustCtguiModMenus.FURNACE_REMOVE_RECIPE_CTGUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(2);
@@ -82,10 +82,10 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 115, 35) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
 			private final int slot = 0;
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 35) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
 			private final int slot = 1;
 		}));
 		for (int si = 0; si < 3; ++si)
