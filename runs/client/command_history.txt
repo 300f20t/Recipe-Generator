@@ -1,1 +1,5 @@
 /ctgui furnace create
+/ctgui furnace
+/ctgui furnace create
+/reload
+/ctgui furnace create

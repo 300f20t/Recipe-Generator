@@ -564,7 +564,8 @@
         "files": [
           "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceCTGUIMenu.java",
-          "src/main/java/net/mcreator/justctgui/client/gui/FurnaceCTGUIScreen.java"
+          "src/main/java/net/mcreator/justctgui/client/gui/FurnaceCTGUIScreen.java",
+          "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUISlotMessage.java"
         ]
       },
       "path": "~/GUIs"
@@ -681,6 +682,20 @@
         "dependencies": []
       },
       "path": "~/Generators"
+    },
+    {
+      "name": "GetCurrentAxis",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_current_axis",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/justctgui/procedures/GetCurrentAxisProcedure.java"
+        ],
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [
@@ -825,10 +840,12 @@
       "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.label_time": "Time(seconds):",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
+      "gui.just_ctgui.craftingtable_ctgui.label_current_axis": "Current axis:",
       "gui.just_ctgui.furnace_ctgui.button_save": "Save",
       "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
       "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
+      "gui.just_ctgui.craftingtable_ctgui.label_axis": "axis",
       "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.time": "10"
     }
@@ -857,7 +874,8 @@
   "workspaceSettings": {
     "modid": "just_ctgui",
     "modName": "Just CTGUI",
-    "version": "0.0.5_alpha_build_5",
+    "version": "0.0.6_alpha",
+    "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
     "license": "MIT License",
@@ -865,7 +883,9 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "jei"
+    ],
     "currentGenerator": "neoforge-1.20.4",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.justctgui"

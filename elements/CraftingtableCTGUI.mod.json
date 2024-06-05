@@ -461,6 +461,37 @@
           "x": 2,
           "y": 2
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_current_axis",
+          "text": {
+            "fixedValue": "Current axis:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 126,
+          "y": 2
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_axis",
+          "text": {
+            "fixedValue": "axis",
+            "name": "GetCurrentAxis"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 194,
+          "y": 2
+        }
       }
     ],
     "gridSettings": {

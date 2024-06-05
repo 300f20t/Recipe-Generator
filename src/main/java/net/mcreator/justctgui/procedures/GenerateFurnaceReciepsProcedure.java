@@ -30,7 +30,7 @@ public class GenerateFurnaceReciepsProcedure {
 				}
 				return 0;
 			}
-		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : ""));
+		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) + ");";
 		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()) {
 			JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.FurnaceRecipeManager;" + "furnace.addRecipe(\"" + "no_name" + new java.text.DecimalFormat("####").format(JustCtguiModVariables.generated_count) + "\", "
 					+ JustCtguiModVariables.Pre_generated_recipe;

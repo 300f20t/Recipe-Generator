@@ -4,11 +4,12 @@ license="MIT License"
 
 [[mods]]
 modId="just_ctgui"
-version="0.0.55"
+version="0.0.6"
 displayName="Just CTGUI"
 displayURL="https://mcreator.net"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
 authors="300f20t, MCreator"
+description="The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language."
 
 # Start of user code block mod configuration
 # End of user code block mod configuration
@@ -28,6 +29,12 @@ authors="300f20t, MCreator"
     side="BOTH"
 
 
+[[dependencies.just_ctgui]]
+    modId="jei"
+    type="optional"
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 
 
 [[mixins]]

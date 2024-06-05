@@ -14,6 +14,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
+import net.mcreator.justctgui.procedures.GetCurrentAxisProcedure;
 import net.mcreator.justctgui.procedures.ATTENTIONProcedure;
 import net.mcreator.justctgui.network.CraftingtableCTGUIButtonMessage;
 
@@ -97,6 +98,10 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -124, -3, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -124, 34, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_empty"), -124, -35, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393, false);
+		guiGraphics.drawString(this.font,
+
+				GetCurrentAxisProcedure.execute(), 68, -35, -3355393, false);
 	}
 
 	@Override

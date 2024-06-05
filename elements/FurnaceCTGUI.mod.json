@@ -24,6 +24,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot0incraftingtableCTGUI"
+          },
           "x": 249,
           "y": 71
         }
@@ -42,6 +45,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot1incraftingtableCTGUI"
+          },
           "x": 168,
           "y": 71
         }
