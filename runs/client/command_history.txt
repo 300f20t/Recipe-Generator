@@ -3,3 +3,14 @@
 /ctgui furnace create
 /reload
 /ctgui furnace create
+/reload
+/ctgui furnace create
+/reload
+/ctgui furnace create
+/reload
+/ctgui furnace create
+/reload
+/ctgui furnace create
+/reload
+/ctgui crafting_table create
+/reload

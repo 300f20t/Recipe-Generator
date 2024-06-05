@@ -332,7 +332,7 @@
       "type": "procedure",
       "sortid": 13,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "scriptswriter",
       "metadata": {
         "files": [
@@ -874,7 +874,7 @@
   "workspaceSettings": {
     "modid": "just_ctgui",
     "modName": "Just CTGUI",
-    "version": "0.0.6_alpha",
+    "version": "0.1.1_alpha",
     "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",

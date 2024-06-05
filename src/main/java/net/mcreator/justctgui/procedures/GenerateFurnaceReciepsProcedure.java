@@ -14,7 +14,7 @@ public class GenerateFurnaceReciepsProcedure {
 	public static void execute(LevelAccessor world, HashMap guistate) {
 		if (guistate == null)
 			return;
-		JustCtguiModVariables.Pre_generated_recipe = JustCtguiModVariables.item_in_slot_1_crafting_table + ", " + JustCtguiModVariables.item_in_slot_0_crafting_table + ", " + new Object() {
+		JustCtguiModVariables.Pre_generated_recipe = JustCtguiModVariables.item_in_slot_0_crafting_table + ", " + JustCtguiModVariables.item_in_slot_1_crafting_table + ", " + new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());

@@ -1,0 +1,1 @@
+craftingTable.addShaped("no_name5", <item:minecraft:gilded_blackstone> * 8, [[<item:minecraft:blackstone>, <item:minecraft:blackstone>, <item:minecraft:blackstone>], [<item:minecraft:blackstone>, <item:minecraft:gold_block>, <item:minecraft:blackstone>], [<item:minecraft:blackstone>, <item:minecraft:blackstone>, <item:minecraft:blackstone>]]);
