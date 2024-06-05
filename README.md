@@ -1,9 +1,10 @@
 # Just-CTGUI
-### [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/fabric-api_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/fabric-api) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/modrinth_vector.svg)**](https://modrinth.com/mod/just-ctgui)
+### [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/fabric-api_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/fabric-api) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/modrinth_vector.svg)**](https://modrinth.com/mod/just-ctgui) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/curseforge_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/just-ctgui)
 
 ### **Information for those who want to build this:**
 
 MCreator plugins: File manager, Remote workspaces support.
+
 Minecraft version: 1.20.4 NeoForge
 
 ### **What is this mod and how to use it?**
