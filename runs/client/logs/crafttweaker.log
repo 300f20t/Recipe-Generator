@@ -1,33 +1,35 @@
-[21:11:19.181][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
-[21:11:19.197][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[21:11:19.209][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
-[21:11:19.212][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
-[21:11:19.221][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
-[21:11:19.594][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
-[21:11:19.595][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
-[21:11:20.816][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[21:11:21.319][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:11:21.361][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[21:11:21.475][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[21:11:41.165][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[21:11:41.190][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:11:41.209][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[21:11:41.221][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[21:11:41.505][INFO][CraftTweaker]: CraftTweaker reload starting!
-[21:11:41.508][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[21:11:41.529][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[21:11:41.944][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[21:11:41.945][INFO][CraftTweaker-ZenCode]: Loading file '12.zs' with priority 0
-[21:11:41.945][INFO][CraftTweaker-ZenCode]: Loading file '213123.zs' with priority 0
-[21:11:41.945][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
-[21:11:41.947][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
-[21:11:41.947][INFO][CraftTweaker-ZenCode]: Loading file 'generated5.zs' with priority 0
-[21:11:41.979][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:1qwsqs' that outputs: '<item:minecraft:terracotta>'
-[21:11:41.980][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:3123' that outputs: '<item:minecraft:bricks>'
-[21:11:41.980][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name1' that outputs: '<item:minecraft:bamboo_trapdoor>'
-[21:11:41.983][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:wool2diamond' that outputs: '<item:minecraft:diamond>'
-[21:11:41.983][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name3' that outputs: '<item:minecraft:iron_block>'
-[21:11:41.985][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name5' that outputs: '<item:minecraft:gilded_blackstone> * 8'
-[21:11:41.985][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[21:11:41.987][INFO][CraftTweaker]: CraftTweaker reload complete!
-[21:11:41.988][INFO][CraftTweaker]: This reload was made possible by Hooley and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[02:35:30.547][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
+[02:35:30.560][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[02:35:30.568][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
+[02:35:30.570][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
+[02:35:30.576][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
+[02:35:30.921][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
+[02:35:30.923][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
+[02:35:31.889][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[02:35:32.254][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[02:35:32.283][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[02:35:32.374][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[02:35:39.041][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[02:35:39.063][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[02:35:39.078][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[02:35:39.087][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[02:35:39.374][INFO][CraftTweaker]: CraftTweaker reload starting!
+[02:35:39.377][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[02:35:39.395][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[02:35:39.727][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[02:35:39.728][INFO][CraftTweaker-ZenCode]: Loading file '111.zs' with priority 0
+[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file '12.zs' with priority 0
+[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file '213123.zs' with priority 0
+[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[02:35:39.730][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
+[02:35:39.731][INFO][CraftTweaker-ZenCode]: Loading file 'generated5.zs' with priority 0
+[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:111' that outputs: '<item:minecraft:reinforced_deepslate> * 2'
+[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:1qwsqs' that outputs: '<item:minecraft:terracotta>'
+[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:3123' that outputs: '<item:minecraft:bricks>'
+[02:35:39.759][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name1' that outputs: '<item:minecraft:bamboo_trapdoor>'
+[02:35:39.761][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:wool2diamond' that outputs: '<item:minecraft:diamond>'
+[02:35:39.762][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name3' that outputs: '<item:minecraft:iron_block>'
+[02:35:39.763][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name5' that outputs: '<item:minecraft:gilded_blackstone> * 8'
+[02:35:39.763][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[02:35:39.765][INFO][CraftTweaker]: CraftTweaker reload complete!
+[02:35:39.765][INFO][CraftTweaker]: This reload was made possible by Jordan Pineo and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

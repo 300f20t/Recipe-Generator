@@ -15,6 +15,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
 import net.mcreator.justctgui.procedures.OpencraftingtableCTGUIProcedure;
+import net.mcreator.justctgui.procedures.OpenRemovingRecipesFurnaceCTGUIProcedure;
+import net.mcreator.justctgui.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
 import net.mcreator.justctgui.procedures.OpenFurnaceCTGUIProcedure;
 
 @Mod.EventBusSubscriber
@@ -47,7 +49,7 @@ public class CtguicommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenRemovingRecipesCraftingTableCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))).then(Commands.literal("furnace").then(Commands.literal("create").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -75,7 +77,7 @@ public class CtguicommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenRemovingRecipesFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))));
 	}

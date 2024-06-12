@@ -1,6 +1,7 @@
 
 package net.mcreator.justctgui.world.inventory;
 
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.IItemHandler;
@@ -19,13 +20,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.justctgui.network.CraftingTableRemovingRecipesGUISlotMessage;
 import net.mcreator.justctgui.init.JustCtguiModMenus;
 
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class CraftingTableRemoveRecipeCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class CraftingTableRemovingRecipesGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -38,8 +40,8 @@ public class CraftingTableRemoveRecipeCTGUIMenu extends AbstractContainerMenu im
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public CraftingTableRemoveRecipeCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(JustCtguiModMenus.CRAFTING_TABLE_REMOVE_RECIPE_CTGUI.get(), id);
+	public CraftingTableRemovingRecipesGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(JustCtguiModMenus.CRAFTING_TABLE_REMOVING_RECIPES_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(10);
@@ -84,33 +86,93 @@ public class CraftingTableRemoveRecipeCTGUIMenu extends AbstractContainerMenu im
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 17) {
 			private final int slot = 0;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(0, 0, 0);
+			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 17) {
 			private final int slot = 1;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(1, 0, 0);
+			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 61, 17) {
 			private final int slot = 2;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(2, 0, 0);
+			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 25, 35) {
 			private final int slot = 3;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(3, 0, 0);
+			}
 		}));
 		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 43, 35) {
 			private final int slot = 4;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(4, 0, 0);
+			}
 		}));
 		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 61, 35) {
 			private final int slot = 5;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(5, 0, 0);
+			}
 		}));
 		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 25, 53) {
 			private final int slot = 6;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(6, 0, 0);
+			}
 		}));
 		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 43, 53) {
 			private final int slot = 7;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(7, 0, 0);
+			}
 		}));
 		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 61, 53) {
 			private final int slot = 8;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(8, 0, 0);
+			}
 		}));
 		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 124, 35) {
 			private final int slot = 9;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(9, 0, 0);
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
@@ -239,6 +301,13 @@ public class CraftingTableRemoveRecipeCTGUIMenu extends AbstractContainerMenu im
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
+		}
+	}
+
+	private void slotChanged(int slotid, int ctype, int meta) {
+		if (this.world != null && this.world.isClientSide()) {
+			PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUISlotMessage(slotid, x, y, z, ctype, meta));
+			CraftingTableRemovingRecipesGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

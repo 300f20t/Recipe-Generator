@@ -1,6 +1,7 @@
 
 package net.mcreator.justctgui.world.inventory;
 
+import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.items.SlotItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.IItemHandler;
@@ -19,13 +20,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.justctgui.network.FurnaceRemovingRecipesGUISlotMessage;
 import net.mcreator.justctgui.init.JustCtguiModMenus;
 
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class FurnaceRemoveRecipeCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class FurnaceRemovingRecipesGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -38,8 +40,8 @@ public class FurnaceRemoveRecipeCTGUIMenu extends AbstractContainerMenu implemen
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public FurnaceRemoveRecipeCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(JustCtguiModMenus.FURNACE_REMOVE_RECIPE_CTGUI.get(), id);
+	public FurnaceRemovingRecipesGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(JustCtguiModMenus.FURNACE_REMOVING_RECIPES_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(2);
@@ -82,11 +84,23 @@ public class FurnaceRemoveRecipeCTGUIMenu extends AbstractContainerMenu implemen
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 124, 35) {
 			private final int slot = 0;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(0, 0, 0);
+			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 35) {
 			private final int slot = 1;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(1, 0, 0);
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)
@@ -215,6 +229,13 @@ public class FurnaceRemoveRecipeCTGUIMenu extends AbstractContainerMenu implemen
 					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 				}
 			}
+		}
+	}
+
+	private void slotChanged(int slotid, int ctype, int meta) {
+		if (this.world != null && this.world.isClientSide()) {
+			PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUISlotMessage(slotid, x, y, z, ctype, meta));
+			FurnaceRemovingRecipesGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

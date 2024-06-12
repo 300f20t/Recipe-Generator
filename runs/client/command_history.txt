@@ -14,3 +14,9 @@
 /reload
 /ctgui crafting_table create
 /reload
+/ctgui crafting_table create
+/reload
+/ctgui crafting_table remove
+/ctgui furnace
+/ctgui furnace create
+/ctgui furnace remove
