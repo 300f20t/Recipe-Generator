@@ -13,10 +13,6 @@ public class GenerateracipesProcedure {
 	public static void execute(LevelAccessor world, HashMap guistate) {
 		if (guistate == null)
 			return;
-		JustCtguiModVariables.Pre_generated_recipe = JustCtguiModVariables.item_in_slot_9_crafting_table + ", [[" + JustCtguiModVariables.item_in_slot_0_crafting_table + ", " + JustCtguiModVariables.item_in_slot_1_crafting_table + ", "
-				+ JustCtguiModVariables.item_in_slot_2_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_3_crafting_table + ", " + JustCtguiModVariables.item_in_slot_4_crafting_table + ", "
-				+ JustCtguiModVariables.item_in_slot_5_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_6_crafting_table + ", " + JustCtguiModVariables.item_in_slot_7_crafting_table + ", "
-				+ JustCtguiModVariables.item_in_slot_8_crafting_table + "]]);";
 		if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
 			JustCtguiModVariables.Is_shapeless = true;
 		} else {
@@ -27,6 +23,15 @@ public class GenerateracipesProcedure {
 		} else {
 			JustCtguiModVariables.Is_mirrored = false;
 		}
+		JustCtguiModVariables.Pre_generated_recipe = JustCtguiModVariables.Is_shapeless
+				? (JustCtguiModVariables.item_in_slot_9_crafting_table + ", [" + JustCtguiModVariables.item_in_slot_0_crafting_table + ", " + JustCtguiModVariables.item_in_slot_1_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_2_crafting_table + ", " + JustCtguiModVariables.item_in_slot_3_crafting_table + ", " + JustCtguiModVariables.item_in_slot_4_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_5_crafting_table + ", " + JustCtguiModVariables.item_in_slot_6_crafting_table + ", " + JustCtguiModVariables.item_in_slot_7_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_8_crafting_table + "]);").replace("<item:minecraft:air>, ", "")
+				: JustCtguiModVariables.item_in_slot_9_crafting_table + ", [[" + JustCtguiModVariables.item_in_slot_0_crafting_table + ", " + JustCtguiModVariables.item_in_slot_1_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_2_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_3_crafting_table + ", " + JustCtguiModVariables.item_in_slot_4_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_5_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_6_crafting_table + ", " + JustCtguiModVariables.item_in_slot_7_crafting_table + ", "
+						+ JustCtguiModVariables.item_in_slot_8_crafting_table + "]]);";
 		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty() && !JustCtguiModVariables.Is_shapeless && !JustCtguiModVariables.Is_mirrored) {
 			JustCtguiModVariables.Generated_recipe = "craftingTable.addShaped(\"" + "no_name" + new java.text.DecimalFormat("##.##").format(JustCtguiModVariables.generated_count) + "\", " + JustCtguiModVariables.Pre_generated_recipe;
 		} else if (!JustCtguiModVariables.Is_shapeless && !JustCtguiModVariables.Is_mirrored) {

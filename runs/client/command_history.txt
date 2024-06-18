@@ -20,3 +20,15 @@
 /ctgui furnace
 /ctgui furnace create
 /ctgui furnace remove
+/reload
+/ctgui crafting_table create
+/reload
+/ctgui crafting_table create
+/reload
+/ctgui crafting_table create
+/reload
+/ctgui crafting_table
+/ctgui crafting_table create
+/reload
+/ctgui crafting_table create
+/ctgui crafting_table remove

@@ -179,7 +179,7 @@
           "width": 51,
           "height": 20,
           "x": 312,
-          "y": 98
+          "y": 179
         }
       },
       {
@@ -492,6 +492,36 @@
           "x": 194,
           "y": 2
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_reload",
+          "text": "Reload",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ReloadCommand"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 312,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_crafting",
+          "text": {
+            "fixedValue": "Crafting"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 150,
+          "y": 42
+        }
       }
     ],
     "gridSettings": {
@@ -499,7 +529,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": true
+      "snapOnGrid": false
     }
   }
 }

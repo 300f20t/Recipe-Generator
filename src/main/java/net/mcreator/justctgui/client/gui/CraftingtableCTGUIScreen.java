@@ -39,6 +39,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	Button button_generate;
 	Button button_save;
 	Button button_close;
+	Button button_reload;
 
 	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -102,6 +103,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		guiGraphics.drawString(this.font,
 
 				GetCurrentAxisProcedure.execute(), 68, -35, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_crafting"), 24, 5, -12829636, false);
 	}
 
 	@Override
@@ -214,9 +216,17 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(7, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 61, 51, 20).build();
+		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
+		button_reload = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_reload"), e -> {
+			if (true) {
+				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(8, x, y, z));
+				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
+			}
+		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
+		guistate.put("button:button_reload", button_reload);
+		this.addRenderableWidget(button_reload);
 		Is_shapeless = Checkbox.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 97)
 
 				.build();

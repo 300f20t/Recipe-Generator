@@ -1,1 +1,0 @@
-craftingTable.addShaped("111", <item:minecraft:reinforced_deepslate> * 2, [[<item:minecraft:end_stone>, <item:minecraft:gilded_blackstone>, <item:minecraft:end_stone>], [<item:minecraft:gilded_blackstone>, <item:minecraft:end_stone>, <item:minecraft:gilded_blackstone>], [<item:minecraft:end_stone>, <item:minecraft:gilded_blackstone>, <item:minecraft:end_stone>]]);

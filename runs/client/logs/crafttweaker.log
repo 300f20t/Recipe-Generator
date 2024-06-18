@@ -1,35 +1,104 @@
-[02:35:30.547][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
-[02:35:30.560][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[02:35:30.568][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
-[02:35:30.570][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
-[02:35:30.576][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
-[02:35:30.921][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
-[02:35:30.923][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
-[02:35:31.889][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[02:35:32.254][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[02:35:32.283][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[02:35:32.374][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[02:35:39.041][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[02:35:39.063][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[02:35:39.078][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[02:35:39.087][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[02:35:39.374][INFO][CraftTweaker]: CraftTweaker reload starting!
-[02:35:39.377][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[02:35:39.395][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[02:35:39.727][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[02:35:39.728][INFO][CraftTweaker-ZenCode]: Loading file '111.zs' with priority 0
-[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file '12.zs' with priority 0
-[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file '213123.zs' with priority 0
-[02:35:39.729][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
-[02:35:39.730][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
-[02:35:39.731][INFO][CraftTweaker-ZenCode]: Loading file 'generated5.zs' with priority 0
-[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:111' that outputs: '<item:minecraft:reinforced_deepslate> * 2'
-[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:1qwsqs' that outputs: '<item:minecraft:terracotta>'
-[02:35:39.758][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:3123' that outputs: '<item:minecraft:bricks>'
-[02:35:39.759][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name1' that outputs: '<item:minecraft:bamboo_trapdoor>'
-[02:35:39.761][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:wool2diamond' that outputs: '<item:minecraft:diamond>'
-[02:35:39.762][INFO][CraftTweaker]: Adding 'minecraft:smelting' recipe, with name: 'crafttweaker:no_name3' that outputs: '<item:minecraft:iron_block>'
-[02:35:39.763][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name5' that outputs: '<item:minecraft:gilded_blackstone> * 8'
-[02:35:39.763][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[02:35:39.765][INFO][CraftTweaker]: CraftTweaker reload complete!
-[02:35:39.765][INFO][CraftTweaker]: This reload was made possible by Jordan Pineo and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[20:53:11.008][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
+[20:53:11.018][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[20:53:11.025][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
+[20:53:11.027][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
+[20:53:11.031][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
+[20:53:11.349][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
+[20:53:11.350][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
+[20:53:12.302][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[20:53:12.725][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:53:12.765][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:53:12.850][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[21:06:56.124][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[21:06:56.151][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[21:06:56.167][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[21:06:56.178][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[21:06:56.446][INFO][CraftTweaker]: CraftTweaker reload starting!
+[21:06:56.449][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[21:06:56.470][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[21:06:56.776][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[21:06:56.777][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[21:06:56.800][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name1' that outputs: '<item:minecraft:infested_cobblestone>'
+[21:06:56.801][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[21:06:56.802][INFO][CraftTweaker]: CraftTweaker reload complete!
+[21:06:56.802][INFO][CraftTweaker]: This reload was made possible by Belathus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[21:07:57.718][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[21:07:57.718][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[21:07:57.743][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[21:07:57.746][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[21:07:57.753][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[21:07:57.869][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[21:07:57.869][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[21:07:57.885][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[21:07:57.978][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[21:07:57.978][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[21:07:57.990][ERROR][CraftTweaker-ZenCode]: Error while running scripts:
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.world.item.crafting.ShapedRecipePattern.unpack(ShapedRecipePattern.java:63)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.world.item.crafting.ShapedRecipePattern.of(ShapedRecipePattern.java:58)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.api.util.RecipeUtil.createPattern(RecipeUtil.java:48)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.api.util.RecipeUtil.createPattern(RecipeUtil.java:24)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.api.recipe.type.CTShapedRecipe.<init>(CTShapedRecipe.java:48)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.api.recipe.type.CTShapedRecipe.<init>(CTShapedRecipe.java:43)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.api.recipe.manager.CraftingTableRecipeManager.addShaped(CraftingTableRecipeManager.java:41)
+	at scripts.generated1.run(generated1.zs:1)
+	at Scripts.run(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at TRANSFORMER/crafttweaker@17.0.17/org.openzen.zenscript.javabytecode.JavaBytecodeRunUnit.run(JavaBytecodeRunUnit.java:127)
+	at TRANSFORMER/crafttweaker@17.0.17/org.openzen.zencode.java.ScriptingEngine.run(ScriptingEngine.java:184)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ExecutingScriptRunner.executeRunAction(ExecutingScriptRunner.java:22)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.runScripts(ScriptRunner.java:92)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.runner.ScriptRunner.run(ScriptRunner.java:68)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.DecoratedRunKind$DecoratedScriptRunner.run(DecoratedRunKind.java:27)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.executeRun(ScriptRun.java:93)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.scriptrun.ScriptRun.execute(ScriptRun.java:58)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:80)
+	at TRANSFORMER/crafttweaker@17.0.17/com.blamejared.crafttweaker.impl.script.ScriptReloadListener.apply(ScriptReloadListener.java:38)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.packs.resources.SimplePreparableReloadListener.lambda$reload$1(SimplePreparableReloadListener.java:19)
+	at java.base/java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:718)
+	at java.base/java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.packs.resources.SimpleReloadInstance.lambda$new$3(SimpleReloadInstance.java:79)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:146)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:810)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:162)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:120)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:793)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:787)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.reloadResources(MinecraftServer.java:1453)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.commands.ReloadCommand.reloadPacks(ReloadCommand.java:20)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.commands.ReloadCommand.lambda$register$3(ReloadCommand.java:50)
+	at MC-BOOTSTRAP/brigadier@1.2.9/com.mojang.brigadier.context.ContextChain.runExecutable(ContextChain.java:73)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.execution.tasks.ExecuteCommand.execute(ExecuteCommand.java:29)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.execution.tasks.ExecuteCommand.execute(ExecuteCommand.java:13)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.execution.UnboundEntryAction.lambda$bind$0(UnboundEntryAction.java:8)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.execution.CommandQueueEntry.execute(CommandQueueEntry.java:5)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.execution.ExecutionContext.runCommandQueue(ExecutionContext.java:103)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.Commands.executeCommandInContext(Commands.java:362)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.Commands.performCommand(Commands.java:283)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.commands.Commands.performPrefixedCommand(Commands.java:263)
+	at TRANSFORMER/just_ctgui@0.1.1/net.mcreator.justctgui.procedures.ReloadCommandProcedure.execute(ReloadCommandProcedure.java:14)
+	at TRANSFORMER/just_ctgui@0.1.1/net.mcreator.justctgui.network.CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(CraftingTableRemovingRecipesGUIButtonMessage.java:84)
+	at TRANSFORMER/just_ctgui@0.1.1/net.mcreator.justctgui.network.CraftingTableRemovingRecipesGUIButtonMessage.lambda$handleData$0(CraftingTableRemovingRecipesGUIButtonMessage.java:56)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.lambda$submitAsync$0(BlockableEventLoop.java:59)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.TickTask.run(TickTask.java:18)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:146)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:810)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:162)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:120)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:793)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:787)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:130)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:774)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:704)
+	at TRANSFORMER/minecraft@1.20.4/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:255)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[21:07:57.992][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[21:07:57.992][INFO][CraftTweaker]: This reload was made possible by Belathus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

@@ -29,6 +29,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 	Button button_generate;
 	Button button_save;
 	Button button_close;
+	Button button_reload;
 
 	public CraftingTableRemovingRecipesGUIScreen(CraftingTableRemovingRecipesGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -81,6 +82,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_recipe_name"), -124, -3, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_file_name"), -124, 34, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_crafting"), 24, 5, -12829636, false);
 	}
 
 	@Override
@@ -153,8 +155,16 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(2, x, y, z));
 				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 61, 51, 20).build();
+		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
+		button_reload = Button.builder(Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.button_reload"), e -> {
+			if (true) {
+				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(3, x, y, z));
+				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+			}
+		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
+		guistate.put("button:button_reload", button_reload);
+		this.addRenderableWidget(button_reload);
 	}
 }

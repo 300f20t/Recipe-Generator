@@ -155,7 +155,37 @@
           "width": 51,
           "height": 20,
           "x": 312,
+          "y": 179
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_reload",
+          "text": "Reload",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ReloadCommand"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 312,
           "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_furnace",
+          "text": {
+            "fixedValue": "Furnace"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 195,
+          "y": 44
         }
       }
     ],

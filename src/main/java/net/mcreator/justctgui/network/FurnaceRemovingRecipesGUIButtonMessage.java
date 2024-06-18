@@ -17,6 +17,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.FurnaceRemovingRecipesGUIMenu;
 import net.mcreator.justctgui.procedures.ScriptswriterProcedure;
+import net.mcreator.justctgui.procedures.ReloadCommandProcedure;
 import net.mcreator.justctgui.procedures.GenerateFurnaceReciepsProcedure;
 import net.mcreator.justctgui.procedures.GUIcloseProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
@@ -77,6 +78,10 @@ public record FurnaceRemovingRecipesGUIButtonMessage(int buttonID, int x, int y,
 		if (buttonID == 2) {
 
 			GUIcloseProcedure.execute(entity);
+		}
+		if (buttonID == 3) {
+
+			ReloadCommandProcedure.execute(world, x, y, z);
 		}
 	}
 

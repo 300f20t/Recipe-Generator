@@ -31,6 +31,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 	Button button_generate;
 	Button button_save;
 	Button button_close;
+	Button button_reload;
 
 	public FurnaceCTGUIScreen(FurnaceCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -91,6 +92,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_file_name"), -124, 34, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_xp"), -124, 93, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_time"), -124, 131, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_furnace"), 69, 7, -12829636, false);
 	}
 
 	@Override
@@ -209,8 +211,16 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(2, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 61, 51, 20).build();
+		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
+		button_reload = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_reload"), e -> {
+			if (true) {
+				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(3, x, y, z));
+				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+			}
+		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
+		guistate.put("button:button_reload", button_reload);
+		this.addRenderableWidget(button_reload);
 	}
 }
