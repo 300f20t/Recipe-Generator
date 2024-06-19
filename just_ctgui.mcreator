@@ -639,7 +639,12 @@
         "files": [
           "src/main/java/net/mcreator/justctgui/procedures/GenerateRemovingRecipesProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
       },
       "path": "~/Generators"
     },
