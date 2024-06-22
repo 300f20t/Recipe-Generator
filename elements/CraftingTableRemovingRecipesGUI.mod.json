@@ -11,65 +11,13 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "textfield",
-        "data": {
-          "placeholder": "name",
-          "name": "recipe_name",
-          "width": 120,
-          "height": 20,
-          "x": 2,
-          "y": 44
-        }
-      },
-      {
-        "type": "textfield",
-        "data": {
-          "placeholder": "generated",
-          "name": "file_name",
-          "width": 120,
-          "height": 20,
-          "x": 2,
-          "y": 80
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_recipe_name",
-          "text": {
-            "fixedValue": "Recipe name:"
-          },
-          "color": {
-            "value": -3355393,
-            "falpha": 0.0
-          },
-          "x": 2,
-          "y": 34
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_file_name",
-          "text": {
-            "fixedValue": "File name:"
-          },
-          "color": {
-            "value": -3355393,
-            "falpha": 0.0
-          },
-          "x": 2,
-          "y": 71
-        }
-      },
-      {
         "type": "button",
         "data": {
           "name": "button_generate",
           "text": "Generate",
           "isUndecorated": false,
           "onClick": {
-            "name": "Generateracipes"
+            "name": "GenerateRemovingRecipes"
           },
           "width": 67,
           "height": 20,
@@ -124,8 +72,8 @@
           "onSlotChanged": {
             "name": "Iteminslot0incraftingtableCTGUI"
           },
-          "x": 150,
-          "y": 53
+          "x": 168,
+          "y": 71
         }
       },
       {
@@ -145,155 +93,8 @@
           "onSlotChanged": {
             "name": "Iteminslot1incraftingtableCTGUI"
           },
-          "x": 168,
-          "y": 53
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 2,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot2incraftingtableCTGUI"
-          },
-          "x": 186,
-          "y": 53
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 3,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot3incraftingtableCTGUI"
-          },
-          "x": 150,
+          "x": 249,
           "y": 71
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 4,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot4incraftingtableCTGUI"
-          },
-          "x": 168,
-          "y": 71
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 5,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot5incraftingtableCTGUI"
-          },
-          "x": 186,
-          "y": 71
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 6,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot6incraftingtableCTGUI"
-          },
-          "x": 150,
-          "y": 89
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 7,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot7incraftingtableCTGUI"
-          },
-          "x": 168,
-          "y": 89
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 8,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot8incraftingtableCTGUI"
-          },
-          "x": 186,
-          "y": 89
         }
       },
       {
@@ -301,28 +102,7 @@
         "data": {
           "image": "crafting_table.png",
           "use1Xscale": false,
-          "x": 216,
-          "y": 71
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 9,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot9incraftingtableCTGUI"
-          },
-          "x": 249,
+          "x": 204,
           "y": 71
         }
       },
@@ -352,8 +132,8 @@
             "value": -12829636,
             "falpha": 0.0
           },
-          "x": 150,
-          "y": 42
+          "x": 195,
+          "y": 44
         }
       }
     ],
@@ -362,7 +142,7 @@
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": false
+      "snapOnGrid": true
     }
   }
 }

@@ -44,7 +44,7 @@ public class CraftingTableRemovingRecipesGUIMenu extends AbstractContainerMenu i
 		super(JustCtguiModMenus.CRAFTING_TABLE_REMOVING_RECIPES_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(10);
+		this.internal = new ItemStackHandler(2);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -84,7 +84,7 @@ public class CraftingTableRemovingRecipesGUIMenu extends AbstractContainerMenu i
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 17) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
 			private final int slot = 0;
 
 			@Override
@@ -93,85 +93,13 @@ public class CraftingTableRemovingRecipesGUIMenu extends AbstractContainerMenu i
 				slotChanged(0, 0, 0);
 			}
 		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 17) {
+		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 124, 35) {
 			private final int slot = 1;
 
 			@Override
 			public void setChanged() {
 				super.setChanged();
 				slotChanged(1, 0, 0);
-			}
-		}));
-		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 61, 17) {
-			private final int slot = 2;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(2, 0, 0);
-			}
-		}));
-		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 25, 35) {
-			private final int slot = 3;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(3, 0, 0);
-			}
-		}));
-		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 43, 35) {
-			private final int slot = 4;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(4, 0, 0);
-			}
-		}));
-		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 61, 35) {
-			private final int slot = 5;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(5, 0, 0);
-			}
-		}));
-		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 25, 53) {
-			private final int slot = 6;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(6, 0, 0);
-			}
-		}));
-		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 43, 53) {
-			private final int slot = 7;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(7, 0, 0);
-			}
-		}));
-		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 61, 53) {
-			private final int slot = 8;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(8, 0, 0);
-			}
-		}));
-		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 124, 35) {
-			private final int slot = 9;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(9, 0, 0);
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
@@ -201,16 +129,16 @@ public class CraftingTableRemovingRecipesGUIMenu extends AbstractContainerMenu i
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 10) {
-				if (!this.moveItemStackTo(itemstack1, 10, this.slots.size(), true))
+			if (index < 2) {
+				if (!this.moveItemStackTo(itemstack1, 2, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 10, false)) {
-				if (index < 10 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 10 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
+				if (index < 2 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 2 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 10, 10 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 2, 2 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;

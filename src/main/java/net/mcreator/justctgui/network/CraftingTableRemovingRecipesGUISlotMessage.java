@@ -16,14 +16,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingTableRemovingRecipesGUIMenu;
-import net.mcreator.justctgui.procedures.Iteminslot9incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot8incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot7incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot6incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot5incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot4incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot3incraftingtableCTGUIProcedure;
-import net.mcreator.justctgui.procedures.Iteminslot2incraftingtableCTGUIProcedure;
 import net.mcreator.justctgui.procedures.Iteminslot1incraftingtableCTGUIProcedure;
 import net.mcreator.justctgui.procedures.Iteminslot0incraftingtableCTGUIProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
@@ -84,38 +76,6 @@ public record CraftingTableRemovingRecipesGUISlotMessage(int slotID, int x, int 
 		if (slot == 1 && changeType == 0) {
 
 			Iteminslot1incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 2 && changeType == 0) {
-
-			Iteminslot2incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 3 && changeType == 0) {
-
-			Iteminslot3incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 4 && changeType == 0) {
-
-			Iteminslot4incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 5 && changeType == 0) {
-
-			Iteminslot5incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 6 && changeType == 0) {
-
-			Iteminslot6incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 7 && changeType == 0) {
-
-			Iteminslot7incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 8 && changeType == 0) {
-
-			Iteminslot8incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 9 && changeType == 0) {
-
-			Iteminslot9incraftingtableCTGUIProcedure.execute(world, entity);
 		}
 	}
 

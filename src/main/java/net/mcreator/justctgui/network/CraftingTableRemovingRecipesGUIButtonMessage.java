@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.justctgui.world.inventory.CraftingTableRemovingRecipesGUIMenu;
 import net.mcreator.justctgui.procedures.ScriptswriterProcedure;
 import net.mcreator.justctgui.procedures.ReloadCommandProcedure;
-import net.mcreator.justctgui.procedures.GenerateracipesProcedure;
+import net.mcreator.justctgui.procedures.GenerateRemovingRecipesProcedure;
 import net.mcreator.justctgui.procedures.GUIcloseProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
 
@@ -69,7 +69,7 @@ public record CraftingTableRemovingRecipesGUIButtonMessage(int buttonID, int x, 
 			return;
 		if (buttonID == 0) {
 
-			GenerateracipesProcedure.execute(world, guistate);
+			GenerateRemovingRecipesProcedure.execute(world);
 		}
 		if (buttonID == 1) {
 

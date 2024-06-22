@@ -1,20 +1,14 @@
 package net.mcreator.justctgui.procedures;
 
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.network.chat.Component;
 
-import java.util.function.Supplier;
-import java.util.Map;
+import net.mcreator.justctgui.network.JustCtguiModVariables;
 
 public class GenerateRemovingRecipesProcedure {
-	public static void execute(Entity entity) {
-		if (entity == null)
-			return;
-		if (!((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY).getItem() == Blocks.AIR.asItem())) {
-		} else {
-		}
+	public static void execute(LevelAccessor world) {
+		JustCtguiModVariables.Generated_recipe = "craftingTable.remove(" + JustCtguiModVariables.item_in_slot_9_crafting_table + ");";
+		if (!world.isClientSide() && world.getServer() != null)
+			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
 	}
 }
