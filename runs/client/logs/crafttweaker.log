@@ -1,11 +1,81 @@
-[03:30:58.832][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
-[03:30:58.845][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[03:30:58.855][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
-[03:30:58.857][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
-[03:30:58.864][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
-[03:30:59.234][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
-[03:30:59.235][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
-[03:31:00.567][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[03:31:00.996][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[03:31:01.041][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[03:31:01.132][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[20:31:30.048][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
+[20:31:30.060][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[20:31:30.069][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
+[20:31:30.070][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
+[20:31:30.076][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
+[20:31:30.404][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
+[20:31:30.406][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
+[20:31:31.347][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[20:31:31.789][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:31:31.817][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:31:31.904][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[20:31:48.937][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:31:48.958][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:31:48.972][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:31:48.981][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:31:49.204][INFO][CraftTweaker]: CraftTweaker reload starting!
+[20:31:49.206][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:31:49.224][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:31:49.512][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:31:49.521][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:31:49.521][INFO][CraftTweaker]: CraftTweaker reload complete!
+[20:32:05.739][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:32:05.739][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:32:05.756][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:32:05.759][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:32:05.767][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:32:05.864][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:32:05.864][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:32:05.885][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:32:05.974][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:32:05.975][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[20:32:05.993][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:crimson_stem>'
+[20:32:05.993][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:32:05.994][INFO][CraftTweaker]: This reload was made possible by NickT and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[20:32:17.721][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:32:17.721][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:32:17.734][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:32:17.737][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:32:17.744][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:32:17.819][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:32:17.819][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:32:17.831][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:32:17.894][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:32:17.894][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[20:32:17.894][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
+[20:32:17.894][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
+[20:32:17.911][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:crimson_stem>'
+[20:32:17.911][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
+[20:32:17.911][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[20:32:17.912][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
+[20:32:17.912][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[20:32:17.912][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:32:17.913][INFO][CraftTweaker]: This reload was made possible by Jessie Sims and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[20:33:17.570][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:33:17.570][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:33:17.581][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:33:17.583][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:33:17.589][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:33:17.656][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:33:17.656][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:33:17.666][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:33:17.738][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:33:17.738][INFO][CraftTweaker-ZenCode]: Loading file '444.zs' with priority 0
+[20:33:17.750][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:333' that outputs: '<item:minecraft:crimson_stem>'
+[20:33:17.750][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:33:17.750][INFO][CraftTweaker]: This reload was made possible by Belathus and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[20:33:43.295][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[20:33:43.295][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:33:43.304][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:33:43.306][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:33:43.311][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[20:33:43.383][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[20:33:43.383][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[20:33:43.393][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[20:33:43.444][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[20:33:43.444][INFO][CraftTweaker-ZenCode]: Loading file '13e.zs' with priority 0
+[20:33:43.444][INFO][CraftTweaker-ZenCode]: Loading file '444.zs' with priority 0
+[20:33:43.454][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:wwq' that outputs: '<item:minecraft:warped_stem>'
+[20:33:43.455][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:333' that outputs: '<item:minecraft:crimson_stem>'
+[20:33:43.455][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[20:33:43.455][INFO][CraftTweaker]: This reload was made possible by Genryu and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

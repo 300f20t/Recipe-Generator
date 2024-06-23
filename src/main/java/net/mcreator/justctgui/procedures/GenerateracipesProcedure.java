@@ -2,6 +2,7 @@ package net.mcreator.justctgui.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 
 import net.mcreator.justctgui.network.JustCtguiModVariables;
@@ -26,8 +27,10 @@ public class GenerateracipesProcedure {
 				+ (!(guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() || guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected())
 						? "craftingTable.addShaped(\""
 						: "")
-				+ ((JustCtguiModVariables.Recipe_name).equals("\"\"") ? "no_name" : JustCtguiModVariables.Recipe_name) + "\", "
-				+ (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() ? JustCtguiModVariables.Mirror_axis + ", " : "") + JustCtguiModVariables.Pre_generated_recipe;
+				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+						? "no_name"
+						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+				+ "\", " + (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() ? JustCtguiModVariables.Mirror_axis + ", " : "") + JustCtguiModVariables.Pre_generated_recipe;
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
 	}

@@ -923,8 +923,8 @@
   "tag_elements": {},
   "language_map": {
     "en_us": {
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_furnace": "Furnace removing",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
@@ -1021,7 +1021,7 @@
   "workspaceSettings": {
     "modid": "just_ctgui",
     "modName": "Just CTGUI",
-    "version": "0.1.2_beta",
+    "version": "0.1.3_beta",
     "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
