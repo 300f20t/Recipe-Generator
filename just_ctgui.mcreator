@@ -923,8 +923,8 @@
   "tag_elements": {},
   "language_map": {
     "en_us": {
-      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_furnace": "Furnace removing",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
@@ -1034,7 +1034,7 @@
     "mcreatorDependencies": [
       "jei"
     ],
-    "currentGenerator": "neoforge-1.20.4",
+    "currentGenerator": "forge-1.20.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.justctgui"
   },

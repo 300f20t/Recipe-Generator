@@ -1,6 +1,6 @@
 package net.mcreator.justctgui.procedures;
 
-import net.neoforged.fml.loading.FMLPaths;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.client.gui.components.EditBox;
 

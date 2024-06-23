@@ -1,7 +1,5 @@
 package net.mcreator.justctgui.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,6 +11,7 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.CraftingTableRemovingRecipesGUIMenu;
 import net.mcreator.justctgui.network.CraftingTableRemovingRecipesGUIButtonMessage;
+import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
@@ -43,7 +42,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -67,6 +66,11 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 	}
 
 	@Override
+	public void containerTick() {
+		super.containerTick();
+	}
+
+	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_crafting"), 42, 7, -12829636, false);
 	}
@@ -76,7 +80,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 		super.init();
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(0, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingRecipesGUIButtonMessage(0, x, y, z));
 				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -84,7 +88,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(1, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingRecipesGUIButtonMessage(1, x, y, z));
 				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -92,7 +96,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(2, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingRecipesGUIButtonMessage(2, x, y, z));
 				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -100,7 +104,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingRecipesGUIButtonMessage(3, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingRecipesGUIButtonMessage(3, x, y, z));
 				CraftingTableRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
