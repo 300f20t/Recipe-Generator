@@ -1,5 +1,7 @@
 package net.mcreator.justctgui.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -11,7 +13,6 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.FurnaceRemovingRecipesGUIMenu;
 import net.mcreator.justctgui.network.FurnaceRemovingRecipesGUIButtonMessage;
-import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
@@ -42,7 +43,7 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -66,11 +67,6 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 	}
 
 	@Override
-	public void containerTick() {
-		super.containerTick();
-	}
-
-	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.label_furnace"), 42, 7, -12829636, false);
 	}
@@ -80,7 +76,7 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 		super.init();
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.button_generate"), e -> {
 			if (true) {
-				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceRemovingRecipesGUIButtonMessage(0, x, y, z));
+				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUIButtonMessage(0, x, y, z));
 				FurnaceRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -88,7 +84,7 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.button_save"), e -> {
 			if (true) {
-				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceRemovingRecipesGUIButtonMessage(1, x, y, z));
+				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUIButtonMessage(1, x, y, z));
 				FurnaceRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -96,7 +92,7 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.button_close"), e -> {
 			if (true) {
-				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceRemovingRecipesGUIButtonMessage(2, x, y, z));
+				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUIButtonMessage(2, x, y, z));
 				FurnaceRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -104,7 +100,7 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.button_reload"), e -> {
 			if (true) {
-				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceRemovingRecipesGUIButtonMessage(3, x, y, z));
+				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUIButtonMessage(3, x, y, z));
 				FurnaceRemovingRecipesGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
