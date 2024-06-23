@@ -88,17 +88,17 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_recipe_name"), -124, -3, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_file_name"), -124, 34, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_xp"), -124, 93, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_time"), -124, 131, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_recipe_name"), -129, -2, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_file_name"), -129, 34, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_xp"), -129, 88, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_time"), -129, 133, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_furnace"), 69, 7, -12829636, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -123, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.recipe_name")) {
+		recipe_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.recipe_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -121,7 +121,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		recipe_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.recipe_name").getString());
 		guistate.put("text:recipe_name", recipe_name);
 		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -123, this.topPos + 44, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.file_name")) {
+		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.file_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -144,7 +144,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		file_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.file_name").getString());
 		guistate.put("text:file_name", file_name);
 		this.addWidget(this.file_name);
-		XP = new EditBox(this.font, this.leftPos + -123, this.topPos + 104, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.XP")) {
+		XP = new EditBox(this.font, this.leftPos + -128, this.topPos + 98, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.XP")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -167,7 +167,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		XP.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.XP").getString());
 		guistate.put("text:XP", XP);
 		this.addWidget(this.XP);
-		time = new EditBox(this.font, this.leftPos + -123, this.topPos + 142, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.time")) {
+		time = new EditBox(this.font, this.leftPos + -128, this.topPos + 143, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.time")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);

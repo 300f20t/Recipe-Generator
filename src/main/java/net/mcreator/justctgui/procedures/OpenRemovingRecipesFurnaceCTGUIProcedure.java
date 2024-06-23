@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.justctgui.world.inventory.FurnaceRemovingRecipesGUIMenu;
+import net.mcreator.justctgui.world.inventory.FurnaceRemovingCTGUIMenu;
 
 import io.netty.buffer.Unpooled;
 
@@ -24,12 +24,12 @@ public class OpenRemovingRecipesFurnaceCTGUIProcedure {
 			_ent.openMenu(new MenuProvider() {
 				@Override
 				public Component getDisplayName() {
-					return Component.literal("FurnaceRemovingRecipesGUI");
+					return Component.literal("FurnaceRemovingCTGUI");
 				}
 
 				@Override
 				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-					return new FurnaceRemovingRecipesGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+					return new FurnaceRemovingCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 				}
 			}, _bpos);
 		}

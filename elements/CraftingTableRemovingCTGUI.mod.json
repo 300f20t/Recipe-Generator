@@ -1,0 +1,144 @@
+{
+  "_fv": 60,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "generated",
+          "name": "file_name",
+          "width": 120,
+          "height": 20,
+          "x": -3,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_file_name",
+          "text": {
+            "fixedValue": "File name:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": -3,
+          "y": 35
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_generate",
+          "text": "Generate",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GenerateRemovingRecipes"
+          },
+          "width": 67,
+          "height": 20,
+          "x": 312,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_save",
+          "text": "Save",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "Scriptswriter"
+          },
+          "width": 46,
+          "height": 20,
+          "x": 312,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_close",
+          "text": "Close",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GUIclose"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 312,
+          "y": 179
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 0,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot0incraftingtableCTGUI"
+          },
+          "x": 204,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_reload",
+          "text": "Reload",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ReloadCommand"
+          },
+          "width": 56,
+          "height": 20,
+          "x": 312,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_crafting",
+          "text": {
+            "fixedValue": "Crafting removing"
+          },
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "x": 168,
+          "y": 44
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

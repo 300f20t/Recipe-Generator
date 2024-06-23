@@ -27,7 +27,7 @@
           "onSlotChanged": {
             "name": "Iteminslot0incraftingtableCTGUI"
           },
-          "x": 249,
+          "x": 168,
           "y": 71
         }
       },
@@ -48,7 +48,7 @@
           "onSlotChanged": {
             "name": "Iteminslot1incraftingtableCTGUI"
           },
-          "x": 168,
+          "x": 240,
           "y": 71
         }
       },
@@ -68,7 +68,7 @@
           "name": "recipe_name",
           "width": 120,
           "height": 20,
-          "x": 2,
+          "x": -3,
           "y": 44
         }
       },
@@ -79,7 +79,7 @@
           "name": "file_name",
           "width": 120,
           "height": 20,
-          "x": 2,
+          "x": -3,
           "y": 80
         }
       },
@@ -94,8 +94,8 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": 2,
-          "y": 34
+          "x": -3,
+          "y": 35
         }
       },
       {
@@ -109,7 +109,7 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": 2,
+          "x": -3,
           "y": 71
         }
       },
@@ -165,8 +165,8 @@
           "name": "XP",
           "width": 120,
           "height": 20,
-          "x": 2,
-          "y": 140
+          "x": -3,
+          "y": 134
         }
       },
       {
@@ -180,8 +180,8 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": 2,
-          "y": 130
+          "x": -3,
+          "y": 125
         }
       },
       {
@@ -191,8 +191,8 @@
           "name": "time",
           "width": 120,
           "height": 20,
-          "x": 2,
-          "y": 178
+          "x": -3,
+          "y": 179
         }
       },
       {
@@ -206,8 +206,8 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": 2,
-          "y": 168
+          "x": -3,
+          "y": 170
         }
       },
       {
