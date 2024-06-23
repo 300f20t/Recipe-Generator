@@ -8,7 +8,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
@@ -24,8 +23,6 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	EditBox recipe_name;
-	EditBox file_name;
 	Button button_generate;
 	Button button_save;
 	Button button_close;
@@ -48,8 +45,6 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
-		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
-		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
 
@@ -68,69 +63,17 @@ public class FurnaceRemovingRecipesGUIScreen extends AbstractContainerScreen<Fur
 			this.minecraft.player.closeContainer();
 			return true;
 		}
-		if (recipe_name.isFocused())
-			return recipe_name.keyPressed(key, b, c);
-		if (file_name.isFocused())
-			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
 	}
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.label_recipe_name"), -124, -3, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.label_file_name"), -124, 34, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.label_furnace"), 69, 7, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.label_furnace"), 42, 7, -12829636, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -123, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.recipe_name")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.recipe_name").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.recipe_name").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		recipe_name.setMaxLength(32767);
-		recipe_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.recipe_name").getString());
-		guistate.put("text:recipe_name", recipe_name);
-		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -123, this.topPos + 44, 118, 18, Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.file_name")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		file_name.setMaxLength(32767);
-		file_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.file_name").getString());
-		guistate.put("text:file_name", file_name);
-		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_recipes_gui.button_generate"), e -> {
 			if (true) {
 				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingRecipesGUIButtonMessage(0, x, y, z));

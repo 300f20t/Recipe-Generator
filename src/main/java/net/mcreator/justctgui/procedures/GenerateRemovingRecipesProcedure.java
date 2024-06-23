@@ -7,7 +7,7 @@ import net.mcreator.justctgui.network.JustCtguiModVariables;
 
 public class GenerateRemovingRecipesProcedure {
 	public static void execute(LevelAccessor world) {
-		JustCtguiModVariables.Generated_recipe = "craftingTable.remove(" + JustCtguiModVariables.item_in_slot_9_crafting_table + ");";
+		JustCtguiModVariables.Generated_recipe = "craftingTable.remove(" + JustCtguiModVariables.item_in_slot_0_crafting_table + ");";
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
 	}

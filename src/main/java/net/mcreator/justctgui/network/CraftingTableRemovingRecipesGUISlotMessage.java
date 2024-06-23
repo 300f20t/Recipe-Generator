@@ -16,7 +16,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingTableRemovingRecipesGUIMenu;
-import net.mcreator.justctgui.procedures.Iteminslot1incraftingtableCTGUIProcedure;
 import net.mcreator.justctgui.procedures.Iteminslot0incraftingtableCTGUIProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
 
@@ -72,10 +71,6 @@ public record CraftingTableRemovingRecipesGUISlotMessage(int slotID, int x, int 
 		if (slot == 0 && changeType == 0) {
 
 			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity);
-		}
-		if (slot == 1 && changeType == 0) {
-
-			Iteminslot1incraftingtableCTGUIProcedure.execute(world, entity);
 		}
 	}
 

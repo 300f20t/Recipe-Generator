@@ -54,9 +54,6 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-
-		guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"), this.leftPos + 78, this.topPos + 34, 0, 0, 24, 17, 24, 17);
-
 		RenderSystem.disableBlend();
 	}
 
@@ -71,7 +68,7 @@ public class CraftingTableRemovingRecipesGUIScreen extends AbstractContainerScre
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_crafting"), 69, 7, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.crafting_table_removing_recipes_gui.label_crafting"), 42, 7, -12829636, false);
 	}
 
 	@Override

@@ -37,3 +37,7 @@
 /reload
 /ctgui crafting_table create
 /ctgui crafting_table remove
+/reload
+/ctgui crafting_table create
+/ctgui crafting_table remove
+/ctgui crafting_table create

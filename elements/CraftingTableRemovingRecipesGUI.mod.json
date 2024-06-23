@@ -72,36 +72,6 @@
           "onSlotChanged": {
             "name": "Iteminslot0incraftingtableCTGUI"
           },
-          "x": 168,
-          "y": 71
-        }
-      },
-      {
-        "type": "inputslot",
-        "data": {
-          "inputLimit": {
-            "value": ""
-          },
-          "disablePlacement": {
-            "fixedValue": false
-          },
-          "id": 1,
-          "disablePickup": {
-            "fixedValue": false
-          },
-          "dropItemsWhenNotBound": true,
-          "onSlotChanged": {
-            "name": "Iteminslot1incraftingtableCTGUI"
-          },
-          "x": 249,
-          "y": 71
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "crafting_table.png",
-          "use1Xscale": false,
           "x": 204,
           "y": 71
         }
@@ -126,13 +96,13 @@
         "data": {
           "name": "label_crafting",
           "text": {
-            "fixedValue": "Crafting"
+            "fixedValue": "Crafting removing"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "x": 195,
+          "x": 168,
           "y": 44
         }
       }

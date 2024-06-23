@@ -1,1 +1,0 @@
-craftingTable.addShaped("no_name", <item:minecraft:iron_block> * 1, [[<item:minecraft:air>, <item:minecraft:air>, <item:minecraft:air>], [<item:minecraft:air>, <item:minecraft:air>, <item:minecraft:air>], [<item:minecraft:air>, <item:minecraft:air>, <item:minecraft:air>]]);
