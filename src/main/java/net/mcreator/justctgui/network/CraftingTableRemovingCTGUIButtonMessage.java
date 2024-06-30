@@ -73,7 +73,7 @@ public record CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y
 		}
 		if (buttonID == 1) {
 
-			ScriptswriterProcedure.execute(guistate);
+			ScriptswriterProcedure.execute(entity, guistate);
 		}
 		if (buttonID == 2) {
 

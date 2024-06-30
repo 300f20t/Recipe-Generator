@@ -2,6 +2,7 @@ package net.mcreator.justctgui.procedures;
 
 import net.neoforged.fml.loading.FMLPaths;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.client.gui.components.EditBox;
 
 import net.mcreator.justctgui.network.JustCtguiModVariables;
@@ -14,13 +15,13 @@ import java.io.File;
 import java.io.BufferedWriter;
 
 public class ScriptswriterProcedure {
-	public static void execute(HashMap guistate) {
-		if (guistate == null)
+	public static void execute(Entity entity, HashMap guistate) {
+		if (entity == null || guistate == null)
 			return;
 		File generated = new File("");
 		if ((guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "").isEmpty()) {
-			generated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts/"), File.separator + ("generated" + new java.text.DecimalFormat("####").format(JustCtguiModVariables.generated_count) + ".zs"));
-			JustCtguiModVariables.generated_count = JustCtguiModVariables.generated_count + 1;
+			generated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts/"), File.separator + ("generated" + new java.text.DecimalFormat("####").format(entity.getPersistentData().getDouble("generatedCount")) + ".zs"));
+			entity.getPersistentData().putDouble("generatedCount", (entity.getPersistentData().getDouble("generatedCount") + 1));
 		} else {
 			generated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts/"), File.separator + ((guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "") + ".zs"));
 		}

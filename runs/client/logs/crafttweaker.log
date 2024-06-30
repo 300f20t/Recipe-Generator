@@ -1,29 +1,99 @@
-[15:01:37.781][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
-[15:01:37.790][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
-[15:01:37.798][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
-[15:01:37.800][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
-[15:01:37.806][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
-[15:01:38.113][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
-[15:01:38.114][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
-[15:01:39.042][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
-[15:01:39.431][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[15:01:39.463][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[15:01:39.560][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
-[15:01:45.858][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
-[15:01:45.880][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[15:01:45.895][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[15:01:45.904][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
-[15:01:46.152][INFO][CraftTweaker]: CraftTweaker reload starting!
-[15:01:46.155][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
-[15:01:46.174][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
-[15:01:46.451][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
-[15:01:46.452][INFO][CraftTweaker-ZenCode]: Loading file 'erfwer.zs' with priority 0
-[15:01:46.452][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
-[15:01:46.452][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
-[15:01:46.472][INFO][CraftTweaker]: Removing 'crafting' recipes with output: '<item:minecraft:birch_wood>'
-[15:01:46.477][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
-[15:01:46.478][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
-[15:01:46.478][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
-[15:01:46.478][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
-[15:01:46.480][INFO][CraftTweaker]: CraftTweaker reload complete!
-[15:01:46.480][INFO][CraftTweaker]: This reload was made possible by NerdyWhiteGuy and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:32:42.311][INFO][CraftTweaker-EarlyInit]: CraftTweaker is running on a Minecraft 1.20.4 development client modded with platform NeoForge
+[16:32:42.321][INFO][CraftTweaker-EarlyInit]: Successfully injected RecipeFS file system
+[16:32:42.329][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:neoforge
+[16:32:42.330][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:common
+[16:32:42.336][INFO][CraftTweaker-Plugins]: Successfully identified and loaded plugin crafttweaker:compatibility
+[16:32:42.710][INFO][CraftTweaker]: The following mods have explicit CraftTweaker support, provided through the CraftTweaker compatibility plugin:
+[16:32:42.712][INFO][CraftTweaker]: - 'crafttweaker' version '17.0.17', supporting mods vanilla
+[16:32:43.712][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'initialize'
+[16:32:44.133][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:32:44.164][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:32:44.258][INFO][CraftTweaker-ZenCode]: Execution for loader 'initialize' completed successfully
+[16:32:54.501][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:32:54.523][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:32:54.538][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:32:54.550][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:32:54.810][INFO][CraftTweaker]: CraftTweaker reload starting!
+[16:32:54.813][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:32:54.832][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:32:55.152][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:32:55.153][INFO][CraftTweaker-ZenCode]: Loading file 'generated0.zs' with priority 0
+[16:32:55.153][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[16:32:55.153][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
+[16:32:55.177][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
+[16:32:55.178][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:32:55.178][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:32:55.180][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:32:55.180][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:32:55.180][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:32:55.182][INFO][CraftTweaker]: CraftTweaker reload complete!
+[16:32:55.182][INFO][CraftTweaker]: This reload was made possible by Genryu and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:33:13.661][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:33:13.661][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:13.679][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:13.683][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:13.692][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:33:13.810][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:33:13.810][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:13.825][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:13.918][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:13.918][INFO][CraftTweaker-ZenCode]: Loading file 'generated0.zs' with priority 0
+[16:33:13.918][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[16:33:13.919][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
+[16:33:13.919][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
+[16:33:13.938][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:13.939][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:33:13.939][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:13.939][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:33:13.939][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:13.940][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:13.940][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:13.940][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:33:13.941][INFO][CraftTweaker]: This reload was made possible by DreamThorn and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:33:21.296][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:33:21.296][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:21.309][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:21.312][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:21.319][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:33:21.403][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:33:21.403][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:21.416][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:21.489][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:21.489][INFO][CraftTweaker-ZenCode]: Loading file 'generated0.zs' with priority 0
+[16:33:21.490][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[16:33:21.490][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
+[16:33:21.490][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
+[16:33:21.506][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:21.506][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:33:21.506][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:21.506][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:33:21.506][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:21.507][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:21.507][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:21.507][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:33:21.507][INFO][CraftTweaker]: This reload was made possible by Jessie Sims and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod
+[16:33:24.119][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'tags'
+[16:33:24.119][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:24.133][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:24.134][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:24.141][INFO][CraftTweaker-ZenCode]: Execution for loader 'tags' completed successfully
+[16:33:24.225][INFO][CraftTweaker-ZenCode]: Started loading scripts for loader 'crafttweaker'
+[16:33:24.225][INFO][CraftTweaker-ZenCode]: Undoing previous actions
+[16:33:24.239][INFO][CraftTweaker-ZenCode]: Compiling and executing scripts
+[16:33:24.305][INFO][CraftTweaker-ZenCode]: Successfully initialized modules [crafttweaker, expansions]
+[16:33:24.305][INFO][CraftTweaker-ZenCode]: Loading file 'generated0.zs' with priority 0
+[16:33:24.305][INFO][CraftTweaker-ZenCode]: Loading file 'generated1.zs' with priority 0
+[16:33:24.306][INFO][CraftTweaker-ZenCode]: Loading file 'generated2.zs' with priority 0
+[16:33:24.306][INFO][CraftTweaker-ZenCode]: Loading file 'generated3.zs' with priority 0
+[16:33:24.306][INFO][CraftTweaker-ZenCode]: Loading file 'generated4.zs' with priority 0
+[16:33:24.322][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:24.322][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
+[16:33:24.323][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:24.323][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:warped_stem>'
+[16:33:24.323][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:24.323][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:birch_wood>'
+[16:33:24.323][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:24.324][INFO][CraftTweaker]: Adding 'minecraft:crafting' recipe, of type: "shaped", with name: 'crafttweaker:no_name' that outputs: '<item:minecraft:diamond_block>'
+[16:33:24.324][WARN][CraftTweaker]: A recipe with the name 'no_name' already exists and will be overwritten: this is most likely an error in your scripts
+[16:33:24.324][INFO][CraftTweaker-ZenCode]: Execution for loader 'crafttweaker' completed successfully
+[16:33:24.324][INFO][CraftTweaker]: This reload was made possible by Ivy_ and more! Become a patron at https://patreon.com/jaredlll08?s=crtmod

@@ -27,7 +27,6 @@ public class JustCtguiModVariables {
 	public static String Generated_recipe = "\"\"";
 	public static String Recipe_name = "\"\"";
 	public static File generated_global = new File("");
-	public static double generated_count = 1.0;
 	public static String Pre_generated_recipe = "\"\"";
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;
