@@ -10,6 +10,7 @@ build/
 .mcreator/
 
 # Minecraft client/server files
+runs/
 run/
 
 # MacOS system files
