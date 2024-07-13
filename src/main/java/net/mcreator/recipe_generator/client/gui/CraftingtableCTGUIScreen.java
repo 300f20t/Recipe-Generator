@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -75,7 +73,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -150,8 +148,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name").getString());
 				else
@@ -173,8 +171,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name").getString());
 				else
