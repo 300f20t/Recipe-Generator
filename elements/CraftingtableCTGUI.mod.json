@@ -141,7 +141,7 @@
         "type": "button",
         "data": {
           "name": "button_generate",
-          "text": "Generate............",
+          "text": "Generate",
           "isUndecorated": false,
           "onClick": {
             "name": "Generateracipes"
