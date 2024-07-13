@@ -1,11 +1,10 @@
 
 package net.mcreator.justctgui.world.inventory;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.capabilities.Capabilities;
+import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -22,6 +21,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.network.FurnaceCTGUISlotMessage;
 import net.mcreator.justctgui.init.JustCtguiModMenus;
+import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -58,30 +58,25 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 				byte hand = extraData.readByte();
 				ItemStack itemstack = hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem();
 				this.boundItemMatcher = () -> itemstack == (hand == 0 ? this.entity.getMainHandItem() : this.entity.getOffhandItem());
-				IItemHandler cap = itemstack.getCapability(Capabilities.ItemHandler.ITEM);
-				if (cap != null) {
-					this.internal = cap;
+				itemstack.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+					this.internal = capability;
 					this.bound = true;
-				}
+				});
 			} else if (extraData.readableBytes() > 1) { // bound to entity
 				extraData.readByte(); // drop padding
 				boundEntity = world.getEntity(extraData.readVarInt());
-				if (boundEntity != null) {
-					IItemHandler cap = boundEntity.getCapability(Capabilities.ItemHandler.ENTITY);
-					if (cap != null) {
-						this.internal = cap;
+				if (boundEntity != null)
+					boundEntity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+						this.internal = capability;
 						this.bound = true;
-					}
-				}
+					});
 			} else { // might be bound to block
 				boundBlockEntity = this.world.getBlockEntity(pos);
-				if (boundBlockEntity != null) {
-					IItemHandler cap = this.world.getCapability(Capabilities.ItemHandler.BLOCK, pos, null);
-					if (cap != null) {
-						this.internal = cap;
+				if (boundBlockEntity != null)
+					boundBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+						this.internal = capability;
 						this.bound = true;
-					}
-				}
+					});
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
@@ -162,7 +157,14 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			i = p_38906_ - 1;
 		}
 		if (p_38904_.isStackable()) {
-			while (!p_38904_.isEmpty() && (p_38907_ ? i >= p_38905_ : i < p_38906_)) {
+			while (!p_38904_.isEmpty()) {
+				if (p_38907_) {
+					if (i < p_38905_) {
+						break;
+					}
+				} else if (i >= p_38906_) {
+					break;
+				}
 				Slot slot = this.slots.get(i);
 				ItemStack itemstack = slot.getItem();
 				if (slot.mayPlace(itemstack) && !itemstack.isEmpty() && ItemStack.isSameItemSameTags(p_38904_, itemstack)) {
@@ -193,7 +195,14 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			} else {
 				i = p_38905_;
 			}
-			while (p_38907_ ? i >= p_38905_ : i < p_38906_) {
+			while (true) {
+				if (p_38907_) {
+					if (i < p_38905_) {
+						break;
+					}
+				} else if (i >= p_38906_) {
+					break;
+				}
 				Slot slot1 = this.slots.get(i);
 				ItemStack itemstack1 = slot1.getItem();
 				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
@@ -234,7 +243,7 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			PacketDistributor.SERVER.noArg().send(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta));
+			JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta));
 			FurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}

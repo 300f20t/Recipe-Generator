@@ -1,7 +1,5 @@
 package net.mcreator.justctgui.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -14,6 +12,7 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.justctgui.network.FurnaceCTGUIButtonMessage;
+import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
@@ -48,7 +47,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -87,6 +86,15 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 	}
 
 	@Override
+	public void containerTick() {
+		super.containerTick();
+		recipe_name.tick();
+		file_name.tick();
+		XP.tick();
+		time.tick();
+	}
+
+	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_recipe_name"), -129, -2, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_ctgui.label_file_name"), -129, 34, -3355393, false);
@@ -109,16 +117,16 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.recipe_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		recipe_name.setMaxLength(32767);
 		recipe_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.recipe_name").getString());
+		recipe_name.setMaxLength(32767);
 		guistate.put("text:recipe_name", recipe_name);
 		this.addWidget(this.recipe_name);
 		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.file_name")) {
@@ -132,16 +140,16 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.file_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		file_name.setMaxLength(32767);
 		file_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.file_name").getString());
+		file_name.setMaxLength(32767);
 		guistate.put("text:file_name", file_name);
 		this.addWidget(this.file_name);
 		XP = new EditBox(this.font, this.leftPos + -128, this.topPos + 98, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.XP")) {
@@ -155,16 +163,16 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.XP").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		XP.setMaxLength(32767);
 		XP.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.XP").getString());
+		XP.setMaxLength(32767);
 		guistate.put("text:XP", XP);
 		this.addWidget(this.XP);
 		time = new EditBox(this.font, this.leftPos + -128, this.topPos + 143, 118, 18, Component.translatable("gui.just_ctgui.furnace_ctgui.time")) {
@@ -178,21 +186,21 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.time").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		time.setMaxLength(32767);
 		time.setSuggestion(Component.translatable("gui.just_ctgui.furnace_ctgui.time").getString());
+		time.setMaxLength(32767);
 		guistate.put("text:time", time);
 		this.addWidget(this.time);
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(0, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUIButtonMessage(0, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -200,7 +208,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(1, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUIButtonMessage(1, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -208,7 +216,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(2, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUIButtonMessage(2, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -216,7 +224,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(3, x, y, z));
+				JustCtguiMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUIButtonMessage(3, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

@@ -1,11 +1,12 @@
 package net.mcreator.justctgui.procedures;
 
+import net.minecraftforge.registries.ForgeRegistries;
+
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.justctgui.network.JustCtguiModVariables;
 import net.mcreator.justctgui.JustCtguiMod;
@@ -18,7 +19,7 @@ public class Iteminslot6incraftingtableCTGUIProcedure {
 		if (entity == null)
 			return;
 		JustCtguiMod.queueServerWork(1, () -> {
-			JustCtguiModVariables.item_in_slot_6_crafting_table = "<item:" + (BuiltInRegistries.ITEM
+			JustCtguiModVariables.item_in_slot_6_crafting_table = "<item:" + (ForgeRegistries.ITEMS
 					.getKey((entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(6)).getItem() : ItemStack.EMPTY).getItem()).toString()) + ">";
 		});
 	}
