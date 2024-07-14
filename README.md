@@ -3,11 +3,9 @@
 
 ### **Information for those who want to build this:**
 
-MCreator plugins: File manager
+MCreator plugins: File manager.
 
-Minecraft version: 1.21.1 NeoForge
-
-MCreator version: 2024.4
+Minecraft version: 1.20.1 Forge
 
 ### **What is this mod and how to use it?**
 
