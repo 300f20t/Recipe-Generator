@@ -56,10 +56,10 @@
       "registry_name": "craftingtable_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/justctgui/client/gui/CraftingtableCTGUIScreen.java",
           "src/main/java/net/mcreator/justctgui/world/inventory/CraftingtableCTGUIMenu.java",
           "src/main/java/net/mcreator/justctgui/network/CraftingtableCTGUIButtonMessage.java",
-          "src/main/java/net/mcreator/justctgui/network/CraftingtableCTGUISlotMessage.java"
+          "src/main/java/net/mcreator/justctgui/network/CraftingtableCTGUISlotMessage.java",
+          "src/main/java/net/mcreator/justctgui/client/gui/CraftingtableCTGUIScreen.java"
         ]
       },
       "path": "~/GUIs"
@@ -567,9 +567,9 @@
       "registry_name": "furnace_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceCTGUIMenu.java",
           "src/main/java/net/mcreator/justctgui/client/gui/FurnaceCTGUIScreen.java",
+          "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/network/FurnaceCTGUISlotMessage.java"
         ]
       },
@@ -788,10 +788,10 @@
       "registry_name": "crafting_table_removing_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/justctgui/world/inventory/CraftingTableRemovingCTGUIMenu.java",
-          "src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java",
+          "src/main/java/net/mcreator/justctgui/network/CraftingTableRemovingCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/network/CraftingTableRemovingCTGUISlotMessage.java",
-          "src/main/java/net/mcreator/justctgui/network/CraftingTableRemovingCTGUIButtonMessage.java"
+          "src/main/java/net/mcreator/justctgui/world/inventory/CraftingTableRemovingCTGUIMenu.java",
+          "src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java"
         ]
       },
       "path": "~/GUIs"
@@ -804,10 +804,10 @@
       "registry_name": "furnace_removing_ctgui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/justctgui/network/FurnaceRemovingCTGUISlotMessage.java",
           "src/main/java/net/mcreator/justctgui/client/gui/FurnaceRemovingCTGUIScreen.java",
-          "src/main/java/net/mcreator/justctgui/network/FurnaceRemovingCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/justctgui/world/inventory/FurnaceRemovingCTGUIMenu.java",
-          "src/main/java/net/mcreator/justctgui/network/FurnaceRemovingCTGUISlotMessage.java"
+          "src/main/java/net/mcreator/justctgui/network/FurnaceRemovingCTGUIButtonMessage.java"
         ]
       },
       "path": "~/GUIs"
@@ -1145,9 +1145,7 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [
-      "jei"
-    ],
+    "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.20.4",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.justctgui"
