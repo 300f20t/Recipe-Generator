@@ -3,7 +3,7 @@
 
 ### **Information for those who want to build this:**
 
-MCreator plugins: File manager, Remote workspaces support.
+MCreator plugins: File manager.
 
 Minecraft version: 1.14.4 Forge
 
