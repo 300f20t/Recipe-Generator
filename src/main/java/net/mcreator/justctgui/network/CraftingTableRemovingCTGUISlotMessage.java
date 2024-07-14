@@ -1,14 +1,15 @@
+
 package net.mcreator.justctgui.network;
 
-import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingTableRemovingCTGUIMenu;
 import net.mcreator.justctgui.procedures.Iteminslot0incraftingtableCTGUIProcedure;
@@ -30,7 +31,7 @@ public class CraftingTableRemovingCTGUISlotMessage {
 		this.meta = meta;
 	}
 
-	public CraftingTableRemovingCTGUISlotMessage(PacketBuffer buffer) {
+	public CraftingTableRemovingCTGUISlotMessage(FriendlyByteBuf buffer) {
 		this.slotID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
@@ -39,7 +40,7 @@ public class CraftingTableRemovingCTGUISlotMessage {
 		this.meta = buffer.readInt();
 	}
 
-	public static void buffer(CraftingTableRemovingCTGUISlotMessage message, PacketBuffer buffer) {
+	public static void buffer(CraftingTableRemovingCTGUISlotMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.slotID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
@@ -51,7 +52,7 @@ public class CraftingTableRemovingCTGUISlotMessage {
 	public static void handler(CraftingTableRemovingCTGUISlotMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
-			PlayerEntity entity = context.getSender();
+			Player entity = context.getSender();
 			int slotID = message.slotID;
 			int changeType = message.changeType;
 			int meta = message.meta;
@@ -63,11 +64,11 @@ public class CraftingTableRemovingCTGUISlotMessage {
 		context.setPacketHandled(true);
 	}
 
-	public static void handleSlotAction(PlayerEntity entity, int slot, int changeType, int meta, int x, int y, int z) {
-		World world = entity.world;
+	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
+		Level world = entity.level;
 		HashMap guistate = CraftingTableRemovingCTGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
-		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
+		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (slot == 0 && changeType == 0) {
 

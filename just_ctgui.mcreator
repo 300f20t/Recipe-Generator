@@ -332,7 +332,7 @@
       "name": "Scriptswriter",
       "type": "procedure",
       "sortid": 13,
-      "compiles": true,
+      "compiles": false,
       "locked_code": true,
       "registry_name": "scriptswriter",
       "metadata": {
@@ -911,8 +911,8 @@
   "tag_elements": {},
   "language_map": {
     "ru_ru": {
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "гаризонтальная",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ПРЕДУПРЕЖДЕНИЕ ЭТА КОНФИГУРАЦИЯ НЕ БУДЕТ РАБОТАТЬ!!!",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "гаризонтальная",
       "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "Название файла:",
       "gui.just_ctgui.furnace_removing_ctgui.label_time": "Время(секунды):",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "Название файла:",
@@ -1006,8 +1006,8 @@
       "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "название"
     },
     "en_us": {
-      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
@@ -1136,7 +1136,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.14.4",
+    "currentGenerator": "forge-1.19.2",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.justctgui"
   },

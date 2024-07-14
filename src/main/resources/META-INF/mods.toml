@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[43,)"
 license="MIT License"
 
 [[mods]]
@@ -18,9 +18,12 @@ description="The Just Craft Tweaker GUI mod provides a visual recipe editor in m
 [[dependencies.just_ctgui]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.14.4]"
-    ordering="AFTER"
+    versionRange="[1.19.2]"
+    ordering="NONE"
     side="BOTH"
 
 
 
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

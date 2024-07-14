@@ -1,14 +1,15 @@
+
 package net.mcreator.justctgui.network;
 
-import net.minecraftforge.fml.network.NetworkEvent;
+import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.justctgui.procedures.VerticalmirroraxisProcedure;
@@ -29,7 +30,7 @@ import java.util.HashMap;
 public class CraftingtableCTGUIButtonMessage {
 	private final int buttonID, x, y, z;
 
-	public CraftingtableCTGUIButtonMessage(PacketBuffer buffer) {
+	public CraftingtableCTGUIButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
@@ -43,7 +44,7 @@ public class CraftingtableCTGUIButtonMessage {
 		this.z = z;
 	}
 
-	public static void buffer(CraftingtableCTGUIButtonMessage message, PacketBuffer buffer) {
+	public static void buffer(CraftingtableCTGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
@@ -53,7 +54,7 @@ public class CraftingtableCTGUIButtonMessage {
 	public static void handler(CraftingtableCTGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
-			PlayerEntity entity = context.getSender();
+			Player entity = context.getSender();
 			int buttonID = message.buttonID;
 			int x = message.x;
 			int y = message.y;
@@ -63,11 +64,11 @@ public class CraftingtableCTGUIButtonMessage {
 		context.setPacketHandled(true);
 	}
 
-	public static void handleButtonAction(PlayerEntity entity, int buttonID, int x, int y, int z) {
-		World world = entity.world;
+	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
+		Level world = entity.level;
 		HashMap guistate = CraftingtableCTGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
-		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
+		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {
 
@@ -94,8 +95,8 @@ public class CraftingtableCTGUIButtonMessage {
 			GenerateracipesProcedure.execute(world, guistate);
 		}
 		if (buttonID == 6) {
-		
-        	ScriptswriterProcedure.execute(entity, guistate);
+
+			ScriptswriterProcedure.execute(entity, guistate);
 		}
 		if (buttonID == 7) {
 

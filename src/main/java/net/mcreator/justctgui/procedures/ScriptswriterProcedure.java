@@ -1,7 +1,6 @@
 package net.mcreator.justctgui.procedures;
 
 import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraft.entity.Entity;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.mcreator.justctgui.network.JustCtguiModVariables;
 
