@@ -7,10 +7,10 @@ version = '1.0'
 group = 'com.yourname.modid'
 archivesBaseName = 'modid'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
-    mappings channel: 'official', version: '1.19.4'
+    mappings channel: 'snapshot', version: '20190719-1.14.3'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -46,7 +46,7 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.2.0'
+    minecraft 'net.minecraftforge:forge:1.14.4-28.2.26'
 }
 
 tasks.withType(JavaCompile).configureEach {

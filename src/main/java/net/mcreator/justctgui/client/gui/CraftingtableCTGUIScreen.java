@@ -1,14 +1,16 @@
 package net.mcreator.justctgui.client.gui;
 
-import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.chat.Component;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.Checkbox;
-import net.minecraft.client.gui.components.Button;
+import net.minecraft.world.World;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.gui.widget.button.CheckboxButton;
+import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.gui.screen.inventory.ContainerScreen;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.justctgui.procedures.GetCurrentAxisProcedure;
@@ -18,18 +20,17 @@ import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.platform.GlStateManager;
 
-public class CraftingtableCTGUIScreen extends AbstractContainerScreen<CraftingtableCTGUIMenu> {
+public class CraftingtableCTGUIScreen extends ContainerScreen<CraftingtableCTGUIMenu> {
 	private final static HashMap<String, Object> guistate = CraftingtableCTGUIMenu.guistate;
-	private final Level world;
+	private final World world;
 	private final int x, y, z;
-	private final Player entity;
-	EditBox recipe_name;
-	EditBox file_name;
-	Checkbox Is_shapeless;
-	Checkbox Is_mirrored;
+	private final PlayerEntity entity;
+	TextFieldWidget recipe_name;
+	TextFieldWidget file_name;
+	CheckboxButton Is_shapeless;
+	CheckboxButton Is_mirrored;
 	Button button_all;
 	Button button_diagonal;
 	Button button_horizontal;
@@ -40,53 +41,53 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	Button button_close;
 	Button button_reload;
 
-	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
+	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 176;
-		this.imageHeight = 166;
+		this.xSize = 176;
+		this.ySize = 166;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("just_ctgui:textures/screens/craftingtable_ctgui.png");
 
 	@Override
-	public void render(PoseStack ms, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(ms);
-		super.render(ms, mouseX, mouseY, partialTicks);
-		recipe_name.render(ms, mouseX, mouseY, partialTicks);
-		file_name.render(ms, mouseX, mouseY, partialTicks);
-		this.renderTooltip(ms, mouseX, mouseY);
+	public void render(int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground();
+		super.render(mouseX, mouseY, partialTicks);
+		recipe_name.render(mouseX, mouseY, partialTicks);
+		file_name.render(mouseX, mouseY, partialTicks);
+		this.renderHoveredToolTip(mouseX, mouseY);
 		if (ATTENTIONProcedure.execute())
-			if (mouseX > leftPos + 254 && mouseX < leftPos + 278 && mouseY > topPos + 5 && mouseY < topPos + 29)
-				this.renderTooltip(ms, Component.translatable("gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil"), mouseX, mouseY);
+			if (mouseX > guiLeft + 254 && mouseX < guiLeft + 278 && mouseY > guiTop + 5 && mouseY < guiTop + 29)
+				this.renderTooltip(I18n.format("gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil"), mouseX, mouseY);
 	}
 
 	@Override
-	protected void renderBg(PoseStack ms, float partialTicks, int gx, int gy) {
-		RenderSystem.setShaderColor(1, 1, 1, 1);
-		RenderSystem.enableBlend();
-		RenderSystem.defaultBlendFunc();
-		RenderSystem.setShaderTexture(0, texture);
-		this.blit(ms, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+	protected void drawGuiContainerBackgroundLayer(float partialTicks, int gx, int gy) {
+		GlStateManager.color4f(1, 1, 1, 1);
+		GlStateManager.enableBlend();
+		GlStateManager.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
+		Minecraft.getInstance().getTextureManager().bindTexture(texture);
+		this.blit(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 
-		RenderSystem.setShaderTexture(0, new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"));
-		this.blit(ms, this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"));
+		this.blit(this.guiLeft + 90, this.guiTop + 34, 0, 0, 24, 17, 24, 17);
 
 		if (ATTENTIONProcedure.execute()) {
-			RenderSystem.setShaderTexture(0, new ResourceLocation("just_ctgui:textures/screens/popup_hint.png"));
-			this.blit(ms, this.leftPos + 258, this.topPos + 9, 0, 0, 16, 16, 16, 16);
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("just_ctgui:textures/screens/popup_hint.png"));
+			this.blit(this.guiLeft + 258, this.guiTop + 9, 0, 0, 16, 16, 16, 16);
 		}
-		RenderSystem.disableBlend();
+		GlStateManager.disableBlend();
 	}
 
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {
-			this.minecraft.player.closeContainer();
+			this.minecraft.player.closeScreen();
 			return true;
 		}
 		if (recipe_name.isFocused())
@@ -97,150 +98,150 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	}
 
 	@Override
-	public void containerTick() {
-		super.containerTick();
+	public void tick() {
+		super.tick();
 		recipe_name.tick();
 		file_name.tick();
 	}
 
 	@Override
-	protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-		this.font.draw(poseStack, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -129, -2, -3355393);
-		this.font.draw(poseStack, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -129, 34, -3355393);
-		this.font.draw(poseStack, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_empty"), -124, -35, -3355393);
-		this.font.draw(poseStack, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393);
-		this.font.draw(poseStack,
+	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
+		this.font.drawString(I18n.format("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -129, -2, -3355393);
+		this.font.drawString(I18n.format("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -129, 34, -3355393);
+		this.font.drawString(I18n.format("gui.just_ctgui.craftingtable_ctgui.label_empty"), -124, -35, -3355393);
+		this.font.drawString(I18n.format("gui.just_ctgui.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393);
+		this.font.drawString(
 
 				GetCurrentAxisProcedure.execute(), 68, -35, -3355393);
-		this.font.draw(poseStack, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_crafting"), 24, 5, -12829636);
+		this.font.drawString(I18n.format("gui.just_ctgui.craftingtable_ctgui.label_crafting"), 24, 5, -12829636);
 	}
 
 	@Override
-	public void init() {
-		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.craftingtable_ctgui.recipe_name")) {
+	public void init(Minecraft minecraft, int width, int height) {
+		super.init(minecraft, width, height);
+		recipe_name = new TextFieldWidget(this.font, this.guiLeft + -128, this.guiTop + 8, 118, 18, I18n.format("gui.just_ctgui.craftingtable_ctgui.recipe_name")) {
 			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.recipe_name").getString());
+			public void writeText(String text) {
+				super.writeText(text);
+				if (getText().isEmpty())
+					setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.recipe_name"));
 				else
 					setSuggestion(null);
 			}
 
 			@Override
-			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.recipe_name").getString());
+			public void setCursorPosition(int pos) {
+				super.setCursorPosition(pos);
+				if (getText().isEmpty())
+					setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.recipe_name"));
 				else
 					setSuggestion(null);
 			}
 		};
-		recipe_name.setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.recipe_name").getString());
-		recipe_name.setMaxLength(32767);
+		recipe_name.setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.recipe_name"));
+		recipe_name.setMaxStringLength(32767);
 		guistate.put("text:recipe_name", recipe_name);
-		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.just_ctgui.craftingtable_ctgui.file_name")) {
+		this.children.add(this.recipe_name);
+		file_name = new TextFieldWidget(this.font, this.guiLeft + -128, this.guiTop + 44, 118, 18, I18n.format("gui.just_ctgui.craftingtable_ctgui.file_name")) {
 			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.file_name").getString());
+			public void writeText(String text) {
+				super.writeText(text);
+				if (getText().isEmpty())
+					setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.file_name"));
 				else
 					setSuggestion(null);
 			}
 
 			@Override
-			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.file_name").getString());
+			public void setCursorPosition(int pos) {
+				super.setCursorPosition(pos);
+				if (getText().isEmpty())
+					setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.file_name"));
 				else
 					setSuggestion(null);
 			}
 		};
-		file_name.setSuggestion(Component.translatable("gui.just_ctgui.craftingtable_ctgui.file_name").getString());
-		file_name.setMaxLength(32767);
+		file_name.setSuggestion(I18n.format("gui.just_ctgui.craftingtable_ctgui.file_name"));
+		file_name.setMaxStringLength(32767);
 		guistate.put("text:file_name", file_name);
-		this.addWidget(this.file_name);
-		button_all = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_all"), e -> {
+		this.children.add(this.file_name);
+		button_all = new Button(this.guiLeft + -124, this.guiTop + -25, 40, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_all"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		}).bounds(this.leftPos + -124, this.topPos + -25, 40, 20).build();
+		});
 		guistate.put("button:button_all", button_all);
-		this.addRenderableWidget(button_all);
-		button_diagonal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_diagonal"), e -> {
+		this.addButton(button_all);
+		button_diagonal = new Button(this.guiLeft + 39, this.guiTop + -25, 67, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_diagonal"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		}).bounds(this.leftPos + 39, this.topPos + -25, 67, 20).build();
+		});
 		guistate.put("button:button_diagonal", button_diagonal);
-		this.addRenderableWidget(button_diagonal);
-		button_horizontal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_horizontal"), e -> {
+		this.addButton(button_diagonal);
+		button_horizontal = new Button(this.guiLeft + -38, this.guiTop + -25, 77, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_horizontal"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		}).bounds(this.leftPos + -38, this.topPos + -25, 77, 20).build();
+		});
 		guistate.put("button:button_horizontal", button_horizontal);
-		this.addRenderableWidget(button_horizontal);
-		button_none = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_none"), e -> {
+		this.addButton(button_horizontal);
+		button_none = new Button(this.guiLeft + -84, this.guiTop + -25, 46, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_none"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		}).bounds(this.leftPos + -84, this.topPos + -25, 46, 20).build();
+		});
 		guistate.put("button:button_none", button_none);
-		this.addRenderableWidget(button_none);
-		button_vertical = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_vertical"), e -> {
+		this.addButton(button_none);
+		button_vertical = new Button(this.guiLeft + 106, this.guiTop + -25, 67, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_vertical"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
-		}).bounds(this.leftPos + 106, this.topPos + -25, 67, 20).build();
+		});
 		guistate.put("button:button_vertical", button_vertical);
-		this.addRenderableWidget(button_vertical);
-		button_generate = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_generate"), e -> {
+		this.addButton(button_vertical);
+		button_generate = new Button(this.guiLeft + 186, this.guiTop + 7, 67, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_generate"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
+		});
 		guistate.put("button:button_generate", button_generate);
-		this.addRenderableWidget(button_generate);
-		button_save = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_save"), e -> {
+		this.addButton(button_generate);
+		button_save = new Button(this.guiLeft + 186, this.guiTop + 34, 46, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_save"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
+		});
 		guistate.put("button:button_save", button_save);
-		this.addRenderableWidget(button_save);
-		button_close = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_close"), e -> {
+		this.addButton(button_save);
+		button_close = new Button(this.guiLeft + 186, this.guiTop + 142, 51, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_close"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
+		});
 		guistate.put("button:button_close", button_close);
-		this.addRenderableWidget(button_close);
-		button_reload = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_reload"), e -> {
+		this.addButton(button_close);
+		button_reload = new Button(this.guiLeft + 186, this.guiTop + 61, 56, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.button_reload"), e -> {
 			if (true) {
 				JustCtguiMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
 			}
-		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
+		});
 		guistate.put("button:button_reload", button_reload);
-		this.addRenderableWidget(button_reload);
-		Is_shapeless = new Checkbox(this.leftPos + -120, this.topPos + 97, 20, 20, Component.translatable("gui.just_ctgui.craftingtable_ctgui.Is_shapeless"), false);
+		this.addButton(button_reload);
+		Is_shapeless = new CheckboxButton(this.guiLeft + -120, this.guiTop + 97, 20, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.Is_shapeless"), false);
 		guistate.put("checkbox:Is_shapeless", Is_shapeless);
-		this.addRenderableWidget(Is_shapeless);
-		Is_mirrored = new Checkbox(this.leftPos + -120, this.topPos + 70, 20, 20, Component.translatable("gui.just_ctgui.craftingtable_ctgui.Is_mirrored"), false);
+		this.addButton(Is_shapeless);
+		Is_mirrored = new CheckboxButton(this.guiLeft + -120, this.guiTop + 70, 20, 20, I18n.format("gui.just_ctgui.craftingtable_ctgui.Is_mirrored"), false);
 		guistate.put("checkbox:Is_mirrored", Is_mirrored);
-		this.addRenderableWidget(Is_mirrored);
+		this.addButton(Is_mirrored);
 	}
 }

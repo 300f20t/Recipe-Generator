@@ -11,7 +11,10 @@ build/
 
 # Minecraft client/server files
 runs/
-run/
+/run/*
+!/run/mods/
+/run/mods/*
+!/run/mods/**
 
 # MacOS system files
 .DS_STORE

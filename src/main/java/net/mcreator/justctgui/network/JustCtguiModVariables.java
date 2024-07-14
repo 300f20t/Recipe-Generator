@@ -4,8 +4,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-import java.io.File;
-
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class JustCtguiModVariables {
 	public static String item_in_slot_0_crafting_table = "";
@@ -20,7 +18,6 @@ public class JustCtguiModVariables {
 	public static String item_in_slot_9_crafting_table = "\"\"";
 	public static String Generated_recipe = "\"\"";
 	public static String Recipe_name = "\"\"";
-	public static File generated_global = new File("");
 	public static String Pre_generated_recipe = "\"\"";
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;

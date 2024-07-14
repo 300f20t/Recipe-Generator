@@ -1,37 +1,38 @@
 package net.mcreator.justctgui.procedures;
 
-import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.fml.network.NetworkHooks;
 
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
 
 import net.mcreator.justctgui.world.inventory.FurnaceCTGUIMenu;
 
 import io.netty.buffer.Unpooled;
 
 public class OpenFurnaceCTGUIProcedure {
-	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+	public static void execute(IWorld world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (entity instanceof ServerPlayer _ent) {
-			BlockPos _bpos = BlockPos.containing(x, y, z);
-			NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
+		if (entity instanceof ServerPlayerEntity) {
+			BlockPos _bpos = new BlockPos(x, y, z);
+			NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 				@Override
-				public Component getDisplayName() {
-					return Component.literal("FurnaceCTGUI");
+				public ITextComponent getDisplayName() {
+					return new StringTextComponent("FurnaceCTGUI");
 				}
 
 				@Override
-				public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-					return new FurnaceCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+				public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
+					return new FurnaceCTGUIMenu(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(_bpos));
 				}
 			}, _bpos);
 		}
