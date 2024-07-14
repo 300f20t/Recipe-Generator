@@ -10,7 +10,10 @@ build/
 .mcreator/
 
 # Minecraft client/server files
-run/
+/run/*
+!/run/mods/
+/run/mods/*
+!/run/mods/**
 
 # MacOS system files
 .DS_STORE
