@@ -23,10 +23,4 @@ description="The Just Craft Tweaker GUI mod provides a visual recipe editor in m
     side="BOTH"
 
 
-[[dependencies.just_ctgui]]
-    modId="jei"
-    mandatory=false
-    versionRange="[0,)"
-    ordering="NONE"
-    side="BOTH"
 
