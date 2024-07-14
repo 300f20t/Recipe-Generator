@@ -5,7 +5,9 @@
 
 MCreator plugins: File manager, Remote workspaces support.
 
-Minecraft version: 1.20.4 NeoForge
+Minecraft version: 1.14.4 Forge
+
+### Idk how it works.
 
 ### **What is this mod and how to use it?**
 
