@@ -1,17 +1,13 @@
 
 package net.mcreator.justctgui.network;
 
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
@@ -22,47 +18,49 @@ import net.mcreator.justctgui.procedures.GenerateRemovingFurnaceRecipesProcedure
 import net.mcreator.justctgui.procedures.GUIcloseProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
 
+import java.util.function.Supplier;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+public class FurnaceRemovingCTGUIButtonMessage {
+	private final int buttonID, x, y, z;
 
-	public static final ResourceLocation ID = new ResourceLocation(JustCtguiMod.MODID, "furnace_removing_ctgui_buttons");
 	public FurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
-		this(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt());
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
 	}
 
-	@Override
-	public void write(final FriendlyByteBuf buffer) {
-		buffer.writeInt(buttonID);
-		buffer.writeInt(x);
-		buffer.writeInt(y);
-		buffer.writeInt(z);
+	public FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) {
+		this.buttonID = buttonID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
-	@Override
-	public ResourceLocation id() {
-		return ID;
+	public static void buffer(FurnaceRemovingCTGUIButtonMessage message, FriendlyByteBuf buffer) {
+		buffer.writeInt(message.buttonID);
+		buffer.writeInt(message.x);
+		buffer.writeInt(message.y);
+		buffer.writeInt(message.z);
 	}
 
-	public static void handleData(final FurnaceRemovingCTGUIButtonMessage message, final PlayPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.workHandler().submitAsync(() -> {
-				Player entity = context.player().get();
-				int buttonID = message.buttonID;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				handleButtonAction(entity, buttonID, x, y, z);
-			}).exceptionally(e -> {
-				context.packetHandler().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public static void handler(FurnaceRemovingCTGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int buttonID = message.buttonID;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			handleButtonAction(entity, buttonID, x, y, z);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
-		Level world = entity.level();
+		Level world = entity.level;
 		HashMap guistate = FurnaceRemovingCTGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
@@ -87,6 +85,6 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		JustCtguiMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.ID, FurnaceRemovingCTGUIButtonMessage::new, FurnaceRemovingCTGUIButtonMessage::handleData);
+		JustCtguiMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.class, FurnaceRemovingCTGUIButtonMessage::buffer, FurnaceRemovingCTGUIButtonMessage::new, FurnaceRemovingCTGUIButtonMessage::handler);
 	}
 }

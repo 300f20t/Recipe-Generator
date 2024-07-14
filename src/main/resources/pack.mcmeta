@@ -1,6 +1,8 @@
 {
   "pack": {
-    "pack_format": 22,
-    "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language."
+    "description": "just_ctgui mod resources",
+    "pack_format": 13,
+    "forge:resource_pack_format": 13,
+    "forge:data_pack_format": 12
   }
 }
