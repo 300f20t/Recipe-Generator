@@ -15,7 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.justctgui.world.inventory.FurnaceRemovingCTGUIMenu;
+import net.mcreator.justctgui.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.justctgui.procedures.ScriptswriterProcedure;
 import net.mcreator.justctgui.procedures.ReloadCommandProcedure;
 import net.mcreator.justctgui.procedures.GenerateRemovingFurnaceRecipesProcedure;
@@ -25,10 +25,10 @@ import net.mcreator.justctgui.JustCtguiMod;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final ResourceLocation ID = new ResourceLocation(JustCtguiMod.MODID, "furnace_removing_ctgui_buttons");
-	public FurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
+	public static final ResourceLocation ID = new ResourceLocation(JustCtguiMod.MODID, "blast_furnace_removing_ctgui_buttons");
+	public BlastFurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
 		this(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt());
 	}
 
@@ -45,7 +45,7 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 		return ID;
 	}
 
-	public static void handleData(final FurnaceRemovingCTGUIButtonMessage message, final PlayPayloadContext context) {
+	public static void handleData(final BlastFurnaceRemovingCTGUIButtonMessage message, final PlayPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.workHandler().submitAsync(() -> {
 				Player entity = context.player().get();
@@ -63,7 +63,7 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = FurnaceRemovingCTGUIMenu.guistate;
+		HashMap guistate = BlastFurnaceRemovingCTGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -87,6 +87,6 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		JustCtguiMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.ID, FurnaceRemovingCTGUIButtonMessage::new, FurnaceRemovingCTGUIButtonMessage::handleData);
+		JustCtguiMod.addNetworkMessage(BlastFurnaceRemovingCTGUIButtonMessage.ID, BlastFurnaceRemovingCTGUIButtonMessage::new, BlastFurnaceRemovingCTGUIButtonMessage::handleData);
 	}
 }

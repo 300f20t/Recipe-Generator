@@ -27,8 +27,49 @@
           "onSlotChanged": {
             "name": "Iteminslot0incraftingtableCTGUI"
           },
+          "x": 168,
+          "y": 71
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "disablePlacement": {
+            "fixedValue": false
+          },
+          "id": 1,
+          "disablePickup": {
+            "fixedValue": false
+          },
+          "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "Iteminslot1incraftingtableCTGUI"
+          },
+          "x": 240,
+          "y": 71
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "crafting_table.png",
+          "use1Xscale": false,
           "x": 204,
           "y": 71
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "name",
+          "name": "recipe_name",
+          "width": 120,
+          "height": 20,
+          "x": -3,
+          "y": 44
         }
       },
       {
@@ -39,7 +80,22 @@
           "width": 120,
           "height": 20,
           "x": -3,
-          "y": 44
+          "y": 80
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_recipe_name",
+          "text": {
+            "fixedValue": "Recipe name:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": -3,
+          "y": 35
         }
       },
       {
@@ -54,7 +110,7 @@
             "falpha": 0.0
           },
           "x": -3,
-          "y": 35
+          "y": 71
         }
       },
       {
@@ -64,7 +120,7 @@
           "text": "Generate",
           "isUndecorated": false,
           "onClick": {
-            "name": "GenerateRemovingFurnaceRecipes"
+            "name": "GenerateFurnaceRecieps"
           },
           "width": 67,
           "height": 20,
@@ -103,6 +159,58 @@
         }
       },
       {
+        "type": "textfield",
+        "data": {
+          "placeholder": "1.0",
+          "name": "XP",
+          "width": 120,
+          "height": 20,
+          "x": -3,
+          "y": 134
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_xp",
+          "text": {
+            "fixedValue": "XP:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": -3,
+          "y": 125
+        }
+      },
+      {
+        "type": "textfield",
+        "data": {
+          "placeholder": "10",
+          "name": "time",
+          "width": 120,
+          "height": 20,
+          "x": -3,
+          "y": 179
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_time",
+          "text": {
+            "fixedValue": "Time(seconds):"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": -3,
+          "y": 170
+        }
+      },
+      {
         "type": "button",
         "data": {
           "name": "button_reload",
@@ -122,13 +230,13 @@
         "data": {
           "name": "label_furnace",
           "text": {
-            "fixedValue": "Furnace removing"
+            "fixedValue": "Furnace"
           },
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "x": 177,
+          "x": 195,
           "y": 44
         }
       }

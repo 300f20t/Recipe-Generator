@@ -12,15 +12,15 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
-import net.mcreator.justctgui.world.inventory.FurnaceRemovingCTGUIMenu;
-import net.mcreator.justctgui.network.FurnaceRemovingCTGUIButtonMessage;
+import net.mcreator.justctgui.world.inventory.BlastFurnaceRemovingCTGUIMenu;
+import net.mcreator.justctgui.network.BlastFurnaceRemovingCTGUIButtonMessage;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceRemovingCTGUIMenu> {
-	private final static HashMap<String, Object> guistate = FurnaceRemovingCTGUIMenu.guistate;
+public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<BlastFurnaceRemovingCTGUIMenu> {
+	private final static HashMap<String, Object> guistate = BlastFurnaceRemovingCTGUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
@@ -30,7 +30,7 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 	Button button_close;
 	Button button_reload;
 
-	public FurnaceRemovingCTGUIScreen(FurnaceRemovingCTGUIMenu container, Inventory inventory, Component text) {
+	public BlastFurnaceRemovingCTGUIScreen(BlastFurnaceRemovingCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
@@ -41,7 +41,7 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("just_ctgui:textures/screens/furnace_removing_ctgui.png");
+	private static final ResourceLocation texture = new ResourceLocation("just_ctgui:textures/screens/blast_furnace_removing_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -73,19 +73,19 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_ctgui.label_file_name"), -129, -2, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.furnace_removing_ctgui.label_furnace"), 51, 7, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.label_file_name"), -129, -2, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.label_furnace"), 51, 7, -12829636, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.furnace_removing_ctgui.file_name")) {
+		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.file_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
 				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.file_name").getString());
+					setSuggestion(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.file_name").getString());
 				else
 					setSuggestion(null);
 			}
@@ -94,43 +94,43 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 			public void moveCursorTo(int pos, boolean flag) {
 				super.moveCursorTo(pos, flag);
 				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.file_name").getString());
+					setSuggestion(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.file_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
 		file_name.setMaxLength(32767);
-		file_name.setSuggestion(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.file_name").getString());
+		file_name.setSuggestion(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.file_name").getString());
 		guistate.put("text:file_name", file_name);
 		this.addWidget(this.file_name);
-		button_generate = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.button_generate"), e -> {
+		button_generate = Button.builder(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingCTGUIButtonMessage(0, x, y, z));
-				FurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				PacketDistributor.SERVER.noArg().send(new BlastFurnaceRemovingCTGUIButtonMessage(0, x, y, z));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
 		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
-		button_save = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.button_save"), e -> {
+		button_save = Button.builder(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingCTGUIButtonMessage(1, x, y, z));
-				FurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				PacketDistributor.SERVER.noArg().send(new BlastFurnaceRemovingCTGUIButtonMessage(1, x, y, z));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
 		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
-		button_close = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.button_close"), e -> {
+		button_close = Button.builder(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingCTGUIButtonMessage(2, x, y, z));
-				FurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+				PacketDistributor.SERVER.noArg().send(new BlastFurnaceRemovingCTGUIButtonMessage(2, x, y, z));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
-		button_reload = Button.builder(Component.translatable("gui.just_ctgui.furnace_removing_ctgui.button_reload"), e -> {
+		button_reload = Button.builder(Component.translatable("gui.just_ctgui.blast_furnace_removing_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceRemovingCTGUIButtonMessage(3, x, y, z));
-				FurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+				PacketDistributor.SERVER.noArg().send(new BlastFurnaceRemovingCTGUIButtonMessage(3, x, y, z));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);

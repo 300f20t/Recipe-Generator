@@ -5,9 +5,9 @@ import net.minecraft.network.chat.Component;
 
 import net.mcreator.justctgui.network.JustCtguiModVariables;
 
-public class GenerateRemovingFurnaceRecipesProcedure {
+public class GenerateBlastFurnaceRemovingRecipesProcedure {
 	public static void execute(LevelAccessor world) {
-		JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.FurnaceRecipeManager; " + "furnace.remove(" + JustCtguiModVariables.item_in_slot_0_crafting_table + ");";
+		JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager; " + "blastFurnace.remove(" + JustCtguiModVariables.item_in_slot_0_crafting_table + ");";
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
 	}
