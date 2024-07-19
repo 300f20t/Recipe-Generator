@@ -64,7 +64,7 @@
           "text": "Generate",
           "isUndecorated": false,
           "onClick": {
-            "name": "GenerateRemovingFurnaceRecipes"
+            "name": "GenerateBlastFurnaceRacipes"
           },
           "width": 67,
           "height": 20,

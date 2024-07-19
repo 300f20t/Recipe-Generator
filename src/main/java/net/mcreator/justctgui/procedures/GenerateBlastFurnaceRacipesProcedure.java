@@ -34,7 +34,7 @@ public class GenerateBlastFurnaceRacipesProcedure {
 		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()) {
 			JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager;" + "blastFurnace.addRecipe(\"" + "no_name" + "\", " + JustCtguiModVariables.Pre_generated_recipe;
 		} else {
-			JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager;" + "furnace.addRecipe(\"" + (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "")
+			JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager;" + "blastFurnace.addRecipe(\"" + (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "")
 					+ "\", " + JustCtguiModVariables.Pre_generated_recipe;
 		}
 		if (!world.isClientSide() && world.getServer() != null)

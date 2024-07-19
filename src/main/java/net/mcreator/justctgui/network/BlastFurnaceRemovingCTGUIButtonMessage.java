@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.justctgui.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.justctgui.procedures.ScriptswriterProcedure;
 import net.mcreator.justctgui.procedures.ReloadCommandProcedure;
-import net.mcreator.justctgui.procedures.GenerateRemovingFurnaceRecipesProcedure;
+import net.mcreator.justctgui.procedures.GenerateBlastFurnaceRacipesProcedure;
 import net.mcreator.justctgui.procedures.GUIcloseProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
 
@@ -69,7 +69,7 @@ public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y,
 			return;
 		if (buttonID == 0) {
 
-			GenerateRemovingFurnaceRecipesProcedure.execute(world);
+			GenerateBlastFurnaceRacipesProcedure.execute(world, guistate);
 		}
 		if (buttonID == 1) {
 
