@@ -29,18 +29,7 @@ Minecraft version: 1.20.4 NeoForge
 
 **Here are some plans for the future and a roadmap for the development of the mod, the elements in it are distributed according to the degree of importance and complexity of implementation:**
 
-1. Support for the number of items as a result of the recipe. - Done
-
-2. Adding support for shapeless recipes to the crafting table. - Done
-
-3. The ability to rename the file and the recipe name directly from the GUI. - Done
-
-4. Adding support for more vanilla blocks for recipes. 
-
-5. The ability to use other Zen Script functionality.
-
-6. Adding support for custom blocks for recipes.
- 
+The Todo list can be found here: https://github.com/300f20t/Just-CTGUI/issues/3
 
 My discord server: https://discord.gg/y3xkvMrYt6
 
