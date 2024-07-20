@@ -23,12 +23,6 @@ Minecraft version: 1.20.4 NeoForge
 
 #### **/reload**
 
-### **A little history of creation and plans for the future.**
-
-**This mod was created by me for myself and was supposed to help me create my minecraft builds, but soon a bug occurred, because of which I could not continue development. And today, as I write this, I fixed this bug and improved the code generation mechanism.**
-
-**Here are some plans for the future and a roadmap for the development of the mod, the elements in it are distributed according to the degree of importance and complexity of implementation:**
-
 The Todo list can be found here: https://github.com/300f20t/Just-CTGUI/issues/3
 
 My discord server: https://discord.gg/y3xkvMrYt6
