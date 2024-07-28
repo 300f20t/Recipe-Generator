@@ -1,6 +1,6 @@
 {
-  "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
   "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+  "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
   "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
   "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
   "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
