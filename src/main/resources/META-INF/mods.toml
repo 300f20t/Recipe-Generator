@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="just_ctgui"
-version="0.1.5"
+version="0.1.6"
 displayName="Just CTGUI"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
