@@ -11,6 +11,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.justctgui.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.justctgui.network.FurnaceCTGUIButtonMessage;
@@ -84,6 +85,19 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		if (time.isFocused())
 			return time.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void resize(Minecraft minecraft, int width, int height) {
+		String recipe_nameValue = recipe_name.getValue();
+		String file_nameValue = file_name.getValue();
+		String XPValue = XP.getValue();
+		String timeValue = time.getValue();
+		super.resize(minecraft, width, height);
+		recipe_name.setValue(recipe_nameValue);
+		file_name.setValue(file_nameValue);
+		XP.setValue(XPValue);
+		time.setValue(timeValue);
 	}
 
 	@Override
@@ -192,7 +206,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addWidget(this.time);
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(0, x, y, z));
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(0, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -200,7 +214,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(1, x, y, z));
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(1, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -208,7 +222,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(2, x, y, z));
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(2, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -216,7 +230,7 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.just_ctgui.furnace_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new FurnaceCTGUIButtonMessage(3, x, y, z));
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(3, x, y, z));
 				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

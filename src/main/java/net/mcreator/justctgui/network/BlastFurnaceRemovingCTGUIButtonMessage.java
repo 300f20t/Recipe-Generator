@@ -1,9 +1,9 @@
 
 package net.mcreator.justctgui.network;
 
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
@@ -11,8 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.BlastFurnaceRemovingCTGUIMenu;
@@ -24,38 +25,32 @@ import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final ResourceLocation ID = new ResourceLocation(JustCtguiMod.MODID, "blast_furnace_removing_ctgui_buttons");
-	public BlastFurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
-		this(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt());
-	}
-
+	public static final Type<BlastFurnaceRemovingCTGUIButtonMessage> TYPE = new Type<>(new ResourceLocation(JustCtguiMod.MODID, "blast_furnace_removing_ctgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, BlastFurnaceRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, BlastFurnaceRemovingCTGUIButtonMessage message) -> {
+		buffer.writeInt(message.buttonID);
+		buffer.writeInt(message.x);
+		buffer.writeInt(message.y);
+		buffer.writeInt(message.z);
+	}, (RegistryFriendlyByteBuf buffer) -> new BlastFurnaceRemovingCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public void write(final FriendlyByteBuf buffer) {
-		buffer.writeInt(buttonID);
-		buffer.writeInt(x);
-		buffer.writeInt(y);
-		buffer.writeInt(z);
+	public Type<BlastFurnaceRemovingCTGUIButtonMessage> type() {
+		return TYPE;
 	}
 
-	@Override
-	public ResourceLocation id() {
-		return ID;
-	}
-
-	public static void handleData(final BlastFurnaceRemovingCTGUIButtonMessage message, final PlayPayloadContext context) {
+	public static void handleData(final BlastFurnaceRemovingCTGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.workHandler().submitAsync(() -> {
-				Player entity = context.player().get();
+			context.enqueueWork(() -> {
+				Player entity = context.player();
 				int buttonID = message.buttonID;
 				int x = message.x;
 				int y = message.y;
 				int z = message.z;
 				handleButtonAction(entity, buttonID, x, y, z);
 			}).exceptionally(e -> {
-				context.packetHandler().disconnect(Component.literal(e.getMessage()));
+				context.connection().disconnect(Component.literal(e.getMessage()));
 				return null;
 			});
 		}
@@ -87,6 +82,6 @@ public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y,
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		JustCtguiMod.addNetworkMessage(BlastFurnaceRemovingCTGUIButtonMessage.ID, BlastFurnaceRemovingCTGUIButtonMessage::new, BlastFurnaceRemovingCTGUIButtonMessage::handleData);
+		JustCtguiMod.addNetworkMessage(BlastFurnaceRemovingCTGUIButtonMessage.TYPE, BlastFurnaceRemovingCTGUIButtonMessage.STREAM_CODEC, BlastFurnaceRemovingCTGUIButtonMessage::handleData);
 	}
 }

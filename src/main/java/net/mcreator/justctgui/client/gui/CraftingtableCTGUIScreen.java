@@ -12,6 +12,7 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.justctgui.procedures.GetCurrentAxisProcedure;
@@ -95,6 +96,15 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	}
 
 	@Override
+	public void resize(Minecraft minecraft, int width, int height) {
+		String recipe_nameValue = recipe_name.getValue();
+		String file_nameValue = file_name.getValue();
+		super.resize(minecraft, width, height);
+		recipe_name.setValue(recipe_nameValue);
+		file_name.setValue(file_nameValue);
+	}
+
+	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -129, -2, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -129, 34, -3355393, false);
@@ -157,7 +167,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addWidget(this.file_name);
 		button_all = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_all"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(0, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + -124, this.topPos + -25, 40, 20).build();
@@ -165,7 +175,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_all);
 		button_diagonal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_diagonal"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(1, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 39, this.topPos + -25, 67, 20).build();
@@ -173,7 +183,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_diagonal);
 		button_horizontal = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_horizontal"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(2, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + -38, this.topPos + -25, 77, 20).build();
@@ -181,7 +191,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_horizontal);
 		button_none = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_none"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(3, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + -84, this.topPos + -25, 46, 20).build();
@@ -189,7 +199,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_none);
 		button_vertical = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_vertical"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(4, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 106, this.topPos + -25, 67, 20).build();
@@ -197,7 +207,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_vertical);
 		button_generate = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(5, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -205,7 +215,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(6, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -213,7 +223,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(7, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -221,7 +231,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.SERVER.noArg().send(new CraftingtableCTGUIButtonMessage(8, x, y, z));
+				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

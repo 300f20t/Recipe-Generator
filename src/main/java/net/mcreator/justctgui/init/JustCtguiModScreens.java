@@ -5,7 +5,7 @@
 package net.mcreator.justctgui.init;
 
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
@@ -16,7 +16,7 @@ import net.mcreator.justctgui.client.gui.CraftingTableRemovingCTGUIScreen;
 import net.mcreator.justctgui.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.justctgui.client.gui.BlastFurnaceCTGUIScreen;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class JustCtguiModScreens {
 	@SubscribeEvent
 	public static void clientLoad(RegisterMenuScreensEvent event) {

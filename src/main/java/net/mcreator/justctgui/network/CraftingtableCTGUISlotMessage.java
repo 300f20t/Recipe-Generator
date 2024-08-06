@@ -1,9 +1,9 @@
 
 package net.mcreator.justctgui.network;
 
-import net.neoforged.neoforge.network.handling.PlayPayloadContext;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
@@ -11,8 +11,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
@@ -30,33 +31,27 @@ import net.mcreator.justctgui.JustCtguiMod;
 
 import java.util.HashMap;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
 
-	public static final ResourceLocation ID = new ResourceLocation(JustCtguiMod.MODID, "craftingtable_ctgui_slots");
-	public CraftingtableCTGUISlotMessage(FriendlyByteBuf buffer) {
-		this(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt());
-	}
-
+	public static final Type<CraftingtableCTGUISlotMessage> TYPE = new Type<>(new ResourceLocation(JustCtguiMod.MODID, "craftingtable_ctgui_slots"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingtableCTGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingtableCTGUISlotMessage message) -> {
+		buffer.writeInt(message.slotID);
+		buffer.writeInt(message.x);
+		buffer.writeInt(message.y);
+		buffer.writeInt(message.z);
+		buffer.writeInt(message.changeType);
+		buffer.writeInt(message.meta);
+	}, (RegistryFriendlyByteBuf buffer) -> new CraftingtableCTGUISlotMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public void write(final FriendlyByteBuf buffer) {
-		buffer.writeInt(slotID);
-		buffer.writeInt(x);
-		buffer.writeInt(y);
-		buffer.writeInt(z);
-		buffer.writeInt(changeType);
-		buffer.writeInt(meta);
+	public Type<CraftingtableCTGUISlotMessage> type() {
+		return TYPE;
 	}
 
-	@Override
-	public ResourceLocation id() {
-		return ID;
-	}
-
-	public static void handleData(final CraftingtableCTGUISlotMessage message, final PlayPayloadContext context) {
+	public static void handleData(final CraftingtableCTGUISlotMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.workHandler().submitAsync(() -> {
-				Player entity = context.player().get();
+			context.enqueueWork(() -> {
+				Player entity = context.player();
 				int slotID = message.slotID;
 				int changeType = message.changeType;
 				int meta = message.meta;
@@ -65,7 +60,7 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 				int z = message.z;
 				handleSlotAction(entity, slotID, changeType, meta, x, y, z);
 			}).exceptionally(e -> {
-				context.packetHandler().disconnect(Component.literal(e.getMessage()));
+				context.connection().disconnect(Component.literal(e.getMessage()));
 				return null;
 			});
 		}
@@ -121,6 +116,6 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		JustCtguiMod.addNetworkMessage(CraftingtableCTGUISlotMessage.ID, CraftingtableCTGUISlotMessage::new, CraftingtableCTGUISlotMessage::handleData);
+		JustCtguiMod.addNetworkMessage(CraftingtableCTGUISlotMessage.TYPE, CraftingtableCTGUISlotMessage.STREAM_CODEC, CraftingtableCTGUISlotMessage::handleData);
 	}
 }
