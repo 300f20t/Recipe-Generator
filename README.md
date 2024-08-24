@@ -1,4 +1,4 @@
-# Just-CTGUI
+# Recipe Generator
 ### [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/requires/fabric-api_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/fabric-api) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/modrinth_vector.svg)**](https://modrinth.com/mod/just-ctgui) [**![](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3.2.0/assets/cozy/available/curseforge_vector.svg)**](https://www.curseforge.com/minecraft/mc-mods/just-ctgui)
 
 ### **Information for those who want to build this:**
@@ -9,7 +9,7 @@ Minecraft version: 1.20.4 NeoForge
 
 ### **What is this mod and how to use it?**
 
-**The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language. To be more precise, it is not an additional mod for Craft Tweaker, but simply adds a visual editor to the game and automatic code generation in Zen Script.**
+**The Recipe Generator mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language. To be more precise, it is not an additional mod for Craft Tweaker, but simply adds a visual editor to the game and automatic code generation in Zen Script.**
 
 **It is very easy to use this mod, it is enough to install the mod on the server and client, if desired,** _**you can install Craft Tweaker for ease of development, but this is optional.**_ **Thanks to this, you can start creating your own recipes for assembly even before the official release of Craft Tweaker on this version. Thus, the recipes will not work in the game, but when the craft tweaker is installed, they will all work.**
 
