@@ -7,6 +7,5 @@ public class ScriptswriterProcedure {
 		File oldGenerated = new File("");
 		File generated = new File("");
 		String fileName = "";
-		NameCreatorProcedure.execute();
 	}
 }
