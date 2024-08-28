@@ -958,18 +958,6 @@
         ],
         "dependencies": []
       }
-    },
-    {
-      "name": "RecipeGeneratorConfig",
-      "type": "config",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "recipe_generator_config",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/configuration/RecipeGeneratorConfigConfiguration.java"
-        ]
-      }
     }
   ],
   "variable_elements": [
