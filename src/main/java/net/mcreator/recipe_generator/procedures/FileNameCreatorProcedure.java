@@ -22,9 +22,9 @@ public class FileNameCreatorProcedure {
 				filesWithGeneratedNameCuont = filesWithGeneratedNameCuont + 1;
 				oldGenerated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts"), File.separator + ("generated " + filesWithGeneratedNameCuont + ".zs"));
 			}
-			fileName = "generated " + filesWithGeneratedNameCuont + ".zs";
+			fileName = "generated " + filesWithGeneratedNameCuont;
 		} else {
-			fileName = (guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "") + ".zs";
+			fileName = guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "";
 		}
 		return fileName;
 	}

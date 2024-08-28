@@ -9,6 +9,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
+import java.io.File;
+
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class RecipeGeneratorModVariables {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, RecipeGeneratorMod.MODID);
@@ -28,6 +30,7 @@ public class RecipeGeneratorModVariables {
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;
 	public static String Mirror_axis = "\"NONE\"";
+	public static File generated = new File("");
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

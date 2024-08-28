@@ -22,10 +22,8 @@ public class GenerateracipesProcedure {
 						+ RecipeGeneratorModVariables.item_in_slot_2_crafting_table + "], [" + RecipeGeneratorModVariables.item_in_slot_3_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_4_crafting_table + ", "
 						+ RecipeGeneratorModVariables.item_in_slot_5_crafting_table + "], [" + RecipeGeneratorModVariables.item_in_slot_6_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_7_crafting_table + ", "
 						+ RecipeGeneratorModVariables.item_in_slot_8_crafting_table + "]]);";
-		RecipeGeneratorModVariables.Generated_recipe = (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()
-				? "import crafttweaker.api.recipe.MirrorAxis;" + "craftingTable.addShapedMirrored(\""
-				: "")
-				+ "" + (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected() ? "craftingTable.addShapeless(\"" : "")
+		RecipeGeneratorModVariables.Generated_recipe = (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() ? "craftingTable.addShapedMirrored(\"" : "") + ""
+				+ (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected() ? "craftingTable.addShapeless(\"" : "")
 				+ (!(guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() || guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected())
 						? "craftingTable.addShaped(\""
 						: "")

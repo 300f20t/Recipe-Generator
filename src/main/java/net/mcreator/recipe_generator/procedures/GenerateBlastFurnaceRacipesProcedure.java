@@ -32,10 +32,10 @@ public class GenerateBlastFurnaceRacipesProcedure {
 			}
 		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) + ");";
 		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()) {
-			RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager;" + "blastFurnace.addRecipe(\"" + "no_name" + "\", " + RecipeGeneratorModVariables.Pre_generated_recipe;
+			RecipeGeneratorModVariables.Generated_recipe = "blastFurnace.addRecipe(\"" + "no_name" + "\", " + RecipeGeneratorModVariables.Pre_generated_recipe;
 		} else {
-			RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager;" + "blastFurnace.addRecipe(\""
-					+ (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "") + "\", " + RecipeGeneratorModVariables.Pre_generated_recipe;
+			RecipeGeneratorModVariables.Generated_recipe = "blastFurnace.addRecipe(\"" + "" + (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "") + "\", "
+					+ RecipeGeneratorModVariables.Pre_generated_recipe;
 		}
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);

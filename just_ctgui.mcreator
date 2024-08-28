@@ -319,14 +319,19 @@
     {
       "name": "Scriptswriter",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "scriptswriter",
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ScriptswriterProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
       }
     },
     {
@@ -1056,6 +1061,12 @@
       "type": "string",
       "scope": "global",
       "value": "\"NONE\""
+    },
+    {
+      "name": "generated",
+      "type": "file",
+      "scope": "global",
+      "value": "new File(\"\")"
     }
   ],
   "sound_elements": [],
