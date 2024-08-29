@@ -20,6 +20,7 @@ import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.VerticalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
+import net.mcreator.recipe_generator.procedures.OpenScriptsFloaderProcedure;
 import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.HorizontalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateracipesProcedure;
@@ -102,6 +103,10 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z)
 		if (buttonID == 8) {
 
 			ReloadCommandProcedure.execute(world, x, y, z);
+		}
+		if (buttonID == 9) {
+
+			OpenScriptsFloaderProcedure.execute();
 		}
 	}
 

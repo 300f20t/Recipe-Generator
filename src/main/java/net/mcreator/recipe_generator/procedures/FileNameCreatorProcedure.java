@@ -17,12 +17,11 @@ public class FileNameCreatorProcedure {
 		String fileName = "";
 		if ((guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "").equals("")) {
 			oldGenerated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts"), File.separator + ("generated " + "0" + ".zs"));
-			filesWithGeneratedNameCuont = 0;
 			while (oldGenerated.exists()) {
 				filesWithGeneratedNameCuont = filesWithGeneratedNameCuont + 1;
 				oldGenerated = new File((FMLPaths.GAMEDIR.get().toString() + "/scripts"), File.separator + ("generated " + filesWithGeneratedNameCuont + ".zs"));
 			}
-			fileName = "generated " + filesWithGeneratedNameCuont;
+			fileName = "generated " + new java.text.DecimalFormat("").format(filesWithGeneratedNameCuont);
 		} else {
 			fileName = guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "";
 		}

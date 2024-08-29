@@ -963,6 +963,19 @@
         ],
         "dependencies": []
       }
+    },
+    {
+      "name": "OpenScriptsFloader",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "open_scripts_floader",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenScriptsFloaderProcedure.java"
+        ],
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [
