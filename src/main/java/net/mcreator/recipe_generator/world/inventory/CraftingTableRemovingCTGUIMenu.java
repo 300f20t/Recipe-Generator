@@ -23,6 +23,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.recipe_generator.procedures.CraftingtableCTGUIPriOtkrytiiIntierfieisaProcedure;
 import net.mcreator.recipe_generator.network.CraftingTableRemovingCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 
@@ -96,6 +97,7 @@ public class CraftingTableRemovingCTGUIMenu extends AbstractContainerMenu implem
 				this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 0 + 84 + si * 18));
 		for (int si = 0; si < 9; ++si)
 			this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 0 + 142));
+		CraftingtableCTGUIPriOtkrytiiIntierfieisaProcedure.execute(world, x, y, z, entity);
 	}
 
 	@Override

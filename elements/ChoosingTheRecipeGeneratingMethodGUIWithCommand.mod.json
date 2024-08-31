@@ -1,0 +1,122 @@
+{
+  "_fv": 66,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_crafttweaker",
+          "text": "CraftTweaker",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChangeSelectedGeneratingMethodToCraftTweaker"
+          },
+          "width": 88,
+          "height": 20,
+          "x": 168,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_selected_mod",
+          "text": {
+            "fixedValue": "Selected Generating Method:"
+          },
+          "color": {
+            "value": -6710785,
+            "falpha": 0.0
+          },
+          "x": 78,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_kubejs_wip",
+          "text": "KubeJS (WIP)",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "ChangeSelectedGeneratingMethodToKubeJS"
+          },
+          "width": 87,
+          "height": 20,
+          "x": 168,
+          "y": 89
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_minecraft_mod_wip",
+          "text": "Minecraft Mod (WIP)",
+          "isUndecorated": false,
+          "width": 124,
+          "height": 20,
+          "x": 150,
+          "y": 143
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_minecraft_data_pack_wip",
+          "text": "Minecraft Data Pack (WIP)",
+          "isUndecorated": false,
+          "width": 155,
+          "height": 20,
+          "x": 132,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_empty",
+          "text": {
+            "fixedValue": "",
+            "name": "ReturnSelectedGeneratingMethod"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 222,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_close",
+          "text": "Close",
+          "isUndecorated": false,
+          "onClick": {
+            "name": "GUIclose"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 186,
+          "y": 179
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": true
+    }
+  }
+}

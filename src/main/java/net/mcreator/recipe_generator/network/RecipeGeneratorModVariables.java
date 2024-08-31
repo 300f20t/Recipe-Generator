@@ -29,6 +29,8 @@ public class RecipeGeneratorModVariables {
 	public static boolean Is_shapeless = false;
 	public static String Mirror_axis = "\"NONE\"";
 	public static double filesWithGeneratedNameCount = 0;
+	public static String selectedMethod = "\"CraftTweaker\"";
+	public static String openedGUI = "\"\"";
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

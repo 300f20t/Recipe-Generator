@@ -413,8 +413,8 @@
           },
           "width": 24,
           "height": 24,
-          "x": 380,
-          "y": 42
+          "x": 366,
+          "y": 71
         }
       },
       {
@@ -425,8 +425,8 @@
           "displayCondition": {
             "name": "ATTENTION"
           },
-          "x": 384,
-          "y": 46
+          "x": 366,
+          "y": 71
         }
       },
       {
@@ -537,6 +537,9 @@
         }
       }
     ],
+    "onOpen": {
+      "name": "CraftingtableCTGUIPriOtkrytiiIntierfieisa"
+    },
     "gridSettings": {
       "sx": 18,
       "sy": 18,
