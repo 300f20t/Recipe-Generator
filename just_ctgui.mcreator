@@ -1128,6 +1128,41 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "OpenMethodSelect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_method_select",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenMethodSelectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [
@@ -1244,6 +1279,12 @@
       "type": "string",
       "scope": "global",
       "value": "\"\""
+    },
+    {
+      "name": "methodSelected",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
     }
   ],
   "sound_elements": [],

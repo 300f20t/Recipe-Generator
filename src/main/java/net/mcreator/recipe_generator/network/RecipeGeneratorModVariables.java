@@ -31,6 +31,7 @@ public class RecipeGeneratorModVariables {
 	public static double filesWithGeneratedNameCount = 0;
 	public static String selectedMethod = "\"CraftTweaker\"";
 	public static String openedGUI = "\"\"";
+	public static boolean methodSelected = false;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
