@@ -8,8 +8,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.WidgetSprites;
-import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.Button;
@@ -43,7 +41,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	Button button_save;
 	Button button_close;
 	Button button_reload;
-	ImageButton imagebutton_floader_icon;
 
 	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -240,20 +237,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
-		imagebutton_floader_icon = new ImageButton(this.leftPos + 186, this.topPos + 106, 32, 32,
-				new WidgetSprites(new ResourceLocation("recipe_generator:textures/screens/floader_icon.png"), new ResourceLocation("recipe_generator:textures/screens/floader_icon_active.png")), e -> {
-					if (true) {
-						PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(9, x, y, z));
-						CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 9, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
-			}
-		};
-		guistate.put("button:imagebutton_floader_icon", imagebutton_floader_icon);
-		this.addRenderableWidget(imagebutton_floader_icon);
 		Is_shapeless = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 97)
 
 				.build();
