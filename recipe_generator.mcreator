@@ -326,7 +326,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ScriptswriterProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
       }
     },
     {
@@ -927,16 +932,22 @@
       "path": "~/Generators"
     },
     {
-      "name": "NameCreator",
+      "name": "FileNameCreator",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "name_creator",
+      "registry_name": "file_name_creator",
       "metadata": {
+        "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/NameCreatorProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/FileNameCreatorProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
       }
     }
   ],
@@ -1044,10 +1055,10 @@
   "language_map": {
     "en_us": {
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.furnace_ctgui.button_save": "Save",
-      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
+      "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.craftingtable_ctgui.recipe_name": "name",
+      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
       "gui.just_ctgui.furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
