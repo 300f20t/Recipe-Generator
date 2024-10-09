@@ -33,7 +33,7 @@ import java.util.HashMap;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<CraftingtableCTGUIButtonMessage> TYPE = new Type<>(new ResourceLocation(RecipeGeneratorMod.MODID, "craftingtable_ctgui_buttons"));
+	public static final Type<CraftingtableCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "craftingtable_ctgui_buttons"));
 	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingtableCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingtableCTGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);

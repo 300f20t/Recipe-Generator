@@ -42,7 +42,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/crafting_table_removing_ctgui.png");
+	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/crafting_table_removing_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {

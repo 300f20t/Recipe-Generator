@@ -26,7 +26,7 @@ import java.util.HashMap;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record FurnaceCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
 
-	public static final Type<FurnaceCTGUISlotMessage> TYPE = new Type<>(new ResourceLocation(RecipeGeneratorMod.MODID, "furnace_ctgui_slots"));
+	public static final Type<FurnaceCTGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_ctgui_slots"));
 	public static final StreamCodec<RegistryFriendlyByteBuf, FurnaceCTGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FurnaceCTGUISlotMessage message) -> {
 		buffer.writeInt(message.slotID);
 		buffer.writeInt(message.x);

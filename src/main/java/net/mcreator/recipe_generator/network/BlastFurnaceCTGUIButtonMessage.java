@@ -28,7 +28,7 @@ import java.util.HashMap;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<BlastFurnaceCTGUIButtonMessage> TYPE = new Type<>(new ResourceLocation(RecipeGeneratorMod.MODID, "blast_furnace_ctgui_buttons"));
+	public static final Type<BlastFurnaceCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "blast_furnace_ctgui_buttons"));
 	public static final StreamCodec<RegistryFriendlyByteBuf, BlastFurnaceCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, BlastFurnaceCTGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);

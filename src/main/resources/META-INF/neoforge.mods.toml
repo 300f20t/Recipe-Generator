@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[2,)"
+loaderVersion="[4,)"
 license="MIT License"
 
 [[mods]]
@@ -18,14 +18,14 @@ description="The Just Craft Tweaker GUI mod provides a visual recipe editor in m
 [[dependencies.recipe_generator]]
     modId="neoforge"
     type="required"
-    versionRange="[20.6.117,)"
+    versionRange="[21.1.65,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.recipe_generator]]
     modId="minecraft"
     type="required"
-    versionRange="[1.20.6]"
+    versionRange="[1.21.1]"
     ordering="AFTER"
     side="BOTH"
 

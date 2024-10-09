@@ -28,7 +28,7 @@ import java.util.HashMap;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<CraftingTableRemovingCTGUIButtonMessage> TYPE = new Type<>(new ResourceLocation(RecipeGeneratorMod.MODID, "crafting_table_removing_ctgui_buttons"));
+	public static final Type<CraftingTableRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "crafting_table_removing_ctgui_buttons"));
 	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingTableRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingTableRemovingCTGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);

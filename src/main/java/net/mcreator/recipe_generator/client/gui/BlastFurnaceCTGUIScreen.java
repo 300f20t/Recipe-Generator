@@ -45,7 +45,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/blast_furnace_ctgui.png");
+	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/blast_furnace_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -65,7 +65,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 78, this.topPos + 34, 0, 0, 24, 17, 24, 17);
+		guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 78, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 
 		RenderSystem.disableBlend();
 	}
