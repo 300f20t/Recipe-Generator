@@ -949,6 +949,32 @@
           }
         ]
       }
+    },
+    {
+      "name": "GenerationMethodSelection",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generation_method_selection",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerationMethodSelectionProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "GenerationMethodSelectionOpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generation_method_selection_open_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerationMethodSelectionOpenGUIProcedure.java"
+        ],
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [
