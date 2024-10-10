@@ -3,9 +3,9 @@ package net.mcreator.recipe_generator.client.gui;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
@@ -19,6 +19,10 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	Button button_crafttweaker;
+	Button button_kubejs_wip;
+	Button button_datapack_wip;
+	Button button_custommod_wip;
 
 	public GenerationMethodSelectionGUIScreen(GenerationMethodSelectionGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -30,8 +34,6 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 		this.imageWidth = 176;
 		this.imageHeight = 166;
 	}
-
-	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/generation_method_selection_gui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
@@ -45,7 +47,6 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 		RenderSystem.disableBlend();
 	}
 
@@ -60,10 +61,29 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_select_the_generation_method"), 6, 7, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed"), 96, 34, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed1"), 96, 61, -65485, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
+		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_crafttweaker"), e -> {
+		}).bounds(this.leftPos + 6, this.topPos + 25, 88, 20).build();
+		guistate.put("button:button_crafttweaker", button_crafttweaker);
+		this.addRenderableWidget(button_crafttweaker);
+		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_kubejs_wip"), e -> {
+		}).bounds(this.leftPos + 6, this.topPos + 52, 87, 20).build();
+		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
+		this.addRenderableWidget(button_kubejs_wip);
+		button_datapack_wip = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_datapack_wip"), e -> {
+		}).bounds(this.leftPos + 6, this.topPos + 79, 98, 20).build();
+		guistate.put("button:button_datapack_wip", button_datapack_wip);
+		this.addRenderableWidget(button_datapack_wip);
+		button_custommod_wip = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_custommod_wip"), e -> {
+		}).bounds(this.leftPos + 6, this.topPos + 106, 103, 20).build();
+		guistate.put("button:button_custommod_wip", button_custommod_wip);
+		this.addRenderableWidget(button_custommod_wip);
 	}
 }

@@ -28,6 +28,8 @@ public class RecipeGeneratorModVariables {
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;
 	public static String Mirror_axis = "\"NONE\"";
+	public static boolean methodSelected = false;
+	public static double selectedMethod = 0;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

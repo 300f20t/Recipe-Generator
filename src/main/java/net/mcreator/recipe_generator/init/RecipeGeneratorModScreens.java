@@ -9,6 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
+import net.mcreator.recipe_generator.client.gui.GenerationMethodSelectionGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;

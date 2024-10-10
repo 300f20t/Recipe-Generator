@@ -7,15 +7,109 @@
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
-    "components": [],
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_crafttweaker",
+          "text": "CraftTweaker",
+          "isUndecorated": false,
+          "width": 88,
+          "height": 20,
+          "x": 132,
+          "y": 62
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_kubejs_wip",
+          "text": "KubeJS (WIP)",
+          "isUndecorated": false,
+          "width": 87,
+          "height": 20,
+          "x": 132,
+          "y": 89
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_datapack_wip",
+          "text": "DataPack (WIP)",
+          "isUndecorated": false,
+          "width": 98,
+          "height": 20,
+          "x": 132,
+          "y": 116
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_select_the_generation_method",
+          "text": {
+            "fixedValue": "Select the generation method:"
+          },
+          "color": {
+            "value": -3355393,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 44
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 222,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed1",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "x": 222,
+          "y": 98
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "name": "button_custommod_wip",
+          "text": "CustomMod (WIP)",
+          "isUndecorated": false,
+          "width": 103,
+          "height": 20,
+          "x": 132,
+          "y": 143
+        }
+      }
+    ],
     "gridSettings": {
       "sx": 18,
       "sy": 18,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": false
+      "snapOnGrid": true
     }
   }
 }

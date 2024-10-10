@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.core.registries.Registries;
 
+import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
