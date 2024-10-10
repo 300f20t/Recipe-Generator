@@ -27,4 +27,6 @@ public class RecipeGeneratorModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<FurnaceRemovingCTGUIMenu>> FURNACE_REMOVING_CTGUI = REGISTRY.register("furnace_removing_ctgui", () -> IMenuTypeExtension.create(FurnaceRemovingCTGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceCTGUIMenu>> BLAST_FURNACE_CTGUI = REGISTRY.register("blast_furnace_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceCTGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceRemovingCTGUIMenu>> BLAST_FURNACE_REMOVING_CTGUI = REGISTRY.register("blast_furnace_removing_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceRemovingCTGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<GenerationMethodSelectionGUIMenu>> GENERATION_METHOD_SELECTION_GUI = REGISTRY.register("generation_method_selection_gui",
+			() -> IMenuTypeExtension.create(GenerationMethodSelectionGUIMenu::new));
 }

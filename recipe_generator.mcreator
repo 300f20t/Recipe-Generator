@@ -975,6 +975,19 @@
         ],
         "dependencies": []
       }
+    },
+    {
+      "name": "GenerationMethodSelectionGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generation_method_selection_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/GenerationMethodSelectionGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/GenerationMethodSelectionGUIScreen.java"
+        ]
+      }
     }
   ],
   "variable_elements": [

@@ -26,5 +26,6 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.FURNACE_REMOVING_CTGUI.get(), FurnaceRemovingCTGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.BLAST_FURNACE_CTGUI.get(), BlastFurnaceCTGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.BLAST_FURNACE_REMOVING_CTGUI.get(), BlastFurnaceRemovingCTGUIScreen::new);
+		event.register(RecipeGeneratorModMenus.GENERATION_METHOD_SELECTION_GUI.get(), GenerationMethodSelectionGUIScreen::new);
 	}
 }
