@@ -5,7 +5,7 @@
 
 MCreator plugins: File manager.
 
-Minecraft version: 1.20.4 NeoForge
+Minecraft version: 1.21.1 NeoForge
 
 ### **What is this mod and how to use it?**
 
