@@ -29,7 +29,7 @@ public class RecipeGeneratorModVariables {
 	public static boolean Is_shapeless = false;
 	public static String Mirror_axis = "\"NONE\"";
 	public static boolean methodSelected = false;
-	public static double selectedMethod = 0;
+	public static String selectedMethod = "\"NONE\"";
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
