@@ -69,23 +69,23 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z)
 			return;
 		if (buttonID == 0) {
 
-			AllmirroraxisProcedure.execute();
+			AllmirroraxisProcedure.execute(world);
 		}
 		if (buttonID == 1) {
 
-			DiagonalmirroraxisProcedure.execute();
+			DiagonalmirroraxisProcedure.execute(world);
 		}
 		if (buttonID == 2) {
 
-			HorizontalmirroraxisProcedure.execute();
+			HorizontalmirroraxisProcedure.execute(world);
 		}
 		if (buttonID == 3) {
 
-			NonemirroraxisProcedure.execute();
+			NonemirroraxisProcedure.execute(world);
 		}
 		if (buttonID == 4) {
 
-			VerticalmirroraxisProcedure.execute();
+			VerticalmirroraxisProcedure.execute(world);
 		}
 		if (buttonID == 5) {
 

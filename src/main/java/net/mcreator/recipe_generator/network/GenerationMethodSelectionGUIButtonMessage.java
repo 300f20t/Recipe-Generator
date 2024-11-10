@@ -62,11 +62,11 @@ public record GenerationMethodSelectionGUIButtonMessage(int buttonID, int x, int
 			return;
 		if (buttonID == 0) {
 
-			SelectCraftTweakerProcedure.execute();
+			SelectCraftTweakerProcedure.execute(world);
 		}
 		if (buttonID == 1) {
 
-			SelectKubeJSProcedure.execute();
+			SelectKubeJSProcedure.execute(world);
 		}
 	}
 

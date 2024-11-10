@@ -3,7 +3,7 @@
     {
       "name": "Ctguicommand",
       "type": "command",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "ctguicommand",
       "metadata": {
@@ -366,6 +366,10 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -381,7 +385,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ATTENTIONProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -394,7 +403,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/AllmirroraxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -408,7 +422,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/VerticalmirroraxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -422,7 +441,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/NonemirroraxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -436,7 +460,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/HorizontalmirroraxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -450,7 +479,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/DiagonalmirroraxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -465,7 +499,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/AllispressedProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -480,7 +519,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/VerticalispressedProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -495,7 +539,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/NoneispressedProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -510,7 +559,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/HorizontalispressedProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -525,7 +579,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/DiagonalispressedProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Mirror axes"
     },
@@ -652,7 +711,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/GetCurrentAxisProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -1008,7 +1072,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/SelectCraftTweakerProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -1021,36 +1090,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/SelectKubeJSProcedure.java"
         ],
-        "dependencies": []
-      }
-    },
-    {
-      "name": "GenerationMethodFirstSelectionOpenGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generation_method_first_selection_open_gui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerationMethodFirstSelectionOpenGUIProcedure.java"
-        ],
         "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
           {
             "name": "world",
             "type": "world"
@@ -1072,6 +1112,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1087,7 +1131,16 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/DebugVariableSelectedMethodChangeProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Debug"
     }
@@ -1174,26 +1227,26 @@
     {
       "name": "Is_mirrored",
       "type": "logic",
-      "scope": "global",
+      "scope": "world",
       "value": "false"
     },
     {
       "name": "Is_shapeless",
       "type": "logic",
-      "scope": "global",
+      "scope": "world",
       "value": "false"
     },
     {
       "name": "Mirror_axis",
       "type": "string",
-      "scope": "global",
-      "value": "\"NONE\""
+      "scope": "world",
+      "value": "NONE"
     },
     {
       "name": "selectedMethod",
       "type": "string",
-      "scope": "global",
-      "value": "\"NONE\""
+      "scope": "world",
+      "value": "NONE"
     }
   ],
   "sound_elements": [],
