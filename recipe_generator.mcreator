@@ -3,7 +3,7 @@
     {
       "name": "Ctguicommand",
       "type": "command",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "ctguicommand",
       "metadata": {
@@ -993,6 +993,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/world/inventory/GenerationMethodSelectionGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/GenerationMethodSelectionGUIButtonMessage.java",
           "src/main/java/net/mcreator/recipe_generator/client/gui/GenerationMethodSelectionGUIScreen.java"
         ]
       }
@@ -1022,6 +1023,73 @@
         ],
         "dependencies": []
       }
+    },
+    {
+      "name": "GenerationMethodFirstSelectionOpenGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generation_method_first_selection_open_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerationMethodFirstSelectionOpenGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DebugVariableSelectedMethodShow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_variable_selected_method_show",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugVariableSelectedMethodShowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "DebugVariableSelectedMethodChange",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_variable_selected_method_change",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugVariableSelectedMethodChangeProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Debug"
     }
   ],
   "variable_elements": [
@@ -1120,12 +1188,6 @@
       "type": "string",
       "scope": "global",
       "value": "\"NONE\""
-    },
-    {
-      "name": "methodSelected",
-      "type": "logic",
-      "scope": "global",
-      "value": "false"
     },
     {
       "name": "selectedMethod",
@@ -1358,6 +1420,10 @@
       {
         "name": "Generators",
         "children": []
+      },
+      {
+        "name": "Debug",
+        "children": []
       }
     ]
   },
@@ -1379,5 +1445,5 @@
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
-  "mcreatorVersion": 202400340615
+  "mcreatorVersion": 202400342716
 }

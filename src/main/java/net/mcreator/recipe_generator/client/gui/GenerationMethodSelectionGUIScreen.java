@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,6 +11,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
+import net.mcreator.recipe_generator.network.GenerationMethodSelectionGUIButtonMessage;
 
 import java.util.HashMap;
 
@@ -70,10 +73,18 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 	public void init() {
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_crafttweaker"), e -> {
+			if (true) {
+				PacketDistributor.sendToServer(new GenerationMethodSelectionGUIButtonMessage(0, x, y, z));
+				GenerationMethodSelectionGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+			}
 		}).bounds(this.leftPos + 6, this.topPos + 25, 88, 20).build();
 		guistate.put("button:button_crafttweaker", button_crafttweaker);
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.generation_method_selection_gui.button_kubejs_wip"), e -> {
+			if (true) {
+				PacketDistributor.sendToServer(new GenerationMethodSelectionGUIButtonMessage(1, x, y, z));
+				GenerationMethodSelectionGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+			}
 		}).bounds(this.leftPos + 6, this.topPos + 52, 87, 20).build();
 		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
 		this.addRenderableWidget(button_kubejs_wip);

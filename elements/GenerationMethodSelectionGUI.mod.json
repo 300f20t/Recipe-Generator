@@ -16,6 +16,9 @@
           "name": "button_crafttweaker",
           "text": "CraftTweaker",
           "isUndecorated": false,
+          "onClick": {
+            "name": "SelectCraftTweaker"
+          },
           "width": 88,
           "height": 20,
           "x": 132,
@@ -28,6 +31,9 @@
           "name": "button_kubejs_wip",
           "text": "KubeJS (WIP)",
           "isUndecorated": false,
+          "onClick": {
+            "name": "SelectKubeJS"
+          },
           "width": 87,
           "height": 20,
           "x": 132,
