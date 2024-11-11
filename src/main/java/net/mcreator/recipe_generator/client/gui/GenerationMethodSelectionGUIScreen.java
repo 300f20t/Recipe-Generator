@@ -11,6 +11,8 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
+import net.mcreator.recipe_generator.procedures.KubeJSIsInstalledProcedure;
+import net.mcreator.recipe_generator.procedures.CraftTweakerIsInstalledProcedure;
 import net.mcreator.recipe_generator.network.GenerationMethodSelectionGUIButtonMessage;
 
 import java.util.HashMap;
@@ -65,8 +67,13 @@ public class GenerationMethodSelectionGUIScreen extends AbstractContainerScreen<
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_select_the_generation_method"), 6, 7, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed"), 96, 34, -65485, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed1"), 96, 61, -65485, false);
+		if (CraftTweakerIsInstalledProcedure.execute())
+			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed"), 96, 34, -65485, false);
+		if (KubeJSIsInstalledProcedure.execute())
+			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_not_installed1"), 96, 61, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_you_can_open_this_gui_at_any_tim"), 6, 133, -205, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_rgui_generationmethode"), 6, 151, -65536, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.generation_method_selection_gui.label_if_you_type_the_command_written"), 6, 142, -205, false);
 	}
 
 	@Override

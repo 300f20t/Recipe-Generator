@@ -78,6 +78,9 @@
             "value": -65485,
             "falpha": 0.0
           },
+          "displayCondition": {
+            "name": "CraftTweakerIsInstalled"
+          },
           "x": 222,
           "y": 71
         }
@@ -93,6 +96,9 @@
             "value": -65485,
             "falpha": 0.0
           },
+          "displayCondition": {
+            "name": "KubeJSIsInstalled"
+          },
           "x": 222,
           "y": 98
         }
@@ -107,6 +113,51 @@
           "height": 20,
           "x": 132,
           "y": 143
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_you_can_open_this_gui_at_any_tim",
+          "text": {
+            "fixedValue": "You can open this GUI at any time"
+          },
+          "color": {
+            "value": -205,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 170
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_rgui_generationmethode",
+          "text": {
+            "fixedValue": "/rgui generationMethode"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 188
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_if_you_type_the_command_written",
+          "text": {
+            "fixedValue": "if you type the command written below:"
+          },
+          "color": {
+            "value": -205,
+            "falpha": 0.0
+          },
+          "x": 132,
+          "y": 179
         }
       }
     ],
