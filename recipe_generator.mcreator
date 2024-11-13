@@ -84,7 +84,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "Iteminslot0incraftingtableCTGUI",
@@ -320,7 +320,7 @@
       "name": "Scriptswriter",
       "type": "procedure",
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "scriptswriter",
       "metadata": {
         "files": [
@@ -660,7 +660,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "GenerateRemovingRecipes",
@@ -679,7 +679,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "GenerateRemovingFurnaceRecipes",
@@ -698,7 +698,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "GetCurrentAxis",
@@ -974,7 +974,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "GenerateBlastFurnaceRemovingRecipes",
@@ -993,7 +993,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "FileNameCreator",
@@ -1148,6 +1148,39 @@
         ],
         "dependencies": []
       }
+    },
+    {
+      "name": "GenerateRecipesKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_recipes_kube_js",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateRecipesKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/KubeJS"
+    },
+    {
+      "name": "DebugGameDir",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_game_dir",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDirProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
     }
   ],
   "variable_elements": [
@@ -1262,9 +1295,9 @@
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.furnace_ctgui.button_save": "Save",
-      "gui.recipe_generator.craftingtable_ctgui.recipe_name": "name",
-      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
       "gui.recipe_generator.generation_method_selection_gui.label_you_can_open_this_gui_at_any_tim": "You can open this GUI at any time",
+      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
+      "gui.recipe_generator.craftingtable_ctgui.recipe_name": "name",
       "gui.just_ctgui.furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
@@ -1480,7 +1513,16 @@
       },
       {
         "name": "Generators",
-        "children": []
+        "children": [
+          {
+            "name": "CraftTweaker",
+            "children": []
+          },
+          {
+            "name": "KubeJS",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Debug",

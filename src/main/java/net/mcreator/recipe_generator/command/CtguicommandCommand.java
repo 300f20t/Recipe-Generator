@@ -22,12 +22,27 @@ import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingCTGUIPro
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.GenerationMethodSelectionOpenGUIProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
+import net.mcreator.recipe_generator.procedures.DebugGameDirProcedure;
 
 @EventBusSubscriber
 public class CtguicommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
+		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
+			Level world = arguments.getSource().getUnsidedLevel();
+			double x = arguments.getSource().getPosition().x();
+			double y = arguments.getSource().getPosition().y();
+			double z = arguments.getSource().getPosition().z();
+			Entity entity = arguments.getSource().getEntity();
+			if (entity == null && world instanceof ServerLevel _servLevel)
+				entity = FakePlayerFactory.getMinecraft(_servLevel);
+			Direction direction = Direction.DOWN;
+			if (entity != null)
+				direction = entity.getDirection();
+
+			DebugGameDirProcedure.execute(entity);
+			return 0;
+		})).then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
