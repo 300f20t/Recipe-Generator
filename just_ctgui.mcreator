@@ -1056,18 +1056,6 @@
       "path": "~/Change selected generating method"
     },
     {
-      "name": "GeneratingMethodSelectCommand",
-      "type": "command",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generating_method_select_command",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/command/GeneratingMethodSelectCommandCommand.java"
-        ]
-      }
-    },
-    {
       "name": "CloseWithSaveOpenedGUI",
       "type": "procedure",
       "compiles": true,
@@ -1150,6 +1138,110 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "DebugGameDIr",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_game_d_ir",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDIrProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "DebugVariableSelectedMethodShow",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_variable_selected_method_show",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugVariableSelectedMethodShowProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "OpenMethodSelectWithCommand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_method_select_with_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenMethodSelectWithCommandProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "DebugNBTTags",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_nbt_tags",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugNBTTagsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "RguiDebug",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rgui_debug",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/command/RguiDebugCommand.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1517,13 +1609,17 @@
       {
         "name": "Change selected generating method",
         "children": []
+      },
+      {
+        "name": "Debug",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "recipe_generator",
     "modName": "Recipe Generator",
-    "version": "0.2.2.1_beta",
+    "version": "0.2.3_beta",
     "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
@@ -1534,9 +1630,9 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "neoforge-1.20.6",
+    "currentGenerator": "neoforge-1.21.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
-  "mcreatorVersion": 202400232117
+  "mcreatorVersion": 202400342716
 }

@@ -11,11 +11,12 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.core.registries.Registries;
 
-import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -28,6 +29,8 @@ public class RecipeGeneratorModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<FurnaceRemovingCTGUIMenu>> FURNACE_REMOVING_CTGUI = REGISTRY.register("furnace_removing_ctgui", () -> IMenuTypeExtension.create(FurnaceRemovingCTGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceCTGUIMenu>> BLAST_FURNACE_CTGUI = REGISTRY.register("blast_furnace_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceCTGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceRemovingCTGUIMenu>> BLAST_FURNACE_REMOVING_CTGUI = REGISTRY.register("blast_furnace_removing_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceRemovingCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<GenerationMethodSelectionGUIMenu>> GENERATION_METHOD_SELECTION_GUI = REGISTRY.register("generation_method_selection_gui",
-			() -> IMenuTypeExtension.create(GenerationMethodSelectionGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGenerationMethodGUIMenu>> CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI = REGISTRY.register("choosing_the_recipe_generation_method_gui",
+			() -> IMenuTypeExtension.create(ChoosingTheRecipeGenerationMethodGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
+			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 }

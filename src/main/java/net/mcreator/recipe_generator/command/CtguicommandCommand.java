@@ -17,12 +17,12 @@ import net.minecraft.commands.Commands;
 import net.mcreator.recipe_generator.procedures.OpencraftingtableCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
+import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
 import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.GenerationMethodSelectionOpenGUIProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
-import net.mcreator.recipe_generator.procedures.DebugGameDirProcedure;
+import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
 @EventBusSubscriber
 public class CtguicommandCommand {
@@ -40,7 +40,7 @@ public class CtguicommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			DebugGameDirProcedure.execute(entity);
+			DebugGameDIrProcedure.execute(entity);
 			return 0;
 		})).then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -54,7 +54,7 @@ public class CtguicommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			DebugVariableSelectedMethodShowProcedure.execute(world, entity);
+			DebugVariableSelectedMethodShowProcedure.execute(entity);
 			return 0;
 		})))).then(Commands.literal("generationMethode").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -68,7 +68,7 @@ public class CtguicommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			GenerationMethodSelectionOpenGUIProcedure.execute(world, x, y, z, entity);
+			OpenMethodSelectProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("craftingTable").then(Commands.literal("addRecipe").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();

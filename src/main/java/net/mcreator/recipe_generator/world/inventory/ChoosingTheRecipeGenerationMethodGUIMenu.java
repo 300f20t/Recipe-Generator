@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class GenerationMethodSelectionGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class ChoosingTheRecipeGenerationMethodGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -35,8 +35,8 @@ public class GenerationMethodSelectionGUIMenu extends AbstractContainerMenu impl
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public GenerationMethodSelectionGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(RecipeGeneratorModMenus.GENERATION_METHOD_SELECTION_GUI.get(), id);
+	public ChoosingTheRecipeGenerationMethodGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(0);

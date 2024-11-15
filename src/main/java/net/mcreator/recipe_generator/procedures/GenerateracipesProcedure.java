@@ -30,7 +30,7 @@ public class GenerateracipesProcedure {
 				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
 						? "no_name"
 						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
-				+ "\", " + (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() ? "MirrorAxis." + RecipeGeneratorModVariables.WorldVariables.get(world).Mirror_axis + ", " : "")
+				+ "\", " + (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() ? "MirrorAxis." + RecipeGeneratorModVariables.Mirror_axis + ", " : "")
 				+ RecipeGeneratorModVariables.Pre_generated_recipe;
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);

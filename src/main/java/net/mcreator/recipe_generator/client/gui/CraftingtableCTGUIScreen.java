@@ -62,7 +62,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
-		if (ATTENTIONProcedure.execute(world))
+		if (ATTENTIONProcedure.execute())
 			if (mouseX > leftPos + 240 && mouseX < leftPos + 264 && mouseY > topPos + 34 && mouseY < topPos + 58)
 				guiGraphics.renderTooltip(font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.tooltip_attention_this_configuration_wil"), mouseX, mouseY);
 	}
@@ -76,7 +76,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 		guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 
-		if (ATTENTIONProcedure.execute(world)) {
+		if (ATTENTIONProcedure.execute()) {
 			guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/popup_hint.png"), this.leftPos + 240, this.topPos + 34, 0, 0, 24, 24, 24, 24);
 		}
 		RenderSystem.disableBlend();
@@ -112,7 +112,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393, false);
 		guiGraphics.drawString(this.font,
 
-				GetCurrentAxisProcedure.execute(world), 68, -35, -3355393, false);
+				GetCurrentAxisProcedure.execute(), 68, -35, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafting"), 24, 5, -12829636, false);
 	}
 
