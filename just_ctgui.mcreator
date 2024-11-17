@@ -1,18 +1,6 @@
 {
   "mod_elements": [
     {
-      "name": "Ctguicommand",
-      "type": "command",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ctguicommand",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/command/CtguicommandCommand.java"
-        ]
-      }
-    },
-    {
       "name": "OpencraftingtableCTGUI",
       "type": "procedure",
       "compiles": true,
@@ -1230,6 +1218,18 @@
         ]
       },
       "path": "~/Debug"
+    },
+    {
+      "name": "RguiCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rgui_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/command/RguiCommandCommand.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
