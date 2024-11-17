@@ -25,7 +25,7 @@ import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowP
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
 @EventBusSubscriber
-public class CtguicommandCommand {
+public class RguiCommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
 		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
