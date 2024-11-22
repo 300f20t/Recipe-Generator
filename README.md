@@ -9,8 +9,6 @@ Minecraft version: 1.19.2 Forge
 
 ### **What is this mod and how to use it?**
 
-### **What is this mod and how to use it?**
-
 **The Recipe Generator mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language. To be more precise, it is not an additional mod for Craft Tweaker, but simply adds a visual editor to the game and automatic code generation in Zen Script.**
 
 **It is very easy to use this mod, it is enough to install the mod on the server and client, if desired,** _**you can install Craft Tweaker for ease of development, but this is optional.**_ **Thanks to this, you can start creating your own recipes for assembly even before the official release of Craft Tweaker on this version. Thus, the recipes will not work in the game, but when the craft tweaker is installed, they will all work.**
