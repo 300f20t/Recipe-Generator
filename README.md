@@ -5,7 +5,7 @@
 
 MCreator plugins: None.
 
-Minecraft version: 1.14.4 Forge
+Minecraft version: 1.16.5 Forge
 
 ### Idk how it works.
 
