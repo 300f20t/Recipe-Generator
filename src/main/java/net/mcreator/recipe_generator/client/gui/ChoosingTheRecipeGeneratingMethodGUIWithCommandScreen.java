@@ -12,6 +12,8 @@ import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
 import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodProcedure;
+import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
+import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage;
 
 import java.util.HashMap;
@@ -70,8 +72,10 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 		guiGraphics.drawString(this.font,
 
 				ReturnSelectedGeneratingMethodProcedure.execute(), 96, 7, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed"), 132, 34, -65536, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1"), 132, 61, -65536, false);
+		if (CheckCraftTweakerProcedure.execute())
+			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed"), 132, 34, -65536, false);
+		if (CheckKubeJSProcedure.execute())
+			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1"), 132, 61, -65536, false);
 	}
 
 	@Override
