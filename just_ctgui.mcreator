@@ -1230,6 +1230,36 @@
           "src/main/java/net/mcreator/recipe_generator/command/RguiCommandCommand.java"
         ]
       }
+    },
+    {
+      "name": "CheckCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_craft_tweaker",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CheckCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Check generation methods"
+    },
+    {
+      "name": "CheckKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_kube_js",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CheckKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Check generation methods"
     }
   ],
   "variable_elements": [
@@ -1481,6 +1511,7 @@
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.recipe_generator.craftingtable_ctgui.button_vertical": "vertical",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1": "Not installed!",
       "gui.recipe_generator.choosing_the_recipe_generating_method.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
       "gui.recipe_generator.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.crafting_table_removing_ctgui.recipe_name": "name",
@@ -1490,10 +1521,11 @@
       "gui.recipe_generator.furnace_ctgui.file_name": "generated1",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker": "CraftTweaker",
       "gui.just_ctgui.furnace_removing_recipes_gui.file_name": "generated1",
-      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the": "You can open this menu with the /rgui generationMethode command",
       "gui.recipe_generator.choosing_the_recipe_generating_method.button_close": "Close",
       "gui.just_ctgui.blast_furnace_ctgui.time": "10",
       "gui.just_ctgui.blast_furnace_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed": "Not installed!",
       "gui.recipe_generator.furnace_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.furnace_ctgui.label_furnace": "Furnace",
@@ -1544,12 +1576,14 @@
       "gui.recipe_generator.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.blast_furnace_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_ctgui.label_xp": "XP:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed1": "Not installed!",
       "gui.just_ctgui.blast_furnace_removing_ctgui.file_name": "generated1",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
       "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generating_method.label_selected_mod": "Selected Generating Method:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed": "Not installed!",
       "gui.recipe_generator.craftingtable_ctgui.label_current_axis": "Current axis:",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_horizontal": "horizontal",
       "gui.just_ctgui.furnace_removing_recipes_gui.recipe_name": "name",
@@ -1600,6 +1634,10 @@
       },
       {
         "name": "Debug",
+        "children": []
+      },
+      {
+        "name": "Check generation methods",
         "children": []
       }
     ]

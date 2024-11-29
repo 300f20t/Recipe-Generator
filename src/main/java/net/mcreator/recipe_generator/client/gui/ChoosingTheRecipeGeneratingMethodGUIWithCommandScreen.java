@@ -70,6 +70,8 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 		guiGraphics.drawString(this.font,
 
 				ReturnSelectedGeneratingMethodProcedure.execute(), 96, 7, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed"), 132, 34, -65536, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1"), 132, 61, -65536, false);
 	}
 
 	@Override

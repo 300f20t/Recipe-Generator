@@ -109,6 +109,36 @@
           "x": 186,
           "y": 179
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 258,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed1",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 258,
+          "y": 98
+        }
       }
     ],
     "gridSettings": {

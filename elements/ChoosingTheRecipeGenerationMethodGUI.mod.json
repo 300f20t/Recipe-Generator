@@ -84,13 +84,13 @@
         "data": {
           "name": "label_you_can_open_this_menu_with_the",
           "text": {
-            "fixedValue": "You can open this menu with the /generatingMethodSelect command"
+            "fixedValue": "You can open this menu with the /rgui generationMethode command"
           },
           "color": {
             "value": -154,
             "falpha": 0.0
           },
-          "x": 60,
+          "x": 69,
           "y": 26
         }
       },
@@ -123,6 +123,36 @@
           "height": 20,
           "x": 186,
           "y": 179
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 258,
+          "y": 71
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_not_installed1",
+          "text": {
+            "fixedValue": "Not installed!"
+          },
+          "color": {
+            "value": -65536,
+            "falpha": 0.0
+          },
+          "x": 258,
+          "y": 98
         }
       }
     ],
