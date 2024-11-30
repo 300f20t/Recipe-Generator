@@ -949,7 +949,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/RecipeNameCreatorProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
       }
     },
     {
@@ -1369,7 +1374,7 @@
       "name": "selectedMethod",
       "type": "string",
       "scope": "global",
-      "value": "\"CraftTweaker\""
+      "value": "\"NONE\""
     },
     {
       "name": "openedGUI",
