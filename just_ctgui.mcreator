@@ -307,7 +307,7 @@
     {
       "name": "Scriptswriter",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "scriptswriter",
       "metadata": {
@@ -315,6 +315,10 @@
           "src/main/java/net/mcreator/recipe_generator/procedures/ScriptswriterProcedure.java"
         ],
         "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
           {
             "name": "guistate",
             "type": "map"
