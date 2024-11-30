@@ -12,7 +12,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
+import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import io.netty.buffer.Unpooled;
@@ -27,7 +27,7 @@ public class OpencraftingtableCTGUIProcedure {
 				_ent.openMenu(new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.literal("ChoosingTheRecipeGeneratingMethodGUIWithCommand");
+						return Component.literal("ChoosingTheRecipeGenerationMethodGUI");
 					}
 
 					@Override
@@ -37,7 +37,7 @@ public class OpencraftingtableCTGUIProcedure {
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new ChoosingTheRecipeGenerationMethodGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}

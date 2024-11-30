@@ -1362,7 +1362,7 @@
       "name": "Mirror_axis",
       "type": "string",
       "scope": "global",
-      "value": "\"NONE\""
+      "value": "NONE"
     },
     {
       "name": "filesWithGeneratedNameCount",
@@ -1374,7 +1374,7 @@
       "name": "selectedMethod",
       "type": "string",
       "scope": "global",
-      "value": "\"NONE\""
+      "value": "NONE"
     },
     {
       "name": "openedGUI",

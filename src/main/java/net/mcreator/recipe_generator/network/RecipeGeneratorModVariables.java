@@ -27,9 +27,9 @@ public class RecipeGeneratorModVariables {
 	public static String Pre_generated_recipe = "\"\"";
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;
-	public static String Mirror_axis = "\"NONE\"";
+	public static String Mirror_axis = "NONE";
 	public static double filesWithGeneratedNameCount = 0;
-	public static String selectedMethod = "\"CraftTweaker\"";
+	public static String selectedMethod = "NONE";
 	public static String openedGUI = "\"\"";
 	public static boolean methodSelected = false;
 
