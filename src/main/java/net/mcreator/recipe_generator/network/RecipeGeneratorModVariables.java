@@ -24,7 +24,6 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_9_crafting_table = "\"\"";
 	public static String Generated_recipe = "\"\"";
 	public static String Recipe_name = "\"\"";
-	public static String Pre_generated_recipe = "\"\"";
 	public static boolean Is_mirrored = false;
 	public static boolean Is_shapeless = false;
 	public static String Mirror_axis = "NONE";
