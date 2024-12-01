@@ -1,0 +1,1 @@
+craftingTable.addShaped("no_name", <item:minecraft:bricks> * 3, [[<item:minecraft:prismarine>, <item:minecraft:prismarine>, <item:minecraft:prismarine>], [<item:minecraft:prismarine>, <item:minecraft:nether_brick_wall>, <item:minecraft:air>], [<item:minecraft:air>, <item:minecraft:nether_brick_wall>, <item:minecraft:air>]]);

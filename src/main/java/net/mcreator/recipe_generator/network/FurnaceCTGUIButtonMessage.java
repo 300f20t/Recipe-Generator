@@ -68,7 +68,7 @@ public record FurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) imple
 		}
 		if (buttonID == 1) {
 
-			ScriptswriterProcedure.execute(entity, guistate);
+			ScriptswriterProcedure.execute(guistate);
 		}
 		if (buttonID == 2) {
 
