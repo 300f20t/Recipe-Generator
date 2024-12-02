@@ -21,10 +21,10 @@ public class ScriptswriterProcedure {
 		FileNameCreatorProcedure.execute(guistate);
 		if ((RecipeGeneratorModVariables.selectedMethod).equals("CraftTweaker")) {
 			localDir = "/scripts";
-			localDir = ".zs";
+			fileExtention = ".zs";
 		} else if ((RecipeGeneratorModVariables.selectedMethod).equals("KubeJS")) {
 			localDir = "/server_scripts";
-			localDir = ".js";
+			fileExtention = ".js";
 		}
 		generated = new File((FMLPaths.GAMEDIR.get().toString() + "" + localDir), File.separator + (FileNameCreatorProcedure.execute(guistate) + "" + fileExtention));
 		if (generated.exists()) {
