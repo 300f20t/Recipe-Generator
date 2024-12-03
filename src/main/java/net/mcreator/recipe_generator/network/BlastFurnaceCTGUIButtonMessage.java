@@ -68,7 +68,7 @@ public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) 
 		}
 		if (buttonID == 1) {
 
-			ScriptswriterProcedure.execute(guistate);
+			ScriptswriterProcedure.execute(world, guistate);
 		}
 		if (buttonID == 2) {
 

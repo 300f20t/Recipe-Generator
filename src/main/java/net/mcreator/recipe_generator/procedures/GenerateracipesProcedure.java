@@ -16,10 +16,10 @@ public class GenerateracipesProcedure {
 		String preGeneratedRecipe = "";
 		String recipeType = "";
 		String recipeTypeFutures = "";
-		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_9_crafting_table + ", [" + RecipeGeneratorModVariables.item_in_slot_0_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_1_crafting_table + ", "
-				+ RecipeGeneratorModVariables.item_in_slot_2_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_3_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_4_crafting_table + ", "
-				+ RecipeGeneratorModVariables.item_in_slot_5_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_6_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_7_crafting_table + ", "
-				+ RecipeGeneratorModVariables.item_in_slot_8_crafting_table + "]);";
+		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_9_crafting_table + ", [[" + RecipeGeneratorModVariables.item_in_slot_0_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_1_crafting_table + ", "
+				+ RecipeGeneratorModVariables.item_in_slot_2_crafting_table + "], [" + RecipeGeneratorModVariables.item_in_slot_3_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_4_crafting_table + ", "
+				+ RecipeGeneratorModVariables.item_in_slot_5_crafting_table + "], [" + RecipeGeneratorModVariables.item_in_slot_6_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_7_crafting_table + ", "
+				+ RecipeGeneratorModVariables.item_in_slot_8_crafting_table + "]]);";
 		if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
 			recipeType = "craftingTable.addShapedMirrored(\"";
 			recipeTypeFutures = "MirrorAxis." + RecipeGeneratorModVariables.Mirror_axis + ", ";

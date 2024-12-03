@@ -64,11 +64,11 @@ public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int b
 			return;
 		if (buttonID == 0) {
 
-			ChangeSelectedGeneratingMethodToCraftTweakerProcedure.execute();
+			ChangeSelectedGeneratingMethodToCraftTweakerProcedure.execute(world);
 		}
 		if (buttonID == 1) {
 
-			ChangeSelectedGeneratingMethodToKubeJSProcedure.execute();
+			ChangeSelectedGeneratingMethodToKubeJSProcedure.execute(world);
 		}
 		if (buttonID == 4) {
 

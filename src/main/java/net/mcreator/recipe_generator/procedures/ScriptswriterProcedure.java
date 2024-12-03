@@ -2,6 +2,8 @@ package net.mcreator.recipe_generator.procedures;
 
 import net.neoforged.fml.loading.FMLPaths;
 
+import net.minecraft.world.level.LevelAccessor;
+
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import java.util.HashMap;
@@ -12,22 +14,22 @@ import java.io.File;
 import java.io.BufferedWriter;
 
 public class ScriptswriterProcedure {
-	public static void execute(HashMap guistate) {
+	public static void execute(LevelAccessor world, HashMap guistate) {
 		if (guistate == null)
 			return;
 		File generated = new File("");
 		String localDir = "";
 		String fileExtention = "";
 		FileNameCreatorProcedure.execute(guistate);
-		if ((RecipeGeneratorModVariables.selectedMethod).equals("CraftTweaker")) {
+		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
 			localDir = "/scripts";
 			fileExtention = ".zs";
-		} else if ((RecipeGeneratorModVariables.selectedMethod).equals("KubeJS")) {
+		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			localDir = "/server_scripts";
 			fileExtention = ".js";
 		}
 		generated = new File((FMLPaths.GAMEDIR.get().toString() + "" + localDir), File.separator + (FileNameCreatorProcedure.execute(guistate) + "" + fileExtention));
-		if (generated.exists()) {
+		if (!generated.exists()) {
 			try {
 				generated.getParentFile().mkdirs();
 				generated.createNewFile();

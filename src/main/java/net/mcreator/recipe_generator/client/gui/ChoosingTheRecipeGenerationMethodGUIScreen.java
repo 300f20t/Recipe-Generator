@@ -72,7 +72,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the"), -57, -11, -154, false);
 		guiGraphics.drawString(this.font,
 
-				ReturnSelectedGeneratingMethodProcedure.execute(), 96, 7, -3355393, false);
+				ReturnSelectedGeneratingMethodProcedure.execute(world), 96, 7, -3355393, false);
 		if (CheckCraftTweakerProcedure.execute())
 			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed"), 132, 34, -65536, false);
 		if (CheckKubeJSProcedure.execute())

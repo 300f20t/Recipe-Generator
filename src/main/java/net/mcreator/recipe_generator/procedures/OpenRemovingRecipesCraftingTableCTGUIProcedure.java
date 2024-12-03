@@ -21,7 +21,7 @@ public class OpenRemovingRecipesCraftingTableCTGUIProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if ((RecipeGeneratorModVariables.selectedMethod).equals("NONE")) {
+		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("NONE")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
 				_ent.openMenu(new MenuProvider() {

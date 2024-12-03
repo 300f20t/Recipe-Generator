@@ -10,7 +10,7 @@ public class FileNameCreatorProcedure {
 		if (guistate == null)
 			return "";
 		String fileName = "";
-		fileName = guistate.containsKey("text:textFieldName") ? ((EditBox) guistate.get("text:textFieldName")).getValue() : "";
+		fileName = guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "";
 		if ((fileName).isEmpty()) {
 			fileName = "generated " + new java.text.SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(Calendar.getInstance().getTime());
 		}

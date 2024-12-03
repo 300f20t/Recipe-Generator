@@ -318,6 +318,10 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -1017,7 +1021,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ReturnSelectedGeneratingMethodProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -1030,7 +1039,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToCraftTweakerProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Change selected generating method"
     },
@@ -1044,7 +1058,12 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToKubeJSProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Change selected generating method"
     },
@@ -1165,6 +1184,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -1367,7 +1390,7 @@
     {
       "name": "selectedMethod",
       "type": "string",
-      "scope": "global",
+      "scope": "world",
       "value": "NONE"
     },
     {

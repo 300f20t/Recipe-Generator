@@ -68,7 +68,7 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 		}
 		if (buttonID == 1) {
 
-			ScriptswriterProcedure.execute(guistate);
+			ScriptswriterProcedure.execute(world, guistate);
 		}
 		if (buttonID == 2) {
 
