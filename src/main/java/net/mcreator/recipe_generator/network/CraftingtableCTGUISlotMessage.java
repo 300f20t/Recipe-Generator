@@ -74,43 +74,43 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot0incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 1 && changeType == 0) {
 
-			Iteminslot1incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot1incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 2 && changeType == 0) {
 
-			Iteminslot2incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot2incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 3 && changeType == 0) {
 
-			Iteminslot3incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot3incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 4 && changeType == 0) {
 
-			Iteminslot4incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot4incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 5 && changeType == 0) {
 
-			Iteminslot5incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot5incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 6 && changeType == 0) {
 
-			Iteminslot6incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot6incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 7 && changeType == 0) {
 
-			Iteminslot7incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot7incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 8 && changeType == 0) {
 
-			Iteminslot8incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot8incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 9 && changeType == 0) {
 
-			Iteminslot9incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot9incraftingtableCTGUIProcedure.execute(entity);
 		}
 	}
 

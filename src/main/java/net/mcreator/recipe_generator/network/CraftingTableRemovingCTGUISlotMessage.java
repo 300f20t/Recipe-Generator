@@ -65,7 +65,7 @@ public record CraftingTableRemovingCTGUISlotMessage(int slotID, int x, int y, in
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot0incraftingtableCTGUIProcedure.execute(entity);
 		}
 	}
 

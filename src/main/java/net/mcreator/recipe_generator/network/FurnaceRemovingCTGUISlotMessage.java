@@ -65,7 +65,7 @@ public record FurnaceRemovingCTGUISlotMessage(int slotID, int x, int y, int z, i
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot0incraftingtableCTGUIProcedure.execute(entity);
 		}
 	}
 

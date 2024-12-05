@@ -14,6 +14,7 @@ import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -30,16 +31,16 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class RecipeGeneratorModVariables {
 	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, RecipeGeneratorMod.MODID);
-	public static String item_in_slot_0_crafting_table = "";
-	public static String item_in_slot_1_crafting_table = "\"\"";
-	public static String item_in_slot_2_crafting_table = "\"\"";
-	public static String item_in_slot_3_crafting_table = "\"\"";
-	public static String item_in_slot_4_crafting_table = "\"\"";
-	public static String item_in_slot_5_crafting_table = "\"\"";
-	public static String item_in_slot_6_crafting_table = "\"\"";
-	public static String item_in_slot_7_crafting_table = "\"\"";
-	public static String item_in_slot_8_crafting_table = "\"\"";
-	public static String item_in_slot_9_crafting_table = "\"\"";
+	public static ItemStack item_in_slot_0 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_1 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_2 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_3 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_4 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_5 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_6 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_7 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_8 = ItemStack.EMPTY;
+	public static ItemStack item_in_slot_9 = ItemStack.EMPTY;
 	public static String Generated_recipe = "\"\"";
 	public static String Recipe_name = "\"\"";
 	public static boolean Is_mirrored = false;
@@ -48,6 +49,7 @@ public class RecipeGeneratorModVariables {
 	public static double filesWithGeneratedNameCount = 0;
 	public static String openedGUI = "\"\"";
 	public static boolean methodSelected = false;
+	public static double item_in_slot_9_count = 0;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

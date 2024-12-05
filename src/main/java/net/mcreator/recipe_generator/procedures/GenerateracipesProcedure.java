@@ -30,11 +30,14 @@ public class GenerateracipesProcedure {
 			recipeType = "craftingTable.addShaped(\"";
 			recipeTypeFutures = preGeneratedRecipe;
 		}
-		RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
-				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
-						? "no_name"
-						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
-				+ "\", " + recipeTypeFutures;
+		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
+			RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
+					+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+							? "no_name"
+							: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+					+ "\", " + recipeTypeFutures;
+		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
+		}
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}

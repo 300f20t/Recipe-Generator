@@ -66,11 +66,11 @@ public record BlastFurnaceCTGUISlotMessage(int slotID, int x, int y, int z, int 
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot0incraftingtableCTGUIProcedure.execute(entity);
 		}
 		if (slot == 1 && changeType == 0) {
 
-			Iteminslot1incraftingtableCTGUIProcedure.execute(world, entity);
+			Iteminslot1incraftingtableCTGUIProcedure.execute(entity);
 		}
 	}
 

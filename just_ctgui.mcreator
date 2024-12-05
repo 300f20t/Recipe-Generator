@@ -88,10 +88,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -111,10 +107,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -134,10 +126,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -157,10 +145,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -180,10 +164,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -203,10 +183,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -226,10 +202,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -249,10 +221,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -272,10 +240,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -295,10 +259,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -1288,68 +1248,82 @@
         "dependencies": []
       },
       "path": "~/Check generation methods"
+    },
+    {
+      "name": "DebugJsonSerializer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_json_serializer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugJsonSerializerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Debug"
     }
   ],
   "variable_elements": [
     {
-      "name": "item_in_slot_0_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_0",
+      "type": "itemstack",
       "scope": "global",
-      "value": ""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_1_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_1",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_2_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_2",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_3_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_3",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_4_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_4",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_5_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_5",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_6_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_6",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_7_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_7",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_8_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_8",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "item_in_slot_9_crafting_table",
-      "type": "string",
+      "name": "item_in_slot_9",
+      "type": "itemstack",
       "scope": "global",
-      "value": "\"\""
+      "value": "ItemStack.EMPTY"
     },
     {
       "name": "Generated_recipe",
@@ -1404,6 +1378,12 @@
       "type": "logic",
       "scope": "global",
       "value": "false"
+    },
+    {
+      "name": "item_in_slot_9_count",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
     }
   ],
   "sound_elements": [],
@@ -1660,6 +1640,10 @@
       },
       {
         "name": "Check generation methods",
+        "children": []
+      },
+      {
+        "name": "Item formats",
         "children": []
       }
     ]
