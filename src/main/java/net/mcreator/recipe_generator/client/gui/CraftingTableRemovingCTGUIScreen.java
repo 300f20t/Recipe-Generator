@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.network.CraftingTableRemovingCTGUIButtonMessage;
@@ -71,7 +72,6 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	}
 
 	@Override
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java
 	public void containerTick() {
 		super.containerTick();
 		file_name.tick();
@@ -85,8 +85,6 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	}
 
 	@Override
-=======
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.label_file_name"), -129, -2, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.label_crafting"), 42, 7, -12829636, false);
@@ -120,11 +118,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_generate"), e -> {
 			if (true) {
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(0, x, y, z));
-=======
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingCTGUIButtonMessage(0, x, y, z));
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -132,11 +126,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_save"), e -> {
 			if (true) {
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(1, x, y, z));
-=======
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingCTGUIButtonMessage(1, x, y, z));
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -144,11 +134,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_close"), e -> {
 			if (true) {
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(2, x, y, z));
-=======
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingCTGUIButtonMessage(2, x, y, z));
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -156,11 +142,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_reload"), e -> {
 			if (true) {
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(3, x, y, z));
-=======
-				PacketDistributor.SERVER.noArg().send(new CraftingTableRemovingCTGUIButtonMessage(3, x, y, z));
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/client/gui/CraftingTableRemovingCTGUIScreen.java
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

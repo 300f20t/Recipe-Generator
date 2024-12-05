@@ -1,10 +1,6 @@
 plugins {
     id 'eclipse'
-<<<<<<< HEAD
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
-=======
-    id 'net.neoforged.gradle.userdev' version '7.0.105'
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6)
 }
 
 version = '1.0'
@@ -50,11 +46,7 @@ minecraft {
 }
 
 dependencies {
-<<<<<<< HEAD
     minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
-=======
-    implementation 'net.neoforged:neoforge:20.4.223'
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6)
 }
 
 tasks.withType(JavaCompile).configureEach {

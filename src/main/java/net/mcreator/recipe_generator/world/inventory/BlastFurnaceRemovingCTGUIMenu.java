@@ -1,18 +1,10 @@
 
 package net.mcreator.recipe_generator.world.inventory;
 
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-=======
-import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.items.SlotItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.capabilities.Capabilities;
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -80,21 +72,11 @@ public class BlastFurnaceRemovingCTGUIMenu extends AbstractContainerMenu impleme
 					});
 			} else { // might be bound to block
 				boundBlockEntity = this.world.getBlockEntity(pos);
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 				if (boundBlockEntity != null)
 					boundBlockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
 						this.internal = capability;
 						this.bound = true;
 					});
-=======
-				if (boundBlockEntity != null) {
-					IItemHandler cap = this.world.getCapability(Capabilities.ItemHandler.BLOCK, pos, null);
-					if (cap != null) {
-						this.internal = cap;
-						this.bound = true;
-					}
-				}
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 35) {
@@ -252,11 +234,7 @@ public class BlastFurnaceRemovingCTGUIMenu extends AbstractContainerMenu impleme
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUISlotMessage(slotid, x, y, z, ctype, meta));
-=======
-			PacketDistributor.SERVER.noArg().send(new BlastFurnaceRemovingCTGUISlotMessage(slotid, x, y, z, ctype, meta));
->>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/world/inventory/BlastFurnaceRemovingCTGUIMenu.java
 			BlastFurnaceRemovingCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
