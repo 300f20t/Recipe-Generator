@@ -3,10 +3,17 @@ package net.mcreator.recipe_generator.command;
 
 import org.checkerframework.checker.units.qual.s;
 
+<<<<<<< HEAD:src/main/java/net/mcreator/recipe_generator/command/CtguicommandCommand.java
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.common.util.FakePlayerFactory;
+=======
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.bus.api.SubscribeEvent;
+>>>>>>> parent of f1b7d96 (fix and upgrade to 1.20.6):src/main/java/net/mcreator/justctgui/command/CtguicommandCommand.java
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
