@@ -94,7 +94,7 @@ public class CraftingtableCTGUIButtonMessage {
 		}
 		if (buttonID == 6) {
 
-			ScriptsWriterProcedure.execute(entity, guistate);
+			ScriptsWriterProcedure.execute();
 		}
 		if (buttonID == 7) {
 

@@ -65,7 +65,7 @@ public class FurnaceGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			ScriptsWriterProcedure.execute(entity, guistate);
+			ScriptsWriterProcedure.execute();
 		}
 		if (buttonID == 1) {
 
