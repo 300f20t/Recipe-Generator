@@ -1,19 +1,19 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="[40,)"
 license="MIT License"
 
 [[mods]]
 modId="just_ctgui"
-version="0.0.7"
+version="0.0.8.0"
 displayName="Just CTGUI"
-displayURL="https://mcreator.net"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
+displayURL="https://mcreator.net"
 authors="300f20t, MCreator"
 
 [[dependencies.just_ctgui]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1]"
+    versionRange="[1.18.2]"
     ordering="NONE"
     side="BOTH"
 

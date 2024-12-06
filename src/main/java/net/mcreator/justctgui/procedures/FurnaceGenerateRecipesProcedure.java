@@ -1,8 +1,10 @@
 package net.mcreator.justctgui.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.ChatType;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.Util;
 
 import net.mcreator.justctgui.network.JustCtguiModVariables;
 
@@ -22,6 +24,6 @@ public class FurnaceGenerateRecipesProcedure {
 						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
 				+ "\", " + JustCtguiModVariables.Pre_generated_recipe;
 		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
+			world.getServer().getPlayerList().broadcastMessage(new TextComponent(JustCtguiModVariables.Generated_recipe), ChatType.SYSTEM, Util.NIL_UUID);
 	}
 }

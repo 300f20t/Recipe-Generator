@@ -2,7 +2,7 @@ package net.mcreator.justctgui.procedures;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
 
@@ -18,12 +18,12 @@ public class GenerateracipesProcedure {
 				+ JustCtguiModVariables.item_in_slot_2_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_3_crafting_table + ", " + JustCtguiModVariables.item_in_slot_4_crafting_table + ", "
 				+ JustCtguiModVariables.item_in_slot_5_crafting_table + "], [" + JustCtguiModVariables.item_in_slot_6_crafting_table + ", " + JustCtguiModVariables.item_in_slot_7_crafting_table + ", "
 				+ JustCtguiModVariables.item_in_slot_8_crafting_table + "]]);";
-		if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
+		if (guistate.containsKey("checkbox:Is_shapeless") ? ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected() : false) {
 			JustCtguiModVariables.Is_shapeless = true;
 		} else {
 			JustCtguiModVariables.Is_shapeless = false;
 		}
-		if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
+		if (guistate.containsKey("checkbox:Is_mirrored") ? ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() : false) {
 			JustCtguiModVariables.Is_mirrored = true;
 		} else {
 			JustCtguiModVariables.Is_mirrored = false;
@@ -44,7 +44,7 @@ public class GenerateracipesProcedure {
 			JustCtguiModVariables.Generated_recipe = "import crafttweaker.api.recipe.MirrorAxis;" + "craftingTable.addShapedMirrored(\"" + (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "")
 					+ "\", " + "MirrorAxis." + JustCtguiModVariables.Mirror_axis + ", " + JustCtguiModVariables.Pre_generated_recipe;
 		}
-		if (entity instanceof Player _player && !_player.level().isClientSide())
-			_player.displayClientMessage(Component.literal(JustCtguiModVariables.Generated_recipe), false);
+		if (entity instanceof Player _player && !_player.level.isClientSide())
+			_player.displayClientMessage(new TextComponent(JustCtguiModVariables.Generated_recipe), false);
 	}
 }

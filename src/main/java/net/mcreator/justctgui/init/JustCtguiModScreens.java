@@ -1,6 +1,6 @@
 
 /*
- *	MCreator note: This file will be REGENERATED on each build.
+ *    MCreator note: This file will be REGENERATED on each build.
  */
 package net.mcreator.justctgui.init;
 
@@ -19,8 +19,8 @@ public class JustCtguiModScreens {
 	@SubscribeEvent
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
-			MenuScreens.register(JustCtguiModMenus.FURNACE_GUI.get(), FurnaceGUIScreen::new);
-			MenuScreens.register(JustCtguiModMenus.CRAFTINGTABLE_CTGUI.get(), CraftingtableCTGUIScreen::new);
+			MenuScreens.register(JustCtguiModMenus.FURNACE_GUI, FurnaceGUIScreen::new);
+			MenuScreens.register(JustCtguiModMenus.CRAFTINGTABLE_CTGUI, CraftingtableCTGUIScreen::new);
 		});
 	}
 }
