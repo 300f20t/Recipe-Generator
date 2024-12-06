@@ -52,8 +52,8 @@
       "name": "CraftingtableCTGUI",
       "type": "gui",
       "sortid": 23,
-      "compiles": true,
-      "locked_code": false,
+      "compiles": false,
+      "locked_code": true,
       "registry_name": "craftingtable_ctgui",
       "metadata": {
         "files": [
@@ -460,8 +460,8 @@
       "name": "FurnaceGUI",
       "type": "gui",
       "sortid": 22,
-      "compiles": true,
-      "locked_code": false,
+      "compiles": false,
+      "locked_code": true,
       "registry_name": "furnace_gui",
       "metadata": {
         "files": [
@@ -585,7 +585,7 @@
       "type": "procedure",
       "sortid": 28,
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "scripts_writer",
       "metadata": {
         "files": [

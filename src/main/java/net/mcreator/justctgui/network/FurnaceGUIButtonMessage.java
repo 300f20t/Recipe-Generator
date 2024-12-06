@@ -12,7 +12,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.FurnaceGUIMenu;
-import net.mcreator.justctgui.procedures.ScriptsWriterProcedure;
 import net.mcreator.justctgui.procedures.GUIcloseProcedure;
 import net.mcreator.justctgui.procedures.FurnaceGenerateRecipesProcedure;
 import net.mcreator.justctgui.JustCtguiMod;
@@ -66,7 +65,7 @@ public class FurnaceGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			ScriptsWriterProcedure.execute();
+			ScriptsWriterProcedure.execute(entity, guistate);
 		}
 		if (buttonID == 1) {
 
