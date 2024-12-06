@@ -1,5 +1,5 @@
 {
-  "_fv": 60,
+  "_fv": 57,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -10,66 +10,6 @@
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Diagonalispressed"
-          },
-          "x": 308,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Verticalispressed"
-          },
-          "x": 398,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Horizontalispressed"
-          },
-          "x": 220,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Noneispressed"
-          },
-          "x": 116,
-          "y": 10
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "the_button_is_pressed.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "Allispressed"
-          },
-          "x": 46,
-          "y": 10
-        }
-      },
       {
         "type": "button",
         "data": {
@@ -179,7 +119,7 @@
             "falpha": 0.0
           },
           "x": 2,
-          "y": 35
+          "y": 34
         }
       },
       {
@@ -194,7 +134,7 @@
             "falpha": 0.0
           },
           "x": 2,
-          "y": 71
+          "y": 70
         }
       },
       {
@@ -219,7 +159,7 @@
           "text": "Save",
           "isUndecorated": false,
           "onClick": {
-            "name": "Scriptswriter"
+            "name": "ScriptsWriter"
           },
           "width": 46,
           "height": 20,
@@ -520,18 +460,6 @@
           },
           "x": 6,
           "y": -2
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_language",
-          "text": "Language",
-          "isUndecorated": false,
-          "width": 67,
-          "height": 20,
-          "x": 312,
-          "y": 170
         }
       }
     ],

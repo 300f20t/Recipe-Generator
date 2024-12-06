@@ -12,11 +12,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.justctgui.procedures.VerticalispressedProcedure;
-import net.mcreator.justctgui.procedures.NoneispressedProcedure;
-import net.mcreator.justctgui.procedures.HorizontalispressedProcedure;
-import net.mcreator.justctgui.procedures.DiagonalispressedProcedure;
-import net.mcreator.justctgui.procedures.AllispressedProcedure;
 import net.mcreator.justctgui.procedures.ATTENTIONProcedure;
 import net.mcreator.justctgui.network.CraftingtableCTGUIButtonMessage;
 import net.mcreator.justctgui.JustCtguiMod;
@@ -42,7 +37,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	Button button_generate;
 	Button button_save;
 	Button button_close;
-	Button button_language;
 
 	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -75,21 +69,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-		if (DiagonalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 182, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (VerticalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 272, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (HorizontalispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + 94, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (NoneispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + -10, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
-		if (AllispressedProcedure.execute()) {
-			guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/the_button_is_pressed.png"), this.leftPos + -80, this.topPos + -27, 0, 0, 16, 16, 16, 16);
-		}
 
 		guiGraphics.blit(new ResourceLocation("just_ctgui:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 
@@ -121,9 +100,14 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -124, -2, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -124, 34, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_recipe_name"), -124, -3, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_file_name"), -124, 33, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.just_ctgui.craftingtable_ctgui.label_empty"), -120, -39, -4610825, false);
+	}
+
+	@Override
+	public void onClose() {
+		super.onClose();
 	}
 
 	@Override
@@ -239,10 +223,6 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		}).bounds(this.leftPos + 186, this.topPos + 61, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
-		button_language = Button.builder(Component.translatable("gui.just_ctgui.craftingtable_ctgui.button_language"), e -> {
-		}).bounds(this.leftPos + 186, this.topPos + 133, 67, 20).build();
-		guistate.put("button:button_language", button_language);
-		this.addRenderableWidget(button_language);
 		Is_shapeless = new Checkbox(this.leftPos + -120, this.topPos + 97, 20, 20, Component.translatable("gui.just_ctgui.craftingtable_ctgui.Is_shapeless"), false);
 		guistate.put("checkbox:Is_shapeless", Is_shapeless);
 		this.addRenderableWidget(Is_shapeless);

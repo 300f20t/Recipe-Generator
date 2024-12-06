@@ -11,10 +11,12 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
 
+import net.mcreator.justctgui.world.inventory.FurnaceGUIMenu;
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.justctgui.JustCtguiMod;
 
 public class JustCtguiModMenus {
 	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, JustCtguiMod.MODID);
+	public static final RegistryObject<MenuType<FurnaceGUIMenu>> FURNACE_GUI = REGISTRY.register("furnace_gui", () -> IForgeMenuType.create(FurnaceGUIMenu::new));
 	public static final RegistryObject<MenuType<CraftingtableCTGUIMenu>> CRAFTINGTABLE_CTGUI = REGISTRY.register("craftingtable_ctgui", () -> IForgeMenuType.create(CraftingtableCTGUIMenu::new));
 }

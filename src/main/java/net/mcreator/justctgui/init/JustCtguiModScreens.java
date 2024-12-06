@@ -11,6 +11,7 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.client.gui.screens.MenuScreens;
 
+import net.mcreator.justctgui.client.gui.FurnaceGUIScreen;
 import net.mcreator.justctgui.client.gui.CraftingtableCTGUIScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -18,6 +19,7 @@ public class JustCtguiModScreens {
 	@SubscribeEvent
 	public static void clientLoad(FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
+			MenuScreens.register(JustCtguiModMenus.FURNACE_GUI.get(), FurnaceGUIScreen::new);
 			MenuScreens.register(JustCtguiModMenus.CRAFTINGTABLE_CTGUI.get(), CraftingtableCTGUIScreen::new);
 		});
 	}
