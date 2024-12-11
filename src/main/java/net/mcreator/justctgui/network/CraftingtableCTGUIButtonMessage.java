@@ -13,6 +13,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.justctgui.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.justctgui.procedures.VerticalmirroraxisProcedure;
+import net.mcreator.justctgui.procedures.ScriptsWriterProcedure;
 import net.mcreator.justctgui.procedures.NonemirroraxisProcedure;
 import net.mcreator.justctgui.procedures.HorizontalmirroraxisProcedure;
 import net.mcreator.justctgui.procedures.GenerateracipesProcedure;

@@ -52,7 +52,7 @@
       "name": "CraftingtableCTGUI",
       "type": "gui",
       "sortid": 23,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "craftingtable_ctgui",
       "metadata": {
@@ -460,7 +460,7 @@
       "name": "FurnaceGUI",
       "type": "gui",
       "sortid": 22,
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "furnace_gui",
       "metadata": {
