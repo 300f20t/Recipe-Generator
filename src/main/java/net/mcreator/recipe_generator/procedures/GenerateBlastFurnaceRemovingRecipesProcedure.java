@@ -7,7 +7,7 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 public class GenerateBlastFurnaceRemovingRecipesProcedure {
 	public static void execute(LevelAccessor world) {
-		RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager; " + "blastFurnace.remove(" + RecipeGeneratorModVariables.item_in_slot_0_crafting_table + ");";
+		RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager; " + "blastFurnace.remove(" + RecipeGeneratorModVariables.Generated_recipe + ");";
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}
