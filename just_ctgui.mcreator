@@ -84,12 +84,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot0incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1262,68 +1257,98 @@
         "dependencies": []
       },
       "path": "~/Debug"
+    },
+    {
+      "name": "CraftTweakerFormat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craft_tweaker_format",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftTweakerFormatProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Item formats"
+    },
+    {
+      "name": "KubeJSFormat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kube_js_format",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/KubeJSFormatProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Item formats"
     }
   ],
   "variable_elements": [
     {
       "name": "item_in_slot_0",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_1",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_2",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_3",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_4",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_5",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_6",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_7",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_8",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "item_in_slot_9",
-      "type": "itemstack",
+      "type": "string",
       "scope": "global",
-      "value": "ItemStack.EMPTY"
+      "value": ""
     },
     {
       "name": "Generated_recipe",
