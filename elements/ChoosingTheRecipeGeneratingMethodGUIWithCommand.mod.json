@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -22,7 +22,8 @@
           "width": 88,
           "height": 20,
           "x": 168,
-          "y": 62
+          "y": 62,
+          "locked": false
         }
       },
       {
@@ -37,7 +38,8 @@
             "falpha": 0.0
           },
           "x": 78,
-          "y": 44
+          "y": 44,
+          "locked": false
         }
       },
       {
@@ -52,7 +54,8 @@
           "width": 87,
           "height": 20,
           "x": 168,
-          "y": 89
+          "y": 89,
+          "locked": false
         }
       },
       {
@@ -64,7 +67,8 @@
           "width": 124,
           "height": 20,
           "x": 150,
-          "y": 143
+          "y": 143,
+          "locked": false
         }
       },
       {
@@ -76,7 +80,8 @@
           "width": 155,
           "height": 20,
           "x": 132,
-          "y": 116
+          "y": 116,
+          "locked": false
         }
       },
       {
@@ -92,7 +97,8 @@
             "falpha": 0.0
           },
           "x": 222,
-          "y": 44
+          "y": 44,
+          "locked": false
         }
       },
       {
@@ -107,7 +113,8 @@
           "width": 51,
           "height": 20,
           "x": 186,
-          "y": 179
+          "y": 179,
+          "locked": false
         }
       },
       {
@@ -125,7 +132,8 @@
             "name": "CheckCraftTweaker"
           },
           "x": 258,
-          "y": 71
+          "y": 71,
+          "locked": false
         }
       },
       {
@@ -143,7 +151,8 @@
             "name": "CheckKubeJS"
           },
           "x": 258,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       }
     ],

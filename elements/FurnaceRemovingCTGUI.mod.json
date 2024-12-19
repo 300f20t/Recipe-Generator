@@ -1,5 +1,5 @@
 {
-  "_fv": 69,
+  "_fv": 73,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -28,7 +28,8 @@
             "name": "Iteminslot0incraftingtableCTGUI"
           },
           "x": 204,
-          "y": 71
+          "y": 71,
+          "locked": false
         }
       },
       {
@@ -39,7 +40,8 @@
           "width": 120,
           "height": 20,
           "x": -3,
-          "y": 44
+          "y": 44,
+          "locked": false
         }
       },
       {
@@ -54,7 +56,8 @@
             "falpha": 0.0
           },
           "x": -3,
-          "y": 35
+          "y": 35,
+          "locked": false
         }
       },
       {
@@ -69,7 +72,8 @@
           "width": 67,
           "height": 20,
           "x": 312,
-          "y": 44
+          "y": 44,
+          "locked": false
         }
       },
       {
@@ -84,7 +88,8 @@
           "width": 46,
           "height": 20,
           "x": 312,
-          "y": 71
+          "y": 71,
+          "locked": false
         }
       },
       {
@@ -99,7 +104,8 @@
           "width": 51,
           "height": 20,
           "x": 312,
-          "y": 179
+          "y": 179,
+          "locked": false
         }
       },
       {
@@ -114,7 +120,8 @@
           "width": 56,
           "height": 20,
           "x": 312,
-          "y": 98
+          "y": 98,
+          "locked": false
         }
       },
       {
@@ -129,7 +136,8 @@
             "falpha": 0.0
           },
           "x": 177,
-          "y": 44
+          "y": 44,
+          "locked": false
         }
       }
     ],

@@ -38,7 +38,7 @@
     {
       "name": "CraftingtableCTGUI",
       "type": "gui",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "craftingtable_ctgui",
       "metadata": {
@@ -77,14 +77,27 @@
     {
       "name": "Iteminslot0incraftingtableCTGUI",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "iteminslot_0incraftingtable_ctgui",
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot0incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "inputItem",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Getting items in Slots"
     },
@@ -98,12 +111,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot1incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -117,12 +125,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot2incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -136,12 +139,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot3incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -155,12 +153,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot4incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -174,12 +167,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot5incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -193,12 +181,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot6incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -212,12 +195,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot7incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -231,12 +209,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot8incraftingtableCTGUIProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -479,7 +452,7 @@
     {
       "name": "FurnaceCTGUI",
       "type": "gui",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "furnace_ctgui",
       "metadata": {
@@ -737,7 +710,7 @@
     {
       "name": "BlastFurnaceCTGUI",
       "type": "gui",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "blast_furnace_ctgui",
       "metadata": {
@@ -1184,25 +1157,6 @@
       "path": "~/GUIs"
     },
     {
-      "name": "DebugNBTTags",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "debug_nbt_tags",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/DebugNBTTagsProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Debug"
-    },
-    {
       "name": "RguiCommand",
       "type": "command",
       "compiles": true,
@@ -1259,34 +1213,27 @@
       "path": "~/Debug"
     },
     {
-      "name": "CraftTweakerFormat",
+      "name": "ItemsFormat",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "craft_tweaker_format",
+      "registry_name": "items_format",
       "metadata": {
         "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/CraftTweakerFormatProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemsFormatProcedure.java"
         ],
-        "dependencies": []
-      },
-      "path": "~/Item formats"
-    },
-    {
-      "name": "KubeJSFormat",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "kube_js_format",
-      "metadata": {
-        "return_type": "string",
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/KubeJSFormatProcedure.java"
-        ],
-        "dependencies": []
-      },
-      "path": "~/Item formats"
+        "dependencies": [
+          {
+            "name": "inputItem",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1666,10 +1613,6 @@
       {
         "name": "Check generation methods",
         "children": []
-      },
-      {
-        "name": "Item formats",
-        "children": []
       }
     ]
   },
@@ -1691,5 +1634,5 @@
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
-  "mcreatorVersion": 202400342716
+  "mcreatorVersion": 202400451119
 }

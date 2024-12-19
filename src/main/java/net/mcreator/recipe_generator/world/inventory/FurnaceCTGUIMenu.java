@@ -85,6 +85,8 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
+			private final int slot = 0;
+
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -92,6 +94,8 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
+			private final int slot = 1;
+
 			@Override
 			public void setChanged() {
 				super.setChanged();

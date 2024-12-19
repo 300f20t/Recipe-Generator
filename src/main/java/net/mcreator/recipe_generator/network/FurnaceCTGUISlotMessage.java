@@ -66,11 +66,11 @@ public record FurnaceCTGUISlotMessage(int slotID, int x, int y, int z, int chang
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(entity);
+			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity, inputItem);
 		}
 		if (slot == 1 && changeType == 0) {
 
-			Iteminslot1incraftingtableCTGUIProcedure.execute(entity);
+			Iteminslot1incraftingtableCTGUIProcedure.execute();
 		}
 	}
 

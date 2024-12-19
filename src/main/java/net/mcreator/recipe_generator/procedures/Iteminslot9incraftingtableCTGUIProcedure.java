@@ -14,7 +14,6 @@ public class Iteminslot9incraftingtableCTGUIProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		RecipeGeneratorModVariables.item_in_slot_9 = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY);
 		RecipeGeneratorModVariables.item_in_slot_9_count = new Object() {
 			public int getAmount(int sltid) {
 				if (entity instanceof Player _player && _player.containerMenu instanceof Supplier _current && _current.get() instanceof Map _slots) {
