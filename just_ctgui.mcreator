@@ -38,7 +38,7 @@
     {
       "name": "CraftingtableCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "craftingtable_ctgui",
       "metadata": {
@@ -294,7 +294,7 @@
     {
       "name": "FurnaceCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "furnace_ctgui",
       "metadata": {
@@ -520,7 +520,7 @@
     {
       "name": "CraftingTableRemovingCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "crafting_table_removing_ctgui",
       "metadata": {
@@ -536,7 +536,7 @@
     {
       "name": "FurnaceRemovingCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "furnace_removing_ctgui",
       "metadata": {
@@ -552,7 +552,7 @@
     {
       "name": "BlastFurnaceCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "blast_furnace_ctgui",
       "metadata": {
@@ -568,7 +568,7 @@
     {
       "name": "BlastFurnaceRemovingCTGUI",
       "type": "gui",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "blast_furnace_removing_ctgui",
       "metadata": {
