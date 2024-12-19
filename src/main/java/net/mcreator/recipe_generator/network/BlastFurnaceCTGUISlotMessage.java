@@ -17,8 +17,6 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
-import net.mcreator.recipe_generator.procedures.Iteminslot1incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot0incraftingtableCTGUIProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
@@ -66,7 +64,7 @@ public record BlastFurnaceCTGUISlotMessage(int slotID, int x, int y, int z, int 
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity, inputItem);
+			Iteminslot0incraftingtableCTGUIProcedure.execute();
 		}
 		if (slot == 1 && changeType == 0) {
 

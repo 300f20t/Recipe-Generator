@@ -17,16 +17,6 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.recipe_generator.procedures.Iteminslot9incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot8incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot7incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot6incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot5incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot4incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot3incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot2incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot1incraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.Iteminslot0incraftingtableCTGUIProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
@@ -74,7 +64,7 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute(world, entity, inputItem);
+			Iteminslot0incraftingtableCTGUIProcedure.execute();
 		}
 		if (slot == 1 && changeType == 0) {
 
@@ -110,7 +100,7 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 		}
 		if (slot == 9 && changeType == 0) {
 
-			Iteminslot9incraftingtableCTGUIProcedure.execute(entity);
+			Iteminslot9incraftingtableCTGUIProcedure.execute();
 		}
 	}
 
