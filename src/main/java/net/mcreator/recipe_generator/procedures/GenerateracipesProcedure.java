@@ -32,7 +32,7 @@ public class GenerateracipesProcedure {
 			}
 			RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
 					+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
-							? "no_name"
+							? RecipeNameCreatorProcedure.execute(guistate)
 							: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
 					+ "\", " + recipeTypeFutures;
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {

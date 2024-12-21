@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -15,7 +16,9 @@ public class ItemInSlot0Procedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		RecipeGeneratorModVariables.item_in_slot_0 = ItemsFormatProcedure.execute(world,
-				entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY);
+		RecipeGeneratorMod.queueServerWork(1, () -> {
+			RecipeGeneratorModVariables.item_in_slot_0 = ItemsFormatProcedure.execute(world,
+					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(0)).getItem() : ItemStack.EMPTY);
+		});
 	}
 }
