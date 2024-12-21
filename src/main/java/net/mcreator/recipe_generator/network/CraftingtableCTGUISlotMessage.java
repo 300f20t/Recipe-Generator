@@ -17,6 +17,16 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
+import net.mcreator.recipe_generator.procedures.ItemInSlot9Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot8Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot7Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot6Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot5Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot4Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot3Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot2Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
@@ -64,43 +74,43 @@ public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int
 			return;
 		if (slot == 0 && changeType == 0) {
 
-			Iteminslot0incraftingtableCTGUIProcedure.execute();
+			ItemInSlot0Procedure.execute(world, entity);
 		}
 		if (slot == 1 && changeType == 0) {
 
-			Iteminslot1incraftingtableCTGUIProcedure.execute();
+			ItemInSlot1Procedure.execute(world, entity);
 		}
 		if (slot == 2 && changeType == 0) {
 
-			Iteminslot2incraftingtableCTGUIProcedure.execute();
+			ItemInSlot2Procedure.execute(world, entity);
 		}
 		if (slot == 3 && changeType == 0) {
 
-			Iteminslot3incraftingtableCTGUIProcedure.execute();
+			ItemInSlot3Procedure.execute(world, entity);
 		}
 		if (slot == 4 && changeType == 0) {
 
-			Iteminslot4incraftingtableCTGUIProcedure.execute();
+			ItemInSlot4Procedure.execute(world, entity);
 		}
 		if (slot == 5 && changeType == 0) {
 
-			Iteminslot5incraftingtableCTGUIProcedure.execute();
+			ItemInSlot5Procedure.execute(world, entity);
 		}
 		if (slot == 6 && changeType == 0) {
 
-			Iteminslot6incraftingtableCTGUIProcedure.execute();
+			ItemInSlot6Procedure.execute(world, entity);
 		}
 		if (slot == 7 && changeType == 0) {
 
-			Iteminslot7incraftingtableCTGUIProcedure.execute();
+			ItemInSlot7Procedure.execute(world, entity);
 		}
 		if (slot == 8 && changeType == 0) {
 
-			Iteminslot8incraftingtableCTGUIProcedure.execute();
+			ItemInSlot8Procedure.execute(world, entity);
 		}
 		if (slot == 9 && changeType == 0) {
 
-			Iteminslot9incraftingtableCTGUIProcedure.execute();
+			ItemInSlot9Procedure.execute(world, entity);
 		}
 	}
 

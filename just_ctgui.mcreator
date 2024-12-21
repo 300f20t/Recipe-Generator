@@ -1093,10 +1093,6 @@
             "type": "entity"
           },
           {
-            "name": "inputItem",
-            "type": "itemstack"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1118,10 +1114,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "inputItem",
-            "type": "itemstack"
           },
           {
             "name": "world",
@@ -1147,10 +1139,6 @@
             "type": "entity"
           },
           {
-            "name": "inputItem",
-            "type": "itemstack"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1172,10 +1160,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "inputItem",
-            "type": "itemstack"
           },
           {
             "name": "world",
@@ -1201,10 +1185,6 @@
             "type": "entity"
           },
           {
-            "name": "inputItem",
-            "type": "itemstack"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1226,10 +1206,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "inputItem",
-            "type": "itemstack"
           },
           {
             "name": "world",
@@ -1255,10 +1231,6 @@
             "type": "entity"
           },
           {
-            "name": "inputItem",
-            "type": "itemstack"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1280,10 +1252,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "inputItem",
-            "type": "itemstack"
           },
           {
             "name": "world",
@@ -1309,10 +1277,6 @@
             "type": "entity"
           },
           {
-            "name": "inputItem",
-            "type": "itemstack"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1334,10 +1298,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "inputItem",
-            "type": "itemstack"
           },
           {
             "name": "world",

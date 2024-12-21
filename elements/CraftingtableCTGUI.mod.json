@@ -209,7 +209,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot0incraftingtableCTGUI"
+            "name": "ItemInSlot0"
           },
           "x": 150,
           "y": 53,
@@ -231,7 +231,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot1incraftingtableCTGUI"
+            "name": "ItemInSlot1"
           },
           "x": 168,
           "y": 53,
@@ -253,7 +253,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot2incraftingtableCTGUI"
+            "name": "ItemInSlot2"
           },
           "x": 186,
           "y": 53,
@@ -275,7 +275,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot3incraftingtableCTGUI"
+            "name": "ItemInSlot3"
           },
           "x": 150,
           "y": 71,
@@ -297,7 +297,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot4incraftingtableCTGUI"
+            "name": "ItemInSlot4"
           },
           "x": 168,
           "y": 71,
@@ -319,7 +319,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot5incraftingtableCTGUI"
+            "name": "ItemInSlot5"
           },
           "x": 186,
           "y": 71,
@@ -341,7 +341,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot6incraftingtableCTGUI"
+            "name": "ItemInSlot6"
           },
           "x": 150,
           "y": 89,
@@ -363,7 +363,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot7incraftingtableCTGUI"
+            "name": "ItemInSlot7"
           },
           "x": 168,
           "y": 89,
@@ -385,7 +385,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot8incraftingtableCTGUI"
+            "name": "ItemInSlot8"
           },
           "x": 186,
           "y": 89,
@@ -417,7 +417,7 @@
           },
           "dropItemsWhenNotBound": true,
           "onSlotChanged": {
-            "name": "Iteminslot9incraftingtableCTGUI"
+            "name": "ItemInSlot9"
           },
           "x": 249,
           "y": 71,

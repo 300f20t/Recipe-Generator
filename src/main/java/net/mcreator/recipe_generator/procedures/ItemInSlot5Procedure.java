@@ -12,10 +12,10 @@ import java.util.function.Supplier;
 import java.util.Map;
 
 public class ItemInSlot5Procedure {
-	public static void execute(LevelAccessor world, Entity entity, ItemStack inputItem) {
+	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		ItemsFormatProcedure.execute(world, entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY);
-		RecipeGeneratorModVariables.item_in_slot_5 = ItemsFormatProcedure.execute(world, inputItem);
+		RecipeGeneratorModVariables.item_in_slot_5 = ItemsFormatProcedure.execute(world,
+				entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(5)).getItem() : ItemStack.EMPTY);
 	}
 }

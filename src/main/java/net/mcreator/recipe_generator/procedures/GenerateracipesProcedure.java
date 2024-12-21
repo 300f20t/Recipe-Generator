@@ -17,8 +17,9 @@ public class GenerateracipesProcedure {
 		String recipeType = "";
 		String recipeTypeFutures = "";
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			preGeneratedRecipe = preGeneratedRecipe + ", [[" + preGeneratedRecipe + ", " + preGeneratedRecipe + ", " + preGeneratedRecipe + "], [" + preGeneratedRecipe + ", " + preGeneratedRecipe + ", " + preGeneratedRecipe + "], ["
-					+ preGeneratedRecipe + ", " + preGeneratedRecipe + ", " + preGeneratedRecipe + "]]);";
+			preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_9 + ", [[" + RecipeGeneratorModVariables.item_in_slot_0 + ", " + RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_2 + "], ["
+					+ RecipeGeneratorModVariables.item_in_slot_3 + ", " + RecipeGeneratorModVariables.item_in_slot_4 + ", " + RecipeGeneratorModVariables.item_in_slot_5 + "], [" + RecipeGeneratorModVariables.item_in_slot_6 + ", "
+					+ RecipeGeneratorModVariables.item_in_slot_7 + ", " + RecipeGeneratorModVariables.item_in_slot_8 + "]]);";
 			if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
 				recipeType = "craftingTable.addShapedMirrored(\"";
 				recipeTypeFutures = "MirrorAxis." + RecipeGeneratorModVariables.Mirror_axis + ", ";
