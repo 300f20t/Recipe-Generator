@@ -14,7 +14,7 @@ public class RecipeNameCreatorProcedure {
 		String fileName = "";
 		RecipeGeneratorModVariables.Recipe_name = guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "";
 		if ((RecipeGeneratorModVariables.Recipe_name).isEmpty()) {
-			RecipeGeneratorModVariables.Recipe_name = "generated " + new java.text.SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(Calendar.getInstance().getTime());
+			RecipeGeneratorModVariables.Recipe_name = "generated-" + new java.text.SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(Calendar.getInstance().getTime());
 		}
 		return RecipeGeneratorModVariables.Recipe_name;
 	}
