@@ -86,6 +86,8 @@ public class BlastFurnaceRemovingCTGUIMenu extends AbstractContainerMenu impleme
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 35) {
 			private final int slot = 0;
+			private int x = BlastFurnaceRemovingCTGUIMenu.this.x;
+			private int y = BlastFurnaceRemovingCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {

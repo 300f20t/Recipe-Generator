@@ -86,6 +86,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 17) {
 			private final int slot = 0;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -95,6 +97,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 17) {
 			private final int slot = 1;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -104,6 +108,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 61, 17) {
 			private final int slot = 2;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -113,6 +119,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 25, 35) {
 			private final int slot = 3;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -122,6 +130,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 43, 35) {
 			private final int slot = 4;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -131,6 +141,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 61, 35) {
 			private final int slot = 5;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -140,6 +152,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 25, 53) {
 			private final int slot = 6;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -149,6 +163,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 43, 53) {
 			private final int slot = 7;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -158,6 +174,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 61, 53) {
 			private final int slot = 8;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -167,6 +185,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		}));
 		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 124, 35) {
 			private final int slot = 9;
+			private int x = CraftingtableCTGUIMenu.this.x;
+			private int y = CraftingtableCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {

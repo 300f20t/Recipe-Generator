@@ -86,6 +86,8 @@ public class CraftingTableRemovingCTGUIMenu extends AbstractContainerMenu implem
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 35) {
 			private final int slot = 0;
+			private int x = CraftingTableRemovingCTGUIMenu.this.x;
+			private int y = CraftingTableRemovingCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
