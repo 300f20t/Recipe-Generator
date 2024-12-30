@@ -25,7 +25,7 @@ public class ScriptswriterProcedure {
 			localDir = "/scripts";
 			fileExtention = ".zs";
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			localDir = "/server_scripts";
+			localDir = "/kubejs/server_scripts";
 			fileExtention = ".js";
 		}
 		generated = new File((FMLPaths.GAMEDIR.get().toString() + "" + localDir), File.separator + (FileNameCreatorProcedure.execute(guistate) + "" + fileExtention));

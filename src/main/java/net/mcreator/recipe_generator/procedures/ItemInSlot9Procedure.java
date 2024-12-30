@@ -19,6 +19,8 @@ public class ItemInSlot9Procedure {
 		RecipeGeneratorMod.queueServerWork(1, () -> {
 			RecipeGeneratorModVariables.item_in_slot_9 = ItemsFormatProcedure.execute(world,
 					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY);
+			RecipeGeneratorModVariables.item_in_slot_9_count = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY)
+					.getCount();
 		});
 	}
 }
