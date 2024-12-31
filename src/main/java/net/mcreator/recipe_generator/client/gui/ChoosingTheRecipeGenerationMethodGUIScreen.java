@@ -9,18 +9,20 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodProcedure;
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGenerationMethodGUIButtonMessage;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens.WidgetScreen;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> {
+public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> implements WidgetScreen {
 	private final static HashMap<String, Object> guistate = ChoosingTheRecipeGenerationMethodGUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -40,6 +42,18 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		this.entity = container.entity;
 		this.imageWidth = 176;
 		this.imageHeight = 166;
+	}
+
+	public static HashMap<String, String> getEditBoxAndCheckBoxValues() {
+		HashMap<String, String> textstate = new HashMap<>();
+		if (Minecraft.getInstance().screen instanceof ChoosingTheRecipeGenerationMethodGUIScreen sc) {
+
+		}
+		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
 	}
 
 	@Override
@@ -84,16 +98,16 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z, getEditBoxAndCheckBoxValues()));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
 		guistate.put("button:button_crafttweaker", button_crafttweaker);
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z, getEditBoxAndCheckBoxValues()));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
 		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
@@ -108,8 +122,8 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		this.addRenderableWidget(button_minecraft_data_pack_wip);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
+				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z, getEditBoxAndCheckBoxValues()));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);

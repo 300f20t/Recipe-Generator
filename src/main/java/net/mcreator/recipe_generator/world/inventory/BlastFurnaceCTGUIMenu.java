@@ -25,6 +25,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.network.BlastFurnaceCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
+import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -86,8 +87,6 @@ public class BlastFurnaceCTGUIMenu extends AbstractContainerMenu implements Supp
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
 			private final int slot = 0;
-			private int x = BlastFurnaceCTGUIMenu.this.x;
-			private int y = BlastFurnaceCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -97,8 +96,6 @@ public class BlastFurnaceCTGUIMenu extends AbstractContainerMenu implements Supp
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
 			private final int slot = 1;
-			private int x = BlastFurnaceCTGUIMenu.this.x;
-			private int y = BlastFurnaceCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -239,8 +236,8 @@ public class BlastFurnaceCTGUIMenu extends AbstractContainerMenu implements Supp
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			PacketDistributor.sendToServer(new BlastFurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta));
-			BlastFurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			PacketDistributor.sendToServer(new BlastFurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta, BlastFurnaceCTGUIScreen.getEditBoxAndCheckBoxValues()));
+			BlastFurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, BlastFurnaceCTGUIScreen.getEditBoxAndCheckBoxValues());
 		}
 	}
 

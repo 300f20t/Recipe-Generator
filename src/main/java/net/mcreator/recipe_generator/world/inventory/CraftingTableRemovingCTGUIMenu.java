@@ -25,6 +25,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.network.CraftingTableRemovingCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
+import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
 
 import java.util.function.Supplier;
 import java.util.Map;
@@ -86,8 +87,6 @@ public class CraftingTableRemovingCTGUIMenu extends AbstractContainerMenu implem
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 35) {
 			private final int slot = 0;
-			private int x = CraftingTableRemovingCTGUIMenu.this.x;
-			private int y = CraftingTableRemovingCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -228,8 +227,8 @@ public class CraftingTableRemovingCTGUIMenu extends AbstractContainerMenu implem
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			PacketDistributor.sendToServer(new CraftingTableRemovingCTGUISlotMessage(slotid, x, y, z, ctype, meta));
-			CraftingTableRemovingCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			PacketDistributor.sendToServer(new CraftingTableRemovingCTGUISlotMessage(slotid, x, y, z, ctype, meta, CraftingTableRemovingCTGUIScreen.getEditBoxAndCheckBoxValues()));
+			CraftingTableRemovingCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, CraftingTableRemovingCTGUIScreen.getEditBoxAndCheckBoxValues());
 		}
 	}
 

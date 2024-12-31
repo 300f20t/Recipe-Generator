@@ -255,6 +255,25 @@
           "y": 44,
           "locked": false
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_kubejs_is_not_supported",
+          "text": {
+            "fixedValue": "KubeJS is not supported"
+          },
+          "color": {
+            "value": -65485,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "InvertedCheckKubeJS"
+          },
+          "x": 150,
+          "y": 53,
+          "locked": false
+        }
       }
     ],
     "gridSettings": {
