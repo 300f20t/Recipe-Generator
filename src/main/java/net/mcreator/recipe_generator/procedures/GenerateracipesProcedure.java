@@ -28,18 +28,29 @@ public class GenerateracipesProcedure {
 			if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
 				recipeType = "craftingTable.addShapedMirrored(\"";
 				recipeTypeFutures = "MirrorAxis." + RecipeGeneratorModVariables.Mirror_axis + ", ";
+				RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.MirrorAxis;" + recipeType
+						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+								? RecipeNameCreatorProcedure.execute(guistate)
+								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+						+ "\", " + recipeTypeFutures + preGeneratedRecipe;
 			} else if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
 				recipeType = "craftingTable.addShapeless(\"";
-				recipeTypeFutures = preGeneratedRecipe.replace("<item:minecraft:air>, ", "");
+				recipeTypeFutures = ((((((((preGeneratedRecipe.replace("<item:minecraft:air>, ", "")).replace("<item:minecraft:air>", "")).replace("[],", "")).replace("[]]", "")).replace(", ], ", "]")).replace(", [", ",")).replace("],", "]"))
+						.replace(", ]]);", "]);")).replace("] " + "\n" + "[", "], [");
+				RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
+						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+								? RecipeNameCreatorProcedure.execute(guistate)
+								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+						+ "\", " + recipeTypeFutures;
 			} else {
 				recipeType = "craftingTable.addShaped(\"";
 				recipeTypeFutures = preGeneratedRecipe;
+				RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
+						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+								? RecipeNameCreatorProcedure.execute(guistate)
+								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+						+ "\", " + recipeTypeFutures;
 			}
-			RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
-					+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
-							? RecipeNameCreatorProcedure.execute(guistate)
-							: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
-					+ "\", " + recipeTypeFutures;
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			KubeJSItemShapeArray.add("A:");
 			KubeJSItemShapeArray.add("B:");
