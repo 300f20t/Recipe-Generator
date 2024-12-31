@@ -35,13 +35,20 @@ public class GenerateracipesProcedure {
 						+ "\", " + recipeTypeFutures + preGeneratedRecipe;
 			} else if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
 				recipeType = "craftingTable.addShapeless(\"";
-				recipeTypeFutures = ((((((((preGeneratedRecipe.replace("<item:minecraft:air>, ", "")).replace("<item:minecraft:air>", "")).replace("[],", "")).replace("[]]", "")).replace(", ], ", "]")).replace(", [", ",")).replace("],", "]"))
-						.replace(", ]]);", "]);")).replace("] " + "\n" + "[", "], [");
 				RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
-						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
-								? RecipeNameCreatorProcedure.execute(guistate)
-								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
-						+ "\", " + recipeTypeFutures;
+						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "")
+								.isEmpty() ? RecipeNameCreatorProcedure.execute(guistate) : (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+						+ "\", " + RecipeGeneratorModVariables.item_in_slot_9
+						+ ((" * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", " + "\n" + "["
+								+ (RecipeGeneratorModVariables.item_in_slot_0.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_0 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_1.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_1 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_2.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_2 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_3.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_3 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_4.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_4 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_5.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_5 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_6.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_6 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_7.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_7 + ", ")
+								+ (RecipeGeneratorModVariables.item_in_slot_8.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_8 + ", ") + ");").replace("<item:minecraft:air>, ", "")).replace(">, );", ">]);");
 			} else {
 				recipeType = "craftingTable.addShaped(\"";
 				recipeTypeFutures = preGeneratedRecipe;
