@@ -1,6 +1,6 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.neoforged.fml.loading.FMLPaths;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.level.LevelAccessor;
 

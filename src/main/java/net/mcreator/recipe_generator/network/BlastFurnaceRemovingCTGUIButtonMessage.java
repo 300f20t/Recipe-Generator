@@ -1,20 +1,15 @@
 
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
@@ -24,46 +19,57 @@ import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRacipesProce
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
+import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) implements CustomPacketPayload {
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class BlastFurnaceRemovingCTGUIButtonMessage {
+	private final int buttonID, x, y, z;
+	private HashMap<String, String> textstate;
 
-	public static final Type<BlastFurnaceRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "blast_furnace_removing_ctgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, BlastFurnaceRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, BlastFurnaceRemovingCTGUIButtonMessage message) -> {
+	public BlastFurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+		this.textstate = readTextState(buffer);
+	}
+
+	public BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
+		this.buttonID = buttonID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.textstate = textstate;
+
+	}
+
+	public static void buffer(BlastFurnaceRemovingCTGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 		writeTextState(message.textstate, buffer);
-	}, (RegistryFriendlyByteBuf buffer) -> new BlastFurnaceRemovingCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), readTextState(buffer)));
-	@Override
-	public Type<BlastFurnaceRemovingCTGUIButtonMessage> type() {
-		return TYPE;
 	}
 
-	public static void handleData(final BlastFurnaceRemovingCTGUIButtonMessage message, final IPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> {
-				Player entity = context.player();
-				int buttonID = message.buttonID;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				HashMap<String, String> textstate = message.textstate;
-				handleButtonAction(entity, buttonID, x, y, z, textstate);
-			}).exceptionally(e -> {
-				context.connection().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public static void handler(BlastFurnaceRemovingCTGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int buttonID = message.buttonID;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			HashMap<String, String> textstate = message.textstate;
+			handleButtonAction(entity, buttonID, x, y, z, textstate);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		Level world = entity.level();
 		HashMap guistate = BlastFurnaceRemovingCTGUIMenu.guistate;
-		// connect EditBox and CheckBox to guistate
 		for (Map.Entry<String, String> entry : textstate.entrySet()) {
 			String key = entry.getKey();
 			String value = entry.getValue();
@@ -90,35 +96,27 @@ public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y,
 		}
 	}
 
-	private static void writeTextState(HashMap<String, String> map, RegistryFriendlyByteBuf buffer) {
+	@SubscribeEvent
+	public static void registerMessage(FMLCommonSetupEvent event) {
+		RecipeGeneratorMod.addNetworkMessage(BlastFurnaceRemovingCTGUIButtonMessage.class, BlastFurnaceRemovingCTGUIButtonMessage::buffer, BlastFurnaceRemovingCTGUIButtonMessage::new, BlastFurnaceRemovingCTGUIButtonMessage::handler);
+	}
+
+	public static void writeTextState(HashMap<String, String> map, FriendlyByteBuf buffer) {
 		buffer.writeInt(map.size());
 		for (Map.Entry<String, String> entry : map.entrySet()) {
-			writeComponent(buffer, Component.literal(entry.getKey()));
-			writeComponent(buffer, Component.literal(entry.getValue()));
+			buffer.writeComponent(Component.literal(entry.getKey()));
+			buffer.writeComponent(Component.literal(entry.getValue()));
 		}
 	}
 
-	private static HashMap<String, String> readTextState(RegistryFriendlyByteBuf buffer) {
+	public static HashMap<String, String> readTextState(FriendlyByteBuf buffer) {
 		int size = buffer.readInt();
 		HashMap<String, String> map = new HashMap<>();
 		for (int i = 0; i < size; i++) {
-			String key = readComponent(buffer).getString();
-			String value = readComponent(buffer).getString();
+			String key = buffer.readComponent().getString();
+			String value = buffer.readComponent().getString();
 			map.put(key, value);
 		}
 		return map;
-	}
-
-	private static Component readComponent(RegistryFriendlyByteBuf buffer) {
-		return ComponentSerialization.TRUSTED_STREAM_CODEC.decode(buffer);
-	}
-
-	private static void writeComponent(RegistryFriendlyByteBuf buffer, Component component) {
-		ComponentSerialization.TRUSTED_STREAM_CODEC.encode(buffer, component);
-	}
-
-	@SubscribeEvent
-	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(BlastFurnaceRemovingCTGUIButtonMessage.TYPE, BlastFurnaceRemovingCTGUIButtonMessage.STREAM_CODEC, BlastFurnaceRemovingCTGUIButtonMessage::handleData);
 	}
 }
