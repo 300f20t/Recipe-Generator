@@ -4,25 +4,20 @@
  */
 package net.mcreator.recipe_generator.init;
 
-import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
@@ -36,58 +31,70 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import javax.annotation.Nullable;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+import java.util.function.Supplier;
+
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class RecipeGeneratorModMenus {
-	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(Registries.MENU, RecipeGeneratorMod.MODID);
-	public static final DeferredHolder<MenuType<?>, MenuType<CraftingtableCTGUIMenu>> CRAFTINGTABLE_CTGUI = REGISTRY.register("craftingtable_ctgui", () -> IMenuTypeExtension.create(CraftingtableCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<FurnaceCTGUIMenu>> FURNACE_CTGUI = REGISTRY.register("furnace_ctgui", () -> IMenuTypeExtension.create(FurnaceCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<CraftingTableRemovingCTGUIMenu>> CRAFTING_TABLE_REMOVING_CTGUI = REGISTRY.register("crafting_table_removing_ctgui", () -> IMenuTypeExtension.create(CraftingTableRemovingCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<FurnaceRemovingCTGUIMenu>> FURNACE_REMOVING_CTGUI = REGISTRY.register("furnace_removing_ctgui", () -> IMenuTypeExtension.create(FurnaceRemovingCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceCTGUIMenu>> BLAST_FURNACE_CTGUI = REGISTRY.register("blast_furnace_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<BlastFurnaceRemovingCTGUIMenu>> BLAST_FURNACE_REMOVING_CTGUI = REGISTRY.register("blast_furnace_removing_ctgui", () -> IMenuTypeExtension.create(BlastFurnaceRemovingCTGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGenerationMethodGUIMenu>> CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI = REGISTRY.register("choosing_the_recipe_generation_method_gui",
-			() -> IMenuTypeExtension.create(ChoosingTheRecipeGenerationMethodGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
-			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
+	public static final DeferredRegister<MenuType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.MENU_TYPES, RecipeGeneratorMod.MODID);
+	public static final RegistryObject<MenuType<CraftingtableCTGUIMenu>> CRAFTINGTABLE_CTGUI = REGISTRY.register("craftingtable_ctgui", () -> IForgeMenuType.create(CraftingtableCTGUIMenu::new));
+	public static final RegistryObject<MenuType<FurnaceCTGUIMenu>> FURNACE_CTGUI = REGISTRY.register("furnace_ctgui", () -> IForgeMenuType.create(FurnaceCTGUIMenu::new));
+	public static final RegistryObject<MenuType<CraftingTableRemovingCTGUIMenu>> CRAFTING_TABLE_REMOVING_CTGUI = REGISTRY.register("crafting_table_removing_ctgui", () -> IForgeMenuType.create(CraftingTableRemovingCTGUIMenu::new));
+	public static final RegistryObject<MenuType<FurnaceRemovingCTGUIMenu>> FURNACE_REMOVING_CTGUI = REGISTRY.register("furnace_removing_ctgui", () -> IForgeMenuType.create(FurnaceRemovingCTGUIMenu::new));
+	public static final RegistryObject<MenuType<BlastFurnaceCTGUIMenu>> BLAST_FURNACE_CTGUI = REGISTRY.register("blast_furnace_ctgui", () -> IForgeMenuType.create(BlastFurnaceCTGUIMenu::new));
+	public static final RegistryObject<MenuType<BlastFurnaceRemovingCTGUIMenu>> BLAST_FURNACE_REMOVING_CTGUI = REGISTRY.register("blast_furnace_removing_ctgui", () -> IForgeMenuType.create(BlastFurnaceRemovingCTGUIMenu::new));
+	public static final RegistryObject<MenuType<ChoosingTheRecipeGenerationMethodGUIMenu>> CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI = REGISTRY.register("choosing_the_recipe_generation_method_gui",
+			() -> IForgeMenuType.create(ChoosingTheRecipeGenerationMethodGUIMenu::new));
+	public static final RegistryObject<MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
+			() -> IForgeMenuType.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 
 	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
 		if (player != null) {
-			PacketDistributor.sendToPlayer(player, new GuiSyncMessage(boxname, value));
+			RecipeGeneratorMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> player), new GuiSyncMessage(boxname, value));
 		} else {
-			PacketDistributor.sendToAllPlayers(new GuiSyncMessage(boxname, value));
+			RecipeGeneratorMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new GuiSyncMessage(boxname, value));
 		}
 	}
 
-	public static record GuiSyncMessage(String editbox, String value) implements CustomPacketPayload {
-		public static final Type<GuiSyncMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "gui_sync"));
-		public static final StreamCodec<RegistryFriendlyByteBuf, GuiSyncMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, GuiSyncMessage message) -> {
-			ComponentSerialization.TRUSTED_STREAM_CODEC.encode(buffer, Component.literal(message.editbox));
-			ComponentSerialization.TRUSTED_STREAM_CODEC.encode(buffer, Component.literal(message.value));
-		}, (RegistryFriendlyByteBuf buffer) -> {
-			String editbox = ComponentSerialization.TRUSTED_STREAM_CODEC.decode(buffer).getString();
-			String value = ComponentSerialization.TRUSTED_STREAM_CODEC.decode(buffer).getString();
-			return new GuiSyncMessage(editbox, value);
-		});
+	public static class GuiSyncMessage {
+		private final String textboxid;
+		private final String data;
 
-		@Override
-		public Type<GuiSyncMessage> type() {
-			return TYPE;
+		public GuiSyncMessage(FriendlyByteBuf buffer) {
+			this.textboxid = buffer.readComponent().getString();
+			this.data = buffer.readComponent().getString();
 		}
 
-		public static void handleData(final GuiSyncMessage message, final IPayloadContext context) {
-			if (context.flow() == PacketFlow.CLIENTBOUND) {
-				context.enqueueWork(() -> {
+		public GuiSyncMessage(String textboxid, String data) {
+			this.textboxid = textboxid;
+			this.data = data;
+		}
+
+		public static void buffer(GuiSyncMessage message, FriendlyByteBuf buffer) {
+			buffer.writeComponent(Component.literal(message.textboxid));
+			buffer.writeComponent(Component.literal(message.data));
+		}
+
+		public static void handleData(GuiSyncMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+			NetworkEvent.Context context = contextSupplier.get();
+			context.enqueueWork(() -> {
+				if (!context.getDirection().getReceptionSide().isServer()) {
 					RecipeGeneratorModScreens.handleTextBoxMessage(message);
-				}).exceptionally(e -> {
-					context.connection().disconnect(Component.literal(e.getMessage()));
-					return null;
-				});
-			}
+				}
+			});
+			context.setPacketHandled(true);
+		}
+
+		String editbox() {
+			return this.textboxid;
+		}
+
+		String value() {
+			return this.data;
 		}
 	}
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(GuiSyncMessage.TYPE, GuiSyncMessage.STREAM_CODEC, GuiSyncMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(GuiSyncMessage.class, GuiSyncMessage::buffer, GuiSyncMessage::new, GuiSyncMessage::handleData);
 	}
 }

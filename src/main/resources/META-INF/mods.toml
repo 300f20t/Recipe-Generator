@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[2,)"
+loaderVersion="[47,)"
 license="MIT License"
 
 [[mods]]
-modId="just_ctgui"
-version="0.1.6"
-displayName="Just CTGUI"
+modId="recipe_generator"
+version="0.2.3.0"
+displayName="Recipe Generator"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
 credits="Created using mod maker MCreator - https://mcreator.net/about"
@@ -15,22 +15,15 @@ description="The Just Craft Tweaker GUI mod provides a visual recipe editor in m
 # Start of user code block mod configuration
 # End of user code block mod configuration
 
-[[dependencies.just_ctgui]]
-    modId="neoforge"
-    type="required"
-    versionRange="[20.4.223,)"
-    ordering="NONE"
-    side="BOTH"
-
-[[dependencies.just_ctgui]]
+[[dependencies.recipe_generator]]
     modId="minecraft"
-    type="required"
-    versionRange="[1.20.4]"
-    ordering="NONE"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="AFTER"
     side="BOTH"
 
 
 
 
-[[mixins]]
-    config="mixins.just_ctgui.json"
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration
