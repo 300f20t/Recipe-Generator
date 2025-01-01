@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="recipe_generator"
-version="0.2.3.0"
+version="0.2.3.1"
 displayName="Recipe Generator"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
