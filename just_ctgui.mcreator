@@ -1053,14 +1053,23 @@
     {
       "name": "ItemInSlot0",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "item_in_slot_0",
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot0Procedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/Getting items in Slots"
     },

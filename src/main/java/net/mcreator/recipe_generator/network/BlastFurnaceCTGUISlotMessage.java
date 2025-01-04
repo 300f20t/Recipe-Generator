@@ -40,7 +40,7 @@ public class BlastFurnaceCTGUISlotMessage extends FriendlyByteBuf {
 			HashMap guistate = BlastFurnaceCTGUIMenu.guistate;
 			if (slot == 0 && changeType == 0) {
 
-				ItemInSlot0Procedure.execute();
+				ItemInSlot0Procedure.execute(world, entity);
 			}
 			if (slot == 1 && changeType == 0) {
 

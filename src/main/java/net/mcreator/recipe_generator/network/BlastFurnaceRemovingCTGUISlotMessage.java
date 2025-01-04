@@ -39,7 +39,7 @@ public class BlastFurnaceRemovingCTGUISlotMessage extends FriendlyByteBuf {
 			HashMap guistate = BlastFurnaceRemovingCTGUIMenu.guistate;
 			if (slot == 0 && changeType == 0) {
 
-				ItemInSlot0Procedure.execute();
+				ItemInSlot0Procedure.execute(world, entity);
 			}
 		});
 	}
