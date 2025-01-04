@@ -1,28 +1,29 @@
-package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
+package net.mcreator.recipe_generator.client.gui;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
 import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodProcedure;
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage;
-import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens.WidgetScreen;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
+
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends AbstractContainerScreen<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu> implements WidgetScreen {
+public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends AbstractContainerScreen<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu> {
 	private final static HashMap<String, Object> guistate = ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -44,21 +45,9 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 		this.imageHeight = 166;
 	}
 
-	public static HashMap<String, String> getEditBoxAndCheckBoxValues() {
-		HashMap<String, String> textstate = new HashMap<>();
-		if (Minecraft.getInstance().screen instanceof ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen sc) {
-
-		}
-		return textstate;
-	}
-
-	public HashMap<String, Object> getWidgets() {
-		return guistate;
-	}
-
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -81,8 +70,13 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 	}
 
 	@Override
+	public void containerTick() {
+		super.containerTick();
+	}
+
+	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_selected_mod"), -48, 7, -6710785, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_selected_mod"), -47, 7, -6710785, false);
 		guiGraphics.drawString(this.font,
 
 				ReturnSelectedGeneratingMethodProcedure.execute(world), 96, 7, -3355393, false);
@@ -93,20 +87,23 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 	}
 
 	@Override
+	public void onClose() {
+		super.onClose();
+	}
+
+	@Override
 	public void init() {
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_crafttweaker"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(0, x, y, z, getEditBoxAndCheckBoxValues()));
-				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 0, x, y, z, getEditBoxAndCheckBoxValues());
+				ClientPlayNetworking.send(new ResourceLocation(RecipeGeneratorMod.MODID, "choosingtherecipegeneratingmethodguiwithcommand_button_0"), new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(0, x, y, z));
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
 		guistate.put("button:button_crafttweaker", button_crafttweaker);
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_kubejs_wip"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(1, x, y, z, getEditBoxAndCheckBoxValues()));
-				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 1, x, y, z, getEditBoxAndCheckBoxValues());
+				ClientPlayNetworking.send(new ResourceLocation(RecipeGeneratorMod.MODID, "choosingtherecipegeneratingmethodguiwithcommand_button_1"), new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(1, x, y, z));
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
 		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
@@ -121,8 +118,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 		this.addRenderableWidget(button_minecraft_data_pack_wip);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_close"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(4, x, y, z, getEditBoxAndCheckBoxValues()));
-				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 4, x, y, z, getEditBoxAndCheckBoxValues());
+				ClientPlayNetworking.send(new ResourceLocation(RecipeGeneratorMod.MODID, "choosingtherecipegeneratingmethodguiwithcommand_button_4"), new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(4, x, y, z));
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);

@@ -5,7 +5,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
@@ -15,6 +14,8 @@ import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+
 import io.netty.buffer.Unpooled;
 
 public class OpencraftingtableCTGUIProcedure {
@@ -22,44 +23,50 @@ public class OpencraftingtableCTGUIProcedure {
 		if (entity == null)
 			return;
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("NONE")) {
-			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
-					@Override
-					public Component getDisplayName() {
-						return Component.literal("ChoosingTheRecipeGenerationMethodGUI");
-					}
+			{
+				if (entity instanceof ServerPlayer _ent) {
+					_ent.openMenu(new ExtendedScreenHandlerFactory() {
+						final BlockPos _pos = BlockPos.containing(x, y, z);
 
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
-					}
+						@Override
+						public void writeScreenOpeningData(ServerPlayer player, FriendlyByteBuf buf) {
+							buf.writeBlockPos(_pos);
+						}
 
-					@Override
-					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new ChoosingTheRecipeGenerationMethodGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-					}
-				}, _bpos);
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("ChoosingTheRecipeGenerationMethodGUI");
+						}
+
+						@Override
+						public AbstractContainerMenu createMenu(int syncId, Inventory inv, Player player) {
+							return new ChoosingTheRecipeGenerationMethodGUIMenu(syncId, inv, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_pos));
+						}
+					});
+				}
 			}
 		} else {
-			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
-					@Override
-					public Component getDisplayName() {
-						return Component.literal("CraftingtableCTGUI");
-					}
+			{
+				if (entity instanceof ServerPlayer _ent) {
+					_ent.openMenu(new ExtendedScreenHandlerFactory() {
+						final BlockPos _pos = BlockPos.containing(x, y, z);
 
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
-					}
+						@Override
+						public void writeScreenOpeningData(ServerPlayer player, FriendlyByteBuf buf) {
+							buf.writeBlockPos(_pos);
+						}
 
-					@Override
-					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new CraftingtableCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
-					}
-				}, _bpos);
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("CraftingtableCTGUI");
+						}
+
+						@Override
+						public AbstractContainerMenu createMenu(int syncId, Inventory inv, Player player) {
+							return new CraftingtableCTGUIMenu(syncId, inv, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_pos));
+						}
+					});
+				}
 			}
 		}
 	}

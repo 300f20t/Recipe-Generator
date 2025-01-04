@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "just_ctgui",
-  "version": "0.0.1_alpha_build_1",
-  "name": "Just CTGUI",
+  "id": "recipe_generator",
+  "version": "0.2.3.2_release",
+  "name": "Recipe Generator",
+  "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
   "authors": [
     "300f20t, MCreator"
   ],
@@ -11,19 +12,21 @@
     "sources": ""
   },
   "license": "MIT License",
+  "icon": "assets/recipe_generator/icon.png",
+  "accessWidener": "recipe_generator.accesswidener",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.mcreator.justctgui.JustCtguiMod"
+      "net.mcreator.recipe_generator.RecipeGeneratorMod"
     ],
     "client": [
-      "net.mcreator.justctgui.ClientInit"
+      "net.mcreator.recipe_generator.ClientInit"
     ]
   },
   "depends": {
-    "fabricloader": ">=0.14.9",
+    "fabricloader": ">=0.14.21",
     "fabric": "*",
-    "minecraft": "~1.18",
+    "minecraft": "~1.20",
     "java": ">=17"
   }
 }
