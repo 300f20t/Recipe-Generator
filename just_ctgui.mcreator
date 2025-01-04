@@ -88,10 +88,6 @@
           {
             "name": "guistate",
             "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -791,12 +787,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ReturnSelectedGeneratingMethodProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -809,12 +800,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToCraftTweakerProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Change selected generating method"
     },
@@ -828,12 +814,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToKubeJSProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Change selected generating method"
     },
@@ -954,10 +935,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -1069,10 +1046,6 @@
           {
             "name": "inputItem",
             "type": "itemstack"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -1087,16 +1060,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot0Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1110,16 +1074,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot1Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1133,16 +1088,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot2Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1156,16 +1102,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot3Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1179,16 +1116,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot4Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1202,16 +1130,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot5Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1225,16 +1144,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot6Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1248,16 +1158,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot7Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1271,16 +1172,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot8Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1294,16 +1186,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot9Procedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Getting items in Slots"
     },
@@ -1423,7 +1306,7 @@
     {
       "name": "selectedMethod",
       "type": "string",
-      "scope": "world",
+      "scope": "global",
       "value": "NONE"
     },
     {
