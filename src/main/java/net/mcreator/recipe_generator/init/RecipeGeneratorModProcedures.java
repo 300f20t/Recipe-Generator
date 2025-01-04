@@ -6,6 +6,7 @@ package net.mcreator.recipe_generator.init;
 
 import net.mcreator.recipe_generator.procedures.VerticalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.VerticalispressedProcedure;
+import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.RecipeshapeProcedure;

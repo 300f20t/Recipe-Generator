@@ -37,11 +37,11 @@ public class ChoosingTheRecipeGenerationMethodGUIButtonMessage extends FriendlyB
 			HashMap guistate = ChoosingTheRecipeGenerationMethodGUIMenu.guistate;
 			if (buttonID == 0) {
 
-				ChangeSelectedGeneratingMethodToCraftTweakerProcedure.execute(world);
+				ChangeSelectedGeneratingMethodToCraftTweakerProcedure.execute();
 			}
 			if (buttonID == 1) {
 
-				ChangeSelectedGeneratingMethodToKubeJSProcedure.execute(world);
+				ChangeSelectedGeneratingMethodToKubeJSProcedure.execute();
 			}
 			if (buttonID == 4) {
 

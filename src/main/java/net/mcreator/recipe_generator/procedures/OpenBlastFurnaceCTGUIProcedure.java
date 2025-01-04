@@ -22,7 +22,7 @@ public class OpenBlastFurnaceCTGUIProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("NONE")) {
+		if ((RecipeGeneratorModVariables.selectedMethod).equals("NONE")) {
 			{
 				if (entity instanceof ServerPlayer _ent) {
 					_ent.openMenu(new ExtendedScreenHandlerFactory() {

@@ -21,7 +21,7 @@ public class GenerateracipesProcedure {
 		String recipeType = "";
 		String recipeTypeFutures = "";
 		String KubeJSRecipeShape = "";
-		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
+		if ((RecipeGeneratorModVariables.selectedMethod).equals("CraftTweaker")) {
 			preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_9 + " * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", [" + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_0 + ", "
 					+ RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_2 + "], " + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_3 + ", " + RecipeGeneratorModVariables.item_in_slot_4 + ", "
 					+ RecipeGeneratorModVariables.item_in_slot_5 + "], " + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_6 + ", " + RecipeGeneratorModVariables.item_in_slot_7 + ", " + RecipeGeneratorModVariables.item_in_slot_8 + "]]);";
@@ -58,7 +58,7 @@ public class GenerateracipesProcedure {
 								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
 						+ "\", " + recipeTypeFutures;
 			}
-		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
+		} else if ((RecipeGeneratorModVariables.selectedMethod).equals("KubeJS")) {
 			KubeJSItemShapeArray.add("A:");
 			KubeJSItemShapeArray.add("B:");
 			KubeJSItemShapeArray.add("C:");

@@ -15,7 +15,6 @@ package net.mcreator.recipe_generator;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModProcedures;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModCommands;
@@ -35,7 +34,5 @@ public class RecipeGeneratorMod implements ModInitializer {
 
 		RecipeGeneratorModMenus.load();
 
-		RecipeGeneratorModVariables.SyncJoin();
-		RecipeGeneratorModVariables.SyncChangeWorld();
 	}
 }

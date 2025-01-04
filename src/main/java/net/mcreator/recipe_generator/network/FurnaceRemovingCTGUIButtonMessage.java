@@ -8,6 +8,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
+import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateRemovingFurnaceRecipesProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
@@ -41,7 +42,7 @@ public class FurnaceRemovingCTGUIButtonMessage extends FriendlyByteBuf {
 			}
 			if (buttonID == 1) {
 
-				ScriptswriterProcedure.execute(world, guistate);
+				ScriptswriterProcedure.execute(guistate);
 			}
 			if (buttonID == 2) {
 

@@ -39,7 +39,7 @@ public class CraftingTableRemovingCTGUISlotMessage extends FriendlyByteBuf {
 			HashMap guistate = CraftingTableRemovingCTGUIMenu.guistate;
 			if (slot == 0 && changeType == 0) {
 
-				ItemInSlot0Procedure.execute(world, entity);
+				ItemInSlot0Procedure.execute();
 			}
 		});
 	}

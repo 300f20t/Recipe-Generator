@@ -48,43 +48,43 @@ public class CraftingtableCTGUISlotMessage extends FriendlyByteBuf {
 			HashMap guistate = CraftingtableCTGUIMenu.guistate;
 			if (slot == 0 && changeType == 0) {
 
-				ItemInSlot0Procedure.execute(world, entity);
+				ItemInSlot0Procedure.execute();
 			}
 			if (slot == 1 && changeType == 0) {
 
-				ItemInSlot1Procedure.execute(world, entity);
+				ItemInSlot1Procedure.execute();
 			}
 			if (slot == 2 && changeType == 0) {
 
-				ItemInSlot2Procedure.execute(world, entity);
+				ItemInSlot2Procedure.execute();
 			}
 			if (slot == 3 && changeType == 0) {
 
-				ItemInSlot3Procedure.execute(world, entity);
+				ItemInSlot3Procedure.execute();
 			}
 			if (slot == 4 && changeType == 0) {
 
-				ItemInSlot4Procedure.execute(world, entity);
+				ItemInSlot4Procedure.execute();
 			}
 			if (slot == 5 && changeType == 0) {
 
-				ItemInSlot5Procedure.execute(world, entity);
+				ItemInSlot5Procedure.execute();
 			}
 			if (slot == 6 && changeType == 0) {
 
-				ItemInSlot6Procedure.execute(world, entity);
+				ItemInSlot6Procedure.execute();
 			}
 			if (slot == 7 && changeType == 0) {
 
-				ItemInSlot7Procedure.execute(world, entity);
+				ItemInSlot7Procedure.execute();
 			}
 			if (slot == 8 && changeType == 0) {
 
-				ItemInSlot8Procedure.execute(world, entity);
+				ItemInSlot8Procedure.execute();
 			}
 			if (slot == 9 && changeType == 0) {
 
-				ItemInSlot9Procedure.execute(world, entity);
+				ItemInSlot9Procedure.execute();
 			}
 		});
 	}

@@ -40,11 +40,11 @@ public class FurnaceCTGUISlotMessage extends FriendlyByteBuf {
 			HashMap guistate = FurnaceCTGUIMenu.guistate;
 			if (slot == 0 && changeType == 0) {
 
-				ItemInSlot0Procedure.execute(world, entity);
+				ItemInSlot0Procedure.execute();
 			}
 			if (slot == 1 && changeType == 0) {
 
-				ItemInSlot1Procedure.execute(world, entity);
+				ItemInSlot1Procedure.execute();
 			}
 		});
 	}

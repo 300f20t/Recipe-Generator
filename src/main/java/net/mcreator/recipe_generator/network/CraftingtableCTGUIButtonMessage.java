@@ -9,6 +9,7 @@ import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.VerticalmirroraxisProcedure;
+import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.HorizontalmirroraxisProcedure;
@@ -66,7 +67,7 @@ public class CraftingtableCTGUIButtonMessage extends FriendlyByteBuf {
 			}
 			if (buttonID == 6) {
 
-				ScriptswriterProcedure.execute(world, guistate);
+				ScriptswriterProcedure.execute(guistate);
 			}
 			if (buttonID == 7) {
 

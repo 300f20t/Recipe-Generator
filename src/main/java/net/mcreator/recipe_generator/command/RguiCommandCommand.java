@@ -57,7 +57,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			DebugVariableSelectedMethodShowProcedure.execute(world, entity);
+			DebugVariableSelectedMethodShowProcedure.execute(entity);
 			return 0;
 		})))).then(Commands.literal("generationMethode").executes(arguments -> {
 			ServerLevel world = arguments.getSource().getLevel();
