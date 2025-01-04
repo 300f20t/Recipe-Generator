@@ -7,13 +7,15 @@ MCreator plugins: File manager.
 
 Minecraft version: 1.20.1 Forge
 
-### **What is this mod and how to use it?**
+<h3>What is this mod and how to use it?</h3>
 
-**The Recipe Generator mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language. To be more precise, it is not an additional mod for Craft Tweaker, but simply adds a visual editor to the game and automatic code generation in Zen Script.**
+The Recipe Generator mod provides a visual recipe editor in minecraft using various recipe generation methods such as: **CraftTweaker**, **KubeJS**, **Datapack**(WIP) or **Custom Mod**(WIP).
 
-**It is very easy to use this mod, it is enough to install the mod on the server and client, if desired,** _**you can install Craft Tweaker for ease of development, but this is optional.**_ **Thanks to this, you can start creating your own recipes for assembly even before the official release of Craft Tweaker on this version. Thus, the recipes will not work in the game, but when the craft tweaker is installed, they will all work.**
+Using this mod is very simple, it is enough to install the mod on the server and client, if desired, you can install one of the auxiliary mods (CraftTweaker or KubeJS) for ease of development, but this is optional.
 
-After installing Recipe Generator and Craft Tweaker on the server and client, you can start creating the first recipe. To do this, open the chat and register the beginning of the command "/ctgui" and press the space bar. Then you will have several options for crafting blocks. At the moment, only "crafting\_table" is supported and press the space bar. Next, you need to select an action. At the moment, you can only "open". As a result, our command should look something like this before executing: **/ctgui crafting\_table open**
+After installation, you can start creating the first recipe. To do this, open the chat and type the command: **/rgui addRecipe craftingTable**
+
+Of course, other blocks are available: furnace and blast Furnace (all blocks will be added in the future). In addition to adding, you can also delete unnecessary recipes using "/rgui remove" **(Do not try to delete recipes added by Recipe Generator using "/rgui remove"! Delete the generated recipes from the ".minecraft/scripts" folder!).**
 
 Then we will open the GUI itself. Before opening, take the items from which you want to craft into your inventory. When the GUI is open, you can see an interface similar to crafting table, in which you need to lay out the recipe. Creating using items from other mods is possible, but errors may occur. When you have posted your recipe, you can click the Generate button to generate Zen Script code. The generated code will appear in your chat and you can check it for errors if you understand this language. Then you can click the Save button and the recipe will be automatically saved to the Scripts folder called generated1.zs. It is not possible to choose the name of the recipe and file manually yet, and this happens automatically.
 
