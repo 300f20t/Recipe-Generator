@@ -1,24 +1,28 @@
 package net.mcreator.recipe_generator.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
-import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-import java.util.function.Supplier;
-import java.util.Map;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 
 public class ItemInSlot1Procedure {
 	public static void execute(LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
-		RecipeGeneratorMod.queueServerWork(1, () -> {
-			RecipeGeneratorModVariables.item_in_slot_1 = ItemsFormatProcedure.execute(world,
-					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(1)).getItem() : ItemStack.EMPTY);
-		});
+		new Object() {
+			private int ticks = 0;
+
+			public void startDelay(LevelAccessor world) {
+				ServerTickEvents.END_SERVER_TICK.register((server) -> {
+					this.ticks++;
+					if (this.ticks == 1) {
+						RecipeGeneratorModVariables.item_in_slot_1 = ItemsFormatProcedure.execute(world, inputItem);
+						return;
+					}
+				});
+			}
+		}.startDelay(world);
 	}
 }
