@@ -1,7 +1,10 @@
 package net.mcreator.recipe_generator.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
@@ -18,7 +21,13 @@ public class ItemInSlot0Procedure {
 				ServerTickEvents.END_SERVER_TICK.register((server) -> {
 					this.ticks++;
 					if (this.ticks == 1) {
-						RecipeGeneratorModVariables.item_in_slot_0 = ItemsFormatProcedure.execute(inputItem);
+						if ((RecipeGeneratorModVariables.selectedMethod).equals("CraftTweaker")) {
+							RecipeGeneratorModVariables.item_in_slot_0 = "<item:"
+									+ (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(0).getItem() : ItemStack.EMPTY).getItem()).toString()) + ">";
+						} else if ((RecipeGeneratorModVariables.selectedMethod).equals("KubeJS")) {
+							RecipeGeneratorModVariables.item_in_slot_0 = "'" + (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(0).getItem() : ItemStack.EMPTY).getItem()).toString())
+									+ "'";
+						}
 						return;
 					}
 				});
