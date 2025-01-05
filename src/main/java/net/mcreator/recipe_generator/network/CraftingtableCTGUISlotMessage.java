@@ -52,39 +52,39 @@ public class CraftingtableCTGUISlotMessage extends FriendlyByteBuf {
 			}
 			if (slot == 1 && changeType == 0) {
 
-				ItemInSlot1Procedure.execute();
+				ItemInSlot1Procedure.execute(world, entity);
 			}
 			if (slot == 2 && changeType == 0) {
 
-				ItemInSlot2Procedure.execute();
+				ItemInSlot2Procedure.execute(world, entity);
 			}
 			if (slot == 3 && changeType == 0) {
 
-				ItemInSlot3Procedure.execute();
+				ItemInSlot3Procedure.execute(world, entity);
 			}
 			if (slot == 4 && changeType == 0) {
 
-				ItemInSlot4Procedure.execute();
+				ItemInSlot4Procedure.execute(world, entity);
 			}
 			if (slot == 5 && changeType == 0) {
 
-				ItemInSlot5Procedure.execute();
+				ItemInSlot5Procedure.execute(world, entity);
 			}
 			if (slot == 6 && changeType == 0) {
 
-				ItemInSlot6Procedure.execute();
+				ItemInSlot6Procedure.execute(world, entity);
 			}
 			if (slot == 7 && changeType == 0) {
 
-				ItemInSlot7Procedure.execute();
+				ItemInSlot7Procedure.execute(world, entity);
 			}
 			if (slot == 8 && changeType == 0) {
 
-				ItemInSlot8Procedure.execute();
+				ItemInSlot8Procedure.execute(world, entity);
 			}
 			if (slot == 9 && changeType == 0) {
 
-				ItemInSlot9Procedure.execute();
+				ItemInSlot9Procedure.execute(world, entity);
 			}
 		});
 	}

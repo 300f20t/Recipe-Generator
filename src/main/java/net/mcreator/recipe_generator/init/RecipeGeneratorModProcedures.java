@@ -21,7 +21,6 @@ import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingCTGUIPro
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.NoneispressedProcedure;
-import net.mcreator.recipe_generator.procedures.ItemsFormatProcedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot9Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot8Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot7Procedure;
@@ -43,7 +42,6 @@ import net.mcreator.recipe_generator.procedures.GenerateFurnaceReciepsProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRemovingRecipesProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRacipesProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
-import net.mcreator.recipe_generator.procedures.FileNameCreatorProcedure;
 import net.mcreator.recipe_generator.procedures.DiagonalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.DiagonalispressedProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
@@ -90,7 +88,6 @@ public class RecipeGeneratorModProcedures {
 		new OpenBlastFurnaceRemovingCTGUIProcedure();
 		new GenerateBlastFurnaceRacipesProcedure();
 		new GenerateBlastFurnaceRemovingRecipesProcedure();
-		new FileNameCreatorProcedure();
 		new RecipeNameCreatorProcedure();
 		new CraftingtableCTGUIPriOtkrytiiIntierfieisaProcedure();
 		new ReturnSelectedGeneratingMethodProcedure();
@@ -104,7 +101,6 @@ public class RecipeGeneratorModProcedures {
 		new CheckCraftTweakerProcedure();
 		new CheckKubeJSProcedure();
 		new DebugJsonSerializerProcedure();
-		new ItemsFormatProcedure();
 		new ItemInSlot0Procedure();
 		new ItemInSlot1Procedure();
 		new ItemInSlot2Procedure();

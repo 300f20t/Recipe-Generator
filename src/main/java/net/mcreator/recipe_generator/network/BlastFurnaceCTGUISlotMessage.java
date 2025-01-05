@@ -44,7 +44,7 @@ public class BlastFurnaceCTGUISlotMessage extends FriendlyByteBuf {
 			}
 			if (slot == 1 && changeType == 0) {
 
-				ItemInSlot1Procedure.execute();
+				ItemInSlot1Procedure.execute(world, entity);
 			}
 		});
 	}

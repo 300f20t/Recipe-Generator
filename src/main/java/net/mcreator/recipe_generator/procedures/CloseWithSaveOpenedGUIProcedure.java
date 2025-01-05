@@ -26,8 +26,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		if (entity instanceof Player _player)
-			_player.containerMenu = _player.inventoryMenu;
+		if (entity instanceof ServerPlayer) {
+			ServerPlayer player = (ServerPlayer) entity;
+			player.closeContainer();
+		}
 		if ((RecipeGeneratorModVariables.openedGUI).equals("CT")) {
 			{
 				if (entity instanceof ServerPlayer _ent) {
