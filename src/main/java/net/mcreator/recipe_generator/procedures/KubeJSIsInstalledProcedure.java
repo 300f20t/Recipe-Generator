@@ -1,8 +1,10 @@
 package net.mcreator.recipe_generator.procedures;
 
-public class CheckKubeJSProcedure {
+import net.neoforged.fml.ModList;
+
+public class KubeJSIsInstalledProcedure {
 	public static boolean execute() {
-		if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("kubejs")) {
+		if (ModList.get().isLoaded("kubejs")) {
 			return false;
 		}
 		return true;

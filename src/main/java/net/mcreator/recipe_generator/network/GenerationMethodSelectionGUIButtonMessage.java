@@ -17,38 +17,31 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.recipe_generator.procedures.VerticalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
-import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.HorizontalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateracipesProcedure;
-import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
-import net.mcreator.recipe_generator.procedures.DiagonalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.AllmirroraxisProcedure;
+import net.mcreator.recipe_generator.world.inventory.GenerationMethodSelectionGUIMenu;
+import net.mcreator.recipe_generator.procedures.SelectKubeJSProcedure;
+import net.mcreator.recipe_generator.procedures.SelectCraftTweakerProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.Map;
 import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) implements CustomPacketPayload {
+public record GenerationMethodSelectionGUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) implements CustomPacketPayload {
 
-	public static final Type<CraftingtableCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "craftingtable_ctgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingtableCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingtableCTGUIButtonMessage message) -> {
+	public static final Type<GenerationMethodSelectionGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "generation_method_selection_gui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, GenerationMethodSelectionGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, GenerationMethodSelectionGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 		writeTextState(message.textstate, buffer);
-	}, (RegistryFriendlyByteBuf buffer) -> new CraftingtableCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), readTextState(buffer)));
+	}, (RegistryFriendlyByteBuf buffer) -> new GenerationMethodSelectionGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), readTextState(buffer)));
 	@Override
-	public Type<CraftingtableCTGUIButtonMessage> type() {
+	public Type<GenerationMethodSelectionGUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final CraftingtableCTGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final GenerationMethodSelectionGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> {
 				Player entity = context.player();
@@ -67,7 +60,7 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z,
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
 		Level world = entity.level();
-		HashMap guistate = CraftingtableCTGUIMenu.guistate;
+		HashMap guistate = GenerationMethodSelectionGUIMenu.guistate;
 		// connect EditBox and CheckBox to guistate
 		for (Map.Entry<String, String> entry : textstate.entrySet()) {
 			String key = entry.getKey();
@@ -79,39 +72,11 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z,
 			return;
 		if (buttonID == 0) {
 
-			AllmirroraxisProcedure.execute(world);
+			SelectCraftTweakerProcedure.execute(world);
 		}
 		if (buttonID == 1) {
 
-			DiagonalmirroraxisProcedure.execute(world);
-		}
-		if (buttonID == 2) {
-
-			HorizontalmirroraxisProcedure.execute(world);
-		}
-		if (buttonID == 3) {
-
-			NonemirroraxisProcedure.execute(world);
-		}
-		if (buttonID == 4) {
-
-			VerticalmirroraxisProcedure.execute(world);
-		}
-		if (buttonID == 5) {
-
-			GenerateracipesProcedure.execute(world, guistate);
-		}
-		if (buttonID == 6) {
-
-			ScriptswriterProcedure.execute(world, guistate);
-		}
-		if (buttonID == 7) {
-
-			GUIcloseProcedure.execute(entity);
-		}
-		if (buttonID == 8) {
-
-			ReloadCommandProcedure.execute(world, x, y, z);
+			SelectKubeJSProcedure.execute(world);
 		}
 	}
 
@@ -144,6 +109,6 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z,
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(CraftingtableCTGUIButtonMessage.TYPE, CraftingtableCTGUIButtonMessage.STREAM_CODEC, CraftingtableCTGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(GenerationMethodSelectionGUIButtonMessage.TYPE, GenerationMethodSelectionGUIButtonMessage.STREAM_CODEC, GenerationMethodSelectionGUIButtonMessage::handleData);
 	}
 }

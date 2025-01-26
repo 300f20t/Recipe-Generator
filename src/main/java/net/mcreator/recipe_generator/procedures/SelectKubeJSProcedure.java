@@ -4,9 +4,9 @@ import net.minecraft.world.level.LevelAccessor;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
-public class HorizontalmirroraxisProcedure {
+public class SelectKubeJSProcedure {
 	public static void execute(LevelAccessor world) {
-		RecipeGeneratorModVariables.WorldVariables.get(world).Mirror_axis = "HORIZONTAL";
+		RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod = "KJS";
 		RecipeGeneratorModVariables.WorldVariables.get(world).syncData(world);
 	}
 }

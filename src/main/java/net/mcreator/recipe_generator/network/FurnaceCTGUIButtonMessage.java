@@ -1,57 +1,124 @@
 
 package net.mcreator.recipe_generator.network;
 
+import net.neoforged.neoforge.network.handling.IPayloadContext;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+
 import net.minecraft.world.level.Level;
-import net.minecraft.server.network.ServerGamePacketListenerImpl;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.chat.ComponentSerialization;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateFurnaceReciepsProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
-
+import java.util.Map;
 import java.util.HashMap;
 
-import io.netty.buffer.Unpooled;
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+public record FurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z, HashMap<String, String> textstate) implements CustomPacketPayload {
 
-public class FurnaceCTGUIButtonMessage extends FriendlyByteBuf {
-	public FurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) {
-		super(Unpooled.buffer());
-		writeInt(buttonID);
-		writeInt(x);
-		writeInt(y);
-		writeInt(z);
+	public static final Type<FurnaceCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_ctgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, FurnaceCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FurnaceCTGUIButtonMessage message) -> {
+		buffer.writeInt(message.buttonID);
+		buffer.writeInt(message.x);
+		buffer.writeInt(message.y);
+		buffer.writeInt(message.z);
+		writeTextState(message.textstate, buffer);
+	}, (RegistryFriendlyByteBuf buffer) -> new FurnaceCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), readTextState(buffer)));
+	@Override
+	public Type<FurnaceCTGUIButtonMessage> type() {
+		return TYPE;
 	}
 
-	public static void apply(MinecraftServer server, ServerPlayer entity, ServerGamePacketListenerImpl handler, FriendlyByteBuf buf, PacketSender responseSender) {
-		int buttonID = buf.readInt();
-		double x = buf.readInt();
-		double y = buf.readInt();
-		double z = buf.readInt();
-		server.execute(() -> {
-			Level world = entity.level();
-			HashMap guistate = FurnaceCTGUIMenu.guistate;
-			if (buttonID == 0) {
+	public static void handleData(final FurnaceCTGUIButtonMessage message, final IPayloadContext context) {
+		if (context.flow() == PacketFlow.SERVERBOUND) {
+			context.enqueueWork(() -> {
+				Player entity = context.player();
+				int buttonID = message.buttonID;
+				int x = message.x;
+				int y = message.y;
+				int z = message.z;
+				HashMap<String, String> textstate = message.textstate;
+				handleButtonAction(entity, buttonID, x, y, z, textstate);
+			}).exceptionally(e -> {
+				context.connection().disconnect(Component.literal(e.getMessage()));
+				return null;
+			});
+		}
+	}
 
-				GenerateFurnaceReciepsProcedure.execute(world, guistate);
-			}
-			if (buttonID == 1) {
+	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z, HashMap<String, String> textstate) {
+		Level world = entity.level();
+		HashMap guistate = FurnaceCTGUIMenu.guistate;
+		// connect EditBox and CheckBox to guistate
+		for (Map.Entry<String, String> entry : textstate.entrySet()) {
+			String key = entry.getKey();
+			String value = entry.getValue();
+			guistate.put(key, value);
+		}
+		// security measure to prevent arbitrary chunk generation
+		if (!world.hasChunkAt(new BlockPos(x, y, z)))
+			return;
+		if (buttonID == 0) {
 
-				ScriptswriterProcedure.execute(guistate);
-			}
-			if (buttonID == 2) {
+			GenerateFurnaceReciepsProcedure.execute(world, guistate);
+		}
+		if (buttonID == 1) {
 
-				GUIcloseProcedure.execute(entity);
-			}
-			if (buttonID == 3) {
+			ScriptswriterProcedure.execute(world, guistate);
+		}
+		if (buttonID == 2) {
 
-				ReloadCommandProcedure.execute(world, x, y, z);
-			}
-		});
+			GUIcloseProcedure.execute(entity);
+		}
+		if (buttonID == 3) {
+
+			ReloadCommandProcedure.execute(world, x, y, z);
+		}
+	}
+
+	private static void writeTextState(HashMap<String, String> map, RegistryFriendlyByteBuf buffer) {
+		buffer.writeInt(map.size());
+		for (Map.Entry<String, String> entry : map.entrySet()) {
+			writeComponent(buffer, Component.literal(entry.getKey()));
+			writeComponent(buffer, Component.literal(entry.getValue()));
+		}
+	}
+
+	private static HashMap<String, String> readTextState(RegistryFriendlyByteBuf buffer) {
+		int size = buffer.readInt();
+		HashMap<String, String> map = new HashMap<>();
+		for (int i = 0; i < size; i++) {
+			String key = readComponent(buffer).getString();
+			String value = readComponent(buffer).getString();
+			map.put(key, value);
+		}
+		return map;
+	}
+
+	private static Component readComponent(RegistryFriendlyByteBuf buffer) {
+		return ComponentSerialization.TRUSTED_STREAM_CODEC.decode(buffer);
+	}
+
+	private static void writeComponent(RegistryFriendlyByteBuf buffer, Component component) {
+		ComponentSerialization.TRUSTED_STREAM_CODEC.encode(buffer, component);
+	}
+
+	@SubscribeEvent
+	public static void registerMessage(FMLCommonSetupEvent event) {
+		RecipeGeneratorMod.addNetworkMessage(FurnaceCTGUIButtonMessage.TYPE, FurnaceCTGUIButtonMessage.STREAM_CODEC, FurnaceCTGUIButtonMessage::handleData);
 	}
 }
