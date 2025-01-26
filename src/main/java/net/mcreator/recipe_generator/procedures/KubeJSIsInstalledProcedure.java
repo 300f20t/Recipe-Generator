@@ -1,12 +1,12 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
-public class InvertedCheckKubeJSProcedure {
+public class KubeJSIsInstalledProcedure {
 	public static boolean execute() {
 		if (ModList.get().isLoaded("kubejs")) {
-			return true;
+			return false;
 		}
-		return false;
+		return true;
 	}
 }

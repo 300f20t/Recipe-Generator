@@ -1,8 +1,8 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 
-public class CheckCraftTweakerProcedure {
+public class CraftTweakerIsInstalledProcedure {
 	public static boolean execute() {
 		if (ModList.get().isLoaded("crafttweaker")) {
 			return false;

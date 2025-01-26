@@ -1,8 +1,8 @@
 
 package net.mcreator.recipe_generator.world.inventory;
 
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.IItemHandler;
 
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.Level;
@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class ChoosingTheRecipeGenerationMethodGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class GenerationMethodSelectionGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -35,8 +35,8 @@ public class ChoosingTheRecipeGenerationMethodGUIMenu extends AbstractContainerM
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public ChoosingTheRecipeGenerationMethodGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), id);
+	public GenerationMethodSelectionGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(RecipeGeneratorModMenus.GENERATION_METHOD_SELECTION_GUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
 		this.internal = new ItemStackHandler(0);

@@ -15,7 +15,7 @@ public class GenerateFurnaceReciepsProcedure {
 		if (guistate == null)
 			return;
 		String preGeneratedRecipe = "";
-		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_0 + ", " + RecipeGeneratorModVariables.item_in_slot_1 + ", " + new Object() {
+		RecipeGeneratorModVariables.item_in_slot_0_crafting_table = RecipeGeneratorModVariables.item_in_slot_0_crafting_table + ", " + RecipeGeneratorModVariables.item_in_slot_1_crafting_table + ", " + new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
