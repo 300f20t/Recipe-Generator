@@ -1,8 +1,8 @@
-
 package net.mcreator.recipe_generator.world.inventory;
 
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
@@ -21,7 +21,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.network.FurnaceCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
-import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
@@ -44,7 +43,7 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 	public FurnaceCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		super(RecipeGeneratorModMenus.FURNACE_CTGUI.get(), id);
 		this.entity = inv.player;
-		this.world = inv.player.level();
+		this.world = inv.player.level;
 		this.internal = new ItemStackHandler(2);
 		BlockPos pos = null;
 		if (extraData != null) {
@@ -81,8 +80,6 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
-			private final int slot = 0;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -90,8 +87,6 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
-			private final int slot = 1;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -208,9 +203,9 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 				ItemStack itemstack1 = slot1.getItem();
 				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
 					if (p_38904_.getCount() > slot1.getMaxStackSize()) {
-						slot1.setByPlayer(p_38904_.split(slot1.getMaxStackSize()));
+						slot1.set(p_38904_.split(slot1.getMaxStackSize()));
 					} else {
-						slot1.setByPlayer(p_38904_.split(p_38904_.getCount()));
+						slot1.set(p_38904_.split(p_38904_.getCount()));
 					}
 					slot1.setChanged();
 					flag = true;
@@ -232,11 +227,15 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
-					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
+					playerIn.drop(internal.getStackInSlot(j), false);
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(j, ItemStack.EMPTY);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
-					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
+					playerIn.getInventory().placeItemBackInInventory(internal.getStackInSlot(i));
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(i, ItemStack.EMPTY);
 				}
 			}
 		}
@@ -244,8 +243,8 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta, FurnaceCTGUIScreen.getTextboxValues()));
-			FurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, FurnaceCTGUIScreen.getTextboxValues());
+			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta));
+			FurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

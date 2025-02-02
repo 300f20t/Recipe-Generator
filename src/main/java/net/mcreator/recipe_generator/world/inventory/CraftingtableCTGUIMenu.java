@@ -1,8 +1,8 @@
-
 package net.mcreator.recipe_generator.world.inventory;
 
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
@@ -21,7 +21,6 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.network.CraftingtableCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
-import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
@@ -44,7 +43,7 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 	public CraftingtableCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		super(RecipeGeneratorModMenus.CRAFTINGTABLE_CTGUI.get(), id);
 		this.entity = inv.player;
-		this.world = inv.player.level();
+		this.world = inv.player.level;
 		this.internal = new ItemStackHandler(10);
 		BlockPos pos = null;
 		if (extraData != null) {
@@ -81,8 +80,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 17) {
-			private final int slot = 0;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -90,8 +87,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 17) {
-			private final int slot = 1;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -99,8 +94,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 61, 17) {
-			private final int slot = 2;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -108,8 +101,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 25, 35) {
-			private final int slot = 3;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -117,8 +108,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 43, 35) {
-			private final int slot = 4;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -126,8 +115,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 61, 35) {
-			private final int slot = 5;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -135,8 +122,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 25, 53) {
-			private final int slot = 6;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -144,8 +129,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 43, 53) {
-			private final int slot = 7;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -153,8 +136,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 61, 53) {
-			private final int slot = 8;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -162,8 +143,6 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 			}
 		}));
 		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 124, 35) {
-			private final int slot = 9;
-
 			@Override
 			public void setChanged() {
 				super.setChanged();
@@ -280,9 +259,9 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 				ItemStack itemstack1 = slot1.getItem();
 				if (itemstack1.isEmpty() && slot1.mayPlace(p_38904_)) {
 					if (p_38904_.getCount() > slot1.getMaxStackSize()) {
-						slot1.setByPlayer(p_38904_.split(slot1.getMaxStackSize()));
+						slot1.set(p_38904_.split(slot1.getMaxStackSize()));
 					} else {
-						slot1.setByPlayer(p_38904_.split(p_38904_.getCount()));
+						slot1.set(p_38904_.split(p_38904_.getCount()));
 					}
 					slot1.setChanged();
 					flag = true;
@@ -304,11 +283,15 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 		if (!bound && playerIn instanceof ServerPlayer serverPlayer) {
 			if (!serverPlayer.isAlive() || serverPlayer.hasDisconnected()) {
 				for (int j = 0; j < internal.getSlots(); ++j) {
-					playerIn.drop(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
+					playerIn.drop(internal.getStackInSlot(j), false);
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(j, ItemStack.EMPTY);
 				}
 			} else {
 				for (int i = 0; i < internal.getSlots(); ++i) {
-					playerIn.getInventory().placeItemBackInInventory(internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
+					playerIn.getInventory().placeItemBackInInventory(internal.getStackInSlot(i));
+					if (internal instanceof IItemHandlerModifiable ihm)
+						ihm.setStackInSlot(i, ItemStack.EMPTY);
 				}
 			}
 		}
@@ -316,8 +299,8 @@ public class CraftingtableCTGUIMenu extends AbstractContainerMenu implements Sup
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUISlotMessage(slotid, x, y, z, ctype, meta, CraftingtableCTGUIScreen.getTextboxValues()));
-			CraftingtableCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, CraftingtableCTGUIScreen.getTextboxValues());
+			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUISlotMessage(slotid, x, y, z, ctype, meta));
+			CraftingtableCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

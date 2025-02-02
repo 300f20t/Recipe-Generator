@@ -25,7 +25,7 @@ public class GenerateracipesProcedure {
 			preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_9 + " * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", [" + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_0 + ", "
 					+ RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_2 + "], " + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_3 + ", " + RecipeGeneratorModVariables.item_in_slot_4 + ", "
 					+ RecipeGeneratorModVariables.item_in_slot_5 + "], " + "\n" + "[" + RecipeGeneratorModVariables.item_in_slot_6 + ", " + RecipeGeneratorModVariables.item_in_slot_7 + ", " + RecipeGeneratorModVariables.item_in_slot_8 + "]]);";
-			if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
+			if (guistate.containsKey("checkbox:Is_mirrored") ? ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected() : false) {
 				recipeType = "craftingTable.addShapedMirrored(\"";
 				recipeTypeFutures = "MirrorAxis." + RecipeGeneratorModVariables.Mirror_axis + ", ";
 				RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.MirrorAxis;" + recipeType
@@ -33,7 +33,7 @@ public class GenerateracipesProcedure {
 								? RecipeNameCreatorProcedure.execute(guistate)
 								: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
 						+ "\", " + recipeTypeFutures + preGeneratedRecipe;
-			} else if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
+			} else if (guistate.containsKey("checkbox:Is_shapeless") ? ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected() : false) {
 				recipeType = "craftingTable.addShapeless(\"";
 				RecipeGeneratorModVariables.Generated_recipe = recipeType + ""
 						+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "")
@@ -59,15 +59,6 @@ public class GenerateracipesProcedure {
 						+ "\", " + recipeTypeFutures;
 			}
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			KubeJSItemShapeArray.add("A:");
-			KubeJSItemShapeArray.add("B:");
-			KubeJSItemShapeArray.add("C:");
-			KubeJSItemShapeArray.add("D:");
-			KubeJSItemShapeArray.add("E:");
-			KubeJSItemShapeArray.add("F:");
-			KubeJSItemShapeArray.add("G:");
-			KubeJSItemShapeArray.add("H:");
-			KubeJSItemShapeArray.add("I:");
 			preGeneratedRecipe = "\n" + ((KubeJSItemShapeArray.get(0) instanceof String _s ? _s : "") + "" + RecipeGeneratorModVariables.item_in_slot_0 + ",") + "\n"
 					+ ((KubeJSItemShapeArray.get(1) instanceof String _s ? _s : "") + "" + RecipeGeneratorModVariables.item_in_slot_1 + ",") + "\n"
 					+ ((KubeJSItemShapeArray.get(2) instanceof String _s ? _s : "") + "" + RecipeGeneratorModVariables.item_in_slot_2 + ",") + "\n"

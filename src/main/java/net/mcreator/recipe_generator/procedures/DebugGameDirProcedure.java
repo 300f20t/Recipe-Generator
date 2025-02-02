@@ -10,7 +10,7 @@ public class DebugGameDIrProcedure {
 	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
-		if (entity instanceof Player _player && !_player.level().isClientSide())
+		if (entity instanceof Player _player && !_player.level.isClientSide())
 			_player.displayClientMessage(Component.literal(FMLPaths.GAMEDIR.get().toString()), false);
 	}
 }

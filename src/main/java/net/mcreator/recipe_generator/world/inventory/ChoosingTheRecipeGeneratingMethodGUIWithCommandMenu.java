@@ -1,4 +1,3 @@
-
 package net.mcreator.recipe_generator.world.inventory;
 
 import net.minecraftforge.items.ItemStackHandler;
@@ -38,7 +37,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu extends Abstrac
 	public ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
 		super(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), id);
 		this.entity = inv.player;
-		this.world = inv.player.level();
+		this.world = inv.player.level;
 		this.internal = new ItemStackHandler(0);
 		BlockPos pos = null;
 		if (extraData != null) {

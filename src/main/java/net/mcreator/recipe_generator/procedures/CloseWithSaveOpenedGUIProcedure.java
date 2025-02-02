@@ -31,7 +31,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			_player.closeContainer();
 		if ((RecipeGeneratorModVariables.openedGUI).equals("CT")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
@@ -46,7 +46,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			}
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("F")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
@@ -61,7 +61,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			}
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("CTR")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
@@ -76,7 +76,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			}
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("FR")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
@@ -91,7 +91,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			}
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("BF")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
@@ -106,7 +106,7 @@ public class CloseWithSaveOpenedGUIProcedure {
 			}
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("BFR")) {
 			if (entity instanceof ServerPlayer _ent) {
-				BlockPos _bpos = BlockPos.containing(x, y, z);
+				BlockPos _bpos = new BlockPos(x, y, z);
 				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
