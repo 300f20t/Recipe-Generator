@@ -1,5 +1,5 @@
 {
-  "_fv": 73,
+  "_fv": 69,
   "_type": "gui",
   "definition": {
     "type": 0,
@@ -22,8 +22,7 @@
           "width": 88,
           "height": 20,
           "x": 132,
-          "y": 62,
-          "locked": false
+          "y": 62
         }
       },
       {
@@ -38,8 +37,7 @@
           "width": 87,
           "height": 20,
           "x": 132,
-          "y": 89,
-          "locked": false
+          "y": 89
         }
       },
       {
@@ -51,8 +49,7 @@
           "width": 98,
           "height": 20,
           "x": 132,
-          "y": 116,
-          "locked": false
+          "y": 116
         }
       },
       {
@@ -67,8 +64,7 @@
             "falpha": 0.0
           },
           "x": 132,
-          "y": 44,
-          "locked": false
+          "y": 44
         }
       },
       {
@@ -86,8 +82,7 @@
             "name": "CraftTweakerIsInstalled"
           },
           "x": 222,
-          "y": 71,
-          "locked": false
+          "y": 71
         }
       },
       {
@@ -105,8 +100,7 @@
             "name": "KubeJSIsInstalled"
           },
           "x": 222,
-          "y": 98,
-          "locked": false
+          "y": 98
         }
       },
       {
@@ -118,8 +112,7 @@
           "width": 103,
           "height": 20,
           "x": 132,
-          "y": 143,
-          "locked": false
+          "y": 143
         }
       },
       {
@@ -134,8 +127,7 @@
             "falpha": 0.0
           },
           "x": 132,
-          "y": 170,
-          "locked": false
+          "y": 170
         }
       },
       {
@@ -150,8 +142,7 @@
             "falpha": 0.0
           },
           "x": 132,
-          "y": 188,
-          "locked": false
+          "y": 188
         }
       },
       {
@@ -166,8 +157,7 @@
             "falpha": 0.0
           },
           "x": 132,
-          "y": 179,
-          "locked": false
+          "y": 179
         }
       }
     ],

@@ -1,6 +1,6 @@
 package net.mcreator.recipe_generator.procedures;
 
-public class GenerateRecipesKubeJSProcedure {
+public class DebugJsonSerializerProcedure {
 	public static void execute() {
 	}
 }
