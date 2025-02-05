@@ -19,6 +19,8 @@ import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
+import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
+import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
 
