@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "recipe_generator",
-  "version": "0.2.3.2_release",
+  "version": "0.2.3.8_release",
   "name": "Recipe Generator",
   "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
   "authors": [
