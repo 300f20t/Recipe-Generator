@@ -17,25 +17,12 @@ import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingCTGUIPro
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
-import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
 import com.mojang.brigadier.CommandDispatcher;
 
 public class RguiCommandCommand {
 	public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext commandBuildContext, Commands.CommandSelection environment) {
-		dispatcher.register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
-			ServerLevel world = arguments.getSource().getLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			Direction direction = Direction.DOWN;
-			if (entity != null)
-				direction = entity.getDirection();
-
-			DebugGameDIrProcedure.execute(entity);
-			return 0;
-		})).then(Commands.literal("jsonSerializer").executes(arguments -> {
+		dispatcher.register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("jsonSerializer").executes(arguments -> {
 			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

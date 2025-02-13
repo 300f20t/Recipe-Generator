@@ -46,7 +46,6 @@ import net.mcreator.recipe_generator.procedures.DiagonalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.DiagonalispressedProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
-import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 import net.mcreator.recipe_generator.procedures.CraftingtableCTGUIPriOtkrytiiIntierfieisaProcedure;
 import net.mcreator.recipe_generator.procedures.CloseWithSaveOpenedGUIProcedure;
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
@@ -95,7 +94,6 @@ public class RecipeGeneratorModProcedures {
 		new ChangeSelectedGeneratingMethodToKubeJSProcedure();
 		new CloseWithSaveOpenedGUIProcedure();
 		new OpenMethodSelectProcedure();
-		new DebugGameDIrProcedure();
 		new DebugVariableSelectedMethodShowProcedure();
 		new OpenMethodSelectWithCommandProcedure();
 		new CheckCraftTweakerProcedure();
