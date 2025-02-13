@@ -22,10 +22,10 @@ public class ItemInSlot9Procedure {
 					this.ticks++;
 					if (this.ticks == 1) {
 						if ((RecipeGeneratorModVariables.selectedMethod).equals("CraftTweaker")) {
-							RecipeGeneratorModVariables.item_in_slot_0 = "<item:"
-									+ (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(0).getItem() : ItemStack.EMPTY).getItem()).toString()) + ">";
+							RecipeGeneratorModVariables.item_in_slot_9 = "<item:"
+									+ (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(9).getItem() : ItemStack.EMPTY).getItem()).toString()) + ">";
 						} else if ((RecipeGeneratorModVariables.selectedMethod).equals("KubeJS")) {
-							RecipeGeneratorModVariables.item_in_slot_0 = "'" + (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(0).getItem() : ItemStack.EMPTY).getItem()).toString())
+							RecipeGeneratorModVariables.item_in_slot_9 = "'" + (BuiltInRegistries.ITEM.getKey((entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(9).getItem() : ItemStack.EMPTY).getItem()).toString())
 									+ "'";
 						}
 						RecipeGeneratorModVariables.item_in_slot_9_count = (entity instanceof ServerPlayer _plrSlotItem ? _plrSlotItem.containerMenu.getSlot(9).getItem() : ItemStack.EMPTY).getCount();
