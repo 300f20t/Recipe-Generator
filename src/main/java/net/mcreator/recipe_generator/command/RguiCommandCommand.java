@@ -97,7 +97,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpencraftingtableCTGUIProcedure.execute(world, x, y, z, entity);
+			OpencraftingtableCTGUIProcedure.execute();
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -111,7 +111,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenFurnaceCTGUIProcedure.execute();
 			return 0;
 		})).then(Commands.literal("blastFurnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -125,7 +125,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenBlastFurnaceCTGUIProcedure.execute();
 			return 0;
 		}))).then(Commands.literal("remove").then(Commands.literal("craftingTable").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -139,7 +139,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenRemovingRecipesCraftingTableCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenRemovingRecipesCraftingTableCTGUIProcedure.execute();
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -153,7 +153,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenRemovingRecipesFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenRemovingRecipesFurnaceCTGUIProcedure.execute();
 			return 0;
 		})).then(Commands.literal("blastFurnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -167,7 +167,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceRemovingCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenBlastFurnaceRemovingCTGUIProcedure.execute();
 			return 0;
 		}))));
 	}

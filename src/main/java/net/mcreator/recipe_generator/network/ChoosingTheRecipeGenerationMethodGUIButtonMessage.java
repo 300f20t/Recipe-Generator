@@ -18,7 +18,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
-import net.mcreator.recipe_generator.procedures.CloseWithSaveOpenedGUIProcedure;
+import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToCraftTweakerProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -81,7 +81,7 @@ public record ChoosingTheRecipeGenerationMethodGUIButtonMessage(int buttonID, in
 		}
 		if (buttonID == 4) {
 
-			CloseWithSaveOpenedGUIProcedure.execute(world, x, y, z, entity);
+			GUIcloseProcedure.execute(entity);
 		}
 	}
 

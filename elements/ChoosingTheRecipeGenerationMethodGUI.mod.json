@@ -124,7 +124,7 @@
           "text": "Close",
           "isUndecorated": false,
           "onClick": {
-            "name": "CloseWithSaveOpenedGUI"
+            "name": "GUIclose"
           },
           "width": 51,
           "height": 20,
