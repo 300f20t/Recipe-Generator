@@ -1031,6 +1031,20 @@
         "dependencies": []
       },
       "path": "~/Check generation methods"
+    },
+    {
+      "name": "AbstractGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "abstract_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/client/gui/AbstractGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/AbstractGUIMenu.java"
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [

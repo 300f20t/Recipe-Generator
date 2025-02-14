@@ -26,6 +26,7 @@ import net.minecraft.core.registries.Registries;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
+import net.mcreator.recipe_generator.world.inventory.AbstractGUIMenu;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import javax.annotation.Nullable;
@@ -37,6 +38,7 @@ public class RecipeGeneratorModMenus {
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGenerationMethodGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<AbstractGUIMenu>> ABSTRACT_GUI = REGISTRY.register("abstract_gui", () -> IMenuTypeExtension.create(AbstractGUIMenu::new));
 
 	public static void setText(String boxname, String value, @Nullable ServerPlayer player) {
 		if (player != null) {

@@ -16,6 +16,7 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus.GuiSyncMessage;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
+import net.mcreator.recipe_generator.client.gui.AbstractGUIScreen;
 
 import java.util.HashMap;
 
@@ -25,6 +26,7 @@ public class RecipeGeneratorModScreens {
 	public static void clientLoad(RegisterMenuScreensEvent event) {
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), ChoosingTheRecipeGenerationMethodGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen::new);
+		event.register(RecipeGeneratorModMenus.ABSTRACT_GUI.get(), AbstractGUIScreen::new);
 	}
 
 	static void handleTextBoxMessage(GuiSyncMessage message) {
