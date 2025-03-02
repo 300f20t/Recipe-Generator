@@ -81,14 +81,14 @@ public class GenerateracipesProcedure {
 			while (i <= 8) {
 				if (preGeneratedRecipe.contains((KubeJSItemShapeArray.get((int) i) instanceof String _s ? _s : "") + "'minecraft:air',")) {
 					preGeneratedRecipe = preGeneratedRecipe.replace((KubeJSItemShapeArray.get((int) i) instanceof String _s ? _s : "") + "'minecraft:air',", " ");
-					KubeJSRecipeShape = "'" + (!(RecipeGeneratorModVariables.item_in_slot_0).equals("'minecraft:air'") ? "A" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_1).equals("'minecraft:air'") ? "B" : " ")
-							+ (!(RecipeGeneratorModVariables.item_in_slot_2).equals("'minecraft:air'") ? "C" : " ") + "'," + "\n" + "'" + (!(RecipeGeneratorModVariables.item_in_slot_3).equals("'minecraft:air'") ? "D" : " ")
-							+ (!(RecipeGeneratorModVariables.item_in_slot_4).equals("'minecraft:air'") ? "E" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_5).equals("'minecraft:air'") ? "F" : " ") + "'," + "\n" + "'"
-							+ (!(RecipeGeneratorModVariables.item_in_slot_6).equals("'minecraft:air'") ? "G" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_7).equals("'minecraft:air'") ? "H" : " ")
-							+ (!(RecipeGeneratorModVariables.item_in_slot_8).equals("'minecraft:air'") ? "I" : " ") + "'";
 				}
 				i = i + 1;
 			}
+			KubeJSRecipeShape = "'" + (!(RecipeGeneratorModVariables.item_in_slot_0).equals("'minecraft:air'") ? "A" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_1).equals("'minecraft:air'") ? "B" : " ")
+					+ (!(RecipeGeneratorModVariables.item_in_slot_2).equals("'minecraft:air'") ? "C" : " ") + "'," + "\n" + "'" + (!(RecipeGeneratorModVariables.item_in_slot_3).equals("'minecraft:air'") ? "D" : " ")
+					+ (!(RecipeGeneratorModVariables.item_in_slot_4).equals("'minecraft:air'") ? "E" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_5).equals("'minecraft:air'") ? "F" : " ") + "'," + "\n" + "'"
+					+ (!(RecipeGeneratorModVariables.item_in_slot_6).equals("'minecraft:air'") ? "G" : " ") + (!(RecipeGeneratorModVariables.item_in_slot_7).equals("'minecraft:air'") ? "H" : " ")
+					+ (!(RecipeGeneratorModVariables.item_in_slot_8).equals("'minecraft:air'") ? "I" : " ") + "'";
 			RecipeGeneratorModVariables.Generated_recipe = "ServerEvents.recipes(event => {" + "event.shaped(" + "\n" + " Item.of(" + RecipeGeneratorModVariables.item_in_slot_9 + ", "
 					+ new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ")," + "\n" + " [" + "\n" + KubeJSRecipeShape + "\n" + " ]," + "\n" + " {" + preGeneratedRecipe + "})})";
 		}
