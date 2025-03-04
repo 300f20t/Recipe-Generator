@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
 import net.minecraft.world.level.LevelAccessor;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
@@ -25,7 +23,7 @@ public class ScriptswriterProcedure {
 			localDir = "/scripts";
 			fileExtention = ".zs";
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			localDir = "/kubejs/server_scripts";
+			localDir = "/server_scripts";
 			fileExtention = ".js";
 		}
 		generated = new File((FMLPaths.GAMEDIR.get().toString() + "" + localDir), File.separator + (FileNameCreatorProcedure.execute(guistate) + "" + fileExtention));
