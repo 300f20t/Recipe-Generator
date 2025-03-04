@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,7 +17,6 @@ import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMe
 import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.network.BlastFurnaceRemovingCTGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens.WidgetScreen;
-import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
 
@@ -26,8 +27,7 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	private final static HashMap<String, String> textstate = new HashMap<>();
-	public static EditBox file_name;
+	EditBox file_name;
 	Button button_generate;
 	Button button_save;
 	Button button_close;
@@ -44,11 +44,24 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/blast_furnace_removing_ctgui.png");
+	public static HashMap<String, String> getEditBoxAndCheckBoxValues() {
+		HashMap<String, String> textstate = new HashMap<>();
+		if (Minecraft.getInstance().screen instanceof BlastFurnaceRemovingCTGUIScreen sc) {
+			textstate.put("textin:file_name", sc.file_name.getValue());
+
+		}
+		return textstate;
+	}
+
+	public HashMap<String, Object> getWidgets() {
+		return guistate;
+	}
+
+	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/blast_furnace_removing_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
@@ -63,15 +76,6 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 		RenderSystem.disableBlend();
 	}
 
-	public static HashMap<String, String> getTextboxValues() {
-		textstate.put("textin:file_name", file_name.getValue());
-		return textstate;
-	}
-
-	public HashMap<String, Object> getWidgets() {
-		return guistate;
-	}
-
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {
@@ -81,12 +85,6 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 		if (file_name.isFocused())
 			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
-	}
-
-	@Override
-	public void containerTick() {
-		super.containerTick();
-		file_name.tick();
 	}
 
 	@Override
@@ -118,50 +116,46 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 			}
 
 			@Override
-			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+			public void moveCursorTo(int pos, boolean flag) {
+				super.moveCursorTo(pos, flag);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		file_name.setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name").getString());
 		file_name.setMaxLength(32767);
+		file_name.setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name").getString());
 		guistate.put("text:file_name", file_name);
 		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.button_generate"), e -> {
 			if (true) {
-				textstate.put("textin:file_name", file_name.getValue());
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(0, x, y, z, textstate));
-				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(0, x, y, z, getEditBoxAndCheckBoxValues()));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
 		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.button_save"), e -> {
 			if (true) {
-				textstate.put("textin:file_name", file_name.getValue());
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(1, x, y, z, textstate));
-				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(1, x, y, z, getEditBoxAndCheckBoxValues()));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
 		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.button_close"), e -> {
 			if (true) {
-				textstate.put("textin:file_name", file_name.getValue());
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(2, x, y, z, textstate));
-				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z, textstate);
+				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(2, x, y, z, getEditBoxAndCheckBoxValues()));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.button_reload"), e -> {
 			if (true) {
-				textstate.put("textin:file_name", file_name.getValue());
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(3, x, y, z, textstate));
-				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z, textstate);
+				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(3, x, y, z, getEditBoxAndCheckBoxValues()));
+				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z, getEditBoxAndCheckBoxValues());
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
