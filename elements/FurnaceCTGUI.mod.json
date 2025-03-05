@@ -199,7 +199,7 @@
       {
         "type": "textfield",
         "data": {
-          "placeholder": "10",
+          "placeholder": "100",
           "name": "time",
           "width": 120,
           "height": 20,
