@@ -213,7 +213,7 @@
         "data": {
           "name": "label_time",
           "text": {
-            "fixedValue": "Time(seconds):"
+            "fixedValue": "Time(ticks):"
           },
           "color": {
             "value": -3355393,
