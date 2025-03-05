@@ -15,7 +15,7 @@ public class GenerateBlastFurnaceRacipesProcedure {
 		if (guistate == null)
 			return;
 		String preGeneratedRecipe = "";
-		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_0 + ", " + RecipeGeneratorModVariables.item_in_slot_1 + ", " + new Object() {
+		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_0 + ", " + (new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
@@ -23,7 +23,7 @@ public class GenerateBlastFurnaceRacipesProcedure {
 				}
 				return 0;
 			}
-		}.convert(guistate.containsKey("text:XP") ? ((EditBox) guistate.get("text:XP")).getValue() : "") + ", " + Math.round(new Object() {
+		}.convert(guistate.containsKey("text:XP") ? ((EditBox) guistate.get("text:XP")).getValue() : "") > 0 ? new Object() {
 			double convert(String s) {
 				try {
 					return Double.parseDouble(s.trim());
@@ -31,7 +31,23 @@ public class GenerateBlastFurnaceRacipesProcedure {
 				}
 				return 0;
 			}
-		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) + ");";
+		}.convert(guistate.containsKey("text:XP") ? ((EditBox) guistate.get("text:XP")).getValue() : "") : 1) + ", " + (Math.round(new Object() {
+			double convert(String s) {
+				try {
+					return Double.parseDouble(s.trim());
+				} catch (Exception e) {
+				}
+				return 0;
+			}
+		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) > 0 ? Math.round(new Object() {
+			double convert(String s) {
+				try {
+					return Double.parseDouble(s.trim());
+				} catch (Exception e) {
+				}
+				return 0;
+			}
+		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) : Math.round(10)) + ");";
 		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()) {
 			RecipeGeneratorModVariables.Generated_recipe = "blastFurnace.addRecipe(\"" + "no_name" + "\", " + preGeneratedRecipe;
 		} else {
