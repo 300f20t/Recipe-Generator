@@ -48,11 +48,11 @@ public class GenerateFurnaceReciepsProcedure {
 				return 0;
 			}
 		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) : Math.round(10)) + ");";
-		if ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()) {
-			RecipeGeneratorModVariables.Generated_recipe = "furnace.addRecipe(\"" + "no_name" + "\", " + preGeneratedRecipe;
-		} else {
-			RecipeGeneratorModVariables.Generated_recipe = "furnace.addRecipe(\"" + "" + (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "") + "\", " + preGeneratedRecipe;
-		}
+		RecipeGeneratorModVariables.Generated_recipe = "furnace.addRecipe(\"" + ""
+				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
+						? RecipeNameCreatorProcedure.execute(guistate)
+						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+				+ "\", " + preGeneratedRecipe;
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}
