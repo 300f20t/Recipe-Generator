@@ -1,42 +1,49 @@
 plugins {
     id 'eclipse'
-    id 'net.neoforged.moddev' version '1.0.21'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
 }
 
 version = '1.0'
-base.archivesName = "modid"
+group = 'com.yourname.modid'
+archivesBaseName = 'modid'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-neoForge {
-    version = "21.1.65"
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    copyIdeResources = true
 
     runs {
         client {
-            client()
-
             def mcreatorJvmOptions = System.getenv('MCREATOR_JVM_OPTIONS')
             if (mcreatorJvmOptions) {
-                mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.each { arg ->
-                    jvmArgument(arg)
-                }
+                jvmArgs += mcreatorJvmOptions.split("\\s+").findAll { it.trim() }.toList()
             }
         }
+
         server {
-            server()
         }
 
         configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
-        }
-    }
+            workingDirectory project.file('run')
 
-    mods {
-        testproject {
-            sourceSet sourceSets.main
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            mods {
+                examplemod {
+                    source sourceSets.main
+                }
+            }
         }
     }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -44,3 +51,4 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 apply from: 'mcreator.gradle'
+
