@@ -11,8 +11,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import io.netty.buffer.Unpooled;
@@ -47,7 +47,7 @@ public class OpenBlastFurnaceCTGUIProcedure {
 				_ent.openMenu(new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.literal("FurnaceCTGUI");
+						return Component.literal("BlastFurnaceCTGUI");
 					}
 
 					@Override
@@ -57,7 +57,7 @@ public class OpenBlastFurnaceCTGUIProcedure {
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new FurnaceCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new BlastFurnaceCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}
