@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.procedures;
 
+import net.minecraftforge.network.NetworkHooks;
+
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -30,15 +32,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		if ((RecipeGeneratorModVariables.openedGUI).equals("CT")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("CraftingtableCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
@@ -50,15 +47,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("F")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("FurnaceCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
@@ -70,15 +62,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("CTR")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("CraftingTableRemovingCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
@@ -90,15 +77,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("FR")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("FurnaceRemovingCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
@@ -110,15 +92,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("BF")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("BlastFurnaceCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
@@ -130,15 +107,10 @@ public class CloseWithSaveOpenedGUIProcedure {
 		} else if ((RecipeGeneratorModVariables.openedGUI).equals("BFR")) {
 			if (entity instanceof ServerPlayer _ent) {
 				BlockPos _bpos = BlockPos.containing(x, y, z);
-				_ent.openMenu(new MenuProvider() {
+				NetworkHooks.openScreen((ServerPlayer) _ent, new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
 						return Component.literal("BlastFurnaceRemovingCTGUI");
-					}
-
-					@Override
-					public boolean shouldTriggerClientSideContainerClosingOnOpen() {
-						return false;
 					}
 
 					@Override
