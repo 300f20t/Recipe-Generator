@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.procedures;
 
-import org.checkerframework.checker.units.qual.s;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;

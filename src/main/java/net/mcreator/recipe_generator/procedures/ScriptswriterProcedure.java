@@ -1,51 +1,71 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.world.level.LevelAccessor;
-
+import net.fabricmc.loader.api.FabricLoader;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
-import java.util.HashMap;
-
-import java.io.IOException;
-import java.io.FileWriter;
 import java.io.File;
-import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.nio.file.Path;
 
 public class ScriptswriterProcedure {
-	public static void execute(LevelAccessor world, HashMap guistate) {
-		if (guistate == null)
-			return;
-		File generated = new File("");
-		String localDir = "";
-		String fileExtention = "";
-		FileNameCreatorProcedure.execute(guistate);
-		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			localDir = "/scripts";
-			fileExtention = ".zs";
-		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			localDir = "/kubejs/server_scripts";
-			fileExtention = ".js";
-		}
-		generated = new File((FMLPaths.GAMEDIR.get().toString() + "" + localDir), File.separator + (FileNameCreatorProcedure.execute(guistate) + "" + fileExtention));
-		if (!generated.exists()) {
-			try {
-				generated.getParentFile().mkdirs();
-				generated.createNewFile();
-			} catch (IOException exception) {
-				exception.printStackTrace();
-			}
-		}
-		try {
-			FileWriter generatedwriter = new FileWriter(generated, false);
-			BufferedWriter generatedbw = new BufferedWriter(generatedwriter);
-			generatedbw.write(RecipeGeneratorModVariables.Generated_recipe);
-			generatedbw.newLine();
-			generatedbw.close();
-			generatedwriter.close();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
-	}
+    public static void execute(HashMap guistate) {
+
+        if (guistate == null) {
+            return;
+        }
+
+        String localDir = "";
+        String fileExtension = "";
+        String fileName = "";
+
+        if ("CraftTweaker".equals(RecipeGeneratorModVariables.selectedMethod)) {
+            localDir = "/scripts";
+            fileExtension = ".zs";
+        } else if ("KubeJS".equals(RecipeGeneratorModVariables.selectedMethod)) {
+            localDir = "/kubejs/server_scripts";
+            fileExtension = ".js";
+        } else {
+            return;
+        }
+
+        Object fileNameObject = guistate.get("text:file_name");
+
+        if (fileNameObject instanceof String) {
+            fileName = (String) fileNameObject;
+        } else if (fileNameObject != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+            fileName = "generated_" + dateFormat.format(Calendar.getInstance().getTime());
+        }
+
+        if (fileName.isEmpty()) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss"); 
+            fileName = "generated_" + dateFormat.format(Calendar.getInstance().getTime());
+        }
+
+        Path gameDirPath = FabricLoader.getInstance().getGameDir();
+        File gameDir = gameDirPath.toFile();
+
+        File generated = new File(gameDir, localDir + "/" + fileName + fileExtension);
+
+        File parentDir = generated.getParentFile();
+        if (!parentDir.exists()) {
+            boolean dirsCreated = parentDir.mkdirs(); 
+        }
+
+        String fileContent = RecipeGeneratorModVariables.Generated_recipe;
+
+        if (fileContent == null || fileContent.isEmpty()) {
+            return;
+        }
+
+        try (FileWriter writer = new FileWriter(generated)) {
+            writer.write(fileContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,18 +1,12 @@
 
 package net.mcreator.recipe_generator.command;
 
-import org.checkerframework.checker.units.qual.s;
-
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.common.util.FakePlayerFactory;
-
-import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.CommandBuildContext;
 
 import net.mcreator.recipe_generator.procedures.OpencraftingtableCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIProcedure;
@@ -25,18 +19,16 @@ import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowP
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
-@Mod.EventBusSubscriber
+import com.mojang.brigadier.CommandDispatcher;
+
 public class RguiCommandCommand {
-	@SubscribeEvent
-	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+	public static void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext commandBuildContext, Commands.CommandSelection environment) {
+		dispatcher.register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -44,13 +36,11 @@ public class RguiCommandCommand {
 			DebugGameDIrProcedure.execute(entity);
 			return 0;
 		})).then(Commands.literal("jsonSerializer").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -58,27 +48,23 @@ public class RguiCommandCommand {
 			DebugJsonSerializerProcedure.execute();
 			return 0;
 		})).then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
 
-			DebugVariableSelectedMethodShowProcedure.execute(world, entity);
+			DebugVariableSelectedMethodShowProcedure.execute(entity);
 			return 0;
 		})))).then(Commands.literal("generationMethode").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -86,13 +72,11 @@ public class RguiCommandCommand {
 			OpenMethodSelectProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("addRecipe").then(Commands.literal("craftingTable").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -100,13 +84,11 @@ public class RguiCommandCommand {
 			OpencraftingtableCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -114,13 +96,11 @@ public class RguiCommandCommand {
 			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("blastFurnace").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -128,13 +108,11 @@ public class RguiCommandCommand {
 			OpenBlastFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))).then(Commands.literal("remove").then(Commands.literal("craftingTable").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -142,13 +120,11 @@ public class RguiCommandCommand {
 			OpenRemovingRecipesCraftingTableCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();
@@ -156,13 +132,11 @@ public class RguiCommandCommand {
 			OpenRemovingRecipesFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("blastFurnace").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
+			ServerLevel world = arguments.getSource().getLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
 			double z = arguments.getSource().getPosition().z();
 			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
 			Direction direction = Direction.DOWN;
 			if (entity != null)
 				direction = entity.getDirection();

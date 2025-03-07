@@ -39,7 +39,7 @@
       "name": "CraftingtableCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "craftingtable_ctgui",
       "metadata": {
         "files": [
@@ -78,22 +78,13 @@
       "name": "Scriptswriter",
       "type": "procedure",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "scriptswriter",
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ScriptswriterProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -295,7 +286,7 @@
       "name": "FurnaceCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "furnace_ctgui",
       "metadata": {
         "files": [
@@ -521,7 +512,7 @@
       "name": "CraftingTableRemovingCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "crafting_table_removing_ctgui",
       "metadata": {
         "files": [
@@ -537,7 +528,7 @@
       "name": "FurnaceRemovingCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "furnace_removing_ctgui",
       "metadata": {
         "files": [
@@ -553,7 +544,7 @@
       "name": "BlastFurnaceCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "blast_furnace_ctgui",
       "metadata": {
         "files": [
@@ -569,7 +560,7 @@
       "name": "BlastFurnaceRemovingCTGUI",
       "type": "gui",
       "compiles": true,
-      "locked_code": false,
+      "locked_code": true,
       "registry_name": "blast_furnace_removing_ctgui",
       "metadata": {
         "files": [
@@ -791,12 +782,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ReturnSelectedGeneratingMethodProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -809,12 +795,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToCraftTweakerProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Change selected generating method"
     },
@@ -828,12 +809,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToKubeJSProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Change selected generating method"
     },
@@ -954,10 +930,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -1069,10 +1041,6 @@
           {
             "name": "inputItem",
             "type": "itemstack"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -1423,7 +1391,7 @@
     {
       "name": "selectedMethod",
       "type": "string",
-      "scope": "world",
+      "scope": "global",
       "value": "NONE"
     },
     {
@@ -1723,7 +1691,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "forge-1.20.1",
+    "currentGenerator": "fabric-1.20.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
