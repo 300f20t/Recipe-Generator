@@ -59,7 +59,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		if (ATTENTIONProcedure.execute())
@@ -100,8 +100,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	@Override
 	public void containerTick() {
 		super.containerTick();
-		recipe_name.tick();
-		file_name.tick();
+		recipe_name.setFocused(true);
+		file_name.setFocused(true);
 	}
 
 	@Override
@@ -140,9 +140,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name").getString());
 				else
@@ -166,9 +165,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name").getString());
 				else

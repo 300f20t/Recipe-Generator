@@ -48,7 +48,7 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -77,7 +77,7 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 	@Override
 	public void containerTick() {
 		super.containerTick();
-		file_name.tick();
+		file_name.setFocused(true);
 	}
 
 	@Override
@@ -110,9 +110,8 @@ public class FurnaceRemovingCTGUIScreen extends AbstractContainerScreen<FurnaceR
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.furnace_removing_ctgui.file_name").getString());
 				else

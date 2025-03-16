@@ -51,7 +51,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -92,10 +92,10 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 	@Override
 	public void containerTick() {
 		super.containerTick();
-		recipe_name.tick();
-		file_name.tick();
-		XP.tick();
-		time.tick();
+		recipe_name.setFocused(true);
+		file_name.setFocused(true);
+		XP.setFocused(true);
+		time.setFocused(true);
 	}
 
 	@Override
@@ -131,9 +131,8 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_ctgui.recipe_name").getString());
 				else
@@ -157,9 +156,8 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_ctgui.file_name").getString());
 				else
@@ -183,9 +181,8 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_ctgui.XP").getString());
 				else
@@ -209,9 +206,8 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 					setSuggestion(null);
 			}
 
-			@Override
 			public void moveCursorTo(int pos) {
-				super.moveCursorTo(pos);
+				super.moveCursorTo(pos, true);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.blast_furnace_ctgui.time").getString());
 				else
