@@ -21,6 +21,7 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.network.FurnaceCTGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
+import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
@@ -81,8 +82,6 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 		}
 		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
 			private final int slot = 0;
-			private int x = FurnaceCTGUIMenu.this.x;
-			private int y = FurnaceCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -92,8 +91,6 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
 			private final int slot = 1;
-			private int x = FurnaceCTGUIMenu.this.x;
-			private int y = FurnaceCTGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
@@ -247,8 +244,8 @@ public class FurnaceCTGUIMenu extends AbstractContainerMenu implements Supplier<
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta));
-			FurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new FurnaceCTGUISlotMessage(slotid, x, y, z, ctype, meta, FurnaceCTGUIScreen.getTextboxValues()));
+			FurnaceCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z, FurnaceCTGUIScreen.getTextboxValues());
 		}
 	}
 

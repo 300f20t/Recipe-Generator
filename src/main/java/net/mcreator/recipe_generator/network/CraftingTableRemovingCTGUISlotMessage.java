@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
@@ -16,19 +17,22 @@ import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
+import java.util.Map;
 import java.util.HashMap;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CraftingTableRemovingCTGUISlotMessage {
 	private final int slotID, x, y, z, changeType, meta;
+	private HashMap<String, String> textstate;
 
-	public CraftingTableRemovingCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) {
+	public CraftingTableRemovingCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta, HashMap<String, String> textstate) {
 		this.slotID = slotID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 		this.changeType = changeType;
 		this.meta = meta;
+		this.textstate = textstate;
 	}
 
 	public CraftingTableRemovingCTGUISlotMessage(FriendlyByteBuf buffer) {
@@ -38,6 +42,7 @@ public class CraftingTableRemovingCTGUISlotMessage {
 		this.z = buffer.readInt();
 		this.changeType = buffer.readInt();
 		this.meta = buffer.readInt();
+		this.textstate = readTextState(buffer);
 	}
 
 	public static void buffer(CraftingTableRemovingCTGUISlotMessage message, FriendlyByteBuf buffer) {
@@ -47,6 +52,7 @@ public class CraftingTableRemovingCTGUISlotMessage {
 		buffer.writeInt(message.z);
 		buffer.writeInt(message.changeType);
 		buffer.writeInt(message.meta);
+		writeTextState(message.textstate, buffer);
 	}
 
 	public static void handler(CraftingTableRemovingCTGUISlotMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -59,14 +65,20 @@ public class CraftingTableRemovingCTGUISlotMessage {
 			int x = message.x;
 			int y = message.y;
 			int z = message.z;
-			handleSlotAction(entity, slotID, changeType, meta, x, y, z);
+			HashMap<String, String> textstate = message.textstate;
+			handleSlotAction(entity, slotID, changeType, meta, x, y, z, textstate);
 		});
 		context.setPacketHandled(true);
 	}
 
-	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
+	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z, HashMap<String, String> textstate) {
 		Level world = entity.level();
 		HashMap guistate = CraftingTableRemovingCTGUIMenu.guistate;
+		for (Map.Entry<String, String> entry : textstate.entrySet()) {
+			String key = entry.getKey();
+			String value = entry.getValue();
+			guistate.put(key, value);
+		}
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -79,5 +91,24 @@ public class CraftingTableRemovingCTGUISlotMessage {
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
 		RecipeGeneratorMod.addNetworkMessage(CraftingTableRemovingCTGUISlotMessage.class, CraftingTableRemovingCTGUISlotMessage::buffer, CraftingTableRemovingCTGUISlotMessage::new, CraftingTableRemovingCTGUISlotMessage::handler);
+	}
+
+	public static void writeTextState(HashMap<String, String> map, FriendlyByteBuf buffer) {
+		buffer.writeInt(map.size());
+		for (Map.Entry<String, String> entry : map.entrySet()) {
+			buffer.writeComponent(Component.literal(entry.getKey()));
+			buffer.writeComponent(Component.literal(entry.getValue()));
+		}
+	}
+
+	public static HashMap<String, String> readTextState(FriendlyByteBuf buffer) {
+		int size = buffer.readInt();
+		HashMap<String, String> map = new HashMap<>();
+		for (int i = 0; i < size; i++) {
+			String key = buffer.readComponent().getString();
+			String value = buffer.readComponent().getString();
+			map.put(key, value);
+		}
+		return map;
 	}
 }
