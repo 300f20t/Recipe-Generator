@@ -22,7 +22,7 @@ import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.HorizontalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateracipesProcedure;
+import net.mcreator.recipe_generator.procedures.GenerateCraftingTableRecipeProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.procedures.DiagonalmirroraxisProcedure;
 import net.mcreator.recipe_generator.procedures.AllmirroraxisProcedure;
@@ -89,7 +89,7 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z)
 		}
 		if (buttonID == 5) {
 
-			GenerateracipesProcedure.execute(world, guistate);
+			GenerateCraftingTableRecipeProcedure.execute(world, guistate);
 		}
 		if (buttonID == 6) {
 
