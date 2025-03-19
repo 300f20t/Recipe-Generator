@@ -239,11 +239,5 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
-		Is_shapeless = new Checkbox(this.leftPos + -119, this.topPos + 97, 20, 20, Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), false);
-		guistate.put("checkbox:Is_shapeless", Is_shapeless);
-		this.addRenderableWidget(Is_shapeless);
-		Is_mirrored = new Checkbox(this.leftPos + -119, this.topPos + 70, 20, 20, Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), false);
-		guistate.put("checkbox:Is_mirrored", Is_mirrored);
-		this.addRenderableWidget(Is_mirrored);
 	}
 }
