@@ -18,7 +18,7 @@ description="The Just Craft Tweaker GUI mod provides a visual recipe editor in m
 [[dependencies.recipe_generator]]
     modId="neoforge"
     type="required"
-    versionRange="[21.1.65,)"
+    versionRange="[21.1.92,)"
     ordering="AFTER"
     side="BOTH"
 

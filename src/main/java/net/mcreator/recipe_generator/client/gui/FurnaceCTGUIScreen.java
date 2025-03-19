@@ -16,13 +16,12 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.network.FurnaceCTGUIButtonMessage;
-import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens.WidgetScreen;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu> implements WidgetScreen {
+public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu> {
 	private final static HashMap<String, Object> guistate = FurnaceCTGUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
@@ -47,27 +46,10 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.imageHeight = 166;
 	}
 
-	public static HashMap<String, String> getEditBoxAndCheckBoxValues() {
-		HashMap<String, String> textstate = new HashMap<>();
-		if (Minecraft.getInstance().screen instanceof FurnaceCTGUIScreen sc) {
-			textstate.put("textin:recipe_name", sc.recipe_name.getValue());
-			textstate.put("textin:file_name", sc.file_name.getValue());
-			textstate.put("textin:XP", sc.XP.getValue());
-			textstate.put("textin:time", sc.time.getValue());
-
-		}
-		return textstate;
-	}
-
-	public HashMap<String, Object> getWidgets() {
-		return guistate;
-	}
-
 	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/furnace_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics, mouseX, mouseY, partialTicks);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -226,32 +208,32 @@ public class FurnaceCTGUIScreen extends AbstractContainerScreen<FurnaceCTGUIMenu
 		this.addWidget(this.time);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.furnace_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(0, x, y, z, getEditBoxAndCheckBoxValues()));
-				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z, getEditBoxAndCheckBoxValues());
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(0, x, y, z));
+				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
 		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.furnace_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(1, x, y, z, getEditBoxAndCheckBoxValues()));
-				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z, getEditBoxAndCheckBoxValues());
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(1, x, y, z));
+				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
 		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.furnace_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(2, x, y, z, getEditBoxAndCheckBoxValues()));
-				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z, getEditBoxAndCheckBoxValues());
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(2, x, y, z));
+				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.furnace_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(3, x, y, z, getEditBoxAndCheckBoxValues()));
-				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z, getEditBoxAndCheckBoxValues());
+				PacketDistributor.sendToServer(new FurnaceCTGUIButtonMessage(3, x, y, z));
+				FurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
