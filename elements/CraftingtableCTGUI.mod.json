@@ -1,5 +1,5 @@
 {
-  "_fv": 73,
+  "_fv": 77,
   "_type": "gui",
   "definition": {
     "type": 1,
@@ -552,25 +552,6 @@
           },
           "x": 150,
           "y": 42,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_shapeless_and_mirrored_recipes_d",
-          "text": {
-            "fixedValue": "Shapeless and mirrored recipes don't work with KubeJS"
-          },
-          "color": {
-            "value": -65485,
-            "falpha": 0.0
-          },
-          "displayCondition": {
-            "name": "InvertedCheckKubeJS"
-          },
-          "x": 87,
-          "y": 206,
           "locked": false
         }
       }

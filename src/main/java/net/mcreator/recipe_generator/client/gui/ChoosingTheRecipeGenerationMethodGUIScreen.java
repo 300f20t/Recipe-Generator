@@ -13,19 +13,17 @@ import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodPr
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGenerationMethodGUIButtonMessage;
-import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens.WidgetScreen;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> implements WidgetScreen {
+public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> {
 	private final static HashMap<String, Object> guistate = ChoosingTheRecipeGenerationMethodGUIMenu.guistate;
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
-	private final static HashMap<String, String> textstate = new HashMap<>();
 	Button button_crafttweaker;
 	Button button_kubejs_wip;
 	Button button_minecraft_mod_wip;
@@ -58,10 +56,6 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		RenderSystem.disableBlend();
 	}
 
-	public HashMap<String, Object> getWidgets() {
-		return guistate;
-	}
-
 	@Override
 	public boolean keyPressed(int key, int b, int c) {
 		if (key == 256) {
@@ -89,16 +83,16 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker"), e -> {
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z, textstate));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
 		guistate.put("button:button_crafttweaker", button_crafttweaker);
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip"), e -> {
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z, textstate));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
 		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
@@ -113,8 +107,8 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		this.addRenderableWidget(button_minecraft_data_pack_wip);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close"), e -> {
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z, textstate));
-				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z, textstate);
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z));
+				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();
 		guistate.put("button:button_close", button_close);
