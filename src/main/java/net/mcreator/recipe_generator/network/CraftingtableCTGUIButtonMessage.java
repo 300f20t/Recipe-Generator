@@ -89,7 +89,7 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z)
 		}
 		if (buttonID == 5) {
 
-			GenerateCraftingTableRecipeProcedure.execute(world, guistate);
+			GenerateCraftingTableRecipeProcedure.execute(world, entity, guistate);
 		}
 		if (buttonID == 6) {
 
