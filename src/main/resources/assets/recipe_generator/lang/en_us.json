@@ -74,6 +74,7 @@
   "gui.recipe_generator.blast_furnace_ctgui.recipe_name": "name",
   "gui.recipe_generator.furnace_removing_ctgui.button_reload": "Reload",
   "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
+  "gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only": "(CraftTweaker only)",
   "gui.recipe_generator.craftingtable_ctgui.label_crafting": "Crafting",
   "gui.just_ctgui.furnace_removing_ctgui.file_name": "generated1",
   "gui.recipe_generator.blast_furnace_removing_ctgui.button_generate": "Generate",

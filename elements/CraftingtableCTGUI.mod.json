@@ -558,19 +558,16 @@
       {
         "type": "label",
         "data": {
-          "name": "label_shapeless_and_mirrored_recipes_d",
+          "name": "label_crafttweaker_only",
           "text": {
-            "fixedValue": "Shapeless and mirrored recipes don't work with KubeJS"
+            "fixedValue": "(CraftTweaker only)"
           },
           "color": {
-            "value": -65485,
+            "value": -256,
             "falpha": 0.0
           },
-          "displayCondition": {
-            "name": "InvertedCheckKubeJS"
-          },
-          "x": 87,
-          "y": 206,
+          "x": 6,
+          "y": 161,
           "locked": false
         }
       }

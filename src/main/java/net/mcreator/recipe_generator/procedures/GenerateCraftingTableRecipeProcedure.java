@@ -29,7 +29,11 @@ public class GenerateCraftingTableRecipeProcedure {
 				GenerateCraftingTableShapedRecipeCraftTweakerProcedure.execute(entity, guistate);
 			}
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			GenerateCraftingTableRecipeKubeJSProcedure.execute();
+			if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
+				GenerateCraftingTableShapelessRecipeKubeJSProcedure.execute();
+			} else {
+				GenerateCraftingTableShapedRecipeKubeJSProcedure.execute();
+			}
 		}
 		if (!world.isClientSide() && world.getServer() != null)
 			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);

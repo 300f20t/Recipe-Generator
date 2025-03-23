@@ -5,7 +5,7 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 import java.util.List;
 import java.util.ArrayList;
 
-public class GenerateCraftingTableRecipeKubeJSProcedure {
+public class GenerateCraftingTableShapedRecipeKubeJSProcedure {
 	public static void execute() {
 		List<Object> KubeJSItemShapeArray = new ArrayList<>();
 		double i = 0;

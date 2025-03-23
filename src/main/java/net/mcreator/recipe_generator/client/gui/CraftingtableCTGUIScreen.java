@@ -15,7 +15,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.GetCurrentAxisProcedure;
 import net.mcreator.recipe_generator.procedures.ATTENTIONProcedure;
 import net.mcreator.recipe_generator.network.CraftingtableCTGUIButtonMessage;
@@ -115,8 +114,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 				GetCurrentAxisProcedure.execute(), 68, -35, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafting"), 24, 5, -12829636, false);
-		if (InvertedCheckKubeJSProcedure.execute())
-			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_shapeless_and_mirrored_recipes_d"), -39, 169, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only"), -120, 124, -256, false);
 	}
 
 	@Override

@@ -1300,20 +1300,6 @@
       "path": "~/Check generation methods"
     },
     {
-      "name": "GenerateCraftingTableRecipeKubeJS",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generate_crafting_table_recipe_kube_js",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableRecipeKubeJSProcedure.java"
-        ],
-        "dependencies": []
-      },
-      "path": "~/Generators/KubeJS"
-    },
-    {
       "name": "GenerateCraftingTableRecipe",
       "type": "procedure",
       "compiles": true,
@@ -1404,6 +1390,34 @@
         ]
       },
       "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateCraftingTableShapedRecipeKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_shaped_recipe_kube_js",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapedRecipeKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/KubeJS"
+    },
+    {
+      "name": "GenerateCraftingTableShapelessRecipeKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_shapeless_recipe_kube_js",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapelessRecipeKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/KubeJS"
     }
   ],
   "variable_elements": [
@@ -1614,6 +1628,7 @@
       "gui.recipe_generator.blast_furnace_ctgui.recipe_name": "name",
       "gui.recipe_generator.furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
+      "gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only": "(CraftTweaker only)",
       "gui.recipe_generator.craftingtable_ctgui.label_crafting": "Crafting",
       "gui.just_ctgui.furnace_removing_ctgui.file_name": "generated1",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_generate": "Generate",
