@@ -1,18 +1,6 @@
 {
   "mod_elements": [
     {
-      "name": "Ctguicommand",
-      "type": "command",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ctguicommand",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/command/CtguicommandCommand.java"
-        ]
-      }
-    },
-    {
       "name": "OpencraftingtableCTGUI",
       "type": "procedure",
       "compiles": true,
@@ -64,259 +52,6 @@
       "path": "~/GUIs/CraftingTable"
     },
     {
-      "name": "Generateracipes",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generateracipes",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateracipesProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Generators/CraftTweaker"
-    },
-    {
-      "name": "Iteminslot0incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_0incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot0incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot1incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_1incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot1incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot2incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_2incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot2incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot3incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_3incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot3incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot4incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_4incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot4incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot5incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_5incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot5incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot6incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_6incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot6incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot7incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_7incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot7incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot8incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_8incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot8incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
-      "name": "Iteminslot9incraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "iteminslot_9incraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/Iteminslot9incraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Getting items in Slots"
-    },
-    {
       "name": "Scriptswriter",
       "type": "procedure",
       "compiles": true,
@@ -330,6 +65,10 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       }
@@ -366,10 +105,6 @@
           {
             "name": "guistate",
             "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       }
@@ -385,12 +120,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/ATTENTIONProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -403,12 +133,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/AllmirroraxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -422,12 +147,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/VerticalmirroraxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -441,12 +161,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/NonemirroraxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -460,12 +175,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/HorizontalmirroraxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -479,12 +189,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/DiagonalmirroraxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -499,12 +204,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/AllispressedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -519,12 +219,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/VerticalispressedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -539,12 +234,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/NoneispressedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -559,12 +249,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/HorizontalispressedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -579,12 +264,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/DiagonalispressedProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       },
       "path": "~/Mirror axes"
     },
@@ -660,7 +340,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators"
     },
     {
       "name": "GenerateRemovingRecipes",
@@ -679,7 +359,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators"
     },
     {
       "name": "GenerateRemovingFurnaceRecipes",
@@ -698,7 +378,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators"
     },
     {
       "name": "GetCurrentAxis",
@@ -711,12 +391,7 @@
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/GetCurrentAxisProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
@@ -974,7 +649,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators"
     },
     {
       "name": "GenerateBlastFurnaceRemovingRecipes",
@@ -993,7 +668,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators"
     },
     {
       "name": "FileNameCreator",
@@ -1015,14 +690,33 @@
       }
     },
     {
-      "name": "GenerationMethodSelectionOpenGUI",
+      "name": "RecipeNameCreator",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "generation_method_selection_open_gui",
+      "registry_name": "recipe_name_creator",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/RecipeNameCreatorProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CraftingtableCTGUIPriOtkrytiiIntierfieisa",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craftingtable_ctgui_pri_otkrytii_intierfieisa",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerationMethodSelectionOpenGUIProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftingtableCTGUIPriOtkrytiiIntierfieisaProcedure.java"
         ],
         "dependencies": [
           {
@@ -1049,28 +743,30 @@
       }
     },
     {
-      "name": "GenerationMethodSelectionGUI",
+      "name": "ChoosingTheRecipeGenerationMethodGUI",
       "type": "gui",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "generation_method_selection_gui",
+      "registry_name": "choosing_the_recipe_generation_method_gui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/world/inventory/GenerationMethodSelectionGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/network/GenerationMethodSelectionGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/GenerationMethodSelectionGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/ChoosingTheRecipeGenerationMethodGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGenerationMethodGUIButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGenerationMethodGUIScreen.java"
         ]
-      }
+      },
+      "path": "~/GUIs"
     },
     {
-      "name": "SelectCraftTweaker",
+      "name": "ReturnSelectedGeneratingMethod",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "select_craft_tweaker",
+      "registry_name": "return_selected_generating_method",
       "metadata": {
+        "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/SelectCraftTweakerProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/ReturnSelectedGeneratingMethodProcedure.java"
         ],
         "dependencies": [
           {
@@ -1081,14 +777,14 @@
       }
     },
     {
-      "name": "SelectKubeJS",
+      "name": "ChangeSelectedGeneratingMethodToCraftTweaker",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "select_kube_js",
+      "registry_name": "change_selected_generating_method_to_craft_tweaker",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/SelectKubeJSProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToCraftTweakerProcedure.java"
         ],
         "dependencies": [
           {
@@ -1096,7 +792,130 @@
             "type": "world"
           }
         ]
+      },
+      "path": "~/Change selected generating method"
+    },
+    {
+      "name": "ChangeSelectedGeneratingMethodToKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "change_selected_generating_method_to_kube_js",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ChangeSelectedGeneratingMethodToKubeJSProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Change selected generating method"
+    },
+    {
+      "name": "CloseWithSaveOpenedGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "close_with_save_opened_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CloseWithSaveOpenedGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
+    },
+    {
+      "name": "ChoosingTheRecipeGeneratingMethodGUIWithCommand",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "choosing_the_recipe_generating_method_gui_with_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "OpenMethodSelect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_method_select",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenMethodSelectProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "DebugGameDIr",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_game_d_ir",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDIrProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Debug"
     },
     {
       "name": "DebugVariableSelectedMethodShow",
@@ -1122,127 +941,545 @@
       "path": "~/Debug"
     },
     {
-      "name": "CraftTweakerIsInstalled",
+      "name": "OpenMethodSelectWithCommand",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "craft_tweaker_is_installed",
+      "registry_name": "open_method_select_with_command",
       "metadata": {
-        "return_type": "logic",
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/CraftTweakerIsInstalledProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenMethodSelectWithCommandProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "RguiCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rgui_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/command/RguiCommandCommand.java"
+        ]
       }
     },
     {
-      "name": "KubeJSIsInstalled",
+      "name": "CheckCraftTweaker",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "kube_js_is_installed",
+      "registry_name": "check_craft_tweaker",
       "metadata": {
         "return_type": "logic",
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/KubeJSIsInstalledProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/CheckCraftTweakerProcedure.java"
         ],
         "dependencies": []
-      }
+      },
+      "path": "~/Check generation methods"
     },
     {
-      "name": "GenerateRecipesKubeJS",
+      "name": "CheckKubeJS",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "generate_recipes_kube_js",
+      "registry_name": "check_kube_js",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CheckKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Check generation methods"
+    },
+    {
+      "name": "DebugJsonSerializer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_json_serializer",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateRecipesKubeJSProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/DebugJsonSerializerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "ItemsFormat",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "items_format",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemsFormatProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "inputItem",
+            "type": "itemstack"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ItemInSlot0",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_0",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot0Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_1",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot1Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_2",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot2Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_3",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot3Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_4",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot4Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot5",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_5",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot5Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot6",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_6",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot6Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot7",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_7",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot7Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot8",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_8",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot8Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot9",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_9",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot9Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "InvertedCheckKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "inverted_check_kube_js",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/InvertedCheckKubeJSProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Check generation methods"
+    },
+    {
+      "name": "GenerateCraftingTableRecipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableRecipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Generators/Abstract"
+    },
+    {
+      "name": "GenerateCraftingTableShapedRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_shaped_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapedRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateCraftingTableShapelessRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_shapeless_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapelessRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateCraftingTableMirroredRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_mirrored_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableMirroredRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateCraftingTableShapedRecipeKubeJS",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_shaped_recipe_kube_js",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapedRecipeKubeJSProcedure.java"
         ],
         "dependencies": []
       },
       "path": "~/Generators/KubeJS"
     },
     {
-      "name": "DebugGameDir",
+      "name": "GenerateCraftingTableShapelessRecipeKubeJS",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "debug_game_dir",
+      "registry_name": "generate_crafting_table_shapeless_recipe_kube_js",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDirProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableShapelessRecipeKubeJSProcedure.java"
         ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "dependencies": []
       },
-      "path": "~/Debug"
+      "path": "~/Generators/KubeJS"
     }
   ],
   "variable_elements": [
     {
-      "name": "item_in_slot_0_crafting_table",
+      "name": "item_in_slot_0",
       "type": "string",
       "scope": "global",
       "value": ""
     },
     {
-      "name": "item_in_slot_1_crafting_table",
+      "name": "item_in_slot_1",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_2_crafting_table",
+      "name": "item_in_slot_2",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_3_crafting_table",
+      "name": "item_in_slot_3",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_4_crafting_table",
+      "name": "item_in_slot_4",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_5_crafting_table",
+      "name": "item_in_slot_5",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_6_crafting_table",
+      "name": "item_in_slot_6",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_7_crafting_table",
+      "name": "item_in_slot_7",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_8_crafting_table",
+      "name": "item_in_slot_8",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
-      "name": "item_in_slot_9_crafting_table",
+      "name": "item_in_slot_9",
       "type": "string",
       "scope": "global",
-      "value": "\"\""
+      "value": ""
     },
     {
       "name": "Generated_recipe",
@@ -1257,34 +1494,58 @@
       "value": "\"\""
     },
     {
-      "name": "Pre_generated_recipe",
-      "type": "string",
-      "scope": "global",
-      "value": "\"\""
-    },
-    {
       "name": "Is_mirrored",
       "type": "logic",
-      "scope": "world",
+      "scope": "global",
       "value": "false"
     },
     {
       "name": "Is_shapeless",
       "type": "logic",
-      "scope": "world",
+      "scope": "global",
       "value": "false"
     },
     {
       "name": "Mirror_axis",
       "type": "string",
-      "scope": "world",
+      "scope": "global",
       "value": "NONE"
+    },
+    {
+      "name": "filesWithGeneratedNameCount",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
     },
     {
       "name": "selectedMethod",
       "type": "string",
       "scope": "world",
       "value": "NONE"
+    },
+    {
+      "name": "openedGUI",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "methodSelected",
+      "type": "logic",
+      "scope": "global",
+      "value": "false"
+    },
+    {
+      "name": "item_in_slot_9_count",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
+    },
+    {
+      "name": "preGeneratedRecipe",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -1292,168 +1553,94 @@
   "tab_element_order": {},
   "language_map": {
     "en_us": {
-      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.furnace_ctgui.button_save": "Save",
+      "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.craftingtable_ctgui.recipe_name": "name",
-      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
-      "gui.recipe_generator.generation_method_selection_gui.label_you_can_open_this_gui_at_any_tim": "You can open this GUI at any time",
-      "gui.just_ctgui.furnace_removing_ctgui.button_close": "Close",
-      "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
-      "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
       "gui.recipe_generator.blast_furnace_ctgui.button_close": "Close",
-      "gui.just_ctgui.furnace_removing_ctgui.label_furnace": "Furnace removing",
-      "gui.recipe_generator.blast_furnace_removing_ctgui.file_name": "generated1",
       "gui.just_ctgui.craftingtable_ctgui.label_file_name": "File name:",
-      "gui.recipe_generator.craftingtable_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_empty": "",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_diagonal": "diagonal",
-      "gui.recipe_generator.generation_method_selection_gui.button_crafttweaker": "CraftTweaker",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.label_current_axis": "Current axis:",
       "gui.just_ctgui.craftingtable_ctgui.button_vertical": "vertical",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_all": "all",
-      "gui.just_ctgui.furnace_removing_ctgui.button_save": "Save",
-      "gui.recipe_generator.blast_furnace_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.blast_furnace_ctgui.label_furnace": "Furnace",
       "gui.just_ctgui.furnace_removing_recipes_gui.time": "10",
       "gui.just_ctgui.furnace_ctgui.label_recipe_name": "Recipe name:",
-      "gui.recipe_generator.generation_method_selection_gui.label_not_installed1": "Not installed!",
-      "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_file_name": "File name:",
-      "gui.recipe_generator.craftingtable_ctgui.button_vertical": "vertical",
-      "gui.recipe_generator.generation_method_selection_gui.button_custommod_wip": "CustomMod (WIP)",
-      "gui.recipe_generator.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
-      "gui.just_ctgui.crafting_table_removing_ctgui.recipe_name": "name",
-      "gui.recipe_generator.furnace_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_crafttweaker": "CraftTweaker",
       "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_generate": "Generate",
-      "gui.recipe_generator.generation_method_selection_gui.label_not_installed": "Not installed!",
-      "gui.just_ctgui.furnace_removing_recipes_gui.label_xp": "XP:",
       "gui.recipe_generator.furnace_ctgui.recipe_name": "name",
-      "gui.recipe_generator.furnace_ctgui.file_name": "generated1",
-      "gui.recipe_generator.blast_furnace_ctgui.time": "10",
+      "gui.recipe_generator.blast_furnace_ctgui.time": "50",
       "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
       "gui.just_ctgui.blast_furnace_ctgui.button_save": "Save",
-      "gui.just_ctgui.furnace_removing_recipes_gui.file_name": "generated1",
-      "gui.just_ctgui.blast_furnace_ctgui.time": "10",
-      "gui.recipe_generator.generation_method_selection_gui.label_rgui_generationmethode": "/rgui generationMethode",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.blast_furnace_ctgui.label_time": "Time(ticks):",
       "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
-      "gui.recipe_generator.blast_furnace_ctgui.label_time": "Time(seconds):",
       "gui.recipe_generator.crafting_table_removing_ctgui.file_name": "generated",
-      "gui.just_ctgui.blast_furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.furnace_removing_ctgui.button_save": "Save",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_save": "Save",
-      "gui.recipe_generator.generation_method_selection_gui.button_datapack_wip": "DataPack (WIP)",
       "gui.just_ctgui.crafting_table_removing_ctgui.file_name": "generated",
-      "gui.recipe_generator.furnace_ctgui.button_close": "Close",
-      "gui.just_ctgui.furnace_ctgui.label_furnace": "Furnace",
-      "gui.just_ctgui.furnace_removing_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.furnace_ctgui.label_time": "Time(seconds):",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_vertical": "vertical",
-      "gui.just_ctgui.furnace_removing_ctgui.recipe_name": "name",
-      "gui.just_ctgui.craftingtable_ctgui.button_none": "none",
+      "gui.recipe_generator.furnace_ctgui.label_time": "Time(ticks):",
       "gui.recipe_generator.blast_furnace_ctgui.button_generate": "Generate",
       "gui.recipe_generator.furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.blast_furnace_ctgui.label_furnace": "Furnace",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_file_name": "File name:",
-      "gui.recipe_generator.furnace_removing_ctgui.file_name": "generated1",
       "gui.just_ctgui.furnace_removing_ctgui.time": "10",
-      "gui.recipe_generator.furnace_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.label_xp": "XP:",
-      "gui.just_ctgui.furnace_ctgui.XP": "1.0",
       "gui.recipe_generator.craftingtable_ctgui.button_save": "Save",
-      "gui.recipe_generator.craftingtable_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.furnace_ctgui.label_xp": "XP:",
       "gui.just_ctgui.blast_furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.blast_furnace_ctgui.file_name": "generated1",
       "gui.just_ctgui.craftingtable_ctgui.label_mirror_axis": "Mirror axis:",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_reload": "Reload",
-      "gui.just_ctgui.furnace_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_removing_ctgui.XP": "1.0",
-      "gui.recipe_generator.furnace_ctgui.label_furnace": "Furnace",
       "gui.recipe_generator.blast_furnace_ctgui.label_file_name": "File name:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_vertical": "vertical",
-      "gui.recipe_generator.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.craftingtable_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.blast_furnace_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.furnace_removing_ctgui.label_furnace": "Furnace removing",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
-      "gui.just_ctgui.craftingtable_ctgui.label_axis": "axis",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_ctgui.time": "10",
       "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_recipes_gui.XP": "1.0",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.button_kubejs_wip": "KubeJS (WIP)",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
       "gui.recipe_generator.craftingtable_ctgui.button_all": "all",
-      "gui.recipe_generator.generation_method_selection_gui.label_select_the_generation_method": "Select the generation method:",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_reload": "Reload",
-      "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.label_empty": "Mirror axis:",
-      "gui.recipe_generator.blast_furnace_removing_ctgui.button_save": "Save",
-      "gui.just_ctgui.craftingtable_ctgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
-      "gui.recipe_generator.furnace_ctgui.button_generate": "Generate",
-      "gui.recipe_generator.craftingtable_ctgui.label_recipe_name": "Recipe name:",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_recipe_name": "Recipe name:",
-      "gui.recipe_generator.furnace_ctgui.XP": "1.0",
-      "gui.just_ctgui.furnace_removing_recipes_gui.label_time": "Time(seconds):",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
-      "gui.just_ctgui.blast_furnace_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.furnace_ctgui.time": "10",
-      "gui.just_ctgui.crafting_table_removing_ctgui.label_current_axis": "Current axis:",
-      "gui.recipe_generator.craftingtable_ctgui.button_none": "none",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_empty": "Mirror axis:",
+      "gui.recipe_generator.furnace_ctgui.time": "100",
       "gui.just_ctgui.furnace_removing_ctgui.label_recipe_name": "Recipe name:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.craftingtable_ctgui.button_horizontal": "horizontal",
       "gui.just_ctgui.furnace_ctgui.file_name": "generated1",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.Is_mirrored": "Is mirrored?",
-      "gui.recipe_generator.craftingtable_ctgui.button_close": "Close",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_selected_mod": "Selected Generating Method:",
       "gui.recipe_generator.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_close": "Close",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_kubejs_wip": "KubeJS (WIP)",
       "gui.just_ctgui.craftingtable_ctgui.name": "name",
       "gui.just_ctgui.crafting_table_removing_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.recipe_generator.blast_furnace_removing_ctgui.button_close": "Close",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.crafting_table_removing_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_none": "none",
-      "gui.recipe_generator.furnace_ctgui.label_file_name": "File name:",
-      "gui.just_ctgui.furnace_removing_recipes_gui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_mirrored": "Is mirrored?",
-      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
       "gui.just_ctgui.blast_furnace_ctgui.button_close": "Close",
-      "gui.just_ctgui.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.blast_furnace_ctgui.file_name": "generated1",
-      "gui.just_ctgui.furnace_ctgui.button_save": "Save",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.blast_furnace_ctgui.recipe_name": "name",
-      "gui.just_ctgui.craftingtable_ctgui.label_crafting": "Crafting",
       "gui.recipe_generator.furnace_removing_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.furnace_removing_ctgui.label_file_name": "File name:",
-      "gui.recipe_generator.generation_method_selection_gui.label_if_you_type_the_command_written": "if you type the command written below:",
       "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
-      "gui.just_ctgui.blast_furnace_ctgui.button_generate": "Generate",
+      "gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only": "(CraftTweaker only)",
       "gui.recipe_generator.craftingtable_ctgui.label_crafting": "Crafting",
       "gui.just_ctgui.furnace_removing_ctgui.file_name": "generated1",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_ctgui.label_xp": "XP:",
-      "gui.just_ctgui.furnace_removing_ctgui.label_xp": "XP:",
-      "gui.recipe_generator.generation_method_selection_gui.button_kubejs_wip": "KubeJS (WIP)",
       "gui.just_ctgui.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
-      "gui.just_ctgui.blast_furnace_removing_ctgui.file_name": "generated1",
-      "gui.just_ctgui.blast_furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.recipe_name": "name",
-      "gui.just_ctgui.furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_empty": "Mirror axis:",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.file_name": "generated",
-      "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
       "gui.recipe_generator.blast_furnace_ctgui.XP": "1.0",
       "gui.recipe_generator.craftingtable_ctgui.button_diagonal": "diagonal",
-      "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.craftingtable_ctgui.label_empty": "Mirror axis:",
       "gui.just_ctgui.craftingtable_ctgui.button_close": "Close",
@@ -1461,26 +1648,123 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_furnace": "Furnace removing",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.file_name": "generated",
       "gui.recipe_generator.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.recipe_generator.craftingtable_ctgui.label_current_axis": "Current axis:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_horizontal": "horizontal",
       "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_recipe_name": "Recipe name:",
-      "gui.just_ctgui.furnace_removing_recipes_gui.recipe_name": "name",
-      "gui.just_ctgui.furnace_ctgui.label_time": "Time(seconds):",
       "gui.recipe_generator.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_file_name": "File name:",
-      "gui.just_ctgui.craftingtable_ctgui.label_current_axis": "Current axis:",
-      "gui.just_ctgui.blast_furnace_ctgui.XP": "1.0",
-      "gui.recipe_generator.crafting_table_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_furnace": "Furnace removing",
       "gui.recipe_generator.blast_furnace_ctgui.label_xp": "XP:",
-      "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.blast_furnace_ctgui.label_time": "Time(seconds):",
+      "gui.recipe_generator.blast_furnace_removing_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_save": "Save",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_all": "all",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
       "gui.recipe_generator.furnace_removing_ctgui.button_close": "Close",
-      "gui.recipe_generator.blast_furnace_ctgui.button_save": "Save"
+      "gui.recipe_generator.blast_furnace_ctgui.button_save": "Save",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
+      "gui.just_ctgui.furnace_removing_ctgui.button_close": "Close",
+      "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
+      "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
+      "gui.just_ctgui.furnace_removing_ctgui.label_furnace": "Furnace removing",
+      "gui.recipe_generator.blast_furnace_removing_ctgui.file_name": "generated1",
+      "gui.recipe_generator.craftingtable_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip": "KubeJS (WIP)",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_selected_mod": "Selected Generating Method:",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_all": "all",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_minecraft_mod_wip": "Minecraft Mod (WIP)",
+      "gui.just_ctgui.furnace_removing_ctgui.button_save": "Save",
+      "gui.recipe_generator.blast_furnace_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.craftingtable_ctgui.label_shapeless_and_mirrored_recipes_d": "Shapeless and mirrored recipes don\u0027t work with KubeJS",
+      "gui.recipe_generator.blast_furnace_ctgui.label_furnace": "Furnace",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_close": "Close",
+      "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
+      "gui.recipe_generator.craftingtable_ctgui.button_vertical": "vertical",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1": "Not installed!",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
+      "gui.recipe_generator.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
+      "gui.just_ctgui.crafting_table_removing_ctgui.recipe_name": "name",
+      "gui.recipe_generator.furnace_ctgui.button_reload": "Reload",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_removing_recipes_gui.label_xp": "XP:",
+      "gui.recipe_generator.furnace_ctgui.file_name": "generated1",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker": "CraftTweaker",
+      "gui.just_ctgui.furnace_removing_recipes_gui.file_name": "generated1",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the": "You can open this menu with the /rgui generationMethode command",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.button_close": "Close",
+      "gui.just_ctgui.blast_furnace_ctgui.time": "10",
+      "gui.just_ctgui.blast_furnace_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed": "Not installed!",
+      "gui.recipe_generator.furnace_ctgui.button_close": "Close",
+      "gui.just_ctgui.furnace_removing_ctgui.button_reload": "Reload",
+      "gui.just_ctgui.furnace_ctgui.label_furnace": "Furnace",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_vertical": "vertical",
+      "gui.just_ctgui.furnace_removing_ctgui.recipe_name": "name",
+      "gui.just_ctgui.craftingtable_ctgui.button_none": "none",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_file_name": "File name:",
+      "gui.recipe_generator.furnace_removing_ctgui.file_name": "generated",
+      "gui.recipe_generator.furnace_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_ctgui.XP": "1.0",
+      "gui.recipe_generator.craftingtable_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.furnace_ctgui.label_xp": "XP:",
+      "gui.just_ctgui.furnace_ctgui.button_close": "Close",
+      "gui.recipe_generator.furnace_ctgui.label_furnace": "Furnace",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_vertical": "vertical",
+      "gui.recipe_generator.craftingtable_ctgui.button_generate": "Generate",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_mod_wip": "Minecraft Mod (WIP)",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_close": "Close",
+      "gui.just_ctgui.craftingtable_ctgui.label_axis": "axis",
+      "gui.recipe_generator.crafting_table_removing_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.button_crafttweaker": "CraftTweaker",
+      "gui.just_ctgui.furnace_removing_recipes_gui.label_file_name": "File name:",
+      "gui.recipe_generator.blast_furnace_removing_ctgui.button_save": "Save",
+      "gui.just_ctgui.craftingtable_ctgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.furnace_ctgui.button_generate": "Generate",
+      "gui.recipe_generator.craftingtable_ctgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.button_minecraft_mod_wip": "Minecraft Mod (WIP)",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.furnace_ctgui.XP": "1.0",
+      "gui.just_ctgui.furnace_removing_recipes_gui.label_time": "Time(seconds):",
+      "gui.just_ctgui.blast_furnace_ctgui.button_reload": "Reload",
+      "gui.just_ctgui.crafting_table_removing_ctgui.label_current_axis": "Current axis:",
+      "gui.recipe_generator.craftingtable_ctgui.button_none": "none",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.label_empty": "Mirror axis:",
+      "gui.just_ctgui.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.Is_mirrored": "Is mirrored?",
+      "gui.recipe_generator.craftingtable_ctgui.button_close": "Close",
+      "gui.recipe_generator.blast_furnace_removing_ctgui.button_close": "Close",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_reload": "Reload",
+      "gui.recipe_generator.crafting_table_removing_ctgui.label_file_name": "File name:",
+      "gui.recipe_generator.furnace_ctgui.label_file_name": "File name:",
+      "gui.just_ctgui.furnace_removing_recipes_gui.label_recipe_name": "Recipe name:",
+      "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
+      "gui.just_ctgui.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
+      "gui.just_ctgui.furnace_ctgui.button_save": "Save",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.Is_shapeless": "Is shapeless?",
+      "gui.just_ctgui.craftingtable_ctgui.label_crafting": "Crafting",
+      "gui.recipe_generator.furnace_removing_ctgui.label_file_name": "File name:",
+      "gui.just_ctgui.blast_furnace_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_removing_ctgui.label_xp": "XP:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed1": "Not installed!",
+      "gui.just_ctgui.blast_furnace_removing_ctgui.file_name": "generated1",
+      "gui.just_ctgui.blast_furnace_removing_ctgui.button_close": "Close",
+      "gui.just_ctgui.furnace_ctgui.label_file_name": "File name:",
+      "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
+      "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
+      "gui.recipe_generator.choosing_the_recipe_generating_method.label_selected_mod": "Selected Generating Method:",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed": "Not installed!",
+      "gui.recipe_generator.furnace_removing_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
+      "gui.recipe_generator.craftingtable_ctgui.label_current_axis": "Current axis:",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_horizontal": "horizontal",
+      "gui.just_ctgui.furnace_removing_recipes_gui.recipe_name": "name",
+      "gui.just_ctgui.furnace_ctgui.label_time": "Time(seconds):",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close": "Close",
+      "gui.just_ctgui.craftingtable_ctgui.label_current_axis": "Current axis:",
+      "gui.just_ctgui.blast_furnace_ctgui.XP": "1.0",
+      "gui.recipe_generator.furnace_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
+      "gui.recipe_generator.crafting_table_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name"
     }
   },
   "foldersRoot": {
@@ -1521,11 +1805,23 @@
           {
             "name": "KubeJS",
             "children": []
+          },
+          {
+            "name": "Abstract",
+            "children": []
           }
         ]
       },
       {
+        "name": "Change selected generating method",
+        "children": []
+      },
+      {
         "name": "Debug",
+        "children": []
+      },
+      {
+        "name": "Check generation methods",
         "children": []
       }
     ]
@@ -1533,7 +1829,7 @@
   "workspaceSettings": {
     "modid": "recipe_generator",
     "modName": "Recipe Generator",
-    "version": "0.2.3.0_beta",
+    "version": "0.3.0_release",
     "description": "The Just Craft Tweaker GUI mod provides a visual recipe editor in minecraft using Craft Tweaker and a simple Zen Script programming language.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
@@ -1548,5 +1844,5 @@
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
-  "mcreatorVersion": 202400342716
+  "mcreatorVersion": 202500113416
 }
