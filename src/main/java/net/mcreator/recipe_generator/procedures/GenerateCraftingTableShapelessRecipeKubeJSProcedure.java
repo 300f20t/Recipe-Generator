@@ -15,5 +15,7 @@ public class GenerateCraftingTableShapelessRecipeKubeJSProcedure {
 				+ ((RecipeGeneratorModVariables.item_in_slot_6).equals("'minecraft:air'") ? "" : RecipeGeneratorModVariables.item_in_slot_6 + ",")
 				+ ((RecipeGeneratorModVariables.item_in_slot_7).equals("'minecraft:air'") ? "" : RecipeGeneratorModVariables.item_in_slot_7 + ",")
 				+ ((RecipeGeneratorModVariables.item_in_slot_8).equals("'minecraft:air'") ? "" : RecipeGeneratorModVariables.item_in_slot_8 + ",");
+		RecipeGeneratorModVariables.Generated_recipe = "ServerEvents.recipes(event => {" + "event.shapeless(" + "\n" + " Item.of(" + RecipeGeneratorModVariables.item_in_slot_9 + ", "
+				+ new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ")," + "\n" + " [" + preGeneratedRecipe + "])})";
 	}
 }

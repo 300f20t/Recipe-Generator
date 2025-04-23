@@ -97,7 +97,7 @@
           "name": "recipe_name",
           "width": 120,
           "height": 20,
-          "x": -3,
+          "x": 6,
           "y": 44,
           "locked": false
         }
@@ -109,7 +109,7 @@
           "name": "file_name",
           "width": 120,
           "height": 20,
-          "x": -3,
+          "x": 6,
           "y": 80,
           "locked": false
         }
@@ -125,7 +125,7 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": -3,
+          "x": 6,
           "y": 35,
           "locked": false
         }
@@ -141,7 +141,7 @@
             "value": -3355393,
             "falpha": 0.0
           },
-          "x": -3,
+          "x": 6,
           "y": 71,
           "locked": false
         }
@@ -460,7 +460,7 @@
           "name": "Is_shapeless",
           "text": "Is shapeless?",
           "x": 6,
-          "y": 134,
+          "y": 107,
           "locked": false
         }
       },
@@ -470,7 +470,7 @@
           "name": "Is_mirrored",
           "text": "Is mirrored?",
           "x": 6,
-          "y": 107,
+          "y": 134,
           "locked": false
         }
       },

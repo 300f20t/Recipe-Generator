@@ -106,8 +106,8 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_recipe_name"), -129, -2, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_file_name"), -129, 34, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_recipe_name"), -120, -2, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_file_name"), -120, 34, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_empty"), -124, -35, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393, false);
 		guiGraphics.drawString(this.font,
@@ -120,7 +120,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	@Override
 	public void init() {
 		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name")) {
+		recipe_name = new EditBox(this.font, this.leftPos + -119, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -143,7 +143,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		recipe_name.setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name").getString());
 		guistate.put("text:recipe_name", recipe_name);
 		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name")) {
+		file_name = new EditBox(this.font, this.leftPos + -119, this.topPos + 44, 118, 18, Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -238,12 +238,12 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
-		Is_shapeless = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 97)
+		Is_shapeless = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 70)
 
 				.build();
 		guistate.put("checkbox:Is_shapeless", Is_shapeless);
 		this.addRenderableWidget(Is_shapeless);
-		Is_mirrored = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), this.font).pos(this.leftPos + -120, this.topPos + 70)
+		Is_mirrored = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), this.font).pos(this.leftPos + -120, this.topPos + 97)
 
 				.build();
 		guistate.put("checkbox:Is_mirrored", Is_mirrored);
