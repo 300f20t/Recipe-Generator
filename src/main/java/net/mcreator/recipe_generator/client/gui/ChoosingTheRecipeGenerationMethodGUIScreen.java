@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,6 +13,7 @@ import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodPr
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGenerationMethodGUIButtonMessage;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
 
@@ -44,6 +43,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -83,7 +83,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
@@ -91,7 +91,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
@@ -107,7 +107,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 		this.addRenderableWidget(button_minecraft_data_pack_wip);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();
