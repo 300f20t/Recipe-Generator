@@ -359,7 +359,7 @@
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "GenerateRemovingFurnaceRecipes",
@@ -1418,6 +1418,20 @@
         "dependencies": []
       },
       "path": "~/Generators/KubeJS"
+    },
+    {
+      "name": "GenerateCraftingTableRemovingRecipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_crafting_table_removing_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableRemovingRecipeProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/Abstract"
     }
   ],
   "variable_elements": [
