@@ -15,7 +15,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
-import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.network.CraftingTableRemovingCTGUIButtonMessage;
 
 import java.util.HashMap;
@@ -84,8 +83,6 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.label_file_name"), -129, -2, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.label_crafting"), 42, 7, -12829636, false);
-		if (InvertedCheckKubeJSProcedure.execute())
-			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.label_kubejs_is_not_supported"), 33, 16, -65485, false);
 	}
 
 	@Override
