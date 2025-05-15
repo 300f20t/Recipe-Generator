@@ -2,7 +2,8 @@ package net.mcreator.recipe_generator.procedures;
 
 import org.checkerframework.checker.units.qual.s;
 
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.EditBox;
 
@@ -11,8 +12,8 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 import java.util.HashMap;
 
 public class GenerateBlastFurnaceRacipesProcedure {
-	public static void execute(LevelAccessor world, HashMap guistate) {
-		if (guistate == null)
+	public static void execute(Entity entity, HashMap guistate) {
+		if (entity == null || guistate == null)
 			return;
 		String preGeneratedRecipe = "";
 		preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_0 + ", " + (new Object() {
@@ -53,7 +54,7 @@ public class GenerateBlastFurnaceRacipesProcedure {
 						? RecipeNameCreatorProcedure.execute(guistate)
 						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
 				+ "\", " + preGeneratedRecipe;
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}
 }

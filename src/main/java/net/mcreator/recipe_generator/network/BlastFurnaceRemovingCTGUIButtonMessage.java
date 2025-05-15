@@ -64,7 +64,7 @@ public record BlastFurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y,
 			return;
 		if (buttonID == 0) {
 
-			GenerateBlastFurnaceRacipesProcedure.execute(world, guistate);
+			GenerateBlastFurnaceRacipesProcedure.execute(entity, guistate);
 		}
 		if (buttonID == 1) {
 

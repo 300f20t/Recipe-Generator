@@ -64,7 +64,7 @@ public record CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y
 			return;
 		if (buttonID == 0) {
 
-			GenerateCraftingTableRemovingRecipeProcedure.execute(world);
+			GenerateCraftingTableRemovingRecipeProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 

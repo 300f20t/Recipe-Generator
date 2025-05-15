@@ -64,7 +64,7 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 			return;
 		if (buttonID == 0) {
 
-			GenerateRemovingFurnaceRecipesProcedure.execute(world);
+			GenerateRemovingFurnaceRecipesProcedure.execute(entity);
 		}
 		if (buttonID == 1) {
 

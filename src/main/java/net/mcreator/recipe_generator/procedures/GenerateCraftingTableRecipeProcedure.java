@@ -1,6 +1,7 @@
 package net.mcreator.recipe_generator.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.components.Checkbox;
@@ -35,7 +36,7 @@ public class GenerateCraftingTableRecipeProcedure {
 				GenerateCraftingTableShapedRecipeKubeJSProcedure.execute();
 			}
 		}
-		if (!world.isClientSide() && world.getServer() != null)
-			world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
+		if (entity instanceof Player _player && !_player.level().isClientSide())
+			_player.displayClientMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}
 }

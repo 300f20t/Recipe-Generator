@@ -64,7 +64,7 @@ public record FurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) imple
 			return;
 		if (buttonID == 0) {
 
-			GenerateFurnaceReciepsProcedure.execute(world, guistate);
+			GenerateFurnaceReciepsProcedure.execute(entity, guistate);
 		}
 		if (buttonID == 1) {
 
