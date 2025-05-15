@@ -110,20 +110,6 @@
       }
     },
     {
-      "name": "ATTENTION",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "attention",
-      "metadata": {
-        "return_type": "logic",
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/ATTENTIONProcedure.java"
-        ],
-        "dependencies": []
-      }
-    },
-    {
       "name": "Allmirroraxis",
       "type": "procedure",
       "compiles": true,
@@ -337,10 +323,14 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/Abstract"
     },
     {
       "name": "GenerateRemovingFurnaceRecipes",
@@ -356,10 +346,14 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/Abstract"
     },
     {
       "name": "GetCurrentAxis",
@@ -627,10 +621,14 @@
           {
             "name": "guistate",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/Abstract"
     },
     {
       "name": "GenerateBlastFurnaceRemovingRecipes",
@@ -646,10 +644,14 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
-      "path": "~/Generators"
+      "path": "~/Generators/Abstract"
     },
     {
       "name": "FileNameCreator",
@@ -1432,6 +1434,72 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCraftingTableRemovingRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateFurnaceReciepsCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_furnace_recieps_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateFurnaceReciepsCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateRemovingFurnaceRecipesCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_removing_furnace_recipes_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateRemovingFurnaceRecipesCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateBlastFurnaceRacipesCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_blast_furnace_racipes_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateBlastFurnaceRacipesCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker"
+    },
+    {
+      "name": "GenerateBlastFurnaceRemovingRecipesCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_blast_furnace_removing_recipes_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateBlastFurnaceRemovingRecipesCraftTweakerProcedure.java"
         ],
         "dependencies": []
       },

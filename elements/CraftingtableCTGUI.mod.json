@@ -425,36 +425,6 @@
         }
       },
       {
-        "type": "tooltip",
-        "data": {
-          "name": "tooltip_attention_this_configuration_wil",
-          "text": {
-            "fixedValue": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!"
-          },
-          "displayCondition": {
-            "name": "ATTENTION"
-          },
-          "width": 24,
-          "height": 24,
-          "x": 366,
-          "y": 71,
-          "locked": false
-        }
-      },
-      {
-        "type": "image",
-        "data": {
-          "image": "popup_hint.png",
-          "use1Xscale": false,
-          "displayCondition": {
-            "name": "ATTENTION"
-          },
-          "x": 366,
-          "y": 71,
-          "locked": false
-        }
-      },
-      {
         "type": "checkbox",
         "data": {
           "name": "Is_shapeless",
