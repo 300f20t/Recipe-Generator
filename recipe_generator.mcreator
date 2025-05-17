@@ -330,7 +330,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/Furnace"
     },
     {
       "name": "GenerateRemovingFurnaceRecipes",
@@ -353,7 +353,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/Furnace"
     },
     {
       "name": "GetCurrentAxis",
@@ -628,7 +628,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/BlastFurnace"
     },
     {
       "name": "GenerateBlastFurnaceRemovingRecipes",
@@ -651,7 +651,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/BlastFurnace"
     },
     {
       "name": "FileNameCreator",
@@ -1307,7 +1307,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableShapedRecipeCraftTweaker",
@@ -1330,7 +1330,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableShapelessRecipeCraftTweaker",
@@ -1349,7 +1349,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableMirroredRecipeCraftTweaker",
@@ -1372,7 +1372,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableShapedRecipeKubeJS",
@@ -1386,7 +1386,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/KubeJS"
+      "path": "~/Generators/KubeJS/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableShapelessRecipeKubeJS",
@@ -1400,7 +1400,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/KubeJS"
+      "path": "~/Generators/KubeJS/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableRemovingRecipe",
@@ -1423,7 +1423,7 @@
           }
         ]
       },
-      "path": "~/Generators/Abstract"
+      "path": "~/Generators/Abstract/CraftingTable"
     },
     {
       "name": "GenerateCraftingTableRemovingRecipeCraftTweaker",
@@ -1437,7 +1437,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CraftingTable"
     },
     {
       "name": "GenerateFurnaceReciepsCraftTweaker",
@@ -1456,7 +1456,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/Furnace"
     },
     {
       "name": "GenerateRemovingFurnaceRecipesCraftTweaker",
@@ -1470,7 +1470,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/Furnace"
     },
     {
       "name": "GenerateBlastFurnaceRacipesCraftTweaker",
@@ -1489,7 +1489,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/BlastFurnace"
     },
     {
       "name": "GenerateBlastFurnaceRemovingRecipesCraftTweaker",
@@ -1503,7 +1503,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/BlastFurnace"
     }
   ],
   "variable_elements": [
@@ -1660,8 +1660,8 @@
       "gui.just_ctgui.blast_furnace_ctgui.button_save": "Save",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.blast_furnace_ctgui.label_time": "Time(ticks):",
+      "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.crafting_table_removing_ctgui.file_name": "generated",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.furnace_removing_ctgui.button_save": "Save",
@@ -1683,8 +1683,8 @@
       "gui.just_ctgui.craftingtable_ctgui.button_reload": "Reload",
       "gui.recipe_generator.blast_furnace_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.furnace_removing_ctgui.label_furnace": "Furnace removing",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_ctgui.time": "10",
       "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_recipes_gui.XP": "1.0",
@@ -1694,15 +1694,15 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.label_empty": "Mirror axis:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
+      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
       "gui.recipe_generator.furnace_ctgui.time": "100",
       "gui.just_ctgui.furnace_removing_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.craftingtable_ctgui.button_horizontal": "horizontal",
       "gui.just_ctgui.furnace_ctgui.file_name": "generated1",
-      "gui.recipe_generator.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_selected_mod": "Selected Generating Method:",
+      "gui.recipe_generator.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_close": "Close",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_kubejs_wip": "KubeJS (WIP)",
       "gui.just_ctgui.craftingtable_ctgui.name": "name",
@@ -1886,15 +1886,46 @@
         "children": [
           {
             "name": "CraftTweaker",
-            "children": []
+            "children": [
+              {
+                "name": "BlastFurnace",
+                "children": []
+              },
+              {
+                "name": "CraftingTable",
+                "children": []
+              },
+              {
+                "name": "Furnace",
+                "children": []
+              }
+            ]
           },
           {
             "name": "KubeJS",
-            "children": []
+            "children": [
+              {
+                "name": "CraftingTable",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Abstract",
-            "children": []
+            "children": [
+              {
+                "name": "Furnace",
+                "children": []
+              },
+              {
+                "name": "BlastFurnace",
+                "children": []
+              },
+              {
+                "name": "CraftingTable",
+                "children": []
+              }
+            ]
           }
         ]
       },
