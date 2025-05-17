@@ -17,6 +17,7 @@ import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
+import net.mcreator.recipe_generator.world.inventory.CampFireCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -33,4 +34,5 @@ public class RecipeGeneratorModMenus {
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGenerationMethodGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<CampFireCTGUIMenu>> CAMP_FIRE_CTGUI = REGISTRY.register("camp_fire_ctgui", () -> IMenuTypeExtension.create(CampFireCTGUIMenu::new));
 }

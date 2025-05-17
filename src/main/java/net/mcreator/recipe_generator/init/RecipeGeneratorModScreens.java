@@ -15,6 +15,7 @@ import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
+import net.mcreator.recipe_generator.client.gui.CampFireCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
 
@@ -30,5 +31,6 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.BLAST_FURNACE_REMOVING_CTGUI.get(), BlastFurnaceRemovingCTGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), ChoosingTheRecipeGenerationMethodGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen::new);
+		event.register(RecipeGeneratorModMenus.CAMP_FIRE_CTGUI.get(), CampFireCTGUIScreen::new);
 	}
 }
