@@ -1520,6 +1520,20 @@
         ]
       },
       "path": "~/GUIs/CampFire"
+    },
+    {
+      "name": "GenerateCampFireRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_camp_fire_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCampFireRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/CraftTweaker/CampFire"
     }
   ],
   "variable_elements": [
