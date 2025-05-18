@@ -12,7 +12,7 @@ public class GenerateCraftingTableRemovingRecipeProcedure {
 		if (entity == null)
 			return;
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			GenerateCraftingTableRemovingRecipeCraftTweakerProcedure.execute();
+			CraftingTableRemoveCraftTweakerProcedure.execute();
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("WIP"), false);

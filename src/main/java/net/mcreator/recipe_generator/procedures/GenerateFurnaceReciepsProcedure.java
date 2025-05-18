@@ -15,7 +15,7 @@ public class GenerateFurnaceReciepsProcedure {
 			return;
 		String preGeneratedRecipe = "";
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			GenerateFurnaceReciepsCraftTweakerProcedure.execute(guistate);
+			FurnaceAddRecipeCraftTweakerProcedure.execute(guistate);
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("WIP"), false);

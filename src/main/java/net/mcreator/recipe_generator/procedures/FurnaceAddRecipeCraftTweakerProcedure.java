@@ -8,7 +8,7 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import java.util.HashMap;
 
-public class GenerateFurnaceReciepsCraftTweakerProcedure {
+public class FurnaceAddRecipeCraftTweakerProcedure {
 	public static void execute(HashMap guistate) {
 		if (guistate == null)
 			return;

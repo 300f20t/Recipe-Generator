@@ -23,11 +23,11 @@ public class GenerateCraftingTableRecipeProcedure {
 		}
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
 			if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
-				GenerateCraftingTableShapelessRecipeCraftTweakerProcedure.execute(guistate);
+				CraftingTableAddShapelessCraftTweakerProcedure.execute(guistate);
 			} else if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
-				GenerateCraftingTableMirroredRecipeCraftTweakerProcedure.execute(entity, guistate);
+				CraftingTableAddShapedMirroredCraftTweakerProcedure.execute(entity, guistate);
 			} else {
-				GenerateCraftingTableShapedRecipeCraftTweakerProcedure.execute(entity, guistate);
+				CraftingTableAddShapedCraftTweakerProcedure.execute(entity, guistate);
 			}
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
