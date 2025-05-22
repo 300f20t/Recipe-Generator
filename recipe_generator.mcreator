@@ -1361,39 +1361,6 @@
       "path": "~/Generators/Abstract/CraftingTable"
     },
     {
-      "name": "GenerateBlastFurnaceRacipesCraftTweaker",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generate_blast_furnace_racipes_craft_tweaker",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateBlastFurnaceRacipesCraftTweakerProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "guistate",
-            "type": "map"
-          }
-        ]
-      },
-      "path": "~/Generators/CraftTweaker/BlastFurnace"
-    },
-    {
-      "name": "GenerateBlastFurnaceRemovingRecipesCraftTweaker",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generate_blast_furnace_removing_recipes_craft_tweaker",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateBlastFurnaceRemovingRecipesCraftTweakerProcedure.java"
-        ],
-        "dependencies": []
-      },
-      "path": "~/Generators/CraftTweaker/BlastFurnace"
-    },
-    {
       "name": "CampFireCTGUI",
       "type": "gui",
       "compiles": true,
@@ -1408,20 +1375,6 @@
         ]
       },
       "path": "~/GUIs/CampFire"
-    },
-    {
-      "name": "GenerateCampFireRecipeCraftTweaker",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generate_camp_fire_recipe_craft_tweaker",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCampFireRecipeCraftTweakerProcedure.java"
-        ],
-        "dependencies": []
-      },
-      "path": "~/Generators/CraftTweaker/CampFire"
     },
     {
       "name": "CraftingTableAddShapedCraftTweaker",
@@ -1534,6 +1487,53 @@
         "dependencies": []
       },
       "path": "~/Generators/CraftTweaker/Furnace"
+    },
+    {
+      "name": "BlastFurnaceAddRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blast_furnace_add_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/BlastFurnaceAddRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker/BlastFurnace"
+    },
+    {
+      "name": "BlastFurnaceRemoveCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "blast_furnace_remove_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/BlastFurnaceRemoveCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/CraftTweaker/BlastFurnace"
+    },
+    {
+      "name": "CampFireAddRecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "camp_fire_add_recipe_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CampFireAddRecipeCraftTweakerProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Generators/CraftTweaker/CampFire"
     }
   ],
   "variable_elements": [
@@ -1987,6 +1987,14 @@
               },
               {
                 "name": "CraftingTable",
+                "children": []
+              },
+              {
+                "name": "RecipeManager",
+                "children": []
+              },
+              {
+                "name": "CampFire",
                 "children": []
               }
             ]

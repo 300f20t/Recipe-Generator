@@ -1,6 +1,6 @@
 package net.mcreator.recipe_generator.procedures;
 
-public class GenerateCampFireRecipeCraftTweakerProcedure {
+public class CampFireAddRecipeCraftTweakerProcedure {
 	public static void execute() {
 	}
 }
