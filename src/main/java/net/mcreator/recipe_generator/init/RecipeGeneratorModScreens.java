@@ -9,6 +9,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
+import net.mcreator.recipe_generator.client.gui.SmithingRGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
@@ -32,5 +33,6 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), ChoosingTheRecipeGenerationMethodGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen::new);
 		event.register(RecipeGeneratorModMenus.CAMP_FIRE_CTGUI.get(), CampFireCTGUIScreen::new);
+		event.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
 	}
 }

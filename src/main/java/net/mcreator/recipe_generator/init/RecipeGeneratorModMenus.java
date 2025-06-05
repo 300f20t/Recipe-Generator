@@ -11,6 +11,7 @@ import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.core.registries.Registries;
 
+import net.mcreator.recipe_generator.world.inventory.SmithingRGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
@@ -35,4 +36,5 @@ public class RecipeGeneratorModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<CampFireCTGUIMenu>> CAMP_FIRE_CTGUI = REGISTRY.register("camp_fire_ctgui", () -> IMenuTypeExtension.create(CampFireCTGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<SmithingRGUIMenu>> SMITHING_RGUI = REGISTRY.register("smithing_rgui", () -> IMenuTypeExtension.create(SmithingRGUIMenu::new));
 }
