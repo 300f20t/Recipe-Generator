@@ -128,7 +128,7 @@ public class RguiCommandCommand {
 
 			OpenBlastFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("smithing").executes(arguments -> {
+		}))).then(Commands.literal("addTransformRecipe").then(Commands.literal("smithing").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

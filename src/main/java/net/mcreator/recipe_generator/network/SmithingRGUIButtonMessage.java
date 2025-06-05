@@ -19,7 +19,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.recipe_generator.world.inventory.SmithingRGUIMenu;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRacipesProcedure;
+import net.mcreator.recipe_generator.procedures.GenerateSmithingRacipesProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
@@ -64,7 +64,7 @@ public record SmithingRGUIButtonMessage(int buttonID, int x, int y, int z) imple
 			return;
 		if (buttonID == 0) {
 
-			GenerateBlastFurnaceRacipesProcedure.execute(world, entity, guistate);
+			GenerateSmithingRacipesProcedure.execute(world, entity, guistate);
 		}
 		if (buttonID == 1) {
 
