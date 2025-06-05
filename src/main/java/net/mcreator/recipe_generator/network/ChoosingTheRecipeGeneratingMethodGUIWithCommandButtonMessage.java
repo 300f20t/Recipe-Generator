@@ -1,19 +1,14 @@
 
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
@@ -22,38 +17,45 @@ import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodTo
 import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToCraftTweakerProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
+import java.util.function.Supplier;
 import java.util.HashMap;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage {
+	private final int buttonID, x, y, z;
 
-	public static final Type<ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "choosing_the_recipe_generating_method_gui_with_command_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> STREAM_CODEC = StreamCodec
-			.of((RegistryFriendlyByteBuf buffer, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message) -> {
-				buffer.writeInt(message.buttonID);
-				buffer.writeInt(message.x);
-				buffer.writeInt(message.y);
-				buffer.writeInt(message.z);
-			}, (RegistryFriendlyByteBuf buffer) -> new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> type() {
-		return TYPE;
+	public ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(FriendlyByteBuf buffer) {
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
 	}
 
-	public static void handleData(final ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message, final IPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> {
-				Player entity = context.player();
-				int buttonID = message.buttonID;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				handleButtonAction(entity, buttonID, x, y, z);
-			}).exceptionally(e -> {
-				context.connection().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int buttonID, int x, int y, int z) {
+		this.buttonID = buttonID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public static void buffer(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message, FriendlyByteBuf buffer) {
+		buffer.writeInt(message.buttonID);
+		buffer.writeInt(message.x);
+		buffer.writeInt(message.y);
+		buffer.writeInt(message.z);
+	}
+
+	public static void handler(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int buttonID = message.buttonID;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			handleButtonAction(entity, buttonID, x, y, z);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
@@ -78,7 +80,7 @@ public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int b
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.TYPE, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.STREAM_CODEC,
-				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.class, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::buffer, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::new,
+				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::handler);
 	}
 }

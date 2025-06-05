@@ -3,10 +3,10 @@ package net.mcreator.recipe_generator.command;
 
 import org.checkerframework.checker.units.qual.s;
 
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.common.util.FakePlayerFactory;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
@@ -26,7 +26,7 @@ import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowP
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
-@EventBusSubscriber
+@Mod.EventBusSubscriber
 public class RguiCommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
@@ -186,5 +186,4 @@ public class RguiCommandCommand {
 			return 0;
 		}))));
 	}
-
 }

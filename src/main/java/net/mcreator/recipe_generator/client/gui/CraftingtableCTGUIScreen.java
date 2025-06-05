@@ -1,13 +1,10 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Checkbox;
@@ -18,6 +15,7 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.GetCurrentAxisProcedure;
 import net.mcreator.recipe_generator.network.CraftingtableCTGUIButtonMessage;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.HashMap;
 
@@ -53,10 +51,11 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.imageHeight = 166;
 	}
 
-	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/craftingtable_ctgui.png");
+	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/craftingtable_ctgui.png");
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -68,9 +67,9 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(RenderType::guiTextured, texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		guiGraphics.blit(RenderType::guiTextured, ResourceLocation.parse("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
+		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 90, this.topPos + 34, 0, 0, 24, 17, 24, 17);
 
 		RenderSystem.disableBlend();
 	}
@@ -86,6 +85,13 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		if (file_name.isFocused())
 			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void containerTick() {
+		super.containerTick();
+		recipe_name.tick();
+		file_name.tick();
 	}
 
 	@Override
@@ -124,16 +130,16 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		recipe_name.setMaxLength(32767);
 		recipe_name.setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.recipe_name").getString());
+		recipe_name.setMaxLength(32767);
 		guistate.put("text:recipe_name", recipe_name);
 		this.addWidget(this.recipe_name);
 		file_name = new EditBox(this.font, this.leftPos + -119, this.topPos + 44, 118, 18, Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name")) {
@@ -147,21 +153,21 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			}
 
 			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
+			public void moveCursorTo(int pos) {
+				super.moveCursorTo(pos);
 				if (getValue().isEmpty())
 					setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name").getString());
 				else
 					setSuggestion(null);
 			}
 		};
-		file_name.setMaxLength(32767);
 		file_name.setSuggestion(Component.translatable("gui.recipe_generator.craftingtable_ctgui.file_name").getString());
+		file_name.setMaxLength(32767);
 		guistate.put("text:file_name", file_name);
 		this.addWidget(this.file_name);
 		button_all = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_all"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + -124, this.topPos + -25, 40, 20).build();
@@ -169,7 +175,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_all);
 		button_diagonal = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_diagonal"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 39, this.topPos + -25, 67, 20).build();
@@ -177,7 +183,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_diagonal);
 		button_horizontal = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_horizontal"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + -38, this.topPos + -25, 77, 20).build();
@@ -185,7 +191,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_horizontal);
 		button_none = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_none"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + -84, this.topPos + -25, 46, 20).build();
@@ -193,7 +199,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_none);
 		button_vertical = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_vertical"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 106, this.topPos + -25, 67, 20).build();
@@ -201,7 +207,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_vertical);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_generate"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -209,7 +215,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_save"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -217,7 +223,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_close"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -225,20 +231,16 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.button_reload"), e -> {
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
-		Is_shapeless = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), this.font).pos(this.leftPos + -120, this.topPos + 70)
-
-				.build();
+		Is_shapeless = new Checkbox(this.leftPos + -120, this.topPos + 70, 20, 20, Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_shapeless"), false);
 		guistate.put("checkbox:Is_shapeless", Is_shapeless);
 		this.addRenderableWidget(Is_shapeless);
-		Is_mirrored = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), this.font).pos(this.leftPos + -120, this.topPos + 97)
-
-				.build();
+		Is_mirrored = new Checkbox(this.leftPos + -120, this.topPos + 97, 20, 20, Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), false);
 		guistate.put("checkbox:Is_mirrored", Is_mirrored);
 		this.addRenderableWidget(Is_mirrored);
 	}

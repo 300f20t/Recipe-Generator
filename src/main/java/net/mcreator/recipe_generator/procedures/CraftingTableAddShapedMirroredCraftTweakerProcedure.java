@@ -19,6 +19,6 @@ public class CraftingTableAddShapedMirroredCraftTweakerProcedure {
 				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
 						? RecipeNameCreatorProcedure.execute(guistate)
 						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
-				+ "\", " + recipeTypeFutures + entity.getData(RecipeGeneratorModVariables.PLAYER_VARIABLES).preGeneratedRecipe;
+				+ "\", " + recipeTypeFutures + (entity.getCapability(RecipeGeneratorModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RecipeGeneratorModVariables.PlayerVariables())).preGeneratedRecipe;
 	}
 }

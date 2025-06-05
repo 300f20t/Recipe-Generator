@@ -1,19 +1,14 @@
 
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
@@ -23,37 +18,45 @@ import net.mcreator.recipe_generator.procedures.GenerateRemovingFurnaceRecipesPr
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
+import java.util.function.Supplier;
 import java.util.HashMap;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class FurnaceRemovingCTGUIButtonMessage {
+	private final int buttonID, x, y, z;
 
-	public static final Type<FurnaceRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_removing_ctgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, FurnaceRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FurnaceRemovingCTGUIButtonMessage message) -> {
+	public FurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+	}
+
+	public FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) {
+		this.buttonID = buttonID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public static void buffer(FurnaceRemovingCTGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new FurnaceRemovingCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<FurnaceRemovingCTGUIButtonMessage> type() {
-		return TYPE;
 	}
 
-	public static void handleData(final FurnaceRemovingCTGUIButtonMessage message, final IPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> {
-				Player entity = context.player();
-				int buttonID = message.buttonID;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				handleButtonAction(entity, buttonID, x, y, z);
-			}).exceptionally(e -> {
-				context.connection().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public static void handler(FurnaceRemovingCTGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int buttonID = message.buttonID;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			handleButtonAction(entity, buttonID, x, y, z);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
@@ -82,6 +85,6 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.TYPE, FurnaceRemovingCTGUIButtonMessage.STREAM_CODEC, FurnaceRemovingCTGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.class, FurnaceRemovingCTGUIButtonMessage::buffer, FurnaceRemovingCTGUIButtonMessage::new, FurnaceRemovingCTGUIButtonMessage::handler);
 	}
 }

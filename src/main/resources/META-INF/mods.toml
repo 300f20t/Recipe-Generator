@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[4,)"
+loaderVersion="[47,)"
 license="MIT License"
 
 [[mods]]
@@ -16,16 +16,9 @@ description="The Recipe Generator mod provides a visual recipe editor in Minecra
 # End of user code block mod configuration
 
 [[dependencies.recipe_generator]]
-    modId="neoforge"
-    type="required"
-    versionRange="[21.4.123,)"
-    ordering="AFTER"
-    side="BOTH"
-
-[[dependencies.recipe_generator]]
     modId="minecraft"
-    type="required"
-    versionRange="[1.21.4]"
+    mandatory=true
+    versionRange="[1.20.1]"
     ordering="AFTER"
     side="BOTH"
 
