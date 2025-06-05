@@ -17,6 +17,8 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.world.inventory.SmithingRGUIMenu;
+import net.mcreator.recipe_generator.procedures.ItemInSlot3Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot2Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -71,6 +73,14 @@ public record SmithingRGUISlotMessage(int slotID, int x, int y, int z, int chang
 		if (slot == 1 && changeType == 0) {
 
 			ItemInSlot1Procedure.execute(world, entity);
+		}
+		if (slot == 2 && changeType == 0) {
+
+			ItemInSlot2Procedure.execute(world, entity);
+		}
+		if (slot == 3 && changeType == 0) {
+
+			ItemInSlot3Procedure.execute(world, entity);
 		}
 	}
 

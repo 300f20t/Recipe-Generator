@@ -1749,7 +1749,28 @@
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "ITEMS:neoforge:trims": [
+      "Items.SENTRY_ARMOR_TRIM",
+      "Items.DUNE_ARMOR_TRIM",
+      "Items.COAST_ARMOR_TRIM",
+      "Items.WILD_ARMOR_TRIM",
+      "Items.WARD_ARMOR_TRIM",
+      "Items.EYE_ARMOR_TRIM",
+      "Items.VEX_ARMOR_TRIM",
+      "Items.TIDE_ARMOR_TRIM",
+      "Items.SNOUT_ARMOR_TRIM",
+      "Items.RIB_ARMOR_TRIM",
+      "Items.SPIRE_ARMOR_TRIM",
+      "Items.WAYFINDER_ARMOR_TRIM",
+      "Items.SHAPER_ARMOR_TRIM",
+      "Items.SILENCE_ARMOR_TRIM",
+      "Items.RAISER_ARMOR_TRIM",
+      "Items.HOST_ARMOR_TRIM",
+      "Items.FLOW_ARMOR_TRIM",
+      "Items.BOLT_ARMOR_TRIM"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {

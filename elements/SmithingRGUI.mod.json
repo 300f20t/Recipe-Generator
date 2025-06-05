@@ -14,7 +14,7 @@
         "type": "inputslot",
         "data": {
           "inputLimit": {
-            "value": ""
+            "value": "TAG:neoforge:trims"
           },
           "disablePlacement": {
             "fixedValue": false
@@ -233,6 +233,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "ItemInSlot2"
+          },
           "x": 186,
           "y": 71,
           "locked": false
@@ -252,6 +255,9 @@
             "fixedValue": false
           },
           "dropItemsWhenNotBound": true,
+          "onSlotChanged": {
+            "name": "ItemInSlot3"
+          },
           "x": 258,
           "y": 71,
           "locked": false
@@ -264,22 +270,6 @@
           "use1Xscale": false,
           "x": 150,
           "y": 71,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_accepts_only_templates",
-          "text": {
-            "fixedValue": "Accepts only templates"
-          },
-          "color": {
-            "value": -205,
-            "falpha": 0.0
-          },
-          "x": 132,
-          "y": 98,
           "locked": false
         }
       },

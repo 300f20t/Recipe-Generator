@@ -19,7 +19,9 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
@@ -94,6 +96,11 @@ public class SmithingRGUIMenu extends AbstractContainerMenu implements Supplier<
 				super.setChanged();
 				slotChanged(0, 0, 0);
 			}
+
+			@Override
+			public boolean mayPlace(ItemStack stack) {
+				return stack.is(ItemTags.create(ResourceLocation.parse("neoforge:trims")));
+			}
 		}));
 		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 43, 35) {
 			private final int slot = 1;
@@ -110,11 +117,23 @@ public class SmithingRGUIMenu extends AbstractContainerMenu implements Supplier<
 			private final int slot = 2;
 			private int x = SmithingRGUIMenu.this.x;
 			private int y = SmithingRGUIMenu.this.y;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(2, 0, 0);
+			}
 		}));
 		this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 133, 35) {
 			private final int slot = 3;
 			private int x = SmithingRGUIMenu.this.x;
 			private int y = SmithingRGUIMenu.this.y;
+
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				slotChanged(3, 0, 0);
+			}
 		}));
 		for (int si = 0; si < 3; ++si)
 			for (int sj = 0; sj < 9; ++sj)

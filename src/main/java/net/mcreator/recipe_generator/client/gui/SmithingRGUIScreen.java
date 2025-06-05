@@ -100,7 +100,6 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.smithing_rgui.label_furnace"), 69, 7, -12829636, false);
 		if (InvertedCheckKubeJSProcedure.execute())
 			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.smithing_rgui.label_kubejs_is_not_supported"), 24, 16, -65485, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.smithing_rgui.label_accepts_only_templates"), 6, 61, -205, false);
 	}
 
 	@Override
