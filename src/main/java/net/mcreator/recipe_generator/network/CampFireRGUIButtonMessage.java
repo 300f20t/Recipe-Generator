@@ -16,7 +16,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.CampFireCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.CampFireRGUIMenu;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateFurnaceReciepsProcedure;
@@ -26,21 +26,21 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record CampFireCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+public record CampFireRGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<CampFireCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "camp_fire_ctgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, CampFireCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CampFireCTGUIButtonMessage message) -> {
+	public static final Type<CampFireRGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "camp_fire_rgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, CampFireRGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CampFireRGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new CampFireCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new CampFireRGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public Type<CampFireCTGUIButtonMessage> type() {
+	public Type<CampFireRGUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final CampFireCTGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final CampFireRGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> {
 				Player entity = context.player();
@@ -58,7 +58,7 @@ public record CampFireCTGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = CampFireCTGUIMenu.guistate;
+		HashMap guistate = CampFireRGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -82,6 +82,6 @@ public record CampFireCTGUIButtonMessage(int buttonID, int x, int y, int z) impl
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(CampFireCTGUIButtonMessage.TYPE, CampFireCTGUIButtonMessage.STREAM_CODEC, CampFireCTGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(CampFireRGUIButtonMessage.TYPE, CampFireRGUIButtonMessage.STREAM_CODEC, CampFireRGUIButtonMessage::handleData);
 	}
 }

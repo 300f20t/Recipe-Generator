@@ -11,13 +11,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import io.netty.buffer.Unpooled;
 
-public class OpenBlastFurnaceCTGUIProcedure {
+public class OpenBlastFurnaceRemovingRGUIProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
@@ -47,7 +47,7 @@ public class OpenBlastFurnaceCTGUIProcedure {
 				_ent.openMenu(new MenuProvider() {
 					@Override
 					public Component getDisplayName() {
-						return Component.literal("BlastFurnaceCTGUI");
+						return Component.literal("FurnaceRemovingCTGUI");
 					}
 
 					@Override
@@ -57,7 +57,7 @@ public class OpenBlastFurnaceCTGUIProcedure {
 
 					@Override
 					public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
-						return new BlastFurnaceCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						return new FurnaceRemovingCTGUIMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
 					}
 				}, _bpos);
 			}

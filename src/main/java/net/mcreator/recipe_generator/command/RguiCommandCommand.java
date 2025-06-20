@@ -20,8 +20,8 @@ import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIP
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
 import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceCTGUIProcedure;
+import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingRGUIProcedure;
+import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRGUIProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
@@ -126,7 +126,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenBlastFurnaceRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))).then(Commands.literal("addTransformRecipe").then(Commands.literal("smithing").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -182,7 +182,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceRemovingCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenBlastFurnaceRemovingRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))));
 	}

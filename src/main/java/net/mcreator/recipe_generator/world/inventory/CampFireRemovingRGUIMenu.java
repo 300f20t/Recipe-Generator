@@ -23,14 +23,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.network.CampFireCTGUISlotMessage;
+import net.mcreator.recipe_generator.network.CampFireRemovingRGUISlotMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
-public class CampFireCTGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
+public class CampFireRemovingRGUIMenu extends AbstractContainerMenu implements Supplier<Map<Integer, Slot>> {
 	public final static HashMap<String, Object> guistate = new HashMap<>();
 	public final Level world;
 	public final Player entity;
@@ -43,11 +43,11 @@ public class CampFireCTGUIMenu extends AbstractContainerMenu implements Supplier
 	private Entity boundEntity = null;
 	private BlockEntity boundBlockEntity = null;
 
-	public CampFireCTGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(RecipeGeneratorModMenus.CAMP_FIRE_CTGUI.get(), id);
+	public CampFireRemovingRGUIMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
+		super(RecipeGeneratorModMenus.CAMP_FIRE_REMOVING_RGUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(2);
+		this.internal = new ItemStackHandler(1);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -84,26 +84,15 @@ public class CampFireCTGUIMenu extends AbstractContainerMenu implements Supplier
 				}
 			}
 		}
-		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 35) {
+		this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 35) {
 			private final int slot = 0;
-			private int x = CampFireCTGUIMenu.this.x;
-			private int y = CampFireCTGUIMenu.this.y;
+			private int x = CampFireRemovingRGUIMenu.this.x;
+			private int y = CampFireRemovingRGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
 				super.setChanged();
 				slotChanged(0, 0, 0);
-			}
-		}));
-		this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 35) {
-			private final int slot = 1;
-			private int x = CampFireCTGUIMenu.this.x;
-			private int y = CampFireCTGUIMenu.this.y;
-
-			@Override
-			public void setChanged() {
-				super.setChanged();
-				slotChanged(1, 0, 0);
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
@@ -133,16 +122,16 @@ public class CampFireCTGUIMenu extends AbstractContainerMenu implements Supplier
 		if (slot != null && slot.hasItem()) {
 			ItemStack itemstack1 = slot.getItem();
 			itemstack = itemstack1.copy();
-			if (index < 2) {
-				if (!this.moveItemStackTo(itemstack1, 2, this.slots.size(), true))
+			if (index < 1) {
+				if (!this.moveItemStackTo(itemstack1, 1, this.slots.size(), true))
 					return ItemStack.EMPTY;
 				slot.onQuickCraft(itemstack1, itemstack);
-			} else if (!this.moveItemStackTo(itemstack1, 0, 2, false)) {
-				if (index < 2 + 27) {
-					if (!this.moveItemStackTo(itemstack1, 2 + 27, this.slots.size(), true))
+			} else if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
+				if (index < 1 + 27) {
+					if (!this.moveItemStackTo(itemstack1, 1 + 27, this.slots.size(), true))
 						return ItemStack.EMPTY;
 				} else {
-					if (!this.moveItemStackTo(itemstack1, 2, 2 + 27, false))
+					if (!this.moveItemStackTo(itemstack1, 1, 1 + 27, false))
 						return ItemStack.EMPTY;
 				}
 				return ItemStack.EMPTY;
@@ -239,8 +228,8 @@ public class CampFireCTGUIMenu extends AbstractContainerMenu implements Supplier
 
 	private void slotChanged(int slotid, int ctype, int meta) {
 		if (this.world != null && this.world.isClientSide()) {
-			PacketDistributor.sendToServer(new CampFireCTGUISlotMessage(slotid, x, y, z, ctype, meta));
-			CampFireCTGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
+			PacketDistributor.sendToServer(new CampFireRemovingRGUISlotMessage(slotid, x, y, z, ctype, meta));
+			CampFireRemovingRGUISlotMessage.handleSlotAction(entity, slotid, ctype, meta, x, y, z);
 		}
 	}
 

@@ -16,7 +16,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.CampFireCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.CampFireRGUIMenu;
 import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -24,23 +24,23 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record CampFireCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
+public record CampFireRGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
 
-	public static final Type<CampFireCTGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "camp_fire_ctgui_slots"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, CampFireCTGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CampFireCTGUISlotMessage message) -> {
+	public static final Type<CampFireRGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "camp_fire_rgui_slots"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, CampFireRGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CampFireRGUISlotMessage message) -> {
 		buffer.writeInt(message.slotID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 		buffer.writeInt(message.changeType);
 		buffer.writeInt(message.meta);
-	}, (RegistryFriendlyByteBuf buffer) -> new CampFireCTGUISlotMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new CampFireRGUISlotMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public Type<CampFireCTGUISlotMessage> type() {
+	public Type<CampFireRGUISlotMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final CampFireCTGUISlotMessage message, final IPayloadContext context) {
+	public static void handleData(final CampFireRGUISlotMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> {
 				Player entity = context.player();
@@ -60,7 +60,7 @@ public record CampFireCTGUISlotMessage(int slotID, int x, int y, int z, int chan
 
 	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = CampFireCTGUIMenu.guistate;
+		HashMap guistate = CampFireRGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
@@ -76,6 +76,6 @@ public record CampFireCTGUISlotMessage(int slotID, int x, int y, int z, int chan
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(CampFireCTGUISlotMessage.TYPE, CampFireCTGUISlotMessage.STREAM_CODEC, CampFireCTGUISlotMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(CampFireRGUISlotMessage.TYPE, CampFireRGUISlotMessage.STREAM_CODEC, CampFireRGUISlotMessage::handleData);
 	}
 }

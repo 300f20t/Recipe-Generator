@@ -46,7 +46,7 @@ public class BlastFurnaceAddRecipeCraftTweakerProcedure {
 				return 0;
 			}
 		}.convert(guistate.containsKey("text:time") ? ((EditBox) guistate.get("text:time")).getValue() : "")) : Math.round(10)) + ");";
-		RecipeGeneratorModVariables.Generated_recipe = "blastFurnace.addRecipe(\"" + ""
+		RecipeGeneratorModVariables.Generated_recipe = "import crafttweaker.api.recipe.BlastFurnaceRecipeManager; " + "blastFurnace.addRecipe(\""
 				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
 						? RecipeNameCreatorProcedure.execute(guistate)
 						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
