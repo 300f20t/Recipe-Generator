@@ -127,6 +127,7 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_79 = "\"\"";
 	public static String item_in_slot_80 = "\"\"";
 	public static String item_in_slot_81 = "\"\"";
+	public static String item_in_slot_82 = "\"\"";
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
