@@ -67,7 +67,7 @@ public class AvaritaCraftingTableRGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			GenerateAvaritaCraftingTableRecipeProcedure.execute();
+			GenerateAvaritaCraftingTableRecipeProcedure.execute(world, entity, guistate);
 		}
 		if (buttonID == 1) {
 
