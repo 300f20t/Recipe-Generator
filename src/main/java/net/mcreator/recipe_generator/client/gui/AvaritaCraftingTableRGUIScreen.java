@@ -38,8 +38,8 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.imageWidth = 280;
-		this.imageHeight = 257;
+		this.imageWidth = 273;
+		this.imageHeight = 268;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/avarita_crafting_table_rgui.png");
@@ -60,7 +60,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
 
-		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 142, this.topPos + 79, 0, 0, 24, 17, 24, 17);
+		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 199, this.topPos + 40, 0, 0, 24, 17, 24, 17);
 
 		RenderSystem.disableBlend();
 	}
@@ -96,16 +96,16 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_recipe_name"), -122, 43, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_file_name"), -113, 79, -3355393, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_crafting"), 31, -11, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_crafttweaker_only"), 85, 277, -65485, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_recipe_name"), -125, 49, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_file_name"), -116, 85, -3355393, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_crafting"), 91, -86, -12829636, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.label_crafttweaker_only"), 82, 283, -65485, false);
 	}
 
 	@Override
 	public void init() {
 		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -121, this.topPos + 53, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.recipe_name")) {
+		recipe_name = new EditBox(this.font, this.leftPos + -124, this.topPos + 59, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.recipe_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -128,7 +128,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		recipe_name.setMaxLength(32767);
 		guistate.put("text:recipe_name", recipe_name);
 		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -121, this.topPos + 89, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.file_name")) {
+		file_name = new EditBox(this.font, this.leftPos + -124, this.topPos + 95, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.file_name")) {
 			@Override
 			public void insertText(String text) {
 				super.insertText(text);
@@ -156,7 +156,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(0, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		}).bounds(this.leftPos + 283, this.topPos + 16, 67, 20).build();
+		}).bounds(this.leftPos + 280, this.topPos + 22, 67, 20).build();
 		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.button_save"), e -> {
@@ -164,7 +164,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(1, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		}).bounds(this.leftPos + 283, this.topPos + 43, 46, 20).build();
+		}).bounds(this.leftPos + 280, this.topPos + 49, 46, 20).build();
 		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.button_close"), e -> {
@@ -172,7 +172,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(2, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		}).bounds(this.leftPos + 283, this.topPos + 187, 51, 20).build();
+		}).bounds(this.leftPos + 280, this.topPos + 193, 51, 20).build();
 		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.button_reload"), e -> {
@@ -180,7 +180,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(3, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		}).bounds(this.leftPos + 283, this.topPos + 70, 56, 20).build();
+		}).bounds(this.leftPos + 280, this.topPos + 76, 56, 20).build();
 		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
 	}
