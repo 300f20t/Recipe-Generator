@@ -73,7 +73,7 @@
           "text": "Generate",
           "isUndecorated": false,
           "onClick": {
-            "name": "GenerateCraftingTableRecipe"
+            "name": "GenerateAvaritaCraftingTableRecipe"
           },
           "width": 67,
           "height": 20,

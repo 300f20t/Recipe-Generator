@@ -14,7 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.recipe_generator.world.inventory.AvaritaCraftingTableRGUIMenu;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateCraftingTableRecipeProcedure;
+import net.mcreator.recipe_generator.procedures.GenerateAvaritaCraftingTableRecipeProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
@@ -67,7 +67,7 @@ public class AvaritaCraftingTableRGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			GenerateCraftingTableRecipeProcedure.execute(world, entity, guistate);
+			GenerateAvaritaCraftingTableRecipeProcedure.execute();
 		}
 		if (buttonID == 1) {
 
