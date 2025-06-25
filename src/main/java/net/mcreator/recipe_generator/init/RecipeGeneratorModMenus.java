@@ -21,6 +21,7 @@ import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerating
 import net.mcreator.recipe_generator.world.inventory.CampFireCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.AvaritaCraftingTableRGUIMenu;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 public class RecipeGeneratorModMenus {
@@ -37,4 +38,5 @@ public class RecipeGeneratorModMenus {
 			() -> IForgeMenuType.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 	public static final RegistryObject<MenuType<CampFireCTGUIMenu>> CAMP_FIRE_CTGUI = REGISTRY.register("camp_fire_ctgui", () -> IForgeMenuType.create(CampFireCTGUIMenu::new));
 	public static final RegistryObject<MenuType<SmithingRGUIMenu>> SMITHING_RGUI = REGISTRY.register("smithing_rgui", () -> IForgeMenuType.create(SmithingRGUIMenu::new));
+	public static final RegistryObject<MenuType<AvaritaCraftingTableRGUIMenu>> AVARITA_CRAFTING_TABLE_RGUI = REGISTRY.register("avarita_crafting_table_rgui", () -> IForgeMenuType.create(AvaritaCraftingTableRGUIMenu::new));
 }

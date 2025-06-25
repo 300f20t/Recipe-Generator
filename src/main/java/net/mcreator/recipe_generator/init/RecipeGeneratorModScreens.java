@@ -21,6 +21,7 @@ import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMetho
 import net.mcreator.recipe_generator.client.gui.CampFireCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
+import net.mcreator.recipe_generator.client.gui.AvaritaCraftingTableRGUIScreen;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class RecipeGeneratorModScreens {
@@ -37,6 +38,7 @@ public class RecipeGeneratorModScreens {
 			MenuScreens.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen::new);
 			MenuScreens.register(RecipeGeneratorModMenus.CAMP_FIRE_CTGUI.get(), CampFireCTGUIScreen::new);
 			MenuScreens.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
+			MenuScreens.register(RecipeGeneratorModMenus.AVARITA_CRAFTING_TABLE_RGUI.get(), AvaritaCraftingTableRGUIScreen::new);
 		});
 	}
 }
