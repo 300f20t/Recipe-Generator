@@ -56,6 +56,77 @@ public class RecipeGeneratorModVariables {
 	public static String openedGUI = "\"\"";
 	public static boolean methodSelected = false;
 	public static double item_in_slot_9_count = 0;
+	public static String item_in_slot_10 = "";
+	public static String item_in_slot_11 = "";
+	public static String item_in_slot_12 = "";
+	public static String item_in_slot_13 = "";
+	public static String item_in_slot_14 = "\"\"";
+	public static String item_in_slot_15 = "\"\"";
+	public static String item_in_slot_16 = "\"\"";
+	public static String item_in_slot_18 = "\"\"";
+	public static String item_in_slot_19 = "\"\"";
+	public static String item_in_slot_20 = "\"\"";
+	public static String item_in_slot_21 = "\"\"";
+	public static String item_in_slot_22 = "\"\"";
+	public static String item_in_slot_23 = "\"\"";
+	public static String item_in_slot_24 = "\"\"";
+	public static String item_in_slot_25 = "\"\"";
+	public static String item_in_slot_26 = "\"\"";
+	public static String item_in_slot_27 = "\"\"";
+	public static String item_in_slot_28 = "\"\"";
+	public static String item_in_slot_29 = "\"\"";
+	public static String item_in_slot_30 = "\"\"";
+	public static String item_in_slot_31 = "\"\"";
+	public static String item_in_slot_32 = "\"\"";
+	public static String item_in_slot_33 = "\"\"";
+	public static String item_in_slot_34 = "\"\"";
+	public static String item_in_slot_35 = "\"\"";
+	public static String item_in_slot_36 = "\"\"";
+	public static String item_in_slot_37 = "\"\"";
+	public static String item_in_slot_38 = "\"\"";
+	public static String item_in_slot_39 = "\"\"";
+	public static String item_in_slot_40 = "\"\"";
+	public static String item_in_slot_41 = "\"\"";
+	public static String item_in_slot_42 = "\"\"";
+	public static String item_in_slot_43 = "\"\"";
+	public static String item_in_slot_44 = "\"\"";
+	public static String item_in_slot_45 = "\"\"";
+	public static String item_in_slot_46 = "\"\"";
+	public static String item_in_slot_47 = "\"\"";
+	public static String item_in_slot_48 = "\"\"";
+	public static String item_in_slot_49 = "\"\"";
+	public static String item_in_slot_50 = "\"\"";
+	public static String item_in_slot_51 = "\"\"";
+	public static String item_in_slot_52 = "\"\"";
+	public static String item_in_slot_53 = "\"\"";
+	public static String item_in_slot_54 = "\"\"";
+	public static String item_in_slot_55 = "\"\"";
+	public static String item_in_slot_56 = "\"\"";
+	public static String item_in_slot_57 = "\"\"";
+	public static String item_in_slot_58 = "\"\"";
+	public static String item_in_slot_59 = "\"\"";
+	public static String item_in_slot_60 = "\"\"";
+	public static String item_in_slot_61 = "\"\"";
+	public static String item_in_slot_62 = "\"\"";
+	public static String item_in_slot_63 = "\"\"";
+	public static String item_in_slot_64 = "\"\"";
+	public static String item_in_slot_65 = "\"\"";
+	public static String item_in_slot_66 = "\"\"";
+	public static String item_in_slot_67 = "\"\"";
+	public static String item_in_slot_68 = "\"\"";
+	public static String item_in_slot_69 = "\"\"";
+	public static String item_in_slot_70 = "\"\"";
+	public static String item_in_slot_71 = "\"\"";
+	public static String item_in_slot_72 = "\"\"";
+	public static String item_in_slot_73 = "\"\"";
+	public static String item_in_slot_74 = "\"\"";
+	public static String item_in_slot_75 = "\"\"";
+	public static String item_in_slot_76 = "\"\"";
+	public static String item_in_slot_77 = "\"\"";
+	public static String item_in_slot_78 = "\"\"";
+	public static String item_in_slot_79 = "\"\"";
+	public static String item_in_slot_80 = "\"\"";
+	public static String item_in_slot_81 = "\"\"";
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -173,6 +244,7 @@ public class RecipeGeneratorModVariables {
 
 	public static class MapVariables extends SavedData {
 		public static final String DATA_NAME = "recipe_generator_mapvars";
+		public String item_in_slot_17 = "\"\"";
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -184,10 +256,12 @@ public class RecipeGeneratorModVariables {
 			if (nbt == null) {
 				nbt = save(new CompoundTag());
 			}
+			item_in_slot_17 = nbt.getString("item_in_slot_17");
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
+			nbt.putString("item_in_slot_17", item_in_slot_17);
 			return nbt;
 		}
 

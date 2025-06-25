@@ -1645,6 +1645,56 @@
         ]
       },
       "path": "~/Generators/Abstract/Smithing"
+    },
+    {
+      "name": "AvaritaCraftingTableAddShapedCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "avarita_crafting_table_add_shaped_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/AvaritaCraftingTableAddShapedCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker/AvaritaCraftingTable"
+    },
+    {
+      "name": "GenerateAvaritaCraftingTableRecipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_avarita_crafting_table_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateAvaritaCraftingTableRecipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Generators/Abstract/AvaritaCraftingTable"
     }
   ],
   "variable_elements": [
@@ -1773,6 +1823,438 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_10",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_11",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_12",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_13",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_14",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_15",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_16",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_17",
+      "type": "string",
+      "scope": "map",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_18",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_19",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_20",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_21",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_22",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_23",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_24",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_25",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_26",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_27",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_28",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_29",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_30",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_31",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_32",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_33",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_34",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_35",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_36",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_37",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_38",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_39",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_40",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_41",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_42",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_43",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_44",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_45",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_46",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_47",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_48",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_49",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_50",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_51",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_52",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_53",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_54",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_55",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_56",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_57",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_58",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_59",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_60",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_61",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_62",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_63",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_64",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_65",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_66",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_67",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_68",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_69",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_70",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_71",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_72",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_73",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_74",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_75",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_76",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_77",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_78",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_79",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_80",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_81",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -1817,16 +2299,16 @@
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_crafttweaker": "CraftTweaker",
       "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
-      "gui.recipe_generator.smithing_rgui.time": "50",
       "gui.recipe_generator.furnace_ctgui.recipe_name": "name",
+      "gui.recipe_generator.smithing_rgui.time": "50",
       "gui.recipe_generator.blast_furnace_ctgui.time": "50",
       "gui.just_ctgui.craftingtable_ctgui.button_all": "all",
       "gui.just_ctgui.blast_furnace_ctgui.button_save": "Save",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.recipe_generator.smithing_rgui.button_reload": "Reload",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_reload": "Reload",
-      "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.blast_furnace_ctgui.label_time": "Time(ticks):",
+      "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.crafting_table_removing_ctgui.file_name": "generated",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.furnace_removing_ctgui.button_save": "Save",
@@ -1851,8 +2333,8 @@
       "gui.recipe_generator.blast_furnace_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.camp_fire_ctgui.file_name": "generated1",
       "gui.recipe_generator.furnace_removing_ctgui.label_furnace": "Furnace removing",
-      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_removing_ctgui.button_generate": "Generate",
+      "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_ctgui.time": "10",
       "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_recipes_gui.XP": "1.0",
@@ -1863,8 +2345,8 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.label_empty": "Mirror axis:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
+      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
       "gui.recipe_generator.furnace_ctgui.time": "100",
       "gui.recipe_generator.smithing_rgui.label_accepts_only_templates": "Accepts only templates",
@@ -2113,6 +2595,10 @@
               {
                 "name": "Smithing",
                 "children": []
+              },
+              {
+                "name": "AvaritaCraftingTable",
+                "children": []
               }
             ]
           },
@@ -2150,6 +2636,10 @@
               },
               {
                 "name": "Smithing",
+                "children": []
+              },
+              {
+                "name": "AvaritaCraftingTable",
                 "children": []
               }
             ]
