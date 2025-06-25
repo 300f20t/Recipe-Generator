@@ -42,8 +42,6 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		this.imageHeight = 268;
 	}
 
-	private static final ResourceLocation texture = new ResourceLocation("recipe_generator:textures/screens/avarita_crafting_table_rgui.png");
-
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(guiGraphics);
@@ -58,7 +56,8 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
+
+		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/test_avarita.png"), this.leftPos + 0, this.topPos + -32, 0, 0, 273, 300, 273, 300);
 
 		guiGraphics.blit(new ResourceLocation("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 199, this.topPos + 40, 0, 0, 24, 17, 24, 17);
 

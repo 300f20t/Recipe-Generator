@@ -7,9 +7,19 @@
     "height": 268,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
-    "renderBgLayer": true,
+    "renderBgLayer": false,
     "doesPauseGame": false,
     "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "test_avarita.png",
+          "use1Xscale": false,
+          "x": 77,
+          "y": -46,
+          "locked": false
+        }
+      },
       {
         "type": "textfield",
         "data": {
@@ -1982,7 +1992,7 @@
       "sy": 36,
       "ox": 11,
       "oy": 15,
-      "snapOnGrid": true
+      "snapOnGrid": false
     }
   }
 }

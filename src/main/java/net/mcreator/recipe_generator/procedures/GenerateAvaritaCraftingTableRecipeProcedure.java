@@ -42,7 +42,7 @@ public class GenerateAvaritaCraftingTableRecipeProcedure {
 					+ ("\n" + "[" + RecipeGeneratorModVariables.item_in_slot_72 + ", " + RecipeGeneratorModVariables.item_in_slot_73 + ", " + RecipeGeneratorModVariables.item_in_slot_74 + ", " + RecipeGeneratorModVariables.item_in_slot_75 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_76 + ", " + RecipeGeneratorModVariables.item_in_slot_77 + ", " + RecipeGeneratorModVariables.item_in_slot_78 + ", " + RecipeGeneratorModVariables.item_in_slot_79 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_80 + "], ")
-					+ "\n" + "]]);";
+					+ "\n" + "]);";
 			entity.getCapability(RecipeGeneratorModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.preGeneratedRecipe = _setval;
 				capability.syncPlayerVariables(entity);
