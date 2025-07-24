@@ -23,16 +23,15 @@ A clear and concise description of what you expected to happen.
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
+**Please complete the following information:**
  - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - Minecraft version [e.g. 1.20.1]
+ - Modloader version [e.g. Forge 47.4.4]
+ - Mod version [e.g 0.4.0]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+**Installed mods:**
+- List of mods [e.g. KubeJS, JEI, Sodium etc.]
 
 **Additional context**
 Add any other context about the problem here.
+
