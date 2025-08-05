@@ -54,7 +54,7 @@
     {
       "name": "Scriptswriter",
       "type": "procedure",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "scriptswriter",
       "metadata": {
