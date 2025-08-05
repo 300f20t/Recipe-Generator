@@ -1,4 +1,3 @@
-
 package net.mcreator.recipe_generator.network;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
@@ -16,14 +15,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.SmithingRGUIMenu;
 import net.mcreator.recipe_generator.procedures.ItemInSlot3Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot2Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
-
-import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record SmithingRGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
@@ -44,16 +40,7 @@ public record SmithingRGUISlotMessage(int slotID, int x, int y, int z, int chang
 
 	public static void handleData(final SmithingRGUISlotMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> {
-				Player entity = context.player();
-				int slotID = message.slotID;
-				int changeType = message.changeType;
-				int meta = message.meta;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				handleSlotAction(entity, slotID, changeType, meta, x, y, z);
-			}).exceptionally(e -> {
+			context.enqueueWork(() -> handleSlotAction(context.player(), message.slotID, message.changeType, message.meta, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
 				return null;
 			});
@@ -62,7 +49,6 @@ public record SmithingRGUISlotMessage(int slotID, int x, int y, int z, int chang
 
 	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = SmithingRGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;

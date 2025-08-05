@@ -15,16 +15,15 @@ import net.mcreator.recipe_generator.procedures.ReturnSelectedGeneratingMethodPr
 import net.mcreator.recipe_generator.procedures.CheckKubeJSProcedure;
 import net.mcreator.recipe_generator.procedures.CheckCraftTweakerProcedure;
 import net.mcreator.recipe_generator.network.ChoosingTheRecipeGenerationMethodGUIButtonMessage;
-
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> {
-	private final static HashMap<String, Object> guistate = ChoosingTheRecipeGenerationMethodGUIMenu.guistate;
+public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContainerScreen<ChoosingTheRecipeGenerationMethodGUIMenu> implements RecipeGeneratorModScreens.ScreenAccessor {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private boolean menuStateUpdateActive = false;
 	Button button_crafttweaker;
 	Button button_kubejs_wip;
 	Button button_minecraft_mod_wip;
@@ -43,13 +42,19 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 	}
 
 	@Override
+	public void updateMenuState(int elementType, String name, Object elementState) {
+		menuStateUpdateActive = true;
+		menuStateUpdateActive = false;
+	}
+
+	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int gx, int gy) {
+	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
@@ -69,9 +74,7 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_selected_mod"), -48, 7, -6710785, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the"), -57, -11, -154, false);
-		guiGraphics.drawString(this.font,
-
-				ReturnSelectedGeneratingMethodProcedure.execute(world), 96, 7, -3355393, false);
+		guiGraphics.drawString(this.font, ReturnSelectedGeneratingMethodProcedure.execute(world), 96, 7, -3355393, false);
 		if (CheckCraftTweakerProcedure.execute())
 			guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed"), 132, 34, -65536, false);
 		if (CheckKubeJSProcedure.execute())
@@ -82,36 +85,37 @@ public class ChoosingTheRecipeGenerationMethodGUIScreen extends AbstractContaine
 	public void init() {
 		super.init();
 		button_crafttweaker = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker"), e -> {
+			int x = ChoosingTheRecipeGenerationMethodGUIScreen.this.x;
+			int y = ChoosingTheRecipeGenerationMethodGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(0, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
-		guistate.put("button:button_crafttweaker", button_crafttweaker);
 		this.addRenderableWidget(button_crafttweaker);
 		button_kubejs_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip"), e -> {
+			int x = ChoosingTheRecipeGenerationMethodGUIScreen.this.x;
+			int y = ChoosingTheRecipeGenerationMethodGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(1, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
-		guistate.put("button:button_kubejs_wip", button_kubejs_wip);
 		this.addRenderableWidget(button_kubejs_wip);
 		button_minecraft_mod_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_mod_wip"), e -> {
 		}).bounds(this.leftPos + 24, this.topPos + 106, 124, 20).build();
-		guistate.put("button:button_minecraft_mod_wip", button_minecraft_mod_wip);
 		this.addRenderableWidget(button_minecraft_mod_wip);
 		button_minecraft_data_pack_wip = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip"), e -> {
 		}).bounds(this.leftPos + 6, this.topPos + 79, 155, 20).build();
-		guistate.put("button:button_minecraft_data_pack_wip", button_minecraft_data_pack_wip);
 		this.addRenderableWidget(button_minecraft_data_pack_wip);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close"), e -> {
+			int x = ChoosingTheRecipeGenerationMethodGUIScreen.this.x;
+			int y = ChoosingTheRecipeGenerationMethodGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new ChoosingTheRecipeGenerationMethodGUIButtonMessage(4, x, y, z));
 				ChoosingTheRecipeGenerationMethodGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();
-		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 	}
 }

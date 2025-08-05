@@ -16,16 +16,15 @@ import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.network.CraftingTableRemovingCTGUIButtonMessage;
-
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<CraftingTableRemovingCTGUIMenu> {
-	private final static HashMap<String, Object> guistate = CraftingTableRemovingCTGUIMenu.guistate;
+public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<CraftingTableRemovingCTGUIMenu> implements RecipeGeneratorModScreens.ScreenAccessor {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private boolean menuStateUpdateActive = false;
 	EditBox file_name;
 	Button button_generate;
 	Button button_save;
@@ -43,6 +42,16 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		this.imageHeight = 166;
 	}
 
+	@Override
+	public void updateMenuState(int elementType, String name, Object elementState) {
+		menuStateUpdateActive = true;
+		if (elementType == 0 && elementState instanceof String stringState) {
+			if (name.equals("file_name"))
+				file_name.setValue(stringState);
+		}
+		menuStateUpdateActive = false;
+	}
+
 	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/crafting_table_removing_ctgui.png");
 
 	@Override
@@ -53,7 +62,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int gx, int gy) {
+	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
@@ -88,60 +97,49 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	@Override
 	public void init() {
 		super.init();
-		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		file_name.setMaxLength(32767);
-		file_name.setSuggestion(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name").getString());
-		guistate.put("text:file_name", file_name);
+		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name"));
+		file_name.setMaxLength(8192);
+		file_name.setResponder(content -> {
+			if (!menuStateUpdateActive)
+				menu.sendMenuStateUpdate(entity, 0, "file_name", content, false);
+		});
+		file_name.setHint(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.file_name"));
 		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_generate"), e -> {
+			int x = CraftingTableRemovingCTGUIScreen.this.x;
+			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(0, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
-		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_save"), e -> {
+			int x = CraftingTableRemovingCTGUIScreen.this.x;
+			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(1, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
-		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_close"), e -> {
+			int x = CraftingTableRemovingCTGUIScreen.this.x;
+			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(2, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
-		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.crafting_table_removing_ctgui.button_reload"), e -> {
+			int x = CraftingTableRemovingCTGUIScreen.this.x;
+			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(3, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
-		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
 	}
 }

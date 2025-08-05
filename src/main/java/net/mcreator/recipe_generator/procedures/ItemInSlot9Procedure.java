@@ -2,15 +2,12 @@ package net.mcreator.recipe_generator.procedures;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
-
-import java.util.function.Supplier;
-import java.util.Map;
 
 public class ItemInSlot9Procedure {
 	public static void execute(LevelAccessor world, Entity entity) {
@@ -18,8 +15,8 @@ public class ItemInSlot9Procedure {
 			return;
 		RecipeGeneratorMod.queueServerWork(1, () -> {
 			RecipeGeneratorModVariables.item_in_slot_9 = ItemsFormatProcedure.execute(world,
-					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY);
-			RecipeGeneratorModVariables.item_in_slot_9_count = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof Supplier _splr && _splr.get() instanceof Map _slt ? ((Slot) _slt.get(9)).getItem() : ItemStack.EMPTY)
+					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(9).getItem() : ItemStack.EMPTY);
+			RecipeGeneratorModVariables.item_in_slot_9_count = (entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu1 ? _menu1.getSlots().get(9).getItem() : ItemStack.EMPTY)
 					.getCount();
 		});
 	}

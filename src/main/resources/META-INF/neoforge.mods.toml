@@ -15,10 +15,14 @@ description="The Recipe Generator mod provides a visual recipe editor in Minecra
 # Start of user code block mod configuration
 # End of user code block mod configuration
 
+
+# Start of user code block custom mixins
+# End of user code block custom mixins
+
 [[dependencies.recipe_generator]]
     modId="neoforge"
     type="required"
-    versionRange="[21.4.123,)"
+    versionRange="[21.4.137,)"
     ordering="AFTER"
     side="BOTH"
 

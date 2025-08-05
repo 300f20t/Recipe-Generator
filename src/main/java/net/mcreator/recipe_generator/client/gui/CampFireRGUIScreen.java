@@ -17,16 +17,15 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.recipe_generator.world.inventory.CampFireRGUIMenu;
 import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.network.CampFireRGUIButtonMessage;
-
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
-public class CampFireRGUIScreen extends AbstractContainerScreen<CampFireRGUIMenu> {
-	private final static HashMap<String, Object> guistate = CampFireRGUIMenu.guistate;
+public class CampFireRGUIScreen extends AbstractContainerScreen<CampFireRGUIMenu> implements RecipeGeneratorModScreens.ScreenAccessor {
 	private final Level world;
 	private final int x, y, z;
 	private final Player entity;
+	private boolean menuStateUpdateActive = false;
 	EditBox recipe_name;
 	EditBox file_name;
 	EditBox XP;
@@ -47,6 +46,22 @@ public class CampFireRGUIScreen extends AbstractContainerScreen<CampFireRGUIMenu
 		this.imageHeight = 166;
 	}
 
+	@Override
+	public void updateMenuState(int elementType, String name, Object elementState) {
+		menuStateUpdateActive = true;
+		if (elementType == 0 && elementState instanceof String stringState) {
+			if (name.equals("recipe_name"))
+				recipe_name.setValue(stringState);
+			else if (name.equals("file_name"))
+				file_name.setValue(stringState);
+			else if (name.equals("XP"))
+				XP.setValue(stringState);
+			else if (name.equals("time"))
+				time.setValue(stringState);
+		}
+		menuStateUpdateActive = false;
+	}
+
 	private static final ResourceLocation texture = ResourceLocation.parse("recipe_generator:textures/screens/camp_fire_rgui.png");
 
 	@Override
@@ -60,14 +75,12 @@ public class CampFireRGUIScreen extends AbstractContainerScreen<CampFireRGUIMenu
 	}
 
 	@Override
-	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int gx, int gy) {
+	protected void renderBg(GuiGraphics guiGraphics, float partialTicks, int mouseX, int mouseY) {
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
 		guiGraphics.blit(RenderType::guiTextured, texture, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight, this.imageWidth, this.imageHeight);
-
 		guiGraphics.blit(RenderType::guiTextured, ResourceLocation.parse("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 78, this.topPos + 34, 0, 0, 24, 17, 24, 17);
-
 		RenderSystem.disableBlend();
 	}
 
@@ -115,129 +128,73 @@ public class CampFireRGUIScreen extends AbstractContainerScreen<CampFireRGUIMenu
 	@Override
 	public void init() {
 		super.init();
-		recipe_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		recipe_name.setMaxLength(32767);
-		recipe_name.setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name").getString());
-		guistate.put("text:recipe_name", recipe_name);
+		recipe_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name"));
+		recipe_name.setMaxLength(8192);
+		recipe_name.setResponder(content -> {
+			if (!menuStateUpdateActive)
+				menu.sendMenuStateUpdate(entity, 0, "recipe_name", content, false);
+		});
+		recipe_name.setHint(Component.translatable("gui.recipe_generator.camp_fire_rgui.recipe_name"));
 		this.addWidget(this.recipe_name);
-		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		file_name.setMaxLength(32767);
-		file_name.setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name").getString());
-		guistate.put("text:file_name", file_name);
+		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 44, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name"));
+		file_name.setMaxLength(8192);
+		file_name.setResponder(content -> {
+			if (!menuStateUpdateActive)
+				menu.sendMenuStateUpdate(entity, 0, "file_name", content, false);
+		});
+		file_name.setHint(Component.translatable("gui.recipe_generator.camp_fire_rgui.file_name"));
 		this.addWidget(this.file_name);
-		XP = new EditBox(this.font, this.leftPos + -128, this.topPos + 98, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.XP")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.XP").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.XP").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		XP.setMaxLength(32767);
-		XP.setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.XP").getString());
-		guistate.put("text:XP", XP);
+		XP = new EditBox(this.font, this.leftPos + -128, this.topPos + 98, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.XP"));
+		XP.setMaxLength(8192);
+		XP.setResponder(content -> {
+			if (!menuStateUpdateActive)
+				menu.sendMenuStateUpdate(entity, 0, "XP", content, false);
+		});
+		XP.setHint(Component.translatable("gui.recipe_generator.camp_fire_rgui.XP"));
 		this.addWidget(this.XP);
-		time = new EditBox(this.font, this.leftPos + -128, this.topPos + 143, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.time")) {
-			@Override
-			public void insertText(String text) {
-				super.insertText(text);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.time").getString());
-				else
-					setSuggestion(null);
-			}
-
-			@Override
-			public void moveCursorTo(int pos, boolean flag) {
-				super.moveCursorTo(pos, flag);
-				if (getValue().isEmpty())
-					setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.time").getString());
-				else
-					setSuggestion(null);
-			}
-		};
-		time.setMaxLength(32767);
-		time.setSuggestion(Component.translatable("gui.recipe_generator.camp_fire_rgui.time").getString());
-		guistate.put("text:time", time);
+		time = new EditBox(this.font, this.leftPos + -128, this.topPos + 143, 118, 18, Component.translatable("gui.recipe_generator.camp_fire_rgui.time"));
+		time.setMaxLength(8192);
+		time.setResponder(content -> {
+			if (!menuStateUpdateActive)
+				menu.sendMenuStateUpdate(entity, 0, "time", content, false);
+		});
+		time.setHint(Component.translatable("gui.recipe_generator.camp_fire_rgui.time"));
 		this.addWidget(this.time);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.camp_fire_rgui.button_generate"), e -> {
+			int x = CampFireRGUIScreen.this.x;
+			int y = CampFireRGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CampFireRGUIButtonMessage(0, x, y, z));
 				CampFireRGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
-		guistate.put("button:button_generate", button_generate);
 		this.addRenderableWidget(button_generate);
 		button_save = Button.builder(Component.translatable("gui.recipe_generator.camp_fire_rgui.button_save"), e -> {
+			int x = CampFireRGUIScreen.this.x;
+			int y = CampFireRGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CampFireRGUIButtonMessage(1, x, y, z));
 				CampFireRGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
-		guistate.put("button:button_save", button_save);
 		this.addRenderableWidget(button_save);
 		button_close = Button.builder(Component.translatable("gui.recipe_generator.camp_fire_rgui.button_close"), e -> {
+			int x = CampFireRGUIScreen.this.x;
+			int y = CampFireRGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CampFireRGUIButtonMessage(2, x, y, z));
 				CampFireRGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
-		guistate.put("button:button_close", button_close);
 		this.addRenderableWidget(button_close);
 		button_reload = Button.builder(Component.translatable("gui.recipe_generator.camp_fire_rgui.button_reload"), e -> {
+			int x = CampFireRGUIScreen.this.x;
+			int y = CampFireRGUIScreen.this.y;
 			if (true) {
 				PacketDistributor.sendToServer(new CampFireRGUIButtonMessage(3, x, y, z));
 				CampFireRGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
-		guistate.put("button:button_reload", button_reload);
 		this.addRenderableWidget(button_reload);
 	}
 }

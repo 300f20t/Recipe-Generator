@@ -1,6 +1,7 @@
 # Gradle build system ignores
 .gradle/
 build/
+gradle/
 
 # Other IDE related folders
 .idea/
@@ -15,10 +16,11 @@ run/
 
 !run/mods
 
-
 # MacOS system files
 .DS_STORE
 
 # Other Files (In Eclipse)
 .classpath
 .project
+
+.eclipse/

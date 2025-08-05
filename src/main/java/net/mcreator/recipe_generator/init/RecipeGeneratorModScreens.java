@@ -1,4 +1,3 @@
-
 /*
  *	MCreator note: This file will be REGENERATED on each build.
  */
@@ -36,5 +35,9 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CAMP_FIRE_REMOVING_RGUI.get(), CampFireRemovingRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CAMP_FIRE_RGUI.get(), CampFireRGUIScreen::new);
+	}
+
+	public interface ScreenAccessor {
+		void updateMenuState(int elementType, String name, Object elementState);
 	}
 }

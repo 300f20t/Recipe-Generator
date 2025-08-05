@@ -1,19 +1,18 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
-
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 
 public class CraftingTableAddShapelessCraftTweakerProcedure {
-	public static void execute(HashMap guistate) {
-		if (guistate == null)
+	public static void execute(Entity entity) {
+		if (entity == null)
 			return;
 		RecipeGeneratorModVariables.Generated_recipe = "craftingTable.addShapeless(\"" + ""
-				+ ((guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : "").isEmpty()
-						? RecipeNameCreatorProcedure.execute(guistate)
-						: (guistate.containsKey("text:recipe_name") ? ((EditBox) guistate.get("text:recipe_name")).getValue() : ""))
+				+ (((entity instanceof Player _entity0 && _entity0.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0) ? _menu0.getMenuState(0, "recipe_name", "") : "")
+						.isEmpty() ? RecipeNameCreatorProcedure.execute(entity) : ((entity instanceof Player _entity1 && _entity1.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "recipe_name", "") : ""))
 				+ "\", " + RecipeGeneratorModVariables.item_in_slot_9
 				+ ((" * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", " + "\n" + "["
 						+ (RecipeGeneratorModVariables.item_in_slot_0.contains("<item:minecraft:air>, ") ? "" : RecipeGeneratorModVariables.item_in_slot_0 + ", ")

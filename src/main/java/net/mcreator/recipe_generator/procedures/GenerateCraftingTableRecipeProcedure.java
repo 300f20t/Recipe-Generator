@@ -4,15 +4,13 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
-import net.minecraft.client.gui.components.Checkbox;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
-
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 
 public class GenerateCraftingTableRecipeProcedure {
-	public static void execute(LevelAccessor world, Entity entity, HashMap guistate) {
-		if (entity == null || guistate == null)
+	public static void execute(LevelAccessor world, Entity entity) {
+		if (entity == null)
 			return;
 		{
 			RecipeGeneratorModVariables.PlayerVariables _vars = entity.getData(RecipeGeneratorModVariables.PLAYER_VARIABLES);
@@ -22,15 +20,15 @@ public class GenerateCraftingTableRecipeProcedure {
 			_vars.syncPlayerVariables(entity);
 		}
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
-				CraftingTableAddShapelessCraftTweakerProcedure.execute(guistate);
-			} else if (guistate.containsKey("checkbox:Is_mirrored") && ((Checkbox) guistate.get("checkbox:Is_mirrored")).selected()) {
-				CraftingTableAddShapedMirroredCraftTweakerProcedure.execute(entity, guistate);
+			if ((entity instanceof Player _entity0 && _entity0.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0) ? _menu0.getMenuState(1, "Is_shapeless", false) : false) {
+				CraftingTableAddShapelessCraftTweakerProcedure.execute(entity);
+			} else if ((entity instanceof Player _entity1 && _entity1.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(1, "Is_mirrored", false) : false) {
+				CraftingTableAddShapedMirroredCraftTweakerProcedure.execute(entity);
 			} else {
-				CraftingTableAddShapedCraftTweakerProcedure.execute(entity, guistate);
+				CraftingTableAddShapedCraftTweakerProcedure.execute(entity);
 			}
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			if (guistate.containsKey("checkbox:Is_shapeless") && ((Checkbox) guistate.get("checkbox:Is_shapeless")).selected()) {
+			if ((entity instanceof Player _entity2 && _entity2.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu2) ? _menu2.getMenuState(1, "Is_shapeless", false) : false) {
 				GenerateCraftingTableShapelessRecipeKubeJSProcedure.execute();
 			} else {
 				GenerateCraftingTableShapedRecipeKubeJSProcedure.execute();

@@ -1,16 +1,18 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 
-import java.util.HashMap;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
+
 import java.util.Calendar;
 
 public class FileNameCreatorProcedure {
-	public static String execute(HashMap guistate) {
-		if (guistate == null)
+	public static String execute(Entity entity) {
+		if (entity == null)
 			return "";
 		String fileName = "";
-		fileName = guistate.containsKey("text:file_name") ? ((EditBox) guistate.get("text:file_name")).getValue() : "";
+		fileName = (entity instanceof Player _entity0 && _entity0.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0) ? _menu0.getMenuState(0, "file_name", "") : "";
 		if ((fileName).isEmpty()) {
 			fileName = "generated " + new java.text.SimpleDateFormat("yyyy-MM-dd-hh-mm-ss").format(Calendar.getInstance().getTime());
 		}

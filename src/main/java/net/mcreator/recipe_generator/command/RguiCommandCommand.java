@@ -1,4 +1,3 @@
-
 package net.mcreator.recipe_generator.command;
 
 import org.checkerframework.checker.units.qual.s;

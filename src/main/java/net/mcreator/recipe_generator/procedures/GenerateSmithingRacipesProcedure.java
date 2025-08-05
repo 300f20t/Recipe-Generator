@@ -7,15 +7,13 @@ import net.minecraft.network.chat.Component;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
-import java.util.HashMap;
-
 public class GenerateSmithingRacipesProcedure {
-	public static void execute(LevelAccessor world, Entity entity, HashMap guistate) {
-		if (entity == null || guistate == null)
+	public static void execute(LevelAccessor world, Entity entity) {
+		if (entity == null)
 			return;
 		String preGeneratedRecipe = "";
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
-			SmithingAddTransformRecipeCraftTweakerProcedure.execute(guistate);
+			SmithingAddTransformRecipeCraftTweakerProcedure.execute(entity);
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
 			if (!world.isClientSide() && world.getServer() != null)
 				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("WIP"), false);

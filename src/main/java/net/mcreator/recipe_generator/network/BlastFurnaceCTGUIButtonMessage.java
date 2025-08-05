@@ -1,4 +1,3 @@
-
 package net.mcreator.recipe_generator.network;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
@@ -16,14 +15,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
 import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRacipesProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
-
-import java.util.HashMap;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
@@ -42,14 +38,7 @@ public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) 
 
 	public static void handleData(final BlastFurnaceCTGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> {
-				Player entity = context.player();
-				int buttonID = message.buttonID;
-				int x = message.x;
-				int y = message.y;
-				int z = message.z;
-				handleButtonAction(entity, buttonID, x, y, z);
-			}).exceptionally(e -> {
+			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
 				return null;
 			});
@@ -58,17 +47,16 @@ public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) 
 
 	public static void handleButtonAction(Player entity, int buttonID, int x, int y, int z) {
 		Level world = entity.level();
-		HashMap guistate = BlastFurnaceCTGUIMenu.guistate;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.hasChunkAt(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {
 
-			GenerateBlastFurnaceRacipesProcedure.execute(world, entity, guistate);
+			GenerateBlastFurnaceRacipesProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 
-			ScriptswriterProcedure.execute(world, guistate);
+			ScriptswriterProcedure.execute(world, entity);
 		}
 		if (buttonID == 2) {
 

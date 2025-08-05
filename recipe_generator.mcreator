@@ -54,7 +54,7 @@
     {
       "name": "Scriptswriter",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "scriptswriter",
       "metadata": {
@@ -63,8 +63,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           },
           {
             "name": "world",
@@ -103,8 +103,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       }
@@ -319,10 +319,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           },
           {
             "name": "world",
@@ -549,10 +545,6 @@
             "type": "entity"
           },
           {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -596,8 +588,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       }
@@ -615,8 +607,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       }
@@ -1228,10 +1220,6 @@
             "type": "entity"
           },
           {
-            "name": "guistate",
-            "type": "map"
-          },
-          {
             "name": "world",
             "type": "world"
           }
@@ -1304,10 +1292,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           }
         ]
       },
@@ -1327,10 +1311,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           }
         ]
       },
@@ -1362,8 +1342,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -1381,8 +1361,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -1414,8 +1394,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -1447,8 +1427,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -1482,8 +1462,8 @@
         ],
         "dependencies": [
           {
-            "name": "guistate",
-            "type": "map"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -1552,10 +1532,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           },
           {
             "name": "world",
@@ -2087,6 +2063,17 @@
       "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing"
     }
   },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
+      "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java"
+    ]
+  },
   "foldersRoot": {
     "name": "~",
     "children": [
@@ -2231,5 +2218,5 @@
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },
-  "mcreatorVersion": 202500113416
+  "mcreatorVersion": 202500228610
 }
