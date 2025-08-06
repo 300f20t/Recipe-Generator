@@ -81,7 +81,7 @@ public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z)
 		}
 		if (buttonID == 6) {
 
-			ScriptswriterProcedure.execute(world, guistate);
+			ScriptswriterProcedure.execute(world, entity);
 		}
 		if (buttonID == 7) {
 
