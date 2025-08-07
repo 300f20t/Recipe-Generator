@@ -1,18 +1,13 @@
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
@@ -24,16 +19,25 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<CraftingTableRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "crafting_table_removing_ctgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingTableRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingTableRemovingCTGUIButtonMessage message) -> {
+	public CraftingTableRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+	}
+
+	public CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) {
+		this.buttonID = buttonID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+
+	public static void buffer(CraftingTableRemovingCTGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new CraftingTableRemovingCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<CraftingTableRemovingCTGUIButtonMessage> type() {
-		return TYPE;
 	}
 
 	public static void handleData(final CraftingTableRemovingCTGUIButtonMessage message, final IPayloadContext context) {
@@ -70,6 +74,6 @@ public record CraftingTableRemovingCTGUIButtonMessage(int buttonID, int x, int y
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(CraftingTableRemovingCTGUIButtonMessage.TYPE, CraftingTableRemovingCTGUIButtonMessage.STREAM_CODEC, CraftingTableRemovingCTGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(CraftingTableRemovingCTGUIButtonMessage.class, CraftingTableRemovingCTGUIButtonMessage::buffer, CraftingTableRemovingCTGUIButtonMessage::new, CraftingTableRemovingCTGUIButtonMessage::handler);
 	}
 }

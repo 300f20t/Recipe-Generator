@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -67,6 +65,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -94,6 +93,13 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		if (file_name.isFocused())
 			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void containerTick() {
+		super.containerTick();
+		recipe_name.tick();
+		file_name.tick();
 	}
 
 	@Override
@@ -139,7 +145,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(0, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + -124, this.topPos + -25, 40, 20).build();
@@ -148,7 +154,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(1, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 39, this.topPos + -25, 67, 20).build();
@@ -157,7 +163,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(2, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + -38, this.topPos + -25, 77, 20).build();
@@ -166,7 +172,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(3, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + -84, this.topPos + -25, 46, 20).build();
@@ -175,7 +181,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(4, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 106, this.topPos + -25, 67, 20).build();
@@ -184,7 +190,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(5, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 5, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -193,7 +199,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(6, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 6, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -202,7 +208,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(7, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 7, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -211,7 +217,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 			int x = CraftingtableCTGUIScreen.this.x;
 			int y = CraftingtableCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingtableCTGUIButtonMessage(8, x, y, z));
 				CraftingtableCTGUIButtonMessage.handleButtonAction(entity, 8, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

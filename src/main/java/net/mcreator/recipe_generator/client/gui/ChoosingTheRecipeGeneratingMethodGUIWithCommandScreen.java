@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -49,6 +47,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -87,7 +86,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 			int x = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.x;
 			int y = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(0, x, y, z));
 				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 25, 88, 20).build();
@@ -96,7 +95,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 			int x = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.x;
 			int y = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(1, x, y, z));
 				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 42, this.topPos + 52, 87, 20).build();
@@ -111,7 +110,7 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 			int x = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.x;
 			int y = ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(4, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(4, x, y, z));
 				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.handleButtonAction(entity, 4, x, y, z);
 			}
 		}).bounds(this.leftPos + 60, this.topPos + 142, 51, 20).build();

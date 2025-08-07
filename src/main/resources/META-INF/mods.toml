@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[4,)"
+loaderVersion="[47,)"
 license="MIT License"
 
 [[mods]]
 modId="recipe_generator"
-version="0.4.0"
+version="0.4.1.4"
 displayName="Recipe Generator"
 displayURL="https://mcreator.net"
 logoFile="logo.png"

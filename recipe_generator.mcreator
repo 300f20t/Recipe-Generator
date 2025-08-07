@@ -1631,6 +1631,85 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/OpenBlastFurnaceRemovingRGUIProcedure.java"
+        ]
+      "path": "~/Generators/Abstract/Smithing"
+    },
+    }
+    {
+      "name": "AvaritaCraftingTableAddShapedCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "avarita_crafting_table_add_shaped_craft_tweaker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/AvaritaCraftingTableAddShapedCraftTweakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          }
+        ]
+      },
+      "path": "~/Generators/CraftTweaker/AvaritaCraftingTable"
+    },
+    {
+      "name": "GenerateAvaritaCraftingTableRecipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_avarita_crafting_table_recipe",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateAvaritaCraftingTableRecipeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "guistate",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Generators/Abstract/AvaritaCraftingTable"
+    },
+    {
+      "name": "AvaritaCraftingTableRGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "avarita_crafting_table_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/client/gui/AvaritaCraftingTableRGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/network/AvaritaCraftingTableRGUISlotMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/AvaritaCraftingTableRGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/AvaritaCraftingTableRGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/GUIs/AvaritaCraftingTable"
+    },
+    {
+      "name": "OpenAvaritaCraftingTableRGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_avarita_crafting_table_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenAvaritaCraftingTableRGUIProcedure.java"
         ],
         "dependencies": [
           {
@@ -1656,6 +1735,1663 @@
         ]
       },
       "path": "~/GUIs/BlastFurnace"
+      "path": "~/GUIs/AvaritaCraftingTable"
+    },
+    {
+      "name": "ItemInSlot10",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_10",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot10Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot11",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_11",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot11Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot12",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_12",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot12Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot13",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_13",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot13Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot14",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_14",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot14Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot15",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_15",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot15Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot16",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_16",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot16Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot17",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_17",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot17Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot18",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_18",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot18Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot19",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_19",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot19Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot20",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_20",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot20Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot21",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_21",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot21Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot22",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_22",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot22Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot23",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_23",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot23Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot24",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_24",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot24Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot25",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_25",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot25Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot26",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_26",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot26Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot27",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_27",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot27Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot28",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_28",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot28Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot29",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_29",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot29Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot30",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_30",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot30Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot31",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_31",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot31Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot32",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_32",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot32Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot33",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_33",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot33Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot34",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_34",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot34Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot35",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_35",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot35Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot36",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_36",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot36Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot37",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_37",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot37Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot38",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_38",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot38Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot39",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_39",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot39Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot40",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_40",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot40Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot41",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_41",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot41Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot42",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_42",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot42Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot43",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_43",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot43Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot44",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_44",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot44Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot45",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_45",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot45Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot46",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_46",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot46Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot47",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_47",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot47Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot48",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_48",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot48Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot49",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_49",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot49Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot50",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_50",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot50Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot51",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_51",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot51Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot52",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_52",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot52Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot53",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_53",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot53Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot54",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_54",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot54Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot55",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_55",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot55Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot56",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_56",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot56Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot57",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_57",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot57Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot58",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_58",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot58Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot59",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_59",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot59Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot60",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_60",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot60Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot61",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_61",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot61Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot62",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_62",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot62Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot63",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_63",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot63Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot64",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_64",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot64Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot65",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_65",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot65Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot66",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_66",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot66Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot67",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_67",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot67Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot68",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_68",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot68Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot69",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_69",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot69Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot70",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_70",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot70Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot71",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_71",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot71Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot72",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_72",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot72Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot73",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_73",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot73Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot74",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_74",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot74Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot75",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_75",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot75Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot76",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_76",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot76Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot77",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_77",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot77Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot78",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_78",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot78Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot79",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_79",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot79Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot80",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_80",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot80Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "ItemInSlot81",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_slot_81",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ItemInSlot81Procedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Getting items in Slots"
     }
   ],
   "variable_elements": [
@@ -1784,6 +3520,444 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_10",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_11",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_12",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_13",
+      "type": "string",
+      "scope": "global",
+      "value": ""
+    },
+    {
+      "name": "item_in_slot_14",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_15",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_16",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_17",
+      "type": "string",
+      "scope": "map",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_18",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_19",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_20",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_21",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_22",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_23",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_24",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_25",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_26",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_27",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_28",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_29",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_30",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_31",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_32",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_33",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_34",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_35",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_36",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_37",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_38",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_39",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_40",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_41",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_42",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_43",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_44",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_45",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_46",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_47",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_48",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_49",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_50",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_51",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_52",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_53",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_54",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_55",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_56",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_57",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_58",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_59",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_60",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_61",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_62",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_63",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_64",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_65",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_66",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_67",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_68",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_69",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_70",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_71",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_72",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_73",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_74",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_75",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_76",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_77",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_78",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_79",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_80",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_81",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "item_in_slot_82",
+      "type": "string",
+      "scope": "global",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -1831,6 +4005,7 @@
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_crafttweaker": "CraftTweaker",
       "gui.recipe_generator.camp_fire_rgui.label_kubejs_is_not_supported": "KubeJS is not supported",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
       "gui.recipe_generator.smithing_rgui.time": "50",
       "gui.recipe_generator.furnace_ctgui.recipe_name": "name",
@@ -1843,8 +4018,8 @@
       "gui.recipe_generator.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
       "gui.recipe_generator.blast_furnace_ctgui.label_time": "Time(ticks):",
       "gui.recipe_generator.crafting_table_removing_ctgui.file_name": "generated",
-      "gui.just_ctgui.crafting_table_removing_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.furnace_removing_ctgui.button_save": "Save",
+      "gui.just_ctgui.crafting_table_removing_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_save": "Save",
       "gui.just_ctgui.crafting_table_removing_ctgui.file_name": "generated",
       "gui.recipe_generator.furnace_ctgui.label_time": "Time(ticks):",
@@ -1856,6 +4031,7 @@
       "gui.just_ctgui.furnace_ctgui.label_xp": "XP:",
       "gui.recipe_generator.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.camp_fire_removing_rgui.label_furnace": "CampFire removing",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_diagonal": "diagonal",
       "gui.just_ctgui.blast_furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.blast_furnace_ctgui.file_name": "generated1",
       "gui.just_ctgui.craftingtable_ctgui.label_mirror_axis": "Mirror axis:",
@@ -1882,6 +4058,9 @@
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.recipe_generator.camp_fire_removing_rgui.file_name": "generated1",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_vertical": "vertical",
+      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
+      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
       "gui.recipe_generator.furnace_ctgui.time": "100",
       "gui.recipe_generator.smithing_rgui.label_accepts_only_templates": "Accepts only templates",
@@ -1889,6 +4068,8 @@
       "gui.recipe_generator.craftingtable_ctgui.button_horizontal": "horizontal",
       "gui.recipe_generator.smithing_rgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.file_name": "generated1",
+      "gui.recipe_generator.avarita_crafting_table_rgui.Is_shapeless": "Is shapeless?",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_selected_mod": "Selected Generating Method:",
       "gui.recipe_generator.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_close": "Close",
@@ -1922,12 +4103,15 @@
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.file_name": "generated",
       "gui.recipe_generator.blast_furnace_ctgui.XP": "1.0",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_none": "none",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.craftingtable_ctgui.button_diagonal": "diagonal",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.craftingtable_ctgui.label_empty": "Mirror axis:",
       "gui.just_ctgui.craftingtable_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.button_diagonal": "diagonal",
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_furnace": "Furnace removing",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_crafttweaker_only": "(CraftTweaker only)",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.file_name": "generated",
       "gui.recipe_generator.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
@@ -1936,9 +4120,12 @@
       "gui.recipe_generator.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.smithing_rgui.recipe_name": "name",
+      "gui.recipe_generator.camp_fire_ctgui.button_save": "Save",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_reload": "Reload",
       "gui.recipe_generator.smithing_rgui.label_file_name": "File name:",
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_furnace": "Furnace removing",
       "gui.recipe_generator.blast_furnace_ctgui.label_xp": "XP:",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_ctgui.label_time": "Time(seconds):",
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_save": "Save",
@@ -1956,6 +4143,7 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.file_name": "generated1",
       "gui.recipe_generator.craftingtable_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip": "KubeJS (WIP)",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_save": "Save",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_selected_mod": "Selected Generating Method:",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_all": "all",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_minecraft_mod_wip": "Minecraft Mod (WIP)",
@@ -1967,6 +4155,7 @@
       "gui.just_ctgui.craftingtable_ctgui.label_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.recipe_generator.craftingtable_ctgui.button_vertical": "vertical",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_not_installed1": "Not installed!",
+      "gui.recipe_generator.avarita_crafting_table_rgui.file_name": "generated",
       "gui.recipe_generator.choosing_the_recipe_generating_method.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
       "gui.recipe_generator.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.crafting_table_removing_ctgui.recipe_name": "name",
@@ -1994,11 +4183,13 @@
       "gui.just_ctgui.furnace_ctgui.XP": "1.0",
       "gui.recipe_generator.craftingtable_ctgui.button_reload": "Reload",
       "gui.recipe_generator.furnace_ctgui.label_xp": "XP:",
+      "gui.recipe_generator.avarita_crafting_table_rgui.recipe_name": "name",
       "gui.recipe_generator.smithing_rgui.XP": "1.0",
       "gui.just_ctgui.furnace_ctgui.button_close": "Close",
       "gui.recipe_generator.furnace_ctgui.label_furnace": "Furnace",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_vertical": "vertical",
       "gui.recipe_generator.craftingtable_ctgui.button_generate": "Generate",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_empty": "Mirror axis:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_mod_wip": "Minecraft Mod (WIP)",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.label_axis": "axis",
@@ -2029,6 +4220,7 @@
       "gui.recipe_generator.smithing_rgui.label_xp": "XP:",
       "gui.recipe_generator.camp_fire_rgui.label_furnace": "CampFire",
       "gui.recipe_generator.camp_fire_rgui.button_close": "Close",
+      "gui.recipe_generator.avarita_crafting_table_rgui.Is_mirrored": "Is mirrored?",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
       "gui.just_ctgui.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
@@ -2038,18 +4230,22 @@
       "gui.recipe_generator.smithing_rgui.label_time": "Time(ticks):",
       "gui.recipe_generator.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.blast_furnace_ctgui.button_generate": "Generate",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_current_axis": "Current axis:",
       "gui.just_ctgui.furnace_removing_ctgui.label_xp": "XP:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed1": "Not installed!",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_horizontal": "horizontal",
       "gui.just_ctgui.blast_furnace_removing_ctgui.file_name": "generated1",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.craftingtable_ctgui.button_confirm": "Confirm",
+      "gui.recipe_generator.avarita_crafting_table_rgui.button_all": "all",
       "gui.just_ctgui.craftingtable_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generating_method.label_selected_mod": "Selected Generating Method:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_not_installed": "Not installed!",
       "gui.recipe_generator.furnace_removing_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.craftingtable_ctgui.label_current_axis": "Current axis:",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_horizontal": "horizontal",
+      "gui.recipe_generator.avarita_crafting_table_rgui.label_crafting": "Avarita Crafting",
       "gui.just_ctgui.furnace_removing_recipes_gui.recipe_name": "name",
       "gui.just_ctgui.furnace_ctgui.label_time": "Time(seconds):",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_close": "Close",
@@ -2111,6 +4307,10 @@
           {
             "name": "Smithing",
             "children": []
+          },
+          {
+            "name": "AvaritaCraftingTable",
+            "children": []
           }
         ]
       },
@@ -2142,6 +4342,10 @@
               },
               {
                 "name": "Smithing",
+                "children": []
+              },
+              {
+                "name": "AvaritaCraftingTable",
                 "children": []
               }
             ]
@@ -2181,6 +4385,10 @@
               {
                 "name": "Smithing",
                 "children": []
+              },
+              {
+                "name": "AvaritaCraftingTable",
+                "children": []
               }
             ]
           }
@@ -2203,7 +4411,7 @@
   "workspaceSettings": {
     "modid": "recipe_generator",
     "modName": "Recipe Generator",
-    "version": "0.4.0_beta",
+    "version": "0.4.1.4_pre_alpha",
     "description": "The Recipe Generator mod provides a visual recipe editor in Minecraft.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",

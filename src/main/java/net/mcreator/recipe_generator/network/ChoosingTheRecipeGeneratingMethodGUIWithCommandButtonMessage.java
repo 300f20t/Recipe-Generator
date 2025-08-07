@@ -1,18 +1,13 @@
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
@@ -23,17 +18,11 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "choosing_the_recipe_generating_method_gui_with_command_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> STREAM_CODEC = StreamCodec
-			.of((RegistryFriendlyByteBuf buffer, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message) -> {
-				buffer.writeInt(message.buttonID);
-				buffer.writeInt(message.x);
-				buffer.writeInt(message.y);
-				buffer.writeInt(message.z);
-			}, (RegistryFriendlyByteBuf buffer) -> new ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> type() {
-		return TYPE;
+	public ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(FriendlyByteBuf buffer) {
+		this.buttonID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
 	}
 
 	public static void handleData(final ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage message, final IPayloadContext context) {
@@ -66,7 +55,7 @@ public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int b
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.TYPE, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.STREAM_CODEC,
-				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.class, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::buffer, ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::new,
+				ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage::handler);
 	}
 }

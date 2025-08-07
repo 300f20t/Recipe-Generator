@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -65,6 +63,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -98,6 +97,15 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 		if (time.isFocused())
 			return time.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
+	}
+
+	@Override
+	public void containerTick() {
+		super.containerTick();
+		recipe_name.tick();
+		file_name.tick();
+		XP.tick();
+		time.tick();
 	}
 
 	@Override
@@ -163,7 +171,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 			int x = BlastFurnaceCTGUIScreen.this.x;
 			int y = BlastFurnaceCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceCTGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceCTGUIButtonMessage(0, x, y, z));
 				BlastFurnaceCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -172,7 +180,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 			int x = BlastFurnaceCTGUIScreen.this.x;
 			int y = BlastFurnaceCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceCTGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceCTGUIButtonMessage(1, x, y, z));
 				BlastFurnaceCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -181,7 +189,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 			int x = BlastFurnaceCTGUIScreen.this.x;
 			int y = BlastFurnaceCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceCTGUIButtonMessage(2, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceCTGUIButtonMessage(2, x, y, z));
 				BlastFurnaceCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -190,7 +198,7 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 			int x = BlastFurnaceCTGUIScreen.this.x;
 			int y = BlastFurnaceCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceCTGUIButtonMessage(3, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceCTGUIButtonMessage(3, x, y, z));
 				BlastFurnaceCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();
