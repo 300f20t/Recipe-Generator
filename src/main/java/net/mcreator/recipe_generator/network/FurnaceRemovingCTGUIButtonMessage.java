@@ -1,13 +1,18 @@
 package net.mcreator.recipe_generator.network;
 
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.neoforge.network.handling.IPayloadContext;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.minecraft.network.protocol.PacketFlow;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
@@ -19,25 +24,16 @@ import net.mcreator.recipe_generator.RecipeGeneratorMod;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public FurnaceRemovingCTGUIButtonMessage(FriendlyByteBuf buffer) {
-		this.buttonID = buffer.readInt();
-		this.x = buffer.readInt();
-		this.y = buffer.readInt();
-		this.z = buffer.readInt();
-	}
-
-	public FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) {
-		this.buttonID = buttonID;
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
-
-	public static void buffer(FurnaceRemovingCTGUIButtonMessage message, FriendlyByteBuf buffer) {
+	public static final Type<FurnaceRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_removing_ctgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, FurnaceRemovingCTGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FurnaceRemovingCTGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
+	}, (RegistryFriendlyByteBuf buffer) -> new FurnaceRemovingCTGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	@Override
+	public Type<FurnaceRemovingCTGUIButtonMessage> type() {
+		return TYPE;
 	}
 
 	public static void handleData(final FurnaceRemovingCTGUIButtonMessage message, final IPayloadContext context) {
@@ -74,6 +70,6 @@ public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int 
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.class, FurnaceRemovingCTGUIButtonMessage::buffer, FurnaceRemovingCTGUIButtonMessage::new, FurnaceRemovingCTGUIButtonMessage::handler);
+		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUIButtonMessage.TYPE, FurnaceRemovingCTGUIButtonMessage.STREAM_CODEC, FurnaceRemovingCTGUIButtonMessage::handleData);
 	}
 }

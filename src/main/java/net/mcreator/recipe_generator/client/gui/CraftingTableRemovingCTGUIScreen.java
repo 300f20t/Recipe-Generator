@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -53,7 +55,6 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
@@ -77,12 +78,6 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 		if (file_name.isFocused())
 			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
-	}
-
-	@Override
-	public void containerTick() {
-		super.containerTick();
-		file_name.tick();
 	}
 
 	@Override
@@ -113,7 +108,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 			int x = CraftingTableRemovingCTGUIScreen.this.x;
 			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(0, x, y, z));
+				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(0, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -122,7 +117,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 			int x = CraftingTableRemovingCTGUIScreen.this.x;
 			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(1, x, y, z));
+				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(1, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -131,7 +126,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 			int x = CraftingTableRemovingCTGUIScreen.this.x;
 			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(2, x, y, z));
+				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(2, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -140,7 +135,7 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 			int x = CraftingTableRemovingCTGUIScreen.this.x;
 			int y = CraftingTableRemovingCTGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(3, x, y, z));
+				PacketDistributor.sendToServer(new CraftingTableRemovingCTGUIButtonMessage(3, x, y, z));
 				CraftingTableRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

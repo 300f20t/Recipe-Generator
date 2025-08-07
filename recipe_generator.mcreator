@@ -1631,10 +1631,32 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/OpenBlastFurnaceRemovingRGUIProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
         ]
+      },
       "path": "~/Generators/Abstract/Smithing"
     },
-    }
     {
       "name": "AvaritaCraftingTableAddShapedCraftTweaker",
       "type": "procedure",
@@ -1649,10 +1671,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           }
         ]
       },
@@ -1672,10 +1690,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "guistate",
-            "type": "map"
           },
           {
             "name": "world",
@@ -1734,7 +1748,6 @@
           }
         ]
       },
-      "path": "~/GUIs/BlastFurnace"
       "path": "~/GUIs/AvaritaCraftingTable"
     },
     {
@@ -4055,12 +4068,10 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.label_empty": "Mirror axis:",
-      "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.recipe_generator.camp_fire_removing_rgui.file_name": "generated1",
       "gui.recipe_generator.avarita_crafting_table_rgui.button_vertical": "vertical",
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
-      "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
       "gui.recipe_generator.furnace_ctgui.time": "100",
       "gui.recipe_generator.smithing_rgui.label_accepts_only_templates": "Accepts only templates",

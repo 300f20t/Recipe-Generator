@@ -3,12 +3,10 @@
  */
 package net.mcreator.recipe_generator.init;
 
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.client.gui.screens.MenuScreens;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.api.distmarker.Dist;
 
 import net.mcreator.recipe_generator.client.gui.SmithingRGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
@@ -23,7 +21,7 @@ import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.AvaritaCraftingTableRGUIScreen;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class RecipeGeneratorModScreens {
 	@SubscribeEvent
 	public static void clientLoad(RegisterMenuScreensEvent event) {
@@ -38,6 +36,7 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CAMP_FIRE_REMOVING_RGUI.get(), CampFireRemovingRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CAMP_FIRE_RGUI.get(), CampFireRGUIScreen::new);
+		event.register(RecipeGeneratorModMenus.AVARITA_CRAFTING_TABLE_RGUI.get(), AvaritaCraftingTableRGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

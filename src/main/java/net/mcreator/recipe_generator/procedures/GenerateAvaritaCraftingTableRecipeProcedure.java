@@ -7,14 +7,13 @@ import net.minecraft.network.chat.Component;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
-import java.util.HashMap;
-
 public class GenerateAvaritaCraftingTableRecipeProcedure {
-	public static void execute(LevelAccessor world, Entity entity, HashMap guistate) {
-		if (entity == null || guistate == null)
+	public static void execute(LevelAccessor world, Entity entity) {
+		if (entity == null)
 			return;
 		{
-			String _setval = RecipeGeneratorModVariables.item_in_slot_81 + " * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", ["
+			RecipeGeneratorModVariables.PlayerVariables _vars = entity.getData(RecipeGeneratorModVariables.PLAYER_VARIABLES);
+			_vars.preGeneratedRecipe = RecipeGeneratorModVariables.item_in_slot_81 + " * " + new java.text.DecimalFormat("##").format(RecipeGeneratorModVariables.item_in_slot_9_count) + ", ["
 					+ ("\n" + "[" + RecipeGeneratorModVariables.item_in_slot_0 + ", " + RecipeGeneratorModVariables.item_in_slot_1 + ", " + RecipeGeneratorModVariables.item_in_slot_2 + ", " + RecipeGeneratorModVariables.item_in_slot_3 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_4 + ", " + RecipeGeneratorModVariables.item_in_slot_5 + ", " + RecipeGeneratorModVariables.item_in_slot_6 + ", " + RecipeGeneratorModVariables.item_in_slot_7 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_8 + "], ")
@@ -43,12 +42,9 @@ public class GenerateAvaritaCraftingTableRecipeProcedure {
 							+ RecipeGeneratorModVariables.item_in_slot_76 + ", " + RecipeGeneratorModVariables.item_in_slot_77 + ", " + RecipeGeneratorModVariables.item_in_slot_78 + ", " + RecipeGeneratorModVariables.item_in_slot_79 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_80 + "], ")
 					+ "\n" + "]);";
-			entity.getCapability(RecipeGeneratorModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.preGeneratedRecipe = _setval;
-				capability.syncPlayerVariables(entity);
-			});
+			_vars.syncPlayerVariables(entity);
 		}
-		AvaritaCraftingTableAddShapedCraftTweakerProcedure.execute(entity, guistate);
+		AvaritaCraftingTableAddShapedCraftTweakerProcedure.execute(entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);
 	}

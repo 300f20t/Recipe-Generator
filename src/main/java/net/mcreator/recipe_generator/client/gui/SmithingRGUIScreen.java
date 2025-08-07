@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -57,7 +59,6 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -87,13 +88,6 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 		if (file_name.isFocused())
 			return file_name.keyPressed(key, b, c);
 		return super.keyPressed(key, b, c);
-	}
-
-	@Override
-	public void containerTick() {
-		super.containerTick();
-		recipe_name.tick();
-		file_name.tick();
 	}
 
 	@Override
@@ -137,7 +131,7 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 			int x = SmithingRGUIScreen.this.x;
 			int y = SmithingRGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new SmithingRGUIButtonMessage(0, x, y, z));
+				PacketDistributor.sendToServer(new SmithingRGUIButtonMessage(0, x, y, z));
 				SmithingRGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -146,7 +140,7 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 			int x = SmithingRGUIScreen.this.x;
 			int y = SmithingRGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new SmithingRGUIButtonMessage(1, x, y, z));
+				PacketDistributor.sendToServer(new SmithingRGUIButtonMessage(1, x, y, z));
 				SmithingRGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -155,7 +149,7 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 			int x = SmithingRGUIScreen.this.x;
 			int y = SmithingRGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new SmithingRGUIButtonMessage(2, x, y, z));
+				PacketDistributor.sendToServer(new SmithingRGUIButtonMessage(2, x, y, z));
 				SmithingRGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -164,7 +158,7 @@ public class SmithingRGUIScreen extends AbstractContainerScreen<SmithingRGUIMenu
 			int x = SmithingRGUIScreen.this.x;
 			int y = SmithingRGUIScreen.this.y;
 			if (true) {
-				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new SmithingRGUIButtonMessage(3, x, y, z));
+				PacketDistributor.sendToServer(new SmithingRGUIButtonMessage(3, x, y, z));
 				SmithingRGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

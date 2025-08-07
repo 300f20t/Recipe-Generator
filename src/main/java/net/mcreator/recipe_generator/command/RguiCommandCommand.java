@@ -2,10 +2,10 @@ package net.mcreator.recipe_generator.command;
 
 import org.checkerframework.checker.units.qual.s;
 
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.common.util.FakePlayerFactory;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.common.util.FakePlayerFactory;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.bus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
@@ -25,7 +25,7 @@ import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowP
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
-@Mod.EventBusSubscriber
+@EventBusSubscriber
 public class RguiCommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
@@ -98,20 +98,6 @@ public class RguiCommandCommand {
 				direction = entity.getDirection();
 
 			OpencraftingtableCTGUIProcedure.execute(world, x, y, z, entity);
-			return 0;
-		})).then(Commands.literal("avaritaCraftingTable").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
-			Direction direction = Direction.DOWN;
-			if (entity != null)
-				direction = entity.getDirection();
-
-			OpenAvaritaCraftingTableRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
@@ -195,7 +181,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceRemovingRGUIProcedure.execute(world, x, y, z, entity);
+			OpenBlastFurnaceRemovingRGUIProcedure.execute();
 			return 0;
 		}))));
 	}
