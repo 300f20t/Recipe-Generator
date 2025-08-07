@@ -16,7 +16,7 @@
           "image": "test_avarita.png",
           "use1Xscale": false,
           "x": 77,
-          "y": -46,
+          "y": -50,
           "locked": false
         }
       },
@@ -1988,8 +1988,8 @@
       }
     ],
     "gridSettings": {
-      "sx": 36,
-      "sy": 36,
+      "sx": 4,
+      "sy": 4,
       "ox": 11,
       "oy": 15,
       "snapOnGrid": false

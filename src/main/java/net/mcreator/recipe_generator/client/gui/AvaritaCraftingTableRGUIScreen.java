@@ -67,7 +67,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 		RenderSystem.setShaderColor(1, 1, 1, 1);
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
-		guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/test_avarita.png"), this.leftPos + 0, this.topPos + -32, 0, 0, 273, 300, 273, 300);
+		guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/test_avarita.png"), this.leftPos + 0, this.topPos + -36, 0, 0, 273, 262, 273, 262);
 		guiGraphics.blit(ResourceLocation.parse("recipe_generator:textures/screens/crafting_table.png"), this.leftPos + 199, this.topPos + 40, 0, 0, 24, 17, 24, 17);
 		RenderSystem.disableBlend();
 	}
