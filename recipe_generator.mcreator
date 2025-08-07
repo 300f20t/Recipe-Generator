@@ -3373,6 +3373,25 @@
         ]
       },
       "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "GetGUIOfBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_gui_of_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "blockWithGUI",
+            "type": "blockstate"
+          }
+        ],
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GetGUIOfBlockProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
