@@ -15,8 +15,6 @@ import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
-import net.mcreator.recipe_generator.client.gui.CampFireRemovingRGUIScreen;
-import net.mcreator.recipe_generator.client.gui.CampFireRGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.AvaritaCraftingTableRGUIScreen;
@@ -34,8 +32,6 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATION_METHOD_GUI.get(), ChoosingTheRecipeGenerationMethodGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND.get(), ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen::new);
 		event.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
-		event.register(RecipeGeneratorModMenus.CAMP_FIRE_REMOVING_RGUI.get(), CampFireRemovingRGUIScreen::new);
-		event.register(RecipeGeneratorModMenus.CAMP_FIRE_RGUI.get(), CampFireRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.AVARITA_CRAFTING_TABLE_RGUI.get(), AvaritaCraftingTableRGUIScreen::new);
 	}
 

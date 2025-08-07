@@ -1432,7 +1432,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker/CampFire"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "SmithingRGUI",
@@ -1553,39 +1553,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/CraftTweaker/CampFire"
-    },
-    {
-      "name": "CampFireRemovingRGUI",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "camp_fire_removing_rgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/CampFireRemovingRGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/network/CampFireRemovingRGUISlotMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/CampFireRemovingRGUIScreen.java",
-          "src/main/java/net/mcreator/recipe_generator/world/inventory/CampFireRemovingRGUIMenu.java"
-        ]
-      },
-      "path": "~/GUIs/CampFire"
-    },
-    {
-      "name": "CampFireRGUI",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "camp_fire_rgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/CampFireRGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/world/inventory/CampFireRGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/CampFireRGUIScreen.java",
-          "src/main/java/net/mcreator/recipe_generator/network/CampFireRGUISlotMessage.java"
-        ]
-      },
-      "path": "~/GUIs/CampFire"
+      "path": "~/Generators/CraftTweaker"
     },
     {
       "name": "OpenBlastFurnaceRGUI",
@@ -4003,21 +3971,17 @@
       "gui.just_ctgui.furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.craftingtable_ctgui.recipe_name": "name",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.label_you_can_open_this_menu_with_the": "You can open this menu with the /generatingMethodSelect command",
-      "gui.recipe_generator.camp_fire_rgui.file_name": "generated1",
       "gui.recipe_generator.blast_furnace_ctgui.button_close": "Close",
       "gui.just_ctgui.craftingtable_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_empty": "",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_diagonal": "diagonal",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.label_current_axis": "Current axis:",
       "gui.just_ctgui.craftingtable_ctgui.button_vertical": "vertical",
-      "gui.recipe_generator.camp_fire_removing_rgui.button_close": "Close",
       "gui.recipe_generator.smithing_rgui.button_close": "Close",
       "gui.just_ctgui.furnace_removing_recipes_gui.time": "10",
       "gui.just_ctgui.furnace_ctgui.label_recipe_name": "Recipe name:",
-      "gui.recipe_generator.camp_fire_removing_rgui.button_reload": "Reload",
       "gui.just_ctgui.blast_furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.choosing_the_recipe_generating_method_gui_with_command.button_crafttweaker": "CraftTweaker",
-      "gui.recipe_generator.camp_fire_rgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.avarita_crafting_table_rgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.button_generate": "Generate",
       "gui.recipe_generator.smithing_rgui.time": "50",
@@ -4039,11 +4003,9 @@
       "gui.recipe_generator.blast_furnace_ctgui.button_generate": "Generate",
       "gui.recipe_generator.furnace_ctgui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.blast_furnace_ctgui.label_furnace": "Furnace",
-      "gui.recipe_generator.camp_fire_rgui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.furnace_removing_ctgui.time": "10",
       "gui.just_ctgui.furnace_ctgui.label_xp": "XP:",
       "gui.recipe_generator.craftingtable_ctgui.button_save": "Save",
-      "gui.recipe_generator.camp_fire_removing_rgui.label_furnace": "CampFire removing",
       "gui.recipe_generator.avarita_crafting_table_rgui.button_diagonal": "diagonal",
       "gui.just_ctgui.blast_furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.blast_furnace_ctgui.file_name": "generated1",
@@ -4056,20 +4018,16 @@
       "gui.recipe_generator.furnace_removing_ctgui.label_furnace": "Furnace removing",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_none": "none",
       "gui.just_ctgui.furnace_removing_ctgui.button_generate": "Generate",
-      "gui.recipe_generator.camp_fire_removing_rgui.button_save": "Save",
-      "gui.recipe_generator.camp_fire_rgui.button_reload": "Reload",
       "gui.just_ctgui.furnace_ctgui.time": "10",
       "gui.just_ctgui.craftingtable_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_recipes_gui.XP": "1.0",
       "gui.recipe_generator.choosing_the_recipe_generating_method.button_kubejs_wip": "KubeJS (WIP)",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.button_horizontal": "horizontal",
-      "gui.recipe_generator.camp_fire_removing_rgui.label_file_name": "File name:",
       "gui.recipe_generator.craftingtable_ctgui.button_all": "all",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_reload": "Reload",
       "gui.just_ctgui.craftingtable_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.label_empty": "Mirror axis:",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_minecraft_data_pack_wip": "Minecraft Data Pack (WIP)",
-      "gui.recipe_generator.camp_fire_removing_rgui.file_name": "generated1",
       "gui.recipe_generator.avarita_crafting_table_rgui.button_vertical": "vertical",
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_shapeless": "Is shapeless?",
       "gui.just_ctgui.craftingtable_ctgui.button_mirror_axis": "Mirror axis",
@@ -4088,7 +4046,6 @@
       "gui.just_ctgui.craftingtable_ctgui.name": "name",
       "gui.just_ctgui.crafting_table_removing_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.crafting_table_removing_ctgui.button_none": "none",
-      "gui.recipe_generator.camp_fire_rgui.label_file_name": "File name:",
       "gui.recipe_generator.smithing_rgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.just_ctgui.crafting_table_removing_ctgui.Is_mirrored": "Is mirrored?",
       "gui.just_ctgui.blast_furnace_ctgui.button_close": "Close",
@@ -4103,14 +4060,11 @@
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_ctgui.label_xp": "XP:",
       "gui.recipe_generator.smithing_rgui.button_save": "Save",
-      "gui.recipe_generator.camp_fire_rgui.label_time": "Time(ticks):",
       "gui.just_ctgui.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
       "gui.recipe_generator.smithing_rgui.label_recipe_name": "Recipe name:",
       "gui.just_ctgui.craftingtable_ctgui.recipe_name": "name",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_generate": "Generate",
-      "gui.recipe_generator.camp_fire_rgui.XP": "1.0",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_empty": "Mirror axis:",
-      "gui.recipe_generator.camp_fire_rgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_removing_ctgui.button_save": "Save",
       "gui.recipe_generator.craftingtable_ctgui.file_name": "generated",
       "gui.recipe_generator.blast_furnace_ctgui.XP": "1.0",
@@ -4127,7 +4081,6 @@
       "gui.recipe_generator.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
       "gui.just_ctgui.craftingtable_ctgui.file_name": "generated",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_recipe_name": "Recipe name:",
-      "gui.recipe_generator.camp_fire_removing_rgui.button_generate": "Generate",
       "gui.recipe_generator.craftingtable_ctgui.Is_mirrored": "Is mirrored?",
       "gui.recipe_generator.blast_furnace_removing_ctgui.label_file_name": "File name:",
       "gui.recipe_generator.smithing_rgui.recipe_name": "name",
@@ -4144,9 +4097,7 @@
       "gui.recipe_generator.furnace_removing_ctgui.button_close": "Close",
       "gui.recipe_generator.blast_furnace_ctgui.button_save": "Save",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_this_configuration_wil": "ATTENTION THIS CONFIGURATION WILL NOT WORK!!!",
-      "gui.recipe_generator.camp_fire_rgui.label_xp": "XP:",
       "gui.just_ctgui.furnace_removing_ctgui.label_time": "Time(seconds):",
-      "gui.recipe_generator.camp_fire_rgui.recipe_name": "name",
       "gui.just_ctgui.furnace_removing_ctgui.button_close": "Close",
       "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
@@ -4174,7 +4125,6 @@
       "gui.just_ctgui.crafting_table_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_xp": "XP:",
       "gui.recipe_generator.furnace_ctgui.file_name": "generated1",
-      "gui.recipe_generator.camp_fire_rgui.button_save": "Save",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_crafttweaker": "CraftTweaker",
       "gui.just_ctgui.furnace_removing_recipes_gui.file_name": "generated1",
       "gui.recipe_generator.choosing_the_recipe_generation_method_gui.label_you_can_open_this_menu_with_the": "You can open this menu with the /rgui generationMethode command",
@@ -4220,7 +4170,6 @@
       "gui.recipe_generator.craftingtable_ctgui.button_none": "none",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.label_empty": "Mirror axis:",
       "gui.just_ctgui.crafting_table_removing_ctgui.label_crafting": "Crafting removing",
-      "gui.recipe_generator.camp_fire_rgui.time": "100",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.Is_mirrored": "Is mirrored?",
       "gui.recipe_generator.craftingtable_ctgui.button_close": "Close",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_close": "Close",
@@ -4229,8 +4178,6 @@
       "gui.recipe_generator.furnace_ctgui.label_file_name": "File name:",
       "gui.just_ctgui.furnace_removing_recipes_gui.label_recipe_name": "Recipe name:",
       "gui.recipe_generator.smithing_rgui.label_xp": "XP:",
-      "gui.recipe_generator.camp_fire_rgui.label_furnace": "CampFire",
-      "gui.recipe_generator.camp_fire_rgui.button_close": "Close",
       "gui.recipe_generator.avarita_crafting_table_rgui.Is_mirrored": "Is mirrored?",
       "gui.just_ctgui.craftingtable_ctgui.tooltip_attention_mirror_recipes_will_no": "ATTENTION MIRROR RECIPES WILL NOT WORK YET DUE TO THE CRAFT TWEAKER ERROR!!!",
       "gui.just_ctgui.blast_furnace_ctgui.label_recipe_name": "Recipe name:",
@@ -4265,7 +4212,6 @@
       "gui.recipe_generator.furnace_ctgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.recipe_generator.crafting_table_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
-      "gui.recipe_generator.camp_fire_removing_rgui.label_kubejs_is_not_supported": "KubeJS is not supported",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
       "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing"
     }
@@ -4341,10 +4287,6 @@
               },
               {
                 "name": "Furnace",
-                "children": []
-              },
-              {
-                "name": "CampFire",
                 "children": []
               },
               {

@@ -22,8 +22,6 @@ import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
-import net.mcreator.recipe_generator.world.inventory.CampFireRemovingRGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.CampFireRGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.AvaritaCraftingTableRGUIMenu;
@@ -45,8 +43,6 @@ public class RecipeGeneratorModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu>> CHOOSING_THE_RECIPE_GENERATING_METHOD_GUI_WITH_COMMAND = REGISTRY.register("choosing_the_recipe_generating_method_gui_with_command",
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<SmithingRGUIMenu>> SMITHING_RGUI = REGISTRY.register("smithing_rgui", () -> IMenuTypeExtension.create(SmithingRGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<CampFireRemovingRGUIMenu>> CAMP_FIRE_REMOVING_RGUI = REGISTRY.register("camp_fire_removing_rgui", () -> IMenuTypeExtension.create(CampFireRemovingRGUIMenu::new));
-	public static final DeferredHolder<MenuType<?>, MenuType<CampFireRGUIMenu>> CAMP_FIRE_RGUI = REGISTRY.register("camp_fire_rgui", () -> IMenuTypeExtension.create(CampFireRGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<AvaritaCraftingTableRGUIMenu>> AVARITA_CRAFTING_TABLE_RGUI = REGISTRY.register("avarita_crafting_table_rgui", () -> IMenuTypeExtension.create(AvaritaCraftingTableRGUIMenu::new));
 
 	public interface MenuAccessor {

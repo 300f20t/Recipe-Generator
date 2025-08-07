@@ -181,7 +181,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenBlastFurnaceRemovingRGUIProcedure.execute();
+			OpenBlastFurnaceRemovingRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))));
 	}
