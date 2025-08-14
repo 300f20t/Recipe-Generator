@@ -19,7 +19,9 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModTabs;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
+import net.mcreator.recipe_generator.init.RecipeGeneratorModItems;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.Map;
@@ -39,6 +41,9 @@ public class RecipeGeneratorMod {
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
 
+		RecipeGeneratorModItems.REGISTRY.register(modEventBus);
+
+		RecipeGeneratorModTabs.REGISTRY.register(modEventBus);
 		RecipeGeneratorModVariables.ATTACHMENT_TYPES.register(modEventBus);
 
 		RecipeGeneratorModMenus.REGISTRY.register(modEventBus);
