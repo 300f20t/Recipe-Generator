@@ -247,5 +247,8 @@
   "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
   "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing",
   "item_group.recipe_generator.recipe_generator_creative_tab": "Recipe Generator",
-  "item.recipe_generator.add_recipe": "Add Recipe"
+  "item.recipe_generator.add_recipe": "Add Recipe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search"
 }

@@ -3416,6 +3416,96 @@
         ]
       },
       "path": "~/Tools"
+    },
+    {
+      "name": "AddRecipeRMBOnBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "add_recipe_rmb_on_block",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/AddRecipeRMBOnBlockProcedure.java"
+        ]
+      },
+      "path": "~/Tools"
+    },
+    {
+      "name": "CoosingRGUIOfBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coosing_rgui_of_block",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CoosingRGUIOfBlockProcedure.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "CoosingRGUIOfBlockGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coosing_rgui_of_block_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/CoosingRGUIOfBlockGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/CoosingRGUIOfBlockGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "DebugRGUI",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/command/DebugRGUICommand.java"
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "OpenChoosingRGUIOfBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_choosing_rgui_of_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenChoosingRGUIOfBlockProcedure.java"
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [
@@ -4261,7 +4351,10 @@
       "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
       "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing",
       "item_group.recipe_generator.recipe_generator_creative_tab": "Recipe Generator",
-      "item.recipe_generator.add_recipe": "Add Recipe"
+      "item.recipe_generator.add_recipe": "Add Recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search"
     }
   },
   "metadata": {
