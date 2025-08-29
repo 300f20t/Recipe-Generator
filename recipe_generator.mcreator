@@ -3432,20 +3432,6 @@
       "path": "~/Tools"
     },
     {
-      "name": "CoosingRGUIOfBlock",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "coosing_rgui_of_block",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/CoosingRGUIOfBlockProcedure.java"
-        ]
-      },
-      "path": "~/GUIs"
-    },
-    {
       "name": "CoosingRGUIOfBlockGUI",
       "type": "gui",
       "compiles": true,
@@ -3506,6 +3492,62 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_1",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI1Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_2",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI2Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_3",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI3Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_4",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI4Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
     }
   ],
   "variable_elements": [
@@ -4354,7 +4396,14 @@
       "item.recipe_generator.add_recipe": "Add Recipe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
-      "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search"
+      "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe3": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty5": "\u003c",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe1": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty4": "\u003e",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1"
     }
   },
   "metadata": {
@@ -4410,6 +4459,10 @@
           },
           {
             "name": "AvaritaCraftingTable",
+            "children": []
+          },
+          {
+            "name": "TextLabelsRGUI",
             "children": []
           }
         ]

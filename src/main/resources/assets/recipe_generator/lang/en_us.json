@@ -250,5 +250,12 @@
   "item.recipe_generator.add_recipe": "Add Recipe",
   "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
   "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
-  "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search"
+  "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe3": "add transform recipe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty5": "\u003c",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe1": "add transform recipe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe": "add transform recipe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2": "add transform recipe",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty4": "\u003e",
+  "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1"
 }

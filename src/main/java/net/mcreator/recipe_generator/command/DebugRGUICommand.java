@@ -13,8 +13,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import net.mcreator.recipe_generator.procedures.OpenMethodSelectWithCommandProcedure;
 import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
+import net.mcreator.recipe_generator.procedures.OpenChoosingRGUIOfBlockProcedure;
 import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
 import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
 import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
@@ -77,7 +77,7 @@ public class DebugRGUICommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpenMethodSelectWithCommandProcedure.execute(world, x, y, z, entity);
+			OpenChoosingRGUIOfBlockProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))).then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
