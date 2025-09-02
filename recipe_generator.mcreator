@@ -3548,6 +3548,20 @@
         ]
       },
       "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "GetWordOnPosition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_word_on_position",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GetWordOnPositionProcedure.java"
+        ]
+      },
+      "path": "~/GUIs"
     }
   ],
   "variable_elements": [
@@ -4113,6 +4127,12 @@
       "name": "item_in_slot_82",
       "type": "string",
       "scope": "global",
+      "value": "\"\""
+    },
+    {
+      "name": "CurrentLabelForGUI",
+      "type": "string",
+      "scope": "player_persistent",
       "value": "\"\""
     }
   ],
