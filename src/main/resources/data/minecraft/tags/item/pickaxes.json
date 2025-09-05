@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "recipe_generator:add_recipe"
+    "recipe_generator:recipe_editing_tool"
   ]
 }

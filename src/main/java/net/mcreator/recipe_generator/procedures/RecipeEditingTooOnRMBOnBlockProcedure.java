@@ -1,6 +1,6 @@
 package net.mcreator.recipe_generator.procedures;
 
-public class AddRecipeRMBOnBlockProcedure {
+public class RecipeEditingTooOnRMBOnBlockProcedure {
 	public static void execute() {
 	}
 }

@@ -5,11 +5,11 @@
     "toolType": "Special",
     "renderType": 0,
     "blockingRenderType": 0,
-    "texture": "add_recipe_tool",
+    "texture": "recipe_editing_tool",
     "customModelName": "Normal",
     "blockingModelName": "Normal blocking",
     "guiTexture": "",
-    "name": "Add Recipe",
+    "name": "Recipe Editing Tool",
     "specialInformation": {
       "fixedValue": []
     },
@@ -32,8 +32,8 @@
     "blocksAffected": [],
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "onRightClickedOnBlock": {
-      "name": "AddRecipeRMBOnBlock"
+    "onRightClickedInAir": {
+      "name": "RecipeEditingTooOnRMBOnBlock"
     }
   }
 }

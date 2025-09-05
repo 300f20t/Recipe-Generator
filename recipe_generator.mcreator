@@ -3404,34 +3404,6 @@
       }
     },
     {
-      "name": "AddRecipe",
-      "type": "tool",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "add_recipe",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/item/AddRecipeItem.java",
-          "src/main/resources/assets/recipe_generator/models/item/add_recipe.json"
-        ]
-      },
-      "path": "~/Tools"
-    },
-    {
-      "name": "AddRecipeRMBOnBlock",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "add_recipe_rmb_on_block",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/AddRecipeRMBOnBlockProcedure.java"
-        ]
-      },
-      "path": "~/Tools"
-    },
-    {
       "name": "CoosingRGUIOfBlockGUI",
       "type": "gui",
       "compiles": true,
@@ -3562,6 +3534,34 @@
         ]
       },
       "path": "~/GUIs"
+    },
+    {
+      "name": "RecipeEditingTool",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_editing_tool",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/recipe_generator/models/item/recipe_editing_tool.json",
+          "src/main/java/net/mcreator/recipe_generator/item/RecipeEditingToolItem.java"
+        ]
+      },
+      "path": "~/Tools"
+    },
+    {
+      "name": "RecipeEditingTooOnRMBOnBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_editing_too_on_rmb_on_block",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/RecipeEditingTooOnRMBOnBlockProcedure.java"
+        ]
+      },
+      "path": "~/Tools"
     }
   ],
   "variable_elements": [
@@ -4159,7 +4159,7 @@
       "Items.BOLT_ARMOR_TRIM"
     ],
     "ITEMS:minecraft:pickaxes": [
-      "~CUSTOM:AddRecipe"
+      "~CUSTOM:RecipeEditingTool"
     ]
   },
   "tab_element_order": {},
@@ -4413,7 +4413,6 @@
       "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
       "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing",
       "item_group.recipe_generator.recipe_generator_creative_tab": "Recipe Generator",
-      "item.recipe_generator.add_recipe": "Add Recipe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
       "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search",
@@ -4423,7 +4422,8 @@
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe": "add transform recipe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2": "add transform recipe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty4": "\u003e",
-      "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1"
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1",
+      "item.recipe_generator.recipe_editing_tool": "Recipe Editing Tool"
     }
   },
   "metadata": {
