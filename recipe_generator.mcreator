@@ -3385,9 +3385,12 @@
           {
             "name": "blockWithGUI",
             "type": "blockstate"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
           }
         ],
-        "return_type": "string",
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/GetGUIOfBlockProcedure.java"
         ]
@@ -3550,15 +3553,36 @@
       "path": "~/Tools"
     },
     {
-      "name": "RecipeEditingTooOnRMBOnBlock",
+      "name": "RecipeEditingToolPriShchielchkiePKMPoBloku",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "recipe_editing_too_on_rmb_on_block",
+      "registry_name": "recipe_editing_tool_pri_shchielchkie_pkm_po_bloku",
       "metadata": {
-        "dependencies": [],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/RecipeEditingTooOnRMBOnBlockProcedure.java"
+          "src/main/java/net/mcreator/recipe_generator/procedures/RecipeEditingToolPriShchielchkiePKMPoBlokuProcedure.java"
         ]
       },
       "path": "~/Tools"
@@ -4134,6 +4158,12 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "GUILabelsList",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [],
@@ -4160,6 +4190,12 @@
     ],
     "ITEMS:minecraft:pickaxes": [
       "~CUSTOM:RecipeEditingTool"
+    ],
+    "BLOCKS:neoforge:blocks_to_edit_recipe": [
+      "Blocks.CRAFTING_TABLE",
+      "Blocks.FURNACE",
+      "Blocks.BLAST_FURNACE",
+      "Blocks.CAMPFIRE"
     ]
   },
   "tab_element_order": {},

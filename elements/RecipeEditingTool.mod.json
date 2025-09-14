@@ -32,8 +32,8 @@
     "blocksAffected": [],
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false,
-    "onRightClickedInAir": {
-      "name": "RecipeEditingTooOnRMBOnBlock"
+    "onRightClickedOnBlock": {
+      "name": "RecipeEditingToolPriShchielchkiePKMPoBloku"
     }
   }
 }

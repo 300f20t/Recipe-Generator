@@ -159,6 +159,7 @@ public class RecipeGeneratorModVariables {
 			PlayerVariables clone = new PlayerVariables();
 			clone.preGeneratedRecipe = original.preGeneratedRecipe;
 			clone.CurrentLabelForGUI = original.CurrentLabelForGUI;
+			clone.GUILabelsList = original.GUILabelsList;
 			if (!event.isWasDeath()) {
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -303,12 +304,14 @@ public class RecipeGeneratorModVariables {
 	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
 		public String preGeneratedRecipe = "\"\"";
 		public String CurrentLabelForGUI = "\"\"";
+		public String GUILabelsList = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putString("preGeneratedRecipe", preGeneratedRecipe);
 			nbt.putString("CurrentLabelForGUI", CurrentLabelForGUI);
+			nbt.putString("GUILabelsList", GUILabelsList);
 			return nbt;
 		}
 
@@ -316,6 +319,7 @@ public class RecipeGeneratorModVariables {
 		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
 			preGeneratedRecipe = nbt.getString("preGeneratedRecipe");
 			CurrentLabelForGUI = nbt.getString("CurrentLabelForGUI");
+			GUILabelsList = nbt.getString("GUILabelsList");
 		}
 
 		public void syncPlayerVariables(Entity entity) {
