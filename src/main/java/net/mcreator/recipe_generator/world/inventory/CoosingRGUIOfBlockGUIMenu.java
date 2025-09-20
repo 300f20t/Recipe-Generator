@@ -15,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
+import net.mcreator.recipe_generator.procedures.GetGUIOfBlockProcedure;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModMenus;
 
 import java.util.function.Supplier;
@@ -26,7 +27,7 @@ public class CoosingRGUIOfBlockGUIMenu extends AbstractContainerMenu implements 
 	public final Map<String, Object> menuState = new HashMap<>() {
 		@Override
 		public Object put(String key, Object value) {
-			if (!this.containsKey(key) && this.size() >= 12)
+			if (!this.containsKey(key) && this.size() >= 8)
 				return null;
 			return super.put(key, value);
 		}
@@ -55,6 +56,7 @@ public class CoosingRGUIOfBlockGUIMenu extends AbstractContainerMenu implements 
 			this.z = pos.getZ();
 			access = ContainerLevelAccess.create(world, pos);
 		}
+		GetGUIOfBlockProcedure.execute(world, x, y, z);
 	}
 
 	@Override

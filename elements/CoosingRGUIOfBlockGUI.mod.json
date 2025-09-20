@@ -11,60 +11,6 @@
     "doesPauseGame": false,
     "components": [
       {
-        "type": "textfield",
-        "data": {
-          "placeholder": "Search",
-          "name": "SearchRGUI",
-          "width": 120,
-          "height": 20,
-          "x": 154,
-          "y": 8,
-          "locked": false
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_empty4",
-          "text": ">",
-          "isUndecorated": false,
-          "width": 30,
-          "height": 20,
-          "x": 249,
-          "y": 188,
-          "locked": false
-        }
-      },
-      {
-        "type": "button",
-        "data": {
-          "name": "button_empty5",
-          "text": "<",
-          "isUndecorated": false,
-          "width": 30,
-          "height": 20,
-          "x": 150,
-          "y": 188,
-          "locked": false
-        }
-      },
-      {
-        "type": "label",
-        "data": {
-          "name": "label_11",
-          "text": {
-            "fixedValue": "1/1"
-          },
-          "color": {
-            "value": -1,
-            "falpha": 0.0
-          },
-          "x": 204,
-          "y": 188,
-          "locked": false
-        }
-      },
-      {
         "type": "imagebutton",
         "data": {
           "name": "imagebutton_check_mark",
@@ -177,6 +123,9 @@
         }
       }
     ],
+    "onOpen": {
+      "name": "GetGUIOfBlock"
+    },
     "gridSettings": {
       "sx": 18,
       "sy": 18,
