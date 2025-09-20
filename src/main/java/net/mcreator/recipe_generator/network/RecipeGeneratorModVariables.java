@@ -30,6 +30,8 @@ import net.minecraft.core.HolderLookup;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
+import java.util.List;
+import java.util.ArrayList;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class RecipeGeneratorModVariables {
@@ -126,6 +128,7 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_80 = "\"\"";
 	public static String item_in_slot_81 = "\"\"";
 	public static String item_in_slot_82 = "\"\"";
+	public static List<Object> GUILabelsList = new ArrayList<>();
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

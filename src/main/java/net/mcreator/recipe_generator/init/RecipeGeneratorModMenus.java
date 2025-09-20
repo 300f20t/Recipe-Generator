@@ -20,6 +20,7 @@ import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.CoosingRGUIOfBlockGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
 import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
@@ -44,6 +45,7 @@ public class RecipeGeneratorModMenus {
 			() -> IMenuTypeExtension.create(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<SmithingRGUIMenu>> SMITHING_RGUI = REGISTRY.register("smithing_rgui", () -> IMenuTypeExtension.create(SmithingRGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<AvaritaCraftingTableRGUIMenu>> AVARITA_CRAFTING_TABLE_RGUI = REGISTRY.register("avarita_crafting_table_rgui", () -> IMenuTypeExtension.create(AvaritaCraftingTableRGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<CoosingRGUIOfBlockGUIMenu>> COOSING_RGUI_OF_BLOCK_GUI = REGISTRY.register("coosing_rgui_of_block_gui", () -> IMenuTypeExtension.create(CoosingRGUIOfBlockGUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

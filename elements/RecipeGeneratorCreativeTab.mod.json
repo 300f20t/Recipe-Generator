@@ -1,0 +1,11 @@
+{
+  "_fv": 79,
+  "_type": "tab",
+  "definition": {
+    "name": "Recipe Generator",
+    "icon": {
+      "value": "Blocks.CRAFTING_TABLE"
+    },
+    "showSearch": false
+  }
+}

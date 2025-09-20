@@ -3373,6 +3373,358 @@
         ]
       },
       "path": "~/Getting items in Slots"
+    },
+    {
+      "name": "GetGUIOfBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "get_gui_of_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/GetGUIOfBlockProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RecipeGeneratorCreativeTab",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_generator_creative_tab",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "CoosingRGUIOfBlockGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "coosing_rgui_of_block_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/CoosingRGUIOfBlockGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CoosingRGUIOfBlockGUIButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/CoosingRGUIOfBlockGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "DebugRGUI",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "debug_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/command/DebugRGUICommand.java"
+        ]
+      },
+      "path": "~/Debug"
+    },
+    {
+      "name": "OpenChoosingRGUIOfBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_choosing_rgui_of_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenChoosingRGUIOfBlockProcedure.java"
+        ]
+      },
+      "path": "~/GUIs"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_1",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI1Procedure.java"
+        ],
+        "return_type": "string"
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_2",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI2Procedure.java"
+        ],
+        "return_type": "string"
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_3",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI3Procedure.java"
+        ],
+        "return_type": "string"
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "TextLabelOfBlockRGUI4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "text_label_of_block_rgui_4",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI4Procedure.java"
+        ],
+        "return_type": "string"
+      },
+      "path": "~/GUIs/TextLabelsRGUI"
+    },
+    {
+      "name": "RecipeEditingTool",
+      "type": "tool",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_editing_tool",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/recipe_generator/models/item/recipe_editing_tool.json",
+          "src/main/java/net/mcreator/recipe_generator/item/RecipeEditingToolItem.java"
+        ]
+      },
+      "path": "~/Tools"
+    },
+    {
+      "name": "RecipeEditingToolPriShchielchkiePKMPoBloku",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "recipe_editing_tool_pri_shchielchkie_pkm_po_bloku",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/RecipeEditingToolPriShchielchkiePKMPoBlokuProcedure.java"
+        ]
+      },
+      "path": "~/Tools"
+    },
+    {
+      "name": "ButtonRGUIOfBlock1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_1",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock1Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock2Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_3",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock3Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_4",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock4Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
     }
   ],
   "variable_elements": [
@@ -3939,6 +4291,12 @@
       "type": "string",
       "scope": "global",
       "value": "\"\""
+    },
+    {
+      "name": "GUILabelsList",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
     }
   ],
   "sound_elements": [],
@@ -3962,6 +4320,15 @@
       "Items.HOST_ARMOR_TRIM",
       "Items.FLOW_ARMOR_TRIM",
       "Items.BOLT_ARMOR_TRIM"
+    ],
+    "ITEMS:minecraft:pickaxes": [
+      "~CUSTOM:RecipeEditingTool"
+    ],
+    "BLOCKS:neoforge:blocks_to_edit_recipe": [
+      "Blocks.CRAFTING_TABLE",
+      "Blocks.FURNACE",
+      "Blocks.BLAST_FURNACE",
+      "Blocks.CAMPFIRE"
     ]
   },
   "tab_element_order": {},
@@ -4213,18 +4580,32 @@
       "gui.recipe_generator.crafting_table_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.furnace_ctgui.recipe_name": "name",
       "gui.just_ctgui.crafting_table_removing_recipes_gui.recipe_name": "name",
-      "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing"
+      "gui.recipe_generator.smithing_rgui.label_furnace": "Smithing",
+      "item_group.recipe_generator.recipe_generator_creative_tab": "Recipe Generator",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_reciepe": "add transform reciepe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty": "              ",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.SearchRGUI": "Search",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe3": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty5": "\u003c",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe1": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2": "add transform recipe",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty4": "\u003e",
+      "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1",
+      "item.recipe_generator.recipe_editing_tool": "Recipe Editing Tool"
     }
   },
   "metadata": {
     "files": [
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModTabs.java",
       "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
-      "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java"
+      "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModItems.java"
     ]
   },
   "foldersRoot": {
@@ -4267,6 +4648,14 @@
           },
           {
             "name": "AvaritaCraftingTable",
+            "children": []
+          },
+          {
+            "name": "TextLabelsRGUI",
+            "children": []
+          },
+          {
+            "name": "ButtonsRGUI",
             "children": []
           }
         ]
@@ -4357,6 +4746,10 @@
       },
       {
         "name": "Check generation methods",
+        "children": []
+      },
+      {
+        "name": "Tools",
         "children": []
       }
     ]

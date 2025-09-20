@@ -21,57 +21,12 @@ import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
 import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingRGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRGUIProcedure;
-import net.mcreator.recipe_generator.procedures.DebugVariableSelectedMethodShowProcedure;
-import net.mcreator.recipe_generator.procedures.DebugJsonSerializerProcedure;
-import net.mcreator.recipe_generator.procedures.DebugGameDIrProcedure;
 
 @EventBusSubscriber
 public class RguiCommandCommand {
 	@SubscribeEvent
 	public static void registerCommand(RegisterCommandsEvent event) {
-		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("debug").then(Commands.literal("gameDir").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
-			Direction direction = Direction.DOWN;
-			if (entity != null)
-				direction = entity.getDirection();
-
-			DebugGameDIrProcedure.execute(entity);
-			return 0;
-		})).then(Commands.literal("jsonSerializer").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
-			Direction direction = Direction.DOWN;
-			if (entity != null)
-				direction = entity.getDirection();
-
-			DebugJsonSerializerProcedure.execute();
-			return 0;
-		})).then(Commands.literal("selectedMethod").then(Commands.literal("show").executes(arguments -> {
-			Level world = arguments.getSource().getUnsidedLevel();
-			double x = arguments.getSource().getPosition().x();
-			double y = arguments.getSource().getPosition().y();
-			double z = arguments.getSource().getPosition().z();
-			Entity entity = arguments.getSource().getEntity();
-			if (entity == null && world instanceof ServerLevel _servLevel)
-				entity = FakePlayerFactory.getMinecraft(_servLevel);
-			Direction direction = Direction.DOWN;
-			if (entity != null)
-				direction = entity.getDirection();
-
-			DebugVariableSelectedMethodShowProcedure.execute(world, entity);
-			return 0;
-		})))).then(Commands.literal("generationMethode").executes(arguments -> {
+		event.getDispatcher().register(Commands.literal("rgui").requires(s -> s.hasPermission(4)).then(Commands.literal("generationMethode").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -85,7 +40,7 @@ public class RguiCommandCommand {
 
 			OpenMethodSelectProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("addRecipe").then(Commands.literal("craftingTable").executes(arguments -> {
+		})).then(Commands.literal("addRecipe").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -113,7 +68,7 @@ public class RguiCommandCommand {
 
 			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("blastFurnace").executes(arguments -> {
+		})).then(Commands.literal("blast_furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -141,7 +96,7 @@ public class RguiCommandCommand {
 
 			OpenSmithingRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		}))).then(Commands.literal("remove").then(Commands.literal("craftingTable").executes(arguments -> {
+		}))).then(Commands.literal("remove").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -169,7 +124,7 @@ public class RguiCommandCommand {
 
 			OpenRemovingRecipesFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("blastFurnace").executes(arguments -> {
+		})).then(Commands.literal("blast_furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

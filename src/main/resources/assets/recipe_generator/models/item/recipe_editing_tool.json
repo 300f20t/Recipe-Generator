@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "recipe_generator:item/recipe_editing_tool"
+  }
+}
