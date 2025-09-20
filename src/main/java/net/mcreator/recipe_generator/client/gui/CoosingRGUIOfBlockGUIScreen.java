@@ -1,14 +1,11 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
@@ -19,6 +16,7 @@ import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
 import net.mcreator.recipe_generator.network.CoosingRGUIOfBlockGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -51,6 +49,7 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -83,65 +82,41 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 	@Override
 	public void init() {
 		super.init();
-		imagebutton_check_mark = new ImageButton(this.leftPos + 6, this.topPos + 7, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
-					int x = CoosingRGUIOfBlockGUIScreen.this.x;
-					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(0, x, y, z));
-						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+		imagebutton_check_mark = new ImageButton(this.leftPos + 6, this.topPos + 7, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark.png"), 16, 32, e -> {
+			int x = CoosingRGUIOfBlockGUIScreen.this.x;
+			int y = CoosingRGUIOfBlockGUIScreen.this.y;
+			if (true) {
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(0, x, y, z));
+				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
-		};
+		});
 		this.addRenderableWidget(imagebutton_check_mark);
-		imagebutton_check_mark1 = new ImageButton(this.leftPos + 6, this.topPos + 43, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
-					int x = CoosingRGUIOfBlockGUIScreen.this.x;
-					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(1, x, y, z));
-						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+		imagebutton_check_mark1 = new ImageButton(this.leftPos + 6, this.topPos + 43, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark1.png"), 16, 32, e -> {
+			int x = CoosingRGUIOfBlockGUIScreen.this.x;
+			int y = CoosingRGUIOfBlockGUIScreen.this.y;
+			if (true) {
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(1, x, y, z));
+				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
-		};
+		});
 		this.addRenderableWidget(imagebutton_check_mark1);
-		imagebutton_check_mark2 = new ImageButton(this.leftPos + 6, this.topPos + 79, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
-					int x = CoosingRGUIOfBlockGUIScreen.this.x;
-					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(2, x, y, z));
-						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+		imagebutton_check_mark2 = new ImageButton(this.leftPos + 6, this.topPos + 79, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark2.png"), 16, 32, e -> {
+			int x = CoosingRGUIOfBlockGUIScreen.this.x;
+			int y = CoosingRGUIOfBlockGUIScreen.this.y;
+			if (true) {
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(2, x, y, z));
+				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
-		};
+		});
 		this.addRenderableWidget(imagebutton_check_mark2);
-		imagebutton_check_mark3 = new ImageButton(this.leftPos + 6, this.topPos + 115, 16, 16,
-				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
-					int x = CoosingRGUIOfBlockGUIScreen.this.x;
-					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
-						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(3, x, y, z));
-						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
-					}
-				}) {
-			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+		imagebutton_check_mark3 = new ImageButton(this.leftPos + 6, this.topPos + 115, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark3.png"), 16, 32, e -> {
+			int x = CoosingRGUIOfBlockGUIScreen.this.x;
+			int y = CoosingRGUIOfBlockGUIScreen.this.y;
+			if (true) {
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(3, x, y, z));
+				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
-		};
+		});
 		this.addRenderableWidget(imagebutton_check_mark3);
 	}
 }

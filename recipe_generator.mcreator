@@ -4600,9 +4600,9 @@
     "files": [
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModTabs.java",
       "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
+      "src/main/resources/META-INF/mods.toml",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
-      "src/main/resources/META-INF/neoforge.mods.toml",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java",
@@ -4769,7 +4769,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "neoforge-1.21.1",
+    "currentGenerator": "forge-1.20.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },

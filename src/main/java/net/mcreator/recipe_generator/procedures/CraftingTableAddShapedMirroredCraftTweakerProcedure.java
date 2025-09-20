@@ -18,6 +18,6 @@ public class CraftingTableAddShapedMirroredCraftTweakerProcedure {
 				+ (((entity instanceof Player _entity0 && _entity0.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0) ? _menu0.getMenuState(0, "recipe_name", "") : "").isEmpty()
 						? RecipeNameCreatorProcedure.execute(entity)
 						: ((entity instanceof Player _entity1 && _entity1.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu1) ? _menu1.getMenuState(0, "recipe_name", "") : ""))
-				+ "\", " + recipeTypeFutures + entity.getData(RecipeGeneratorModVariables.PLAYER_VARIABLES).preGeneratedRecipe;
+				+ "\", " + recipeTypeFutures + (entity.getCapability(RecipeGeneratorModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RecipeGeneratorModVariables.PlayerVariables())).preGeneratedRecipe;
 	}
 }

@@ -1,47 +1,64 @@
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record FurnaceRemovingCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
+import java.util.function.Supplier;
 
-	public static final Type<FurnaceRemovingCTGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_removing_ctgui_slots"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, FurnaceRemovingCTGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, FurnaceRemovingCTGUISlotMessage message) -> {
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class FurnaceRemovingCTGUISlotMessage {
+	private final int slotID, x, y, z, changeType, meta;
+
+	public FurnaceRemovingCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) {
+		this.slotID = slotID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.changeType = changeType;
+		this.meta = meta;
+	}
+
+	public FurnaceRemovingCTGUISlotMessage(FriendlyByteBuf buffer) {
+		this.slotID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+		this.changeType = buffer.readInt();
+		this.meta = buffer.readInt();
+	}
+
+	public static void buffer(FurnaceRemovingCTGUISlotMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.slotID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 		buffer.writeInt(message.changeType);
 		buffer.writeInt(message.meta);
-	}, (RegistryFriendlyByteBuf buffer) -> new FurnaceRemovingCTGUISlotMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<FurnaceRemovingCTGUISlotMessage> type() {
-		return TYPE;
 	}
 
-	public static void handleData(final FurnaceRemovingCTGUISlotMessage message, final IPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> handleSlotAction(context.player(), message.slotID, message.changeType, message.meta, message.x, message.y, message.z)).exceptionally(e -> {
-				context.connection().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public static void handler(FurnaceRemovingCTGUISlotMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int slotID = message.slotID;
+			int changeType = message.changeType;
+			int meta = message.meta;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			handleSlotAction(entity, slotID, changeType, meta, x, y, z);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
@@ -57,6 +74,6 @@ public record FurnaceRemovingCTGUISlotMessage(int slotID, int x, int y, int z, i
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUISlotMessage.TYPE, FurnaceRemovingCTGUISlotMessage.STREAM_CODEC, FurnaceRemovingCTGUISlotMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(FurnaceRemovingCTGUISlotMessage.class, FurnaceRemovingCTGUISlotMessage::buffer, FurnaceRemovingCTGUISlotMessage::new, FurnaceRemovingCTGUISlotMessage::handler);
 	}
 }
