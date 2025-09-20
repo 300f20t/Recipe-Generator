@@ -40,7 +40,7 @@ public class RguiCommandCommand {
 
 			OpenMethodSelectProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("addRecipe").then(Commands.literal("craftingTable").executes(arguments -> {
+		})).then(Commands.literal("addRecipe").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -68,7 +68,7 @@ public class RguiCommandCommand {
 
 			OpenFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("blastFurnace").executes(arguments -> {
+		})).then(Commands.literal("blast_furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -96,7 +96,7 @@ public class RguiCommandCommand {
 
 			OpenSmithingRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		}))).then(Commands.literal("remove").then(Commands.literal("craftingTable").executes(arguments -> {
+		}))).then(Commands.literal("remove").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();
@@ -124,7 +124,7 @@ public class RguiCommandCommand {
 
 			OpenRemovingRecipesFurnaceCTGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("blastFurnace").executes(arguments -> {
+		})).then(Commands.literal("blast_furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

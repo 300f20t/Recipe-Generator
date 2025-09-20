@@ -1,5 +1,7 @@
 package net.mcreator.recipe_generator.client.gui;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,6 +17,7 @@ import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI4Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI3Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
+import net.mcreator.recipe_generator.network.CoosingRGUIOfBlockGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -82,6 +85,12 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		super.init();
 		imagebutton_check_mark = new ImageButton(this.leftPos + 6, this.topPos + 7, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
+					int x = CoosingRGUIOfBlockGUIScreen.this.x;
+					int y = CoosingRGUIOfBlockGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(0, x, y, z));
+						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
@@ -91,6 +100,12 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		this.addRenderableWidget(imagebutton_check_mark);
 		imagebutton_check_mark1 = new ImageButton(this.leftPos + 6, this.topPos + 43, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
+					int x = CoosingRGUIOfBlockGUIScreen.this.x;
+					int y = CoosingRGUIOfBlockGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(1, x, y, z));
+						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
@@ -100,6 +115,12 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		this.addRenderableWidget(imagebutton_check_mark1);
 		imagebutton_check_mark2 = new ImageButton(this.leftPos + 6, this.topPos + 79, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
+					int x = CoosingRGUIOfBlockGUIScreen.this.x;
+					int y = CoosingRGUIOfBlockGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(2, x, y, z));
+						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
@@ -109,6 +130,12 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		this.addRenderableWidget(imagebutton_check_mark2);
 		imagebutton_check_mark3 = new ImageButton(this.leftPos + 6, this.topPos + 115, 16, 16,
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
+					int x = CoosingRGUIOfBlockGUIScreen.this.x;
+					int y = CoosingRGUIOfBlockGUIScreen.this.y;
+					if (true) {
+						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(3, x, y, z));
+						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
+					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {

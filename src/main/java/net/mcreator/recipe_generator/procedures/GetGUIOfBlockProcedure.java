@@ -11,7 +11,6 @@ public class GetGUIOfBlockProcedure {
 		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.CRAFTING_TABLE) {
 			RecipeGeneratorModVariables.GUILabelsList.clear();
 			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
-			RecipeGeneratorModVariables.GUILabelsList.add("addShapeless");
 			RecipeGeneratorModVariables.GUILabelsList.add("remove");
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FURNACE) {
 			RecipeGeneratorModVariables.GUILabelsList.clear();
@@ -21,6 +20,8 @@ public class GetGUIOfBlockProcedure {
 			RecipeGeneratorModVariables.GUILabelsList.clear();
 			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
 			RecipeGeneratorModVariables.GUILabelsList.add("remove");
+		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.SMITHING_TABLE) {
+			RecipeGeneratorModVariables.GUILabelsList.add("addTransformRecipe");
 		}
 	}
 }

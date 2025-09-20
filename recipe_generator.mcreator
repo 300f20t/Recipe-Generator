@@ -3423,6 +3423,7 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/world/inventory/CoosingRGUIOfBlockGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CoosingRGUIOfBlockGUIButtonMessage.java",
           "src/main/java/net/mcreator/recipe_generator/client/gui/CoosingRGUIOfBlockGUIScreen.java"
         ]
       },
@@ -3584,6 +3585,146 @@
         ]
       },
       "path": "~/Tools"
+    },
+    {
+      "name": "ButtonRGUIOfBlock1",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_1",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock1Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock2",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_2",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock2Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock3",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_3",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock3Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock4",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_4",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock4Procedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
     }
   ],
   "variable_elements": [
@@ -4511,6 +4652,10 @@
           },
           {
             "name": "TextLabelsRGUI",
+            "children": []
+          },
+          {
+            "name": "ButtonsRGUI",
             "children": []
           }
         ]

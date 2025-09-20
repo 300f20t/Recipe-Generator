@@ -16,6 +16,9 @@
           "name": "imagebutton_check_mark",
           "image": "check_mark.png",
           "hoveredImage": "check_mark_active.png",
+          "onClick": {
+            "name": "ButtonRGUIOfBlock1"
+          },
           "x": 132,
           "y": 44,
           "locked": false
@@ -27,6 +30,9 @@
           "name": "imagebutton_check_mark1",
           "image": "check_mark.png",
           "hoveredImage": "check_mark_active.png",
+          "onClick": {
+            "name": "ButtonRGUIOfBlock2"
+          },
           "x": 132,
           "y": 80,
           "locked": false
@@ -38,6 +44,9 @@
           "name": "imagebutton_check_mark2",
           "image": "check_mark.png",
           "hoveredImage": "check_mark_active.png",
+          "onClick": {
+            "name": "ButtonRGUIOfBlock3"
+          },
           "x": 132,
           "y": 116,
           "locked": false
@@ -49,6 +58,9 @@
           "name": "imagebutton_check_mark3",
           "image": "check_mark.png",
           "hoveredImage": "check_mark_active.png",
+          "onClick": {
+            "name": "ButtonRGUIOfBlock4"
+          },
           "x": 132,
           "y": 152,
           "locked": false
