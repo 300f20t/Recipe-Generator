@@ -30,6 +30,8 @@ import net.minecraft.core.HolderLookup;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
+import java.util.List;
+import java.util.ArrayList;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class RecipeGeneratorModVariables {
@@ -126,6 +128,7 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_80 = "\"\"";
 	public static String item_in_slot_81 = "\"\"";
 	public static String item_in_slot_82 = "\"\"";
+	public static List<Object> GUILabelsList = new ArrayList<>();
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -158,8 +161,6 @@ public class RecipeGeneratorModVariables {
 			PlayerVariables original = event.getOriginal().getData(PLAYER_VARIABLES);
 			PlayerVariables clone = new PlayerVariables();
 			clone.preGeneratedRecipe = original.preGeneratedRecipe;
-			clone.CurrentLabelForGUI = original.CurrentLabelForGUI;
-			clone.GUILabelsList = original.GUILabelsList;
 			if (!event.isWasDeath()) {
 			}
 			event.getEntity().setData(PLAYER_VARIABLES, clone);
@@ -303,23 +304,17 @@ public class RecipeGeneratorModVariables {
 
 	public static class PlayerVariables implements INBTSerializable<CompoundTag> {
 		public String preGeneratedRecipe = "\"\"";
-		public String CurrentLabelForGUI = "\"\"";
-		public String GUILabelsList = "\"\"";
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putString("preGeneratedRecipe", preGeneratedRecipe);
-			nbt.putString("CurrentLabelForGUI", CurrentLabelForGUI);
-			nbt.putString("GUILabelsList", GUILabelsList);
 			return nbt;
 		}
 
 		@Override
 		public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
 			preGeneratedRecipe = nbt.getString("preGeneratedRecipe");
-			CurrentLabelForGUI = nbt.getString("CurrentLabelForGUI");
-			GUILabelsList = nbt.getString("GUILabelsList");
 		}
 
 		public void syncPlayerVariables(Entity entity) {

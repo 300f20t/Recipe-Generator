@@ -1,6 +1,9 @@
 package net.mcreator.recipe_generator.procedures;
 
+import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
+
 public class TextLabelOfBlockRGUI1Procedure {
-	public static void execute() {
+	public static String execute() {
+		return RecipeGeneratorModVariables.GUILabelsList.get(0) instanceof String _s ? _s : "";
 	}
 }

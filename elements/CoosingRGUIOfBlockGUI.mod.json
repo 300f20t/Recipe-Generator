@@ -113,7 +113,8 @@
         "data": {
           "name": "label_add_transform_recipe",
           "text": {
-            "fixedValue": "add transform recipe"
+            "fixedValue": "add transform recipe",
+            "name": "TextLabelOfBlockRGUI1"
           },
           "color": {
             "value": -1,
@@ -129,7 +130,8 @@
         "data": {
           "name": "label_add_transform_recipe1",
           "text": {
-            "fixedValue": "add transform recipe"
+            "fixedValue": "add transform recipe",
+            "name": "TextLabelOfBlockRGUI2"
           },
           "color": {
             "value": -1,
@@ -145,7 +147,8 @@
         "data": {
           "name": "label_add_transform_recipe2",
           "text": {
-            "fixedValue": "add transform recipe"
+            "fixedValue": "add transform recipe",
+            "name": "TextLabelOfBlockRGUI3"
           },
           "color": {
             "value": -1,
@@ -161,7 +164,8 @@
         "data": {
           "name": "label_add_transform_recipe3",
           "text": {
-            "fixedValue": "add transform recipe"
+            "fixedValue": "add transform recipe",
+            "name": "TextLabelOfBlockRGUI4"
           },
           "color": {
             "value": -1,

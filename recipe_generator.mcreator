@@ -3383,12 +3383,20 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "blockWithGUI",
-            "type": "blockstate"
+            "name": "x",
+            "type": "number"
           },
           {
-            "name": "entity",
-            "type": "entity"
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ],
         "files": [
@@ -3478,7 +3486,8 @@
         "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI1Procedure.java"
-        ]
+        ],
+        "return_type": "string"
       },
       "path": "~/GUIs/TextLabelsRGUI"
     },
@@ -3492,7 +3501,8 @@
         "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI2Procedure.java"
-        ]
+        ],
+        "return_type": "string"
       },
       "path": "~/GUIs/TextLabelsRGUI"
     },
@@ -3506,7 +3516,8 @@
         "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI3Procedure.java"
-        ]
+        ],
+        "return_type": "string"
       },
       "path": "~/GUIs/TextLabelsRGUI"
     },
@@ -3520,23 +3531,10 @@
         "dependencies": [],
         "files": [
           "src/main/java/net/mcreator/recipe_generator/procedures/TextLabelOfBlockRGUI4Procedure.java"
-        ]
+        ],
+        "return_type": "string"
       },
       "path": "~/GUIs/TextLabelsRGUI"
-    },
-    {
-      "name": "GetWordOnPosition",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "get_word_on_position",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GetWordOnPositionProcedure.java"
-        ]
-      },
-      "path": "~/GUIs"
     },
     {
       "name": "RecipeEditingTool",
@@ -4154,16 +4152,10 @@
       "value": "\"\""
     },
     {
-      "name": "CurrentLabelForGUI",
-      "type": "string",
-      "scope": "player_persistent",
-      "value": "\"\""
-    },
-    {
       "name": "GUILabelsList",
-      "type": "string",
-      "scope": "player_persistent",
-      "value": "\"\""
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
     }
   ],
   "sound_elements": [],

@@ -14,6 +14,10 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.world.inventory.CoosingRGUIOfBlockGUIMenu;
+import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI4Procedure;
+import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI3Procedure;
+import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
+import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -88,10 +92,10 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.coosing_rgui_of_block_gui.label_11"), 78, 151, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe"), 24, 7, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe1"), 24, 43, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2"), 24, 79, -1, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe3"), 24, 115, -1, false);
+		guiGraphics.drawString(this.font, TextLabelOfBlockRGUI1Procedure.execute(), 24, 7, -1, false);
+		guiGraphics.drawString(this.font, TextLabelOfBlockRGUI2Procedure.execute(), 24, 43, -1, false);
+		guiGraphics.drawString(this.font, TextLabelOfBlockRGUI3Procedure.execute(), 24, 79, -1, false);
+		guiGraphics.drawString(this.font, TextLabelOfBlockRGUI4Procedure.execute(), 24, 115, -1, false);
 	}
 
 	@Override
