@@ -21,6 +21,7 @@ public class GetGUIOfBlockProcedure {
 			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
 			RecipeGeneratorModVariables.GUILabelsList.add("remove");
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.SMITHING_TABLE) {
+			RecipeGeneratorModVariables.GUILabelsList.clear();
 			RecipeGeneratorModVariables.GUILabelsList.add("addTransformRecipe");
 		}
 	}

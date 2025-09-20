@@ -79,7 +79,7 @@
       {
         "type": "textfield",
         "data": {
-          "placeholder": "generated1",
+          "placeholder": "generated",
           "name": "file_name",
           "width": 120,
           "height": 20,
