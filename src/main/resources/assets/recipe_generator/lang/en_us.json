@@ -134,7 +134,7 @@
   "gui.just_ctgui.furnace_ctgui.button_reload": "Reload",
   "gui.just_ctgui.crafting_table_removing_ctgui.label_file_name": "File name:",
   "gui.just_ctgui.furnace_removing_ctgui.label_furnace": "Furnace removing",
-  "gui.recipe_generator.blast_furnace_removing_ctgui.file_name": "generated1",
+  "gui.recipe_generator.blast_furnace_removing_ctgui.file_name": "generated",
   "gui.recipe_generator.craftingtable_ctgui.label_file_name": "File name:",
   "gui.recipe_generator.choosing_the_recipe_generation_method_gui.button_kubejs_wip": "KubeJS (WIP)",
   "gui.recipe_generator.avarita_crafting_table_rgui.button_save": "Save",

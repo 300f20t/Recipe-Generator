@@ -4423,7 +4423,7 @@
       "gui.just_ctgui.craftingtable_ctgui.button_horizontal": "horizontal",
       "gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only": "(CraftTweaker only)",
       "gui.recipe_generator.craftingtable_ctgui.label_crafting": "Crafting",
-      "gui.recipe_generator.smithing_rgui.file_name": "generated1",
+      "gui.recipe_generator.smithing_rgui.file_name": "generated",
       "gui.just_ctgui.furnace_removing_ctgui.file_name": "generated1",
       "gui.recipe_generator.blast_furnace_removing_ctgui.button_generate": "Generate",
       "gui.just_ctgui.blast_furnace_ctgui.label_xp": "XP:",
