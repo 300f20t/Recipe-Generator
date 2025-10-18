@@ -113,7 +113,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_current_axis"), 0, -35, -3355393, false);
 		guiGraphics.drawString(this.font, GetCurrentAxisProcedure.execute(), 68, -35, -3355393, false);
 		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafting"), 24, 5, -12829636, false);
-		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only"), -120, 124, -256, false);
+		guiGraphics.drawString(this.font, Component.translatable("gui.recipe_generator.craftingtable_ctgui.label_crafttweaker_only"), -120, 133, -256, false);
 	}
 
 	@Override
@@ -221,7 +221,7 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				menu.sendMenuStateUpdate(entity, 1, "Is_shapeless", value, false);
 		}).build();
 		this.addRenderableWidget(Is_shapeless);
-		Is_mirrored = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), this.font).pos(this.leftPos + -120, this.topPos + 97).onValueChange((checkbox, value) -> {
+		Is_mirrored = Checkbox.builder(Component.translatable("gui.recipe_generator.craftingtable_ctgui.Is_mirrored"), this.font).pos(this.leftPos + -120, this.topPos + 106).onValueChange((checkbox, value) -> {
 			if (!menuStateUpdateActive)
 				menu.sendMenuStateUpdate(entity, 1, "Is_mirrored", value, false);
 		}).build();

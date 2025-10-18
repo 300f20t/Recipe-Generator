@@ -440,7 +440,7 @@
           "name": "Is_mirrored",
           "text": "Is mirrored?",
           "x": 6,
-          "y": 134,
+          "y": 143,
           "locked": false
         }
       },
@@ -537,7 +537,7 @@
             "falpha": 0.0
           },
           "x": 6,
-          "y": 161,
+          "y": 170,
           "locked": false
         }
       }
