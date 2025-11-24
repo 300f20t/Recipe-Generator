@@ -804,25 +804,6 @@
       "path": "~/GUIs"
     },
     {
-      "name": "DebugGameDIr",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "debug_game_d_ir",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDIrProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Debug"
-    },
-    {
       "name": "DebugVariableSelectedMethodShow",
       "type": "procedure",
       "compiles": true,
@@ -3755,6 +3736,41 @@
         ]
       },
       "path": "~/Generators/Abstract/CraftingTable"
+    },
+    {
+      "name": "OpenCrafting2x2RGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_crafting_2x_2_rgui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenCrafting2x2RGUIProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/CraftingTable"
     }
   ],
   "variable_elements": [
