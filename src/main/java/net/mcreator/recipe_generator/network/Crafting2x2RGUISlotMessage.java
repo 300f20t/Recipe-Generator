@@ -15,7 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.procedures.ItemInSlot9Procedure;
+import net.mcreator.recipe_generator.procedures.ItemInSlot4Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot3Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot2Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
@@ -69,9 +69,9 @@ public record Crafting2x2RGUISlotMessage(int slotID, int x, int y, int z, int ch
 
 			ItemInSlot3Procedure.execute(world, entity);
 		}
-		if (slot == 9 && changeType == 0) {
+		if (slot == 4 && changeType == 0) {
 
-			ItemInSlot9Procedure.execute(world, entity);
+			ItemInSlot4Procedure.execute(world, entity);
 		}
 	}
 

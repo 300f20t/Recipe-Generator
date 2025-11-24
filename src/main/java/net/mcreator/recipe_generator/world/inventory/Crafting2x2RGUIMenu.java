@@ -54,7 +54,7 @@ public class Crafting2x2RGUIMenu extends AbstractContainerMenu implements Recipe
 		super(RecipeGeneratorModMenus.CRAFTING_2X_2_RGUI.get(), id);
 		this.entity = inv.player;
 		this.world = inv.player.level();
-		this.internal = new ItemStackHandler(10);
+		this.internal = new ItemStackHandler(5);
 		BlockPos pos = null;
 		if (extraData != null) {
 			pos = extraData.readBlockPos();
@@ -135,15 +135,15 @@ public class Crafting2x2RGUIMenu extends AbstractContainerMenu implements Recipe
 				slotChanged(3, 0, 0);
 			}
 		}));
-		this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 115, 35) {
-			private final int slot = 9;
+		this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 115, 35) {
+			private final int slot = 4;
 			private int x = Crafting2x2RGUIMenu.this.x;
 			private int y = Crafting2x2RGUIMenu.this.y;
 
 			@Override
 			public void setChanged() {
 				super.setChanged();
-				slotChanged(9, 0, 0);
+				slotChanged(4, 0, 0);
 			}
 		}));
 		for (int si = 0; si < 3; ++si)
