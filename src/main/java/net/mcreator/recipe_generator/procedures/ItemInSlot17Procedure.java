@@ -14,9 +14,8 @@ public class ItemInSlot17Procedure {
 		if (entity == null)
 			return;
 		RecipeGeneratorMod.queueServerWork(1, () -> {
-			RecipeGeneratorModVariables.MapVariables.get(world).item_in_slot_17 = ItemsFormatProcedure.execute(world,
+			RecipeGeneratorModVariables.item_in_slot_17 = ItemsFormatProcedure.execute(world,
 					entity instanceof Player _plrSlotItem && _plrSlotItem.containerMenu instanceof RecipeGeneratorModMenus.MenuAccessor _menu0 ? _menu0.getSlots().get(17).getItem() : ItemStack.EMPTY);
-			RecipeGeneratorModVariables.MapVariables.get(world).syncData(world);
 		});
 	}
 }
