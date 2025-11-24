@@ -4649,11 +4649,17 @@
   },
   "metadata": {
     "files": [
+      "src/main/java/net/mcreator/recipe_generator/network/LoadPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModTabs.java",
       "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
       "src/main/resources/pack.mcmeta",
       "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
+      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorModPlayerAnimationAPI.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/recipe_generator.mixins.json",
+      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationMixin.java",
+      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationRendererMixin.java",
+      "src/main/java/net/mcreator/recipe_generator/network/PlayPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java",
