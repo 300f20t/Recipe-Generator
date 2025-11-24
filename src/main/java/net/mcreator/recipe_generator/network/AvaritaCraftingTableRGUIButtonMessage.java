@@ -52,7 +52,7 @@ public record AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, 
 			return;
 		if (buttonID == 0) {
 
-			GenerateAvaritaCraftingTableRecipeProcedure.execute(world, entity);
+			GenerateAvaritaCraftingTableRecipeProcedure.execute(entity);
 		}
 		if (buttonID == 1) {
 

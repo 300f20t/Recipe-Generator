@@ -19,6 +19,7 @@ import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIP
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
 import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
+import net.mcreator.recipe_generator.procedures.OpenCrafting2x2RGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingRGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRGUIProcedure;
 
@@ -52,7 +53,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpencraftingtableCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenCrafting2x2RGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}))).then(Commands.literal("addRecipe").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();

@@ -17,8 +17,8 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateCraftingTableRecipeProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
+import net.mcreator.recipe_generator.procedures.CraftingTableAdd2x2RecipeProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
@@ -52,7 +52,7 @@ public record Crafting2x2RGUIButtonMessage(int buttonID, int x, int y, int z) im
 			return;
 		if (buttonID == 0) {
 
-			GenerateCraftingTableRecipeProcedure.execute(world, entity);
+			CraftingTableAdd2x2RecipeProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 

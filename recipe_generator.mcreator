@@ -1639,10 +1639,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -3724,20 +3720,6 @@
       "path": "~/GUIs/CraftingTable"
     },
     {
-      "name": "GenerateCrafting2x2Recipe",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "generate_crafting_2x_2_recipe",
-      "metadata": {
-        "dependencies": [],
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/GenerateCrafting2x2RecipeProcedure.java"
-        ]
-      },
-      "path": "~/Generators/Abstract/CraftingTable"
-    },
-    {
       "name": "OpenCrafting2x2RGUI",
       "type": "procedure",
       "compiles": true,
@@ -3771,6 +3753,48 @@
         ]
       },
       "path": "~/GUIs/CraftingTable"
+    },
+    {
+      "name": "CraftingTableAdd2x2RecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_add_2x_2_recipe_craft_tweaker",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftingTableAdd2x2RecipeCraftTweakerProcedure.java"
+        ]
+      },
+      "path": "~/Generators/CraftTweaker/CraftingTable"
+    },
+    {
+      "name": "CraftingTableAdd2x2Recipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_add_2x_2_recipe",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftingTableAdd2x2RecipeProcedure.java"
+        ]
+      },
+      "path": "~/Generators/Abstract/CraftingTable"
     }
   ],
   "variable_elements": [
@@ -3945,7 +3969,7 @@
     {
       "name": "item_in_slot_17",
       "type": "string",
-      "scope": "map",
+      "scope": "global",
       "value": "\"\""
     },
     {
@@ -4343,6 +4367,12 @@
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "item_in_slot_4_count",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
     }
   ],
   "sound_elements": [],
