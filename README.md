@@ -3,7 +3,7 @@
 
 <h3>What is this mod and how to use it?</h3>
 
-The Recipe Generator mod provides a visual recipe editor in minecraft using various recipe generation methods such as: **CraftTweaker**, **KubeJS**, **Datapack**(WIP) or **Custom Mod**(WIP).
+The Recipe Generator mod provides a visual recipe editor in minecraft using various recipe generation methods such as: **CraftTweaker**, **KubeJS**, **Datapack**(WIP) or **Custom Mod**(WIP). [List of supported blocks](SupportedBlocks.md)
 
 Using this mod is very simple, it is enough to install the mod on the server and client, if desired, you can install one of the auxiliary mods (CraftTweaker or KubeJS) for ease of development, but this is optional.
 
