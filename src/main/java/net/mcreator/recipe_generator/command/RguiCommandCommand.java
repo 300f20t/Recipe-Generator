@@ -19,6 +19,7 @@ import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIP
 import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
 import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
+import net.mcreator.recipe_generator.procedures.OpenCrafting2x2RGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingRGUIProcedure;
 import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRGUIProcedure;
 
@@ -40,7 +41,21 @@ public class RguiCommandCommand {
 
 			OpenMethodSelectProcedure.execute(world, x, y, z, entity);
 			return 0;
-		})).then(Commands.literal("addRecipe").then(Commands.literal("crafting_table").executes(arguments -> {
+		})).then(Commands.literal("add2x2Recipe").then(Commands.literal("crafting_table").executes(arguments -> {
+			Level world = arguments.getSource().getUnsidedLevel();
+			double x = arguments.getSource().getPosition().x();
+			double y = arguments.getSource().getPosition().y();
+			double z = arguments.getSource().getPosition().z();
+			Entity entity = arguments.getSource().getEntity();
+			if (entity == null && world instanceof ServerLevel _servLevel)
+				entity = FakePlayerFactory.getMinecraft(_servLevel);
+			Direction direction = Direction.DOWN;
+			if (entity != null)
+				direction = entity.getDirection();
+
+			OpenCrafting2x2RGUIProcedure.execute(world, x, y, z, entity);
+			return 0;
+		}))).then(Commands.literal("addRecipe").then(Commands.literal("crafting_table").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
 			double x = arguments.getSource().getPosition().x();
 			double y = arguments.getSource().getPosition().y();

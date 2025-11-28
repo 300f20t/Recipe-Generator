@@ -14,6 +14,10 @@ import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI4Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI3Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock4VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock3VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock2VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock1VisibleProcedure;
 import net.mcreator.recipe_generator.network.CoosingRGUIOfBlockGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
@@ -85,7 +89,7 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		imagebutton_check_mark = new ImageButton(this.leftPos + 6, this.topPos + 7, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark.png"), 16, 32, e -> {
 			int x = CoosingRGUIOfBlockGUIScreen.this.x;
 			int y = CoosingRGUIOfBlockGUIScreen.this.y;
-			if (true) {
+			if (ButtonRGUIOfBlock1VisibleProcedure.execute()) {
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(0, x, y, z));
 				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
@@ -94,7 +98,7 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		imagebutton_check_mark1 = new ImageButton(this.leftPos + 6, this.topPos + 43, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark1.png"), 16, 32, e -> {
 			int x = CoosingRGUIOfBlockGUIScreen.this.x;
 			int y = CoosingRGUIOfBlockGUIScreen.this.y;
-			if (true) {
+			if (ButtonRGUIOfBlock2VisibleProcedure.execute()) {
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(1, x, y, z));
 				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
@@ -103,7 +107,7 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		imagebutton_check_mark2 = new ImageButton(this.leftPos + 6, this.topPos + 79, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark2.png"), 16, 32, e -> {
 			int x = CoosingRGUIOfBlockGUIScreen.this.x;
 			int y = CoosingRGUIOfBlockGUIScreen.this.y;
-			if (true) {
+			if (ButtonRGUIOfBlock3VisibleProcedure.execute()) {
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(2, x, y, z));
 				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
@@ -112,7 +116,7 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 		imagebutton_check_mark3 = new ImageButton(this.leftPos + 6, this.topPos + 115, 16, 16, 0, 0, 16, ResourceLocation.parse("recipe_generator:textures/screens/atlas/imagebutton_check_mark3.png"), 16, 32, e -> {
 			int x = CoosingRGUIOfBlockGUIScreen.this.x;
 			int y = CoosingRGUIOfBlockGUIScreen.this.y;
-			if (true) {
+			if (ButtonRGUIOfBlock4VisibleProcedure.execute()) {
 				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(3, x, y, z));
 				CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}

@@ -15,6 +15,7 @@ import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
+import net.mcreator.recipe_generator.client.gui.Crafting2x2RGUIScreen;
 import net.mcreator.recipe_generator.client.gui.CoosingRGUIOfBlockGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
 import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
@@ -38,6 +39,7 @@ public class RecipeGeneratorModScreens {
 			MenuScreens.register(RecipeGeneratorModMenus.SMITHING_RGUI.get(), SmithingRGUIScreen::new);
 			MenuScreens.register(RecipeGeneratorModMenus.AVARITA_CRAFTING_TABLE_RGUI.get(), AvaritaCraftingTableRGUIScreen::new);
 			MenuScreens.register(RecipeGeneratorModMenus.COOSING_RGUI_OF_BLOCK_GUI.get(), CoosingRGUIOfBlockGUIScreen::new);
+			MenuScreens.register(RecipeGeneratorModMenus.CRAFTING_2X_2_RGUI.get(), Crafting2x2RGUIScreen::new);
 		});
 	}
 

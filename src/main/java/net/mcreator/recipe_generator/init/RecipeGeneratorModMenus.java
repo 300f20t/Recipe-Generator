@@ -20,6 +20,7 @@ import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.Crafting2x2RGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.CoosingRGUIOfBlockGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
 import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
@@ -46,6 +47,7 @@ public class RecipeGeneratorModMenus {
 	public static final RegistryObject<MenuType<SmithingRGUIMenu>> SMITHING_RGUI = REGISTRY.register("smithing_rgui", () -> IForgeMenuType.create(SmithingRGUIMenu::new));
 	public static final RegistryObject<MenuType<AvaritaCraftingTableRGUIMenu>> AVARITA_CRAFTING_TABLE_RGUI = REGISTRY.register("avarita_crafting_table_rgui", () -> IForgeMenuType.create(AvaritaCraftingTableRGUIMenu::new));
 	public static final RegistryObject<MenuType<CoosingRGUIOfBlockGUIMenu>> COOSING_RGUI_OF_BLOCK_GUI = REGISTRY.register("coosing_rgui_of_block_gui", () -> IForgeMenuType.create(CoosingRGUIOfBlockGUIMenu::new));
+	public static final RegistryObject<MenuType<Crafting2x2RGUIMenu>> CRAFTING_2X_2_RGUI = REGISTRY.register("crafting_2x_2_rgui", () -> IForgeMenuType.create(Crafting2x2RGUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

@@ -64,6 +64,7 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_14 = "\"\"";
 	public static String item_in_slot_15 = "\"\"";
 	public static String item_in_slot_16 = "\"\"";
+	public static String item_in_slot_17 = "\"\"";
 	public static String item_in_slot_18 = "\"\"";
 	public static String item_in_slot_19 = "\"\"";
 	public static String item_in_slot_20 = "\"\"";
@@ -130,6 +131,7 @@ public class RecipeGeneratorModVariables {
 	public static String item_in_slot_81 = "\"\"";
 	public static String item_in_slot_82 = "\"\"";
 	public static List<Object> GUILabelsList = new ArrayList<>();
+	public static double item_in_slot_4_count = 0;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -233,7 +235,6 @@ public class RecipeGeneratorModVariables {
 
 	public static class MapVariables extends SavedData {
 		public static final String DATA_NAME = "recipe_generator_mapvars";
-		public String item_in_slot_17 = "\"\"";
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -242,12 +243,10 @@ public class RecipeGeneratorModVariables {
 		}
 
 		public void read(CompoundTag nbt) {
-			item_in_slot_17 = nbt.getString("item_in_slot_17");
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
-			nbt.putString("item_in_slot_17", item_in_slot_17);
 			return nbt;
 		}
 

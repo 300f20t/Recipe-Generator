@@ -12,38 +12,38 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateAvaritaCraftingTableRecipeProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
+import net.mcreator.recipe_generator.procedures.CraftingTableAdd2x2RecipeProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class AvaritaCraftingTableRGUIButtonMessage {
+public class Crafting2x2RGUIButtonMessage {
 	private final int buttonID, x, y, z;
 
-	public AvaritaCraftingTableRGUIButtonMessage(FriendlyByteBuf buffer) {
+	public Crafting2x2RGUIButtonMessage(FriendlyByteBuf buffer) {
 		this.buttonID = buffer.readInt();
 		this.x = buffer.readInt();
 		this.y = buffer.readInt();
 		this.z = buffer.readInt();
 	}
 
-	public AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, int z) {
+	public Crafting2x2RGUIButtonMessage(int buttonID, int x, int y, int z) {
 		this.buttonID = buttonID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 
-	public static void buffer(AvaritaCraftingTableRGUIButtonMessage message, FriendlyByteBuf buffer) {
+	public static void buffer(Crafting2x2RGUIButtonMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 	}
 
-	public static void handler(AvaritaCraftingTableRGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+	public static void handler(Crafting2x2RGUIButtonMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
 		NetworkEvent.Context context = contextSupplier.get();
 		context.enqueueWork(() -> {
 			Player entity = context.getSender();
@@ -63,7 +63,7 @@ public class AvaritaCraftingTableRGUIButtonMessage {
 			return;
 		if (buttonID == 0) {
 
-			GenerateAvaritaCraftingTableRecipeProcedure.execute(entity);
+			CraftingTableAdd2x2RecipeProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 
@@ -81,6 +81,6 @@ public class AvaritaCraftingTableRGUIButtonMessage {
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(AvaritaCraftingTableRGUIButtonMessage.class, AvaritaCraftingTableRGUIButtonMessage::buffer, AvaritaCraftingTableRGUIButtonMessage::new, AvaritaCraftingTableRGUIButtonMessage::handler);
+		RecipeGeneratorMod.addNetworkMessage(Crafting2x2RGUIButtonMessage.class, Crafting2x2RGUIButtonMessage::buffer, Crafting2x2RGUIButtonMessage::new, Crafting2x2RGUIButtonMessage::handler);
 	}
 }

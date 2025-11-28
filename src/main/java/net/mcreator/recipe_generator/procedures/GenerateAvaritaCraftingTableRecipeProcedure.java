@@ -1,6 +1,5 @@
 package net.mcreator.recipe_generator.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.network.chat.Component;
@@ -8,7 +7,7 @@ import net.minecraft.network.chat.Component;
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 public class GenerateAvaritaCraftingTableRecipeProcedure {
-	public static void execute(LevelAccessor world, Entity entity) {
+	public static void execute(Entity entity) {
 		if (entity == null)
 			return;
 		{
@@ -18,7 +17,7 @@ public class GenerateAvaritaCraftingTableRecipeProcedure {
 							+ RecipeGeneratorModVariables.item_in_slot_8 + "], ")
 					+ ("\n" + "[" + RecipeGeneratorModVariables.item_in_slot_9 + ", " + RecipeGeneratorModVariables.item_in_slot_10 + ", " + RecipeGeneratorModVariables.item_in_slot_11 + ", " + RecipeGeneratorModVariables.item_in_slot_12 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_13 + ", " + RecipeGeneratorModVariables.item_in_slot_14 + ", " + RecipeGeneratorModVariables.item_in_slot_15 + ", " + RecipeGeneratorModVariables.item_in_slot_16 + ", "
-							+ RecipeGeneratorModVariables.MapVariables.get(world).item_in_slot_17 + "], ")
+							+ RecipeGeneratorModVariables.item_in_slot_17 + "], ")
 					+ ("\n" + "[" + RecipeGeneratorModVariables.item_in_slot_18 + ", " + RecipeGeneratorModVariables.item_in_slot_19 + ", " + RecipeGeneratorModVariables.item_in_slot_20 + ", " + RecipeGeneratorModVariables.item_in_slot_21 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_22 + ", " + RecipeGeneratorModVariables.item_in_slot_23 + ", " + RecipeGeneratorModVariables.item_in_slot_24 + ", " + RecipeGeneratorModVariables.item_in_slot_25 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_26 + "], ")

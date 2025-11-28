@@ -12,6 +12,7 @@ public class GetGUIOfBlockProcedure {
 			RecipeGeneratorModVariables.GUILabelsList.clear();
 			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
 			RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			RecipeGeneratorModVariables.GUILabelsList.add("add2x2Recipe");
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FURNACE) {
 			RecipeGeneratorModVariables.GUILabelsList.clear();
 			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
