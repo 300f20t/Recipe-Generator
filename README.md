@@ -3,7 +3,7 @@
 
 <h3>What is this mod and how to use it?</h3>
 
-The Recipe Generator mod provides a visual recipe editor in minecraft using various recipe generation methods such as: **CraftTweaker**, **KubeJS**, **Datapack**(WIP) or **Custom Mod**(WIP).
+The Recipe Generator mod provides a visual recipe editor in minecraft using various recipe generation methods such as: **CraftTweaker**, **KubeJS**, **Datapack**(WIP) or **Custom Mod**(WIP). [List of supported blocks](SupportedBlocks.md)
 
 Using this mod is very simple, it is enough to install the mod on the server and client, if desired, you can install one of the auxiliary mods (CraftTweaker or KubeJS) for ease of development, but this is optional.
 
@@ -15,7 +15,7 @@ Then we will open the GUI itself. Before opening, take the items from which you 
 
 Now that the recipe has been created, you need to update the list of Craft Tweaker recipes. This can be done by logging back into minecraft or by running the command below: **/reload**
 
-The Todo list can be found here: https://github.com/300f20t/Just-CTGUI/issues/3
+The Todo list can be found here: https://github.com/300f20t/Recipe-Generator/issues/3
 
 My discord server: https://discord.gg/y3xkvMrYt6
 

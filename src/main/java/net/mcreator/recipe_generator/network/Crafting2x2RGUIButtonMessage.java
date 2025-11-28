@@ -17,26 +17,26 @@ import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
 import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateAvaritaCraftingTableRecipeProcedure;
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
+import net.mcreator.recipe_generator.procedures.CraftingTableAdd2x2RecipeProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+public record Crafting2x2RGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<AvaritaCraftingTableRGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "avarita_crafting_table_rgui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, AvaritaCraftingTableRGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, AvaritaCraftingTableRGUIButtonMessage message) -> {
+	public static final Type<Crafting2x2RGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "crafting_2x_2_rgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, Crafting2x2RGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, Crafting2x2RGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new AvaritaCraftingTableRGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new Crafting2x2RGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public Type<AvaritaCraftingTableRGUIButtonMessage> type() {
+	public Type<Crafting2x2RGUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final AvaritaCraftingTableRGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final Crafting2x2RGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -52,7 +52,7 @@ public record AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, 
 			return;
 		if (buttonID == 0) {
 
-			GenerateAvaritaCraftingTableRecipeProcedure.execute(entity);
+			CraftingTableAdd2x2RecipeProcedure.execute(world, entity);
 		}
 		if (buttonID == 1) {
 
@@ -70,6 +70,6 @@ public record AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, 
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(AvaritaCraftingTableRGUIButtonMessage.TYPE, AvaritaCraftingTableRGUIButtonMessage.STREAM_CODEC, AvaritaCraftingTableRGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(Crafting2x2RGUIButtonMessage.TYPE, Crafting2x2RGUIButtonMessage.STREAM_CODEC, Crafting2x2RGUIButtonMessage::handleData);
 	}
 }

@@ -804,25 +804,6 @@
       "path": "~/GUIs"
     },
     {
-      "name": "DebugGameDIr",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "debug_game_d_ir",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/DebugGameDIrProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Debug"
-    },
-    {
       "name": "DebugVariableSelectedMethodShow",
       "type": "procedure",
       "compiles": true,
@@ -1658,10 +1639,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -3725,6 +3702,159 @@
         ]
       },
       "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "Crafting2x2RGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_2x_2_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/network/Crafting2x2RGUIButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/Crafting2x2RGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/Crafting2x2RGUISlotMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/Crafting2x2RGUIScreen.java"
+        ]
+      },
+      "path": "~/GUIs/CraftingTable"
+    },
+    {
+      "name": "OpenCrafting2x2RGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_crafting_2x_2_rgui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenCrafting2x2RGUIProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/CraftingTable"
+    },
+    {
+      "name": "CraftingTableAdd2x2RecipeCraftTweaker",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_add_2x_2_recipe_craft_tweaker",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftingTableAdd2x2RecipeCraftTweakerProcedure.java"
+        ]
+      },
+      "path": "~/Generators/CraftTweaker/CraftingTable"
+    },
+    {
+      "name": "CraftingTableAdd2x2Recipe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crafting_table_add_2x_2_recipe",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/CraftingTableAdd2x2RecipeProcedure.java"
+        ]
+      },
+      "path": "~/Generators/Abstract/CraftingTable"
+    },
+    {
+      "name": "ButtonRGUIOfBlock1Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_1_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock1VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock2Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_2_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock2VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock3Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_3_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock3VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock4Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_4_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock4VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
     }
   ],
   "variable_elements": [
@@ -3899,7 +4029,7 @@
     {
       "name": "item_in_slot_17",
       "type": "string",
-      "scope": "map",
+      "scope": "global",
       "value": "\"\""
     },
     {
@@ -4297,6 +4427,12 @@
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "item_in_slot_4_count",
+      "type": "number",
+      "scope": "global",
+      "value": "0"
     }
   ],
   "sound_elements": [],
@@ -4319,7 +4455,8 @@
       "Items.RAISER_ARMOR_TRIM",
       "Items.HOST_ARMOR_TRIM",
       "Items.FLOW_ARMOR_TRIM",
-      "Items.BOLT_ARMOR_TRIM"
+      "Items.BOLT_ARMOR_TRIM",
+      "Items.NETHERITE_UPGRADE"
     ],
     "ITEMS:minecraft:pickaxes": [
       "~CUSTOM:RecipeEditingTool"
@@ -4593,19 +4730,46 @@
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_add_transform_recipe2": "add transform recipe",
       "gui.recipe_generator.coosing_rgui_of_block_gui.button_empty4": "\u003e",
       "gui.recipe_generator.coosing_rgui_of_block_gui.label_11": "1/1",
-      "item.recipe_generator.recipe_editing_tool": "Recipe Editing Tool"
+      "item.recipe_generator.recipe_editing_tool": "Recipe Editing Tool",
+      "gui.recipe_generator.craftingtable_ctgui.is_2x2": "Is 2x2?",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_crafting": "Crafting",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_vertical": "vertical",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_all": "all",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_close": "Close",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_horizontal": "horizontal",
+      "gui.recipe_generator.crafting_2x_2_rgui.Is_shapeless": "Is shapeless?",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_file_name": "File name:",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_empty": "Mirror axis:",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_current_axis": "Current axis:",
+      "gui.recipe_generator.crafting_2x_2_rgui.is_2x2": "Is 2x2?",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_diagonal": "diagonal",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_generate": "Generate",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_crafttweaker_only": "(CraftTweaker only)",
+      "gui.recipe_generator.crafting_2x_2_rgui.file_name": "generated",
+      "gui.recipe_generator.crafting_2x_2_rgui.Is_mirrored": "Is mirrored?",
+      "gui.recipe_generator.crafting_2x_2_rgui.recipe_name": "name",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_none": "none",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_save": "Save",
+      "gui.recipe_generator.crafting_2x_2_rgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.crafting_2x_2_rgui.button_reload": "Reload"
     }
   },
   "metadata": {
     "files": [
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModTabs.java",
-      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
-      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/recipe_generator/network/LoadPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
+      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
+      "src/main/java/net/mcreator/recipe_generator/network/PlayPlayerAnimationMessage.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorModPlayerAnimationAPI.java",
+      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationMixin.java",
+      "src/main/resources/pack.mcmeta",
+      "src/main/resources/recipe_generator.mixins.json",
+      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationRendererMixin.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
-      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModItems.java"
     ]
   },
@@ -4758,7 +4922,7 @@
   "workspaceSettings": {
     "modid": "recipe_generator",
     "modName": "Recipe Generator",
-    "version": "1.0.0_beta",
+    "version": "1.1.0_beta",
     "description": "The Recipe Generator mod provides a visual recipe editor in Minecraft.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
