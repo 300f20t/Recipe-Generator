@@ -3795,6 +3795,66 @@
         ]
       },
       "path": "~/Generators/Abstract/CraftingTable"
+    },
+    {
+      "name": "ButtonRGUIOfBlock1Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_1_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock1VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock2Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_2_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock2VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock3Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_3_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock3VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "ButtonRGUIOfBlock4Visible",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "button_rgui_of_block_4_visible",
+      "metadata": {
+        "dependencies": [],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/ButtonRGUIOfBlock4VisibleProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/ButtonsRGUI"
     }
   ],
   "variable_elements": [

@@ -17,6 +17,10 @@ import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI4Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI3Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
 import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock4VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock3VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock2VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock1VisibleProcedure;
 import net.mcreator.recipe_generator.network.CoosingRGUIOfBlockGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
@@ -87,14 +91,15 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
 					int x = CoosingRGUIOfBlockGUIScreen.this.x;
 					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
+					if (ButtonRGUIOfBlock1VisibleProcedure.execute()) {
 						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(0, x, y, z));
 						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				if (ButtonRGUIOfBlock1VisibleProcedure.execute())
+					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_check_mark);
@@ -102,14 +107,15 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
 					int x = CoosingRGUIOfBlockGUIScreen.this.x;
 					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
+					if (ButtonRGUIOfBlock2VisibleProcedure.execute()) {
 						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(1, x, y, z));
 						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				if (ButtonRGUIOfBlock2VisibleProcedure.execute())
+					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_check_mark1);
@@ -117,14 +123,15 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
 					int x = CoosingRGUIOfBlockGUIScreen.this.x;
 					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
+					if (ButtonRGUIOfBlock3VisibleProcedure.execute()) {
 						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(2, x, y, z));
 						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				if (ButtonRGUIOfBlock3VisibleProcedure.execute())
+					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_check_mark2);
@@ -132,14 +139,15 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 				new WidgetSprites(ResourceLocation.parse("recipe_generator:textures/screens/check_mark.png"), ResourceLocation.parse("recipe_generator:textures/screens/check_mark_active.png")), e -> {
 					int x = CoosingRGUIOfBlockGUIScreen.this.x;
 					int y = CoosingRGUIOfBlockGUIScreen.this.y;
-					if (true) {
+					if (ButtonRGUIOfBlock4VisibleProcedure.execute()) {
 						PacketDistributor.sendToServer(new CoosingRGUIOfBlockGUIButtonMessage(3, x, y, z));
 						CoosingRGUIOfBlockGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 					}
 				}) {
 			@Override
 			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
-				guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
+				if (ButtonRGUIOfBlock4VisibleProcedure.execute())
+					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
 		};
 		this.addRenderableWidget(imagebutton_check_mark3);
