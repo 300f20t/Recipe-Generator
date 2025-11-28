@@ -1,18 +1,13 @@
 package net.mcreator.recipe_generator.network;
 
-import net.neoforged.neoforge.network.handling.IPayloadContext;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.network.protocol.PacketFlow;
-import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.recipe_generator.procedures.ItemInSlot4Procedure;
@@ -22,30 +17,52 @@ import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record Crafting2x2RGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
+import java.util.function.Supplier;
 
-	public static final Type<Crafting2x2RGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "crafting_2x_2_rgui_slots"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, Crafting2x2RGUISlotMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, Crafting2x2RGUISlotMessage message) -> {
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+public class Crafting2x2RGUISlotMessage {
+	private final int slotID, x, y, z, changeType, meta;
+
+	public Crafting2x2RGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) {
+		this.slotID = slotID;
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.changeType = changeType;
+		this.meta = meta;
+	}
+
+	public Crafting2x2RGUISlotMessage(FriendlyByteBuf buffer) {
+		this.slotID = buffer.readInt();
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+		this.changeType = buffer.readInt();
+		this.meta = buffer.readInt();
+	}
+
+	public static void buffer(Crafting2x2RGUISlotMessage message, FriendlyByteBuf buffer) {
 		buffer.writeInt(message.slotID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
 		buffer.writeInt(message.changeType);
 		buffer.writeInt(message.meta);
-	}, (RegistryFriendlyByteBuf buffer) -> new Crafting2x2RGUISlotMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
-	@Override
-	public Type<Crafting2x2RGUISlotMessage> type() {
-		return TYPE;
 	}
 
-	public static void handleData(final Crafting2x2RGUISlotMessage message, final IPayloadContext context) {
-		if (context.flow() == PacketFlow.SERVERBOUND) {
-			context.enqueueWork(() -> handleSlotAction(context.player(), message.slotID, message.changeType, message.meta, message.x, message.y, message.z)).exceptionally(e -> {
-				context.connection().disconnect(Component.literal(e.getMessage()));
-				return null;
-			});
-		}
+	public static void handler(Crafting2x2RGUISlotMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
+		NetworkEvent.Context context = contextSupplier.get();
+		context.enqueueWork(() -> {
+			Player entity = context.getSender();
+			int slotID = message.slotID;
+			int changeType = message.changeType;
+			int meta = message.meta;
+			int x = message.x;
+			int y = message.y;
+			int z = message.z;
+			handleSlotAction(entity, slotID, changeType, meta, x, y, z);
+		});
+		context.setPacketHandled(true);
 	}
 
 	public static void handleSlotAction(Player entity, int slot, int changeType, int meta, int x, int y, int z) {
@@ -77,6 +94,6 @@ public record Crafting2x2RGUISlotMessage(int slotID, int x, int y, int z, int ch
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(Crafting2x2RGUISlotMessage.TYPE, Crafting2x2RGUISlotMessage.STREAM_CODEC, Crafting2x2RGUISlotMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(Crafting2x2RGUISlotMessage.class, Crafting2x2RGUISlotMessage::buffer, Crafting2x2RGUISlotMessage::new, Crafting2x2RGUISlotMessage::handler);
 	}
 }

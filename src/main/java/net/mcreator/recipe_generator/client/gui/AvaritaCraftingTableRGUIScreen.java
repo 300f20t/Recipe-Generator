@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -16,6 +14,7 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.recipe_generator.world.inventory.AvaritaCraftingTableRGUIMenu;
 import net.mcreator.recipe_generator.network.AvaritaCraftingTableRGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -45,17 +44,12 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 	@Override
 	public void updateMenuState(int elementType, String name, Object elementState) {
 		menuStateUpdateActive = true;
-		if (elementType == 0 && elementState instanceof String stringState) {
-			if (name.equals("recipe_name"))
-				recipe_name.setValue(stringState);
-			else if (name.equals("file_name"))
-				file_name.setValue(stringState);
-		}
 		menuStateUpdateActive = false;
 	}
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		recipe_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
@@ -86,6 +80,13 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 	}
 
 	@Override
+	protected void containerTick() {
+		super.containerTick();
+		recipe_name.tick();
+		file_name.tick();
+	}
+
+	@Override
 	public void resize(Minecraft minecraft, int width, int height) {
 		String recipe_nameValue = recipe_name.getValue();
 		String file_nameValue = file_name.getValue();
@@ -106,26 +107,26 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 	public void init() {
 		super.init();
 		recipe_name = new EditBox(this.font, this.leftPos + -124, this.topPos + 59, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.recipe_name"));
+		recipe_name.setHint(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.recipe_name"));
 		recipe_name.setMaxLength(8192);
 		recipe_name.setResponder(content -> {
 			if (!menuStateUpdateActive)
 				menu.sendMenuStateUpdate(entity, 0, "recipe_name", content, false);
 		});
-		recipe_name.setHint(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.recipe_name"));
 		this.addWidget(this.recipe_name);
 		file_name = new EditBox(this.font, this.leftPos + -124, this.topPos + 95, 118, 18, Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.file_name"));
+		file_name.setHint(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.file_name"));
 		file_name.setMaxLength(8192);
 		file_name.setResponder(content -> {
 			if (!menuStateUpdateActive)
 				menu.sendMenuStateUpdate(entity, 0, "file_name", content, false);
 		});
-		file_name.setHint(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.file_name"));
 		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.avarita_crafting_table_rgui.button_generate"), e -> {
 			int x = AvaritaCraftingTableRGUIScreen.this.x;
 			int y = AvaritaCraftingTableRGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(0, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 280, this.topPos + 22, 67, 20).build();
@@ -134,7 +135,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 			int x = AvaritaCraftingTableRGUIScreen.this.x;
 			int y = AvaritaCraftingTableRGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(1, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 280, this.topPos + 49, 46, 20).build();
@@ -143,7 +144,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 			int x = AvaritaCraftingTableRGUIScreen.this.x;
 			int y = AvaritaCraftingTableRGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(2, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(2, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 280, this.topPos + 193, 51, 20).build();
@@ -152,7 +153,7 @@ public class AvaritaCraftingTableRGUIScreen extends AbstractContainerScreen<Avar
 			int x = AvaritaCraftingTableRGUIScreen.this.x;
 			int y = AvaritaCraftingTableRGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(3, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new AvaritaCraftingTableRGUIButtonMessage(3, x, y, z));
 				AvaritaCraftingTableRGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 280, this.topPos + 76, 56, 20).build();

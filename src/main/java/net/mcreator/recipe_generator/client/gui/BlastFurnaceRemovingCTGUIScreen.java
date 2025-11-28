@@ -1,7 +1,5 @@
 package net.mcreator.recipe_generator.client.gui;
 
-import net.neoforged.neoforge.network.PacketDistributor;
-
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,6 +15,7 @@ import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMe
 import net.mcreator.recipe_generator.procedures.InvertedCheckKubeJSProcedure;
 import net.mcreator.recipe_generator.network.BlastFurnaceRemovingCTGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -45,10 +44,6 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 	@Override
 	public void updateMenuState(int elementType, String name, Object elementState) {
 		menuStateUpdateActive = true;
-		if (elementType == 0 && elementState instanceof String stringState) {
-			if (name.equals("file_name"))
-				file_name.setValue(stringState);
-		}
 		menuStateUpdateActive = false;
 	}
 
@@ -56,6 +51,7 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 
 	@Override
 	public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		file_name.render(guiGraphics, mouseX, mouseY, partialTicks);
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
@@ -82,6 +78,12 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 	}
 
 	@Override
+	protected void containerTick() {
+		super.containerTick();
+		file_name.tick();
+	}
+
+	@Override
 	public void resize(Minecraft minecraft, int width, int height) {
 		String file_nameValue = file_name.getValue();
 		super.resize(minecraft, width, height);
@@ -100,18 +102,18 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 	public void init() {
 		super.init();
 		file_name = new EditBox(this.font, this.leftPos + -128, this.topPos + 8, 118, 18, Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name"));
+		file_name.setHint(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name"));
 		file_name.setMaxLength(8192);
 		file_name.setResponder(content -> {
 			if (!menuStateUpdateActive)
 				menu.sendMenuStateUpdate(entity, 0, "file_name", content, false);
 		});
-		file_name.setHint(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.file_name"));
 		this.addWidget(this.file_name);
 		button_generate = Button.builder(Component.translatable("gui.recipe_generator.blast_furnace_removing_ctgui.button_generate"), e -> {
 			int x = BlastFurnaceRemovingCTGUIScreen.this.x;
 			int y = BlastFurnaceRemovingCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(0, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(0, x, y, z));
 				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 0, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 7, 67, 20).build();
@@ -120,7 +122,7 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 			int x = BlastFurnaceRemovingCTGUIScreen.this.x;
 			int y = BlastFurnaceRemovingCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(1, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(1, x, y, z));
 				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 1, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 34, 46, 20).build();
@@ -129,7 +131,7 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 			int x = BlastFurnaceRemovingCTGUIScreen.this.x;
 			int y = BlastFurnaceRemovingCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(2, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(2, x, y, z));
 				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 2, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 142, 51, 20).build();
@@ -138,7 +140,7 @@ public class BlastFurnaceRemovingCTGUIScreen extends AbstractContainerScreen<Bla
 			int x = BlastFurnaceRemovingCTGUIScreen.this.x;
 			int y = BlastFurnaceRemovingCTGUIScreen.this.y;
 			if (true) {
-				PacketDistributor.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(3, x, y, z));
+				RecipeGeneratorMod.PACKET_HANDLER.sendToServer(new BlastFurnaceRemovingCTGUIButtonMessage(3, x, y, z));
 				BlastFurnaceRemovingCTGUIButtonMessage.handleButtonAction(entity, 3, x, y, z);
 			}
 		}).bounds(this.leftPos + 186, this.topPos + 61, 56, 20).build();

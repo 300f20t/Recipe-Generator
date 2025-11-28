@@ -43,10 +43,10 @@
       "registry_name": "craftingtable_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableCTGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/CraftingtableCTGUIMenu.java",
           "src/main/java/net/mcreator/recipe_generator/client/gui/CraftingtableCTGUIScreen.java",
-          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableCTGUIButtonMessage.java"
+          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableCTGUIButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableCTGUISlotMessage.java"
         ]
       },
       "path": "~/GUIs/CraftingTable"
@@ -263,8 +263,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/client/gui/FurnaceCTGUIScreen.java",
-          "src/main/java/net/mcreator/recipe_generator/network/FurnaceCTGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/FurnaceCTGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/FurnaceCTGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/network/FurnaceCTGUIButtonMessage.java"
         ]
       },
@@ -473,10 +473,10 @@
       "registry_name": "crafting_table_removing_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/CraftingTableRemovingCTGUISlotMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/CraftingTableRemovingCTGUIMenu.java",
           "src/main/java/net/mcreator/recipe_generator/client/gui/CraftingTableRemovingCTGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/CraftingTableRemovingCTGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/world/inventory/CraftingTableRemovingCTGUIMenu.java"
+          "src/main/java/net/mcreator/recipe_generator/network/CraftingTableRemovingCTGUISlotMessage.java"
         ]
       },
       "path": "~/GUIs/CraftingTable"
@@ -489,8 +489,8 @@
       "registry_name": "furnace_removing_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/FurnaceRemovingCTGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/client/gui/FurnaceRemovingCTGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/network/FurnaceRemovingCTGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/network/FurnaceRemovingCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/FurnaceRemovingCTGUIMenu.java"
         ]
@@ -505,10 +505,10 @@
       "registry_name": "blast_furnace_ctgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceCTGUIButtonMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/BlastFurnaceCTGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceCTGUISlotMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/BlastFurnaceCTGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/client/gui/BlastFurnaceCTGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceCTGUIButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceCTGUISlotMessage.java"
         ]
       },
       "path": "~/GUIs/BlastFurnace"
@@ -522,8 +522,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/world/inventory/BlastFurnaceRemovingCTGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/BlastFurnaceRemovingCTGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceRemovingCTGUISlotMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/BlastFurnaceRemovingCTGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/BlastFurnaceRemovingCTGUIButtonMessage.java"
         ]
       },
@@ -655,9 +655,9 @@
       "registry_name": "choosing_the_recipe_generation_method_gui",
       "metadata": {
         "files": [
+          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGenerationMethodGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/ChoosingTheRecipeGenerationMethodGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGenerationMethodGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGenerationMethodGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGenerationMethodGUIButtonMessage.java"
         ]
       },
       "path": "~/GUIs"
@@ -761,9 +761,9 @@
       "registry_name": "choosing_the_recipe_generating_method_gui_with_command",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/network/ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage.java"
         ]
       },
       "path": "~/GUIs"
@@ -1424,9 +1424,9 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/network/SmithingRGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/world/inventory/SmithingRGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/SmithingRGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/SmithingRGUISlotMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/SmithingRGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/SmithingRGUIMenu.java"
         ]
       },
       "path": "~/GUIs/Smithing"
@@ -1652,9 +1652,9 @@
       "registry_name": "avarita_crafting_table_rgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/client/gui/AvaritaCraftingTableRGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/AvaritaCraftingTableRGUISlotMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/AvaritaCraftingTableRGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/AvaritaCraftingTableRGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/AvaritaCraftingTableRGUIButtonMessage.java"
         ]
       },
@@ -3400,8 +3400,8 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/recipe_generator/world/inventory/CoosingRGUIOfBlockGUIMenu.java",
-          "src/main/java/net/mcreator/recipe_generator/network/CoosingRGUIOfBlockGUIButtonMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/CoosingRGUIOfBlockGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/client/gui/CoosingRGUIOfBlockGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CoosingRGUIOfBlockGUIButtonMessage.java"
         ]
       },
       "path": "~/GUIs"
@@ -3711,10 +3711,10 @@
       "registry_name": "crafting_2x_2_rgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/recipe_generator/network/Crafting2x2RGUIButtonMessage.java",
           "src/main/java/net/mcreator/recipe_generator/world/inventory/Crafting2x2RGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/client/gui/Crafting2x2RGUIScreen.java",
           "src/main/java/net/mcreator/recipe_generator/network/Crafting2x2RGUISlotMessage.java",
-          "src/main/java/net/mcreator/recipe_generator/client/gui/Crafting2x2RGUIScreen.java"
+          "src/main/java/net/mcreator/recipe_generator/network/Crafting2x2RGUIButtonMessage.java"
         ]
       },
       "path": "~/GUIs/CraftingTable"
@@ -4756,20 +4756,14 @@
   },
   "metadata": {
     "files": [
-      "src/main/java/net/mcreator/recipe_generator/network/LoadPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModTabs.java",
+      "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
+      "src/main/resources/META-INF/mods.toml",
       "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorMod.java",
       "src/main/resources/pack.mcmeta",
-      "src/main/java/net/mcreator/recipe_generator/network/RecipeGeneratorModVariables.java",
-      "src/main/java/net/mcreator/recipe_generator/RecipeGeneratorModPlayerAnimationAPI.java",
-      "src/main/resources/META-INF/neoforge.mods.toml",
-      "src/main/resources/recipe_generator.mixins.json",
-      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationMixin.java",
-      "src/main/java/net/mcreator/recipe_generator/mixin/PlayerAnimationRendererMixin.java",
-      "src/main/java/net/mcreator/recipe_generator/network/PlayPlayerAnimationMessage.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModMenus.java",
-      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/network/MenuStateUpdateMessage.java",
+      "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModScreens.java",
       "src/main/java/net/mcreator/recipe_generator/init/RecipeGeneratorModItems.java"
     ]
   },
@@ -4933,7 +4927,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [],
-    "currentGenerator": "neoforge-1.21.1",
+    "currentGenerator": "forge-1.20.1",
     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.recipe_generator"
   },

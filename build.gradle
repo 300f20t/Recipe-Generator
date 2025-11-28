@@ -1,15 +1,15 @@
 plugins {
     id 'eclipse'
-    id 'net.neoforged.moddev' version '2.0.95'
+    id 'net.neoforged.moddev.legacyforge' version '2.0.99'
 }
 
 version = '1.0'
 base.archivesName = "modid"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-neoForge {
-    version = "21.1.176"
+legacyForge {
+    version = "1.20.1-47.4.0"
 
     runs {
         client {
