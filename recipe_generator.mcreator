@@ -4922,7 +4922,7 @@
   "workspaceSettings": {
     "modid": "recipe_generator",
     "modName": "Recipe Generator",
-    "version": "1.0.0_beta",
+    "version": "1.1.0_beta",
     "description": "The Recipe Generator mod provides a visual recipe editor in Minecraft.",
     "author": "300f20t, MCreator",
     "websiteURL": "https://mcreator.net",
