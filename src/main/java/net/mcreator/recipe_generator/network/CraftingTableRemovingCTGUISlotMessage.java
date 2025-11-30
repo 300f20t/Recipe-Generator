@@ -18,7 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record CraftingTableRemovingCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
 
 	public static final Type<CraftingTableRemovingCTGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "crafting_table_removing_ctgui_slots"));

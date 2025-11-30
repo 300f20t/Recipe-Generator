@@ -20,7 +20,7 @@ import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodTo
 import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToCraftTweakerProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<ChoosingTheRecipeGeneratingMethodGUIWithCommandButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "choosing_the_recipe_generating_method_gui_with_command_buttons"));

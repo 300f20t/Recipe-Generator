@@ -24,11 +24,11 @@ public class CraftingTableRemovingCTGUIScreen extends AbstractContainerScreen<Cr
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	EditBox file_name;
-	Button button_generate;
-	Button button_save;
-	Button button_close;
-	Button button_reload;
+	private EditBox file_name;
+	private Button button_generate;
+	private Button button_save;
+	private Button button_close;
+	private Button button_reload;
 
 	public CraftingTableRemovingCTGUIScreen(CraftingTableRemovingCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);

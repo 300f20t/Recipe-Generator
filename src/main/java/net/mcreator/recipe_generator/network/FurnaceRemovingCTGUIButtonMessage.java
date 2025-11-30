@@ -21,7 +21,7 @@ import net.mcreator.recipe_generator.procedures.GenerateRemovingFurnaceRecipesPr
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record FurnaceRemovingCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<FurnaceRemovingCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "furnace_removing_ctgui_buttons"));

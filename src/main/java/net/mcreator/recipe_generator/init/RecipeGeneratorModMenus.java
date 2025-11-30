@@ -15,18 +15,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.recipe_generator.world.inventory.SmithingRGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.FurnaceRemovingCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.FurnaceCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.CraftingtableCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.CraftingTableRemovingCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.Crafting2x2RGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.CoosingRGUIOfBlockGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGenerationMethodGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu;
-import net.mcreator.recipe_generator.world.inventory.BlastFurnaceRemovingCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.BlastFurnaceCTGUIMenu;
-import net.mcreator.recipe_generator.world.inventory.AvaritaCraftingTableRGUIMenu;
+import net.mcreator.recipe_generator.world.inventory.*;
 import net.mcreator.recipe_generator.network.MenuStateUpdateMessage;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 

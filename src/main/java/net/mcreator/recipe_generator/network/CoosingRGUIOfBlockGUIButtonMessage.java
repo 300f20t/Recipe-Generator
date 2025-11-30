@@ -21,7 +21,7 @@ import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock2Procedure;
 import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock1Procedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record CoosingRGUIOfBlockGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<CoosingRGUIOfBlockGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "coosing_rgui_of_block_gui_buttons"));

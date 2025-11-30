@@ -24,11 +24,11 @@ public class ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen extends Abstr
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	Button button_crafttweaker;
-	Button button_kubejs_wip;
-	Button button_minecraft_mod_wip;
-	Button button_minecraft_data_pack_wip;
-	Button button_close;
+	private Button button_crafttweaker;
+	private Button button_kubejs_wip;
+	private Button button_minecraft_mod_wip;
+	private Button button_minecraft_data_pack_wip;
+	private Button button_close;
 
 	public ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen(ChoosingTheRecipeGeneratingMethodGUIWithCommandMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);

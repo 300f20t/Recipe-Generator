@@ -21,7 +21,7 @@ import net.mcreator.recipe_generator.procedures.GenerateBlastFurnaceRacipesProce
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record BlastFurnaceCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<BlastFurnaceCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "blast_furnace_ctgui_buttons"));

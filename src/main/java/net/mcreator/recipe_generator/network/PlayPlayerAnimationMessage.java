@@ -16,15 +16,16 @@ import net.minecraft.nbt.CompoundTag;
 
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
-public record PlayPlayerAnimationMessage(int player, String animation, boolean override) implements CustomPacketPayload {
+@EventBusSubscriber
+public record PlayPlayerAnimationMessage(int player, String animation, boolean override, boolean firstPerson) implements CustomPacketPayload {
 
 	public static final Type<PlayPlayerAnimationMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "play_player_animation"));
 	public static final StreamCodec<RegistryFriendlyByteBuf, PlayPlayerAnimationMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, PlayPlayerAnimationMessage message) -> {
 		buffer.writeInt(message.player);
 		buffer.writeUtf(message.animation);
 		buffer.writeBoolean(message.override);
-	}, (RegistryFriendlyByteBuf buffer) -> new PlayPlayerAnimationMessage(buffer.readInt(), buffer.readUtf(), buffer.readBoolean()));
+		buffer.writeBoolean(message.firstPerson);
+	}, (RegistryFriendlyByteBuf buffer) -> new PlayPlayerAnimationMessage(buffer.readInt(), buffer.readUtf(), buffer.readBoolean(), buffer.readBoolean()));
 	@Override
 	public Type<PlayPlayerAnimationMessage> type() {
 		return TYPE;
@@ -34,12 +35,18 @@ public record PlayPlayerAnimationMessage(int player, String animation, boolean o
 		if (context.flow() == PacketFlow.CLIENTBOUND) {
 			context.enqueueWork(() -> {
 				Player player = (Player) context.player().level().getEntity(message.player);
+				if (player == null)
+					return;
 				CompoundTag data = player.getPersistentData();
-				data.putString("PlayerCurrentAnimation", message.animation);
-				data.putBoolean("OverrideCurrentAnimation", message.override);
 				if (message.animation.isEmpty()) {
 					data.putBoolean("ResetPlayerAnimation", true);
+					data.putBoolean("FirstPersonAnimation", false);
+					data.remove("PlayerCurrentAnimation");
 					data.remove("PlayerAnimationProgress");
+				} else {
+					data.putString("PlayerCurrentAnimation", message.animation);
+					data.putBoolean("OverrideCurrentAnimation", message.override);
+					data.putBoolean("FirstPersonAnimation", message.firstPerson);
 				}
 			}).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));

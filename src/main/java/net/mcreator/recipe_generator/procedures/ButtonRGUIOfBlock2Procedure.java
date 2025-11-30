@@ -20,7 +20,7 @@ public class ButtonRGUIOfBlock2Procedure {
 				_ent.getServer().getCommands().performPrefixedCommand(
 						new CommandSourceStack(CommandSource.NULL, _ent.position(), _ent.getRotationVector(), _ent.level() instanceof ServerLevel ? (ServerLevel) _ent.level() : null, 4, _ent.getName().getString(), _ent.getDisplayName(),
 								_ent.level().getServer(), _ent),
-						("rgui " + (RecipeGeneratorModVariables.GUILabelsList.get(1) instanceof String _s ? _s : "") + " "
+						("rgui " + (RecipeGeneratorModVariables.GUILabelsList.get(1) instanceof String _str0 ? _str0 : "") + " "
 								+ (BuiltInRegistries.BLOCK.getKey((world.getBlockState(BlockPos.containing(x, y, z))).getBlock()).toString()).replace("minecraft:", "")));
 			}
 		}

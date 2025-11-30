@@ -8,66 +8,108 @@ import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.FloatTag;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.Minecraft;
 
 import net.mcreator.recipe_generator.RecipeGeneratorModPlayerAnimationAPI;
+import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
+import java.util.Set;
 import java.util.Map;
+import java.util.HashSet;
 
 @Mixin(PlayerModel.class)
 public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 	private String master = null;
+	private Minecraft mc = Minecraft.getInstance();
 
 	@Inject(method = "setupAnim", at = @At(value = "HEAD"))
 	public void setupPivot(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
 		if (master == null)
 			master = "recipe_generator";
+		if (!master.equals("recipe_generator"))
+			return;
 		PlayerModel<T> model = (PlayerModel<T>) (Object) this;
-		Player player = (Player) entityIn;
-		if (!player.getPersistentData().getString("PlayerCurrentAnimation").isEmpty()) {
-			model.crouching = false;
+		resetModelPose(model);
+		Player player = null;
+		if (entityIn instanceof Player player_)
+			player = player_;
+		else
+			return;
+		RecipeGeneratorModPlayerAnimationAPI.PlayerAnimation animation = RecipeGeneratorModPlayerAnimationAPI.active_animations.get(player);
+		if (animation == null)
+			return;
+		if (animation.bones.get("left_arm") != null || animation.bones.get("torso") != null || animation.bones.get("right_arm") != null)
 			model.attackTime = 0;
-			resetModelPose(model);
-		}
+		model.crouching = false;
 	}
 
 	@Inject(method = "setupAnim", at = @At(value = "TAIL"))
 	public void setupAnim(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, CallbackInfo ci) {
+		if (ageInTicks <= 0)
+			return;
 		if (!master.equals("recipe_generator")) {
 			if (!RecipeGeneratorModPlayerAnimationAPI.animations.isEmpty())
 				RecipeGeneratorModPlayerAnimationAPI.animations.clear();
 			return;
 		}
 		PlayerModel<T> model = (PlayerModel<T>) (Object) this;
-		Player player = (Player) entityIn;
+		Player player = null;
+		if (entityIn instanceof Player player_)
+			player = player_;
+		else
+			return;
 		CompoundTag data = player.getPersistentData();
 		String playingAnimation = data.getString("PlayerCurrentAnimation");
 		boolean overrideAnimation = data.getBoolean("OverrideCurrentAnimation");
+		boolean firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
 		if (data.getBoolean("ResetPlayerAnimation")) {
 			data.remove("ResetPlayerAnimation");
-			resetModelPose(model);
+			data.remove("LastAnimationProgress");
+			data.remove("PlayedSoundTimes");
 			RecipeGeneratorModPlayerAnimationAPI.active_animations.put(player, null);
 		}
 		if (playingAnimation.isEmpty()) {
 			return;
 		}
+		if (firstPerson) {
+			player.yBodyRotO = player.yHeadRotO;
+			player.yBodyRot = player.yHeadRot;
+		}
 		if (overrideAnimation) {
 			data.putBoolean("OverrideCurrentAnimation", false);
 			data.remove("PlayerAnimationProgress");
+			data.remove("LastAnimationProgress");
+			data.remove("PlayedSoundTimes");
+			firstPerson = data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null;
 			RecipeGeneratorModPlayerAnimationAPI.active_animations.put(player, null);
 		}
 		RecipeGeneratorModPlayerAnimationAPI.PlayerAnimation animation = RecipeGeneratorModPlayerAnimationAPI.active_animations.get(player);
 		if (animation == null) {
 			animation = RecipeGeneratorModPlayerAnimationAPI.animations.get(playingAnimation);
+			if (animation == null) {
+				RecipeGeneratorMod.LOGGER.info("Attepted to play null animation " + playingAnimation + ", did animations fail to load?");
+				return;
+			}
 			RecipeGeneratorModPlayerAnimationAPI.active_animations.put(player, animation);
 		}
 		float animationProgress;
+		float lastAnimationProgress = data.getFloat("LastAnimationProgress");
+		ListTag playedSoundsTag = data.getList("PlayedSoundTimes", Tag.TAG_FLOAT);
 		if (!data.contains("PlayerAnimationProgress")) {
 			animationProgress = 0f;
 			data.putFloat("PlayerAnimationProgress", animationProgress);
 			data.putFloat("LastTickTime", ageInTicks);
+			data.putFloat("LastAnimationProgress", 0f);
 		} else {
 			animationProgress = data.getFloat("PlayerAnimationProgress");
 			float lastTickTime = data.getFloat("LastTickTime");
@@ -79,16 +121,49 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 				if (!animation.hold_on_last_frame && !animation.loop) {
 					data.remove("PlayerCurrentAnimation");
 					data.remove("PlayerAnimationProgress");
+					data.remove("LastAnimationProgress");
+					data.remove("PlayedSoundTimes");
 					data.putBoolean("ResetPlayerAnimation", true);
+					data.putBoolean("FirstPersonAnimation", false);
 					RecipeGeneratorModPlayerAnimationAPI.active_animations.put(player, null);
 					animationProgress = animation.length;
 				} else if (animation.hold_on_last_frame) {
 					data.putFloat("PlayerAnimationProgress", animation.length);
 				} else if (animation.loop) {
 					data.remove("PlayerAnimationProgress");
+					data.remove("LastAnimationProgress");
+					data.remove("PlayedSoundTimes");
 				}
 			}
 		}
+		if (!animation.soundEffects.isEmpty()) {
+			Set<Float> playedSoundTimes = new HashSet<>();
+			for (int i = 0; i < playedSoundsTag.size(); i++) {
+				playedSoundTimes.add(playedSoundsTag.getFloat(i));
+			}
+			// Play any sound keyframes
+			for (Map.Entry<Float, String> soundEntry : animation.soundEffects.entrySet()) {
+				float soundTime = soundEntry.getKey();
+				String soundId = soundEntry.getValue();
+				if (playedSoundTimes.contains(soundTime)) {
+					continue;
+				}
+				boolean shouldPlay = false;
+				if (lastAnimationProgress <= animationProgress) {
+					shouldPlay = lastAnimationProgress <= soundTime && animationProgress >= soundTime;
+				} else {
+					shouldPlay = lastAnimationProgress <= soundTime || animationProgress >= soundTime;
+				}
+				if (shouldPlay && player.level() instanceof ClientLevel clientLevel) {
+					clientLevel.playLocalSound(player.getX(), player.getY(), player.getZ(), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse(soundId)), SoundSource.NEUTRAL, 1.0F, 1.0F, false);
+					playedSoundsTag.add(FloatTag.valueOf(soundTime));
+				}
+			}
+			data.put("PlayedSoundTimes", playedSoundsTag);
+			data.putFloat("LastAnimationProgress", animationProgress);
+		}
+		if (!data.getBoolean("FirstPersonAnimation") && mc.options.getCameraType().isFirstPerson() && player == mc.player && mc.screen == null)
+			return;
 		// Apply each bone's transformations
 		for (Map.Entry<String, RecipeGeneratorModPlayerAnimationAPI.PlayerBone> entry : animation.bones.entrySet()) {
 			String boneName = entry.getKey();
@@ -117,6 +192,32 @@ public abstract class PlayerAnimationMixin<T extends LivingEntity> {
 				modelPart.xScale = (float) scale.x;
 				modelPart.yScale = (float) scale.y;
 				modelPart.zScale = (float) scale.z;
+			}
+			boolean firstPersonArms = firstPerson && (boneName.equals("right_arm") || boneName.equals("left_arm"));
+			if (firstPersonArms) {
+				float frameBuffer = 0.09f;
+				float timeLeft = animation.length - animationProgress;
+				float fpWeight = 1.0f;
+				boolean rightArm = boneName.equals("right_arm");
+				if (!animation.loop && timeLeft < frameBuffer) {
+					fpWeight = Math.max(0f, timeLeft / frameBuffer);
+				}
+				if (fpWeight > 0) {
+					float pitchRadians = (float) Math.toRadians(player.getXRot());
+					modelPart.xRot += pitchRadians * fpWeight;
+					float yRotCorrection = pitchRadians * (rightArm ? -0.42f : 0.42f);
+					modelPart.yRot += yRotCorrection * fpWeight;
+					float zRotCorrection = pitchRadians * (rightArm ? -0.34f : 0.34f);
+					modelPart.zRot += zRotCorrection * fpWeight;
+					float originalY = modelPart.y;
+					float originalZ = modelPart.z;
+					float cosP = (float) Math.cos(pitchRadians);
+					float sinP = (float) Math.sin(pitchRadians);
+					float targetY = originalY * cosP - originalZ * sinP;
+					float targetZ = originalY * sinP + originalZ * cosP;
+					modelPart.y = originalY + (targetY - originalY) * fpWeight;
+					modelPart.z = originalZ + (targetZ - originalZ) * fpWeight;
+				}
 			}
 		}
 		model.leftPants.copyFrom(model.leftLeg);

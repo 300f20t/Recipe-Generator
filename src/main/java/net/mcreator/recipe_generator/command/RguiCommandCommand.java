@@ -13,15 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import net.mcreator.recipe_generator.procedures.OpencraftingtableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenSmithingRGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesFurnaceCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenRemovingRecipesCraftingTableCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenMethodSelectProcedure;
-import net.mcreator.recipe_generator.procedures.OpenFurnaceCTGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenCrafting2x2RGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRemovingRGUIProcedure;
-import net.mcreator.recipe_generator.procedures.OpenBlastFurnaceRGUIProcedure;
+import net.mcreator.recipe_generator.procedures.*;
 
 @EventBusSubscriber
 public class RguiCommandCommand {

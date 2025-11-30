@@ -21,7 +21,7 @@ import net.mcreator.recipe_generator.procedures.GenerateAvaritaCraftingTableReci
 import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record AvaritaCraftingTableRGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<AvaritaCraftingTableRGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "avarita_crafting_table_rgui_buttons"));

@@ -15,18 +15,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.procedures.VerticalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.ScriptswriterProcedure;
-import net.mcreator.recipe_generator.procedures.ReloadCommandProcedure;
-import net.mcreator.recipe_generator.procedures.NonemirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.HorizontalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.GenerateCraftingTableRecipeProcedure;
-import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
-import net.mcreator.recipe_generator.procedures.DiagonalmirroraxisProcedure;
-import net.mcreator.recipe_generator.procedures.AllmirroraxisProcedure;
+import net.mcreator.recipe_generator.procedures.*;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record CraftingtableCTGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
 	public static final Type<CraftingtableCTGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "craftingtable_ctgui_buttons"));

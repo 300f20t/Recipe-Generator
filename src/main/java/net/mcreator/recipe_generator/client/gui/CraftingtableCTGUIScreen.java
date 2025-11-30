@@ -26,19 +26,19 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	EditBox recipe_name;
-	EditBox file_name;
-	Checkbox Is_shapeless;
-	Checkbox Is_mirrored;
-	Button button_all;
-	Button button_diagonal;
-	Button button_horizontal;
-	Button button_none;
-	Button button_vertical;
-	Button button_generate;
-	Button button_save;
-	Button button_close;
-	Button button_reload;
+	private EditBox recipe_name;
+	private EditBox file_name;
+	private Checkbox Is_shapeless;
+	private Checkbox Is_mirrored;
+	private Button button_all;
+	private Button button_diagonal;
+	private Button button_horizontal;
+	private Button button_none;
+	private Button button_vertical;
+	private Button button_generate;
+	private Button button_save;
+	private Button button_close;
+	private Button button_reload;
 
 	public CraftingtableCTGUIScreen(CraftingtableCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -59,6 +59,15 @@ public class CraftingtableCTGUIScreen extends AbstractContainerScreen<Craftingta
 				recipe_name.setValue(stringState);
 			else if (name.equals("file_name"))
 				file_name.setValue(stringState);
+		}
+		if (elementType == 1 && elementState instanceof Boolean logicState) {
+			if (name.equals("Is_shapeless")) {
+				if (Is_shapeless.selected() != logicState)
+					Is_shapeless.onPress();
+			} else if (name.equals("Is_mirrored")) {
+				if (Is_mirrored.selected() != logicState)
+					Is_mirrored.onPress();
+			}
 		}
 		menuStateUpdateActive = false;
 	}

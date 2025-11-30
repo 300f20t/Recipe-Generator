@@ -2,46 +2,38 @@ package net.mcreator.recipe_generator;
 
 import org.checkerframework.checker.units.qual.t;
 
-import org.apache.commons.lang3.tuple.Pair;
-
-import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.client.entity.animation.json.AnimationLoader;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.ModList;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.api.distmarker.Dist;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.server.packs.resources.IoSupplier;
-import net.minecraft.server.packs.PackType;
-import net.minecraft.server.packs.PackResources;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.animation.Keyframe;
 
-import net.mcreator.recipe_generator.network.LoadPlayerAnimationMessage;
-
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.nio.charset.StandardCharsets;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
-import com.ibm.icu.util.Output;
-
+import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonArray;
+import com.google.gson.Gson;
 
 public class RecipeGeneratorModPlayerAnimationAPI {
 	public static final Map<String, PlayerAnimation> animations = new Object2ObjectOpenHashMap<>();
 	public static final Map<Player, PlayerAnimation> active_animations = new Object2ObjectOpenHashMap<>();
-	public static boolean initialized = false;
 
 	public static void loadAnimationFile(JsonObject file) {
 		JsonObject animationsObject = file.get("animations").getAsJsonObject();
@@ -58,6 +50,7 @@ public class RecipeGeneratorModPlayerAnimationAPI {
 		public boolean loop = false;
 		public boolean hold_on_last_frame = false;
 		public final Map<String, PlayerBone> bones;
+		public final Map<Float, String> soundEffects;
 
 		public PlayerAnimation(JsonObject animation) {
 			if (animation.has("animation_length"))
@@ -78,13 +71,30 @@ public class RecipeGeneratorModPlayerAnimationAPI {
 					this.bones.put(boneName, new PlayerBone(bonesObj.getAsJsonObject(boneName)));
 				}
 			}
+			this.soundEffects = new HashMap<>();
+			if (animation.has("sound_effects")) {
+				JsonObject soundEffectsObj = animation.getAsJsonObject("sound_effects");
+				for (Map.Entry<String, JsonElement> entry : soundEffectsObj.entrySet()) {
+					try {
+						float time = Float.parseFloat(entry.getKey());
+						JsonObject soundData = entry.getValue().getAsJsonObject();
+						if (soundData.has("effect")) {
+							String soundId = soundData.get("effect").getAsString();
+							soundEffects.put(time, soundId);
+						}
+					} catch (NumberFormatException e) {
+						// Skip invalid time format
+						e.printStackTrace();
+					}
+				}
+			}
 		}
 	}
 
 	public static class PlayerBone {
-		public final List<Pair<Float, Vec3>> rotations;
-		public final List<Pair<Float, Vec3>> positions;
-		public final List<Pair<Float, Vec3>> scales;
+		public final List<Keyframe> rotations;
+		public final List<Keyframe> positions;
+		public final List<Keyframe> scales;
 
 		public PlayerBone(JsonObject bone) {
 			this.rotations = parseTransform(bone, "rotation");
@@ -92,164 +102,271 @@ public class RecipeGeneratorModPlayerAnimationAPI {
 			this.scales = parseTransform(bone, "scale");
 		}
 
-		private List<Pair<Float, Vec3>> parseTransform(JsonObject bone, String key) {
-			List<Pair<Float, Vec3>> result = new ArrayList<>();
+		public static class Keyframe {
+			public final float time;
+			public final KeyframeValue value;
+			public final KeyframeValue pre;
+			public final KeyframeValue post;
+			public final boolean catmullrom;
+
+			public Keyframe(float time, KeyframeValue value, KeyframeValue pre, KeyframeValue post, boolean catmullrom) {
+				this.time = time;
+				this.value = value;
+				this.pre = pre != null ? pre : value;
+				this.post = post != null ? post : value;
+				this.catmullrom = catmullrom;
+			}
+		}
+
+		public static class KeyframeValue {
+			public final Vec3 vector;
+			public final String molang;
+
+			public KeyframeValue(Vec3 vector) {
+				this.vector = vector;
+				this.molang = null;
+			}
+
+			public KeyframeValue(String molang) {
+				this.molang = molang;
+				this.vector = null;
+			}
+
+			public boolean isMolang() {
+				return molang != null;
+			}
+		}
+
+		private List<Keyframe> parseTransform(JsonObject bone, String key) {
+			List<Keyframe> result = new ArrayList<>();
 			if (!bone.has(key)) {
 				return result;
 			}
 			JsonElement element = bone.get(key);
 			if (element.isJsonArray()) {
-				// Single value: [x, y, z] at time 0
-				result.add(Pair.of(0f, parseVec3(element.getAsJsonArray())));
+				result.add(new Keyframe(0f, parseValue(element), null, null, false));
 			} else if (element.isJsonPrimitive()) {
-				// Single number (for scale): expand to [n, n, n] at time 0
-				float value = element.getAsFloat();
-				result.add(Pair.of(0f, new Vec3(value, value, value)));
+				result.add(new Keyframe(0f, parseValue(element), null, null, false));
 			} else if (element.isJsonObject()) {
-				// Keyframe object: { "0.0": [x, y, z], "0.5": [x, y, z] }
 				JsonObject keyframes = element.getAsJsonObject();
 				for (String timeStr : keyframes.keySet()) {
 					float time = Float.parseFloat(timeStr);
 					JsonElement frameValue = keyframes.get(timeStr);
-					if (frameValue.isJsonArray()) {
-						result.add(Pair.of(time, parseVec3(frameValue.getAsJsonArray())));
-					} else if (frameValue.isJsonPrimitive()) {
-						float value = frameValue.getAsFloat();
-						result.add(Pair.of(time, new Vec3(value, value, value)));
+					if (frameValue.isJsonArray() || frameValue.isJsonPrimitive()) {
+						result.add(new Keyframe(time, parseValue(frameValue), null, null, false));
+					} else if (frameValue.isJsonObject()) {
+						JsonObject frameObj = frameValue.getAsJsonObject();
+						KeyframeValue value = frameObj.has("post") ? parseValue(frameObj.get("post")) : parseValue(frameValue);
+						KeyframeValue pre = frameObj.has("pre") ? parseValue(frameObj.get("pre")) : null;
+						KeyframeValue post = frameObj.has("post") ? parseValue(frameObj.get("post")) : null;
+						boolean catmullrom = frameObj.has("lerp_mode") && frameObj.get("lerp_mode").getAsString().equalsIgnoreCase("catmullrom");
+						result.add(new Keyframe(time, value, pre, post, catmullrom));
 					}
 				}
 			}
 			return result;
 		}
 
-		private Vec3 parseVec3(JsonArray array) {
-			return new Vec3(array.get(0).getAsFloat(), array.get(1).getAsFloat(), array.get(2).getAsFloat());
+		private KeyframeValue parseValue(JsonElement element) {
+			if (element.isJsonArray()) {
+				JsonArray array = element.getAsJsonArray();
+				boolean hasMolang = false;
+				StringBuilder molangArray = new StringBuilder("[");
+				for (int i = 0; i < array.size(); i++) {
+					if (i > 0)
+						molangArray.append(",");
+					JsonElement elem = array.get(i);
+					if (elem.isJsonPrimitive()) {
+						JsonPrimitive prim = elem.getAsJsonPrimitive();
+						if (prim.isString()) {
+							hasMolang = true;
+							molangArray.append(prim.getAsString());
+						} else {
+							molangArray.append(prim.getAsFloat());
+						}
+					}
+				}
+				molangArray.append("]");
+				if (hasMolang)
+					return new KeyframeValue(molangArray.toString());
+				float x = array.size() > 0 && array.get(0).isJsonPrimitive() ? array.get(0).getAsFloat() : 0;
+				float y = array.size() > 1 && array.get(1).isJsonPrimitive() ? array.get(1).getAsFloat() : 0;
+				float z = array.size() > 2 && array.get(2).isJsonPrimitive() ? array.get(2).getAsFloat() : 0;
+				return new KeyframeValue(new Vec3(x, y, z));
+			}
+			if (element.isJsonPrimitive()) {
+				JsonPrimitive prim = element.getAsJsonPrimitive();
+				if (prim.isString())
+					return new KeyframeValue(prim.getAsString());
+				float value = prim.getAsFloat();
+				return new KeyframeValue(new Vec3(value, value, value));
+			}
+			return new KeyframeValue(Vec3.ZERO);
 		}
 
-		public static Vec3 interpolate(List<Pair<Float, Vec3>> keyframes, float time) {
+		public static Vec3 interpolate(List<Keyframe> keyframes, float time) {
 			if (keyframes.isEmpty())
 				return null;
-			if (keyframes.size() == 1)
-				return keyframes.get(0).getRight();
-			// Find the last keyframe that has passed
-			Pair<Float, Vec3> lastKeyframe = null;
-			for (Pair<Float, Vec3> keyframe : keyframes) {
-				if (time >= keyframe.getLeft()) {
-					lastKeyframe = keyframe;
-				} else {
+			if (keyframes.size() == 1) {
+				Keyframe kf = keyframes.get(0);
+				return kf.value.isMolang() ? evalMolang(kf.value.molang, time) : kf.value.vector;
+			}
+			Keyframe lastKf = null;
+			Keyframe nextKf = null;
+			int lastIdx = -1;
+			for (int i = 0; i < keyframes.size(); i++) {
+				Keyframe kf = keyframes.get(i);
+				if (time >= kf.time) {
+					lastKf = kf;
+					lastIdx = i;
+				}
+				if (time < kf.time) {
+					nextKf = kf;
 					break;
 				}
 			}
-			// If time is before first keyframe, return null
-			if (lastKeyframe == null)
+			if (lastKf == null)
 				return null;
-			// Find the next keyframe
-			Pair<Float, Vec3> nextKeyframe = null;
-			for (Pair<Float, Vec3> keyframe : keyframes) {
-				if (keyframe.getLeft() > time) {
-					nextKeyframe = keyframe;
-					break;
+			Vec3 postVec = lastKf.post.isMolang() ? evalMolang(lastKf.post.molang, time) : lastKf.post.vector;
+			if (nextKf == null)
+				return postVec;
+			float t1 = lastKf.time;
+			float t2_ = nextKf.time;
+			if (t1 == t2_)
+				return postVec;
+			float alpha = (time - t1) / (t2_ - t1);
+			Vec3 v1 = postVec;
+			Vec3 v2 = nextKf.pre.isMolang() ? evalMolang(nextKf.pre.molang, time) : nextKf.pre.vector;
+			if (lastKf.catmullrom) {
+				Vec3 p0 = v1, p1 = v1, p2 = v2, p3 = v2;
+				if (lastIdx > 0) {
+					KeyframeValue kv = keyframes.get(lastIdx - 1).post;
+					p0 = kv.isMolang() ? evalMolang(kv.molang, time) : kv.vector;
 				}
+				if (lastIdx + 1 < keyframes.size() - 1) {
+					KeyframeValue kv = keyframes.get(lastIdx + 2).pre;
+					p3 = kv.isMolang() ? evalMolang(kv.molang, time) : kv.vector;
+				}
+				float t = alpha, t2 = t * t, t3 = t2 * t;
+				return new Vec3(0.5 * ((2 * p1.x) + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3),
+						0.5 * ((2 * p1.y) + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3),
+						0.5 * ((2 * p1.z) + (-p0.z + p2.z) * t + (2 * p0.z - 5 * p1.z + 4 * p2.z - p3.z) * t2 + (-p0.z + 3 * p1.z - 3 * p2.z + p3.z) * t3));
 			}
-			// If there's no next keyframe, hold at the last keyframe (no interpolation)
-			if (nextKeyframe == null)
-				return lastKeyframe.getRight();
-			// Linear interpolation between the two keyframes
-			float t1 = lastKeyframe.getLeft();
-			float t2 = nextKeyframe.getLeft();
-			Vec3 v1 = lastKeyframe.getRight();
-			Vec3 v2 = nextKeyframe.getRight();
-			if (t1 == t2)
-				return v1;
-			float alpha = (time - t1) / (t2 - t1);
-			return new Vec3(lerp(v1.x, v2.x, alpha), lerp(v1.y, v2.y, alpha), lerp(v1.z, v2.z, alpha));
+			return new Vec3(v1.x + (v2.x - v1.x) * alpha, v1.y + (v2.y - v1.y) * alpha, v1.z + (v2.z - v1.z) * alpha);
 		}
 
-		private static double lerp(double a, double b, float t) {
-			return a + (b - a) * t;
+		private static Vec3 evalMolang(String expr, float time) {
+			expr = expr.replace("query.anim_time", String.valueOf(time));
+			try {
+				if (expr.trim().startsWith("[") && expr.trim().endsWith("]")) {
+					String inner = expr.trim().substring(1, expr.trim().length() - 1);
+					String[] parts = inner.split(",");
+					return new Vec3(parts.length > 0 ? evalFloat(parts[0].trim(), time) : 0, parts.length > 1 ? evalFloat(parts[1].trim(), time) : 0, parts.length > 2 ? evalFloat(parts[2].trim(), time) : 0);
+				}
+				float val = evalFloat(expr, time);
+				return new Vec3(val, val, val);
+			} catch (Exception e) {
+				return Vec3.ZERO;
+			}
+		}
+
+		private static float evalFloat(String expr, float time) {
+			expr = expr.replace("query.anim_time", String.valueOf(time)).trim().replace(" ", "");
+			String lower = expr.toLowerCase();
+			if (lower.startsWith("math.sin(") && lower.endsWith(")")) {
+				return (float) Math.sin(Math.toRadians(evalFloat(expr.substring(9, expr.length() - 1), time)));
+			}
+			if (lower.startsWith("math.cos(") && lower.endsWith(")")) {
+				return (float) Math.cos(Math.toRadians(evalFloat(expr.substring(9, expr.length() - 1), time)));
+			}
+			int depth = 0;
+			for (int i = expr.length() - 1; i >= 0; i--) {
+				char c = expr.charAt(i);
+				if (c == ')')
+					depth++;
+				else if (c == '(')
+					depth--;
+				else if (depth == 0) {
+					if (c == '+' || (c == '-' && i > 0)) {
+						return c == '+' ? evalFloat(expr.substring(0, i), time) + evalFloat(expr.substring(i + 1), time) : evalFloat(expr.substring(0, i), time) - evalFloat(expr.substring(i + 1), time);
+					}
+				}
+			}
+			depth = 0;
+			for (int i = expr.length() - 1; i >= 0; i--) {
+				char c = expr.charAt(i);
+				if (c == ')')
+					depth++;
+				else if (c == '(')
+					depth--;
+				else if (depth == 0 && (c == '*' || c == '/')) {
+					return c == '*' ? evalFloat(expr.substring(0, i), time) * evalFloat(expr.substring(i + 1), time) : evalFloat(expr.substring(0, i), time) / evalFloat(expr.substring(i + 1), time);
+				}
+			}
+			if (expr.startsWith("-"))
+				return -evalFloat(expr.substring(1), time);
+			return Float.parseFloat(expr);
 		}
 	}
 
-	@EventBusSubscriber
-	private static class AnimationLoader {
+	@EventBusSubscriber(Dist.CLIENT)
+	public static class AnimationLoader {
 		@SubscribeEvent
-		public static void loadAnimations(PlayerEvent.PlayerLoggedInEvent event) {
-			if (!RecipeGeneratorModPlayerAnimationAPI.initialized) {
-				if (event.getEntity() instanceof ServerPlayer player) {
-					RecipeGeneratorModPlayerAnimationAPI.initialized = true;
-					ServerLevel level = (ServerLevel) player.level();
-					class Output implements PackResources.ResourceOutput {
-						private List<JsonObject> jsonObjects;
-						private PackResources packResources;
+		public static void onClientSetup(FMLClientSetupEvent event) {
+			event.enqueueWork(() -> {
+				loadClientSideAnimations();
+			});
+		}
 
-						public Output(List<JsonObject> jsonObjects) {
-							this.jsonObjects = jsonObjects;
-						}
-
-						public void setPackResources(PackResources packResources) {
-							this.packResources = packResources;
-						}
-
-						@Override
-						public void accept(ResourceLocation resourceLocation, IoSupplier<InputStream> ioSupplier) {
-							try {
-								JsonObject jsonObject = new com.google.gson.Gson()
-										.fromJson(new java.io.BufferedReader(new java.io.InputStreamReader(ioSupplier.get(), java.nio.charset.StandardCharsets.UTF_8)).lines().collect(Collectors.joining("\n")), JsonObject.class);
-								this.jsonObjects.add(jsonObject);
-							} catch (Exception e) {
-							}
+		private static void loadClientSideAnimations() {
+			List<JsonObject> jsons = new ArrayList<>();
+			List<String> namespaces = new ArrayList<>();
+			ModList.get().forEachModFile(modFile -> {
+				String modId = modFile.getModInfos().get(0).getModId();
+				Path rootPath = modFile.findResource("data");
+				if (rootPath == null || !Files.exists(rootPath)) {
+					return;
+				}
+				try {
+					Path animationsPath = rootPath.resolve(modId).resolve("bedrock_animations");
+					if (Files.exists(animationsPath) && Files.isDirectory(animationsPath)) {
+						try (Stream<Path> paths = Files.walk(animationsPath)) {
+							paths.filter(Files::isRegularFile).filter(path -> path.toString().endsWith(".json")).forEach(animationFile -> {
+								try {
+									String content = Files.readString(animationFile, StandardCharsets.UTF_8);
+									JsonObject jsonObject = new Gson().fromJson(content, JsonObject.class);
+									jsons.add(jsonObject);
+									namespaces.add(modId);
+								} catch (Exception e) {
+									System.err.println("Failed to load animation file: " + animationFile + " - " + e.getMessage());
+								}
+							});
 						}
 					}
-					List<JsonObject> jsons = new ArrayList<>();
-					Output output = new Output(jsons);
-					ResourceManager rm = level.getServer().getResourceManager();
-					rm.listPacks().forEach(resource -> {
-						for (String namespace : resource.getNamespaces(PackType.SERVER_DATA)) {
-							output.setPackResources(resource);
-							resource.listResources(PackType.SERVER_DATA, namespace, "bedrock_animations", output);
-						}
-					});
-					sendAnimationsInBatches(player, jsons);
+				} catch (Exception e) {
+					System.err.println("Failed to process animations for mod: " + modId + " - " + e.getMessage());
 				}
+			});
+			if (!jsons.isEmpty()) {
+				loadAnimations(jsons, namespaces);
 			}
 		}
 
-		private static void sendAnimationsInBatches(ServerPlayer player, List<JsonObject> jsons) {
-			final int MAX_CHARS = 30000; // Safety buffer below 32767
-			final int ANIMATIONS_WRAPPER_OVERHEAD = "{\"animations\":{}}".length();
-			JsonObject currentBatch = new JsonObject();
-			JsonObject animationsObject = new JsonObject();
-			currentBatch.add("animations", animationsObject);
-			int currentSize = ANIMATIONS_WRAPPER_OVERHEAD;
-			int animationCount = 0;
+		private static void loadAnimations(List<JsonObject> jsons, List<String> namespaces) {
+			int namespaceIndex = 0;
 			for (JsonObject animationJson : jsons) {
-				// Extract the animations from each JSON
 				JsonObject sourceAnimations = animationJson.getAsJsonObject("animations");
 				if (sourceAnimations != null) {
+					JsonObject namespacedAnimations = new JsonObject();
+					JsonObject animationsWrapper = new JsonObject();
 					for (Map.Entry<String, JsonElement> entry : sourceAnimations.entrySet()) {
-						String animationName = entry.getKey();
-						JsonElement animationData = entry.getValue();
-						// Calculate size this animation would add
-						String animationString = "\"" + animationName + "\":" + animationData.toString();
-						int animationSize = animationString.length() + 1; // +1 for comma
-						// Check if adding this would exceed limit
-						if (currentSize + animationSize > MAX_CHARS && animationCount > 0) {
-							PacketDistributor.sendToPlayer(player, new LoadPlayerAnimationMessage(currentBatch.toString()));
-							currentBatch = new JsonObject();
-							animationsObject = new JsonObject();
-							currentBatch.add("animations", animationsObject);
-							currentSize = ANIMATIONS_WRAPPER_OVERHEAD;
-							animationCount = 0;
-						}
-						animationsObject.add(animationName, animationData);
-						currentSize += animationSize;
-						animationCount++;
+						String animationName = namespaces.get(namespaceIndex) + ":" + entry.getKey();
+						namespacedAnimations.add(animationName, entry.getValue());
 					}
+					animationsWrapper.add("animations", namespacedAnimations);
+					RecipeGeneratorModPlayerAnimationAPI.loadAnimationFile(animationsWrapper);
 				}
-			}
-			// Send final batch if it has any animations
-			if (animationCount > 0) {
-				PacketDistributor.sendToPlayer(player, new LoadPlayerAnimationMessage(currentBatch.toString()));
+				namespaceIndex++;
 			}
 		}
 	}

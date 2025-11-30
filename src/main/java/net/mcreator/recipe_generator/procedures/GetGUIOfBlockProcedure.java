@@ -9,21 +9,45 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 public class GetGUIOfBlockProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z) {
 		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.CRAFTING_TABLE) {
-			RecipeGeneratorModVariables.GUILabelsList.clear();
-			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
-			RecipeGeneratorModVariables.GUILabelsList.add("remove");
-			RecipeGeneratorModVariables.GUILabelsList.add("add2x2Recipe");
+			{
+				RecipeGeneratorModVariables.GUILabelsList.clear();
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("add2x2Recipe");
+			}
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.FURNACE) {
-			RecipeGeneratorModVariables.GUILabelsList.clear();
-			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
-			RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			{
+				RecipeGeneratorModVariables.GUILabelsList.clear();
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			}
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.BLAST_FURNACE) {
-			RecipeGeneratorModVariables.GUILabelsList.clear();
-			RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
-			RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			{
+				RecipeGeneratorModVariables.GUILabelsList.clear();
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("addRecipe");
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("remove");
+			}
 		} else if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.SMITHING_TABLE) {
-			RecipeGeneratorModVariables.GUILabelsList.clear();
-			RecipeGeneratorModVariables.GUILabelsList.add("addTransformRecipe");
+			{
+				RecipeGeneratorModVariables.GUILabelsList.clear();
+			}
+			{
+				RecipeGeneratorModVariables.GUILabelsList.add("addTransformRecipe");
+			}
 		}
 	}
 }

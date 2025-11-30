@@ -41,7 +41,7 @@ public class GenerateAvaritaCraftingTableRecipeProcedure {
 							+ RecipeGeneratorModVariables.item_in_slot_76 + ", " + RecipeGeneratorModVariables.item_in_slot_77 + ", " + RecipeGeneratorModVariables.item_in_slot_78 + ", " + RecipeGeneratorModVariables.item_in_slot_79 + ", "
 							+ RecipeGeneratorModVariables.item_in_slot_80 + "], ")
 					+ "\n" + "]);";
-			_vars.syncPlayerVariables(entity);
+			_vars.markSyncDirty();
 		}
 		AvaritaCraftingTableAddShapedCraftTweakerProcedure.execute(entity);
 		if (entity instanceof Player _player && !_player.level().isClientSide())

@@ -13,14 +13,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.recipe_generator.world.inventory.CoosingRGUIOfBlockGUIMenu;
-import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI4Procedure;
-import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI3Procedure;
-import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI2Procedure;
-import net.mcreator.recipe_generator.procedures.TextLabelOfBlockRGUI1Procedure;
-import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock4VisibleProcedure;
-import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock3VisibleProcedure;
-import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock2VisibleProcedure;
-import net.mcreator.recipe_generator.procedures.ButtonRGUIOfBlock1VisibleProcedure;
+import net.mcreator.recipe_generator.procedures.*;
 import net.mcreator.recipe_generator.network.CoosingRGUIOfBlockGUIButtonMessage;
 import net.mcreator.recipe_generator.init.RecipeGeneratorModScreens;
 
@@ -31,10 +24,10 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	ImageButton imagebutton_check_mark;
-	ImageButton imagebutton_check_mark1;
-	ImageButton imagebutton_check_mark2;
-	ImageButton imagebutton_check_mark3;
+	private ImageButton imagebutton_check_mark;
+	private ImageButton imagebutton_check_mark1;
+	private ImageButton imagebutton_check_mark2;
+	private ImageButton imagebutton_check_mark3;
 
 	public CoosingRGUIOfBlockGUIScreen(CoosingRGUIOfBlockGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -97,7 +90,9 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 					}
 				}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				int x = CoosingRGUIOfBlockGUIScreen.this.x;
+				int y = CoosingRGUIOfBlockGUIScreen.this.y;
 				if (ButtonRGUIOfBlock1VisibleProcedure.execute())
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
@@ -113,7 +108,9 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 					}
 				}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				int x = CoosingRGUIOfBlockGUIScreen.this.x;
+				int y = CoosingRGUIOfBlockGUIScreen.this.y;
 				if (ButtonRGUIOfBlock2VisibleProcedure.execute())
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
@@ -129,7 +126,9 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 					}
 				}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				int x = CoosingRGUIOfBlockGUIScreen.this.x;
+				int y = CoosingRGUIOfBlockGUIScreen.this.y;
 				if (ButtonRGUIOfBlock3VisibleProcedure.execute())
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}
@@ -145,7 +144,9 @@ public class CoosingRGUIOfBlockGUIScreen extends AbstractContainerScreen<Coosing
 					}
 				}) {
 			@Override
-			public void renderWidget(GuiGraphics guiGraphics, int x, int y, float partialTicks) {
+			public void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+				int x = CoosingRGUIOfBlockGUIScreen.this.x;
+				int y = CoosingRGUIOfBlockGUIScreen.this.y;
 				if (ButtonRGUIOfBlock4VisibleProcedure.execute())
 					guiGraphics.blit(sprites.get(isActive(), isHoveredOrFocused()), getX(), getY(), 0, 0, width, height, width, height);
 			}

@@ -8,20 +8,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
-import net.mcreator.recipe_generator.client.gui.SmithingRGUIScreen;
-import net.mcreator.recipe_generator.client.gui.FurnaceRemovingCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.FurnaceCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.CraftingtableCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.CraftingTableRemovingCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.Crafting2x2RGUIScreen;
-import net.mcreator.recipe_generator.client.gui.CoosingRGUIOfBlockGUIScreen;
-import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGenerationMethodGUIScreen;
-import net.mcreator.recipe_generator.client.gui.ChoosingTheRecipeGeneratingMethodGUIWithCommandScreen;
-import net.mcreator.recipe_generator.client.gui.BlastFurnaceRemovingCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.BlastFurnaceCTGUIScreen;
-import net.mcreator.recipe_generator.client.gui.AvaritaCraftingTableRGUIScreen;
+import net.mcreator.recipe_generator.client.gui.*;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(Dist.CLIENT)
 public class RecipeGeneratorModScreens {
 	@SubscribeEvent
 	public static void clientLoad(RegisterMenuScreensEvent event) {

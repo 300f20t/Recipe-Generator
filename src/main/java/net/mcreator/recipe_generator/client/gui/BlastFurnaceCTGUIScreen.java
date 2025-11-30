@@ -25,14 +25,14 @@ public class BlastFurnaceCTGUIScreen extends AbstractContainerScreen<BlastFurnac
 	private final int x, y, z;
 	private final Player entity;
 	private boolean menuStateUpdateActive = false;
-	EditBox recipe_name;
-	EditBox file_name;
-	EditBox XP;
-	EditBox time;
-	Button button_generate;
-	Button button_save;
-	Button button_close;
-	Button button_reload;
+	private EditBox recipe_name;
+	private EditBox file_name;
+	private EditBox XP;
+	private EditBox time;
+	private Button button_generate;
+	private Button button_save;
+	private Button button_close;
+	private Button button_reload;
 
 	public BlastFurnaceCTGUIScreen(BlastFurnaceCTGUIMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);

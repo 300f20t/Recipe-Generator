@@ -3,6 +3,7 @@ package net.mcreator.recipe_generator.procedures;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
 
 import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
@@ -14,8 +15,9 @@ public class GenerateRemovingFurnaceRecipesProcedure {
 		if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("CraftTweaker")) {
 			FurnaceRemoveCraftTweakerProcedure.execute();
 		} else if ((RecipeGeneratorModVariables.WorldVariables.get(world).selectedMethod).equals("KubeJS")) {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal("WIP"), false);
+			if (world instanceof ServerLevel _level) {
+				_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("WIP"), false);
+			}
 		}
 		if (entity instanceof Player _player && !_player.level().isClientSide())
 			_player.displayClientMessage(Component.literal(RecipeGeneratorModVariables.Generated_recipe), false);

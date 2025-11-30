@@ -15,19 +15,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.procedures.ItemInSlot9Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot8Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot7Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot6Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot5Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot4Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot3Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot2Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot1Procedure;
-import net.mcreator.recipe_generator.procedures.ItemInSlot0Procedure;
+import net.mcreator.recipe_generator.procedures.*;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public record CraftingtableCTGUISlotMessage(int slotID, int x, int y, int z, int changeType, int meta) implements CustomPacketPayload {
 
 	public static final Type<CraftingtableCTGUISlotMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "craftingtable_ctgui_slots"));
