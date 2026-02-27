@@ -121,7 +121,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Verticalmirroraxis",
@@ -135,7 +135,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Nonemirroraxis",
@@ -149,7 +149,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Horizontalmirroraxis",
@@ -163,7 +163,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Diagonalmirroraxis",
@@ -177,7 +177,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Allispressed",
@@ -192,7 +192,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Verticalispressed",
@@ -207,7 +207,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Noneispressed",
@@ -222,7 +222,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Horizontalispressed",
@@ -237,7 +237,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "Diagonalispressed",
@@ -252,7 +252,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Mirror axes"
+      "path": "~/Mirror axis"
     },
     {
       "name": "FurnaceCTGUI",
@@ -1413,7 +1413,7 @@
           }
         ]
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CampFire"
     },
     {
       "name": "SmithingRGUI",
@@ -1534,7 +1534,7 @@
         ],
         "dependencies": []
       },
-      "path": "~/Generators/CraftTweaker"
+      "path": "~/Generators/CraftTweaker/CampFire"
     },
     {
       "name": "OpenBlastFurnaceRGUI",
@@ -4781,7 +4781,7 @@
     "name": "~",
     "children": [
       {
-        "name": "Mirror axes",
+        "name": "Mirror axis",
         "children": []
       },
       {
@@ -4857,6 +4857,10 @@
               },
               {
                 "name": "AvaritaCraftingTable",
+                "children": []
+              },
+              {
+                "name": "CampFire",
                 "children": []
               }
             ]
