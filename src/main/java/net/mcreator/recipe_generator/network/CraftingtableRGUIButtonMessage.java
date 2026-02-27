@@ -15,27 +15,25 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.recipe_generator.procedures.GUIcloseProcedure;
-import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToKubeJSProcedure;
-import net.mcreator.recipe_generator.procedures.ChangeSelectedGeneratingMethodToCraftTweakerProcedure;
+import net.mcreator.recipe_generator.procedures.*;
 import net.mcreator.recipe_generator.RecipeGeneratorMod;
 
 @EventBusSubscriber
-public record ChoosingTheRecipeGenerationMethodGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
+public record CraftingtableRGUIButtonMessage(int buttonID, int x, int y, int z) implements CustomPacketPayload {
 
-	public static final Type<ChoosingTheRecipeGenerationMethodGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "choosing_the_recipe_generation_method_gui_buttons"));
-	public static final StreamCodec<RegistryFriendlyByteBuf, ChoosingTheRecipeGenerationMethodGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, ChoosingTheRecipeGenerationMethodGUIButtonMessage message) -> {
+	public static final Type<CraftingtableRGUIButtonMessage> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(RecipeGeneratorMod.MODID, "craftingtable_rgui_buttons"));
+	public static final StreamCodec<RegistryFriendlyByteBuf, CraftingtableRGUIButtonMessage> STREAM_CODEC = StreamCodec.of((RegistryFriendlyByteBuf buffer, CraftingtableRGUIButtonMessage message) -> {
 		buffer.writeInt(message.buttonID);
 		buffer.writeInt(message.x);
 		buffer.writeInt(message.y);
 		buffer.writeInt(message.z);
-	}, (RegistryFriendlyByteBuf buffer) -> new ChoosingTheRecipeGenerationMethodGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
+	}, (RegistryFriendlyByteBuf buffer) -> new CraftingtableRGUIButtonMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt()));
 	@Override
-	public Type<ChoosingTheRecipeGenerationMethodGUIButtonMessage> type() {
+	public Type<CraftingtableRGUIButtonMessage> type() {
 		return TYPE;
 	}
 
-	public static void handleData(final ChoosingTheRecipeGenerationMethodGUIButtonMessage message, final IPayloadContext context) {
+	public static void handleData(final CraftingtableRGUIButtonMessage message, final IPayloadContext context) {
 		if (context.flow() == PacketFlow.SERVERBOUND) {
 			context.enqueueWork(() -> handleButtonAction(context.player(), message.buttonID, message.x, message.y, message.z)).exceptionally(e -> {
 				context.connection().disconnect(Component.literal(e.getMessage()));
@@ -51,20 +49,44 @@ public record ChoosingTheRecipeGenerationMethodGUIButtonMessage(int buttonID, in
 			return;
 		if (buttonID == 0) {
 
-			ChangeSelectedGeneratingMethodToCraftTweakerProcedure.execute(world);
+			AllmirroraxisProcedure.execute();
 		}
 		if (buttonID == 1) {
 
-			ChangeSelectedGeneratingMethodToKubeJSProcedure.execute(world);
+			DiagonalmirroraxisProcedure.execute();
+		}
+		if (buttonID == 2) {
+
+			HorizontalmirroraxisProcedure.execute();
+		}
+		if (buttonID == 3) {
+
+			NonemirroraxisProcedure.execute();
 		}
 		if (buttonID == 4) {
 
+			VerticalmirroraxisProcedure.execute();
+		}
+		if (buttonID == 5) {
+
+			GenerateCraftingTableRecipeProcedure.execute(world, entity);
+		}
+		if (buttonID == 6) {
+
+			ScriptswriterProcedure.execute(world, entity);
+		}
+		if (buttonID == 7) {
+
 			GUIcloseProcedure.execute(entity);
+		}
+		if (buttonID == 8) {
+
+			ReloadCommandProcedure.execute(world, x, y, z);
 		}
 	}
 
 	@SubscribeEvent
 	public static void registerMessage(FMLCommonSetupEvent event) {
-		RecipeGeneratorMod.addNetworkMessage(ChoosingTheRecipeGenerationMethodGUIButtonMessage.TYPE, ChoosingTheRecipeGenerationMethodGUIButtonMessage.STREAM_CODEC, ChoosingTheRecipeGenerationMethodGUIButtonMessage::handleData);
+		RecipeGeneratorMod.addNetworkMessage(CraftingtableRGUIButtonMessage.TYPE, CraftingtableRGUIButtonMessage.STREAM_CODEC, CraftingtableRGUIButtonMessage::handleData);
 	}
 }

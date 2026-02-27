@@ -17,7 +17,7 @@ import net.mcreator.recipe_generator.network.RecipeGeneratorModVariables;
 
 import io.netty.buffer.Unpooled;
 
-public class OpencraftingtableCTGUIProcedure {
+public class OpenCraftingTableRGUIProcedure {
 	public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;

@@ -26,6 +26,7 @@ public class RecipeGeneratorModScreens {
 		event.register(RecipeGeneratorModMenus.AVARITA_CRAFTING_TABLE_RGUI.get(), AvaritaCraftingTableRGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.COOSING_RGUI_OF_BLOCK_GUI.get(), CoosingRGUIOfBlockGUIScreen::new);
 		event.register(RecipeGeneratorModMenus.CRAFTING_2X_2_RGUI.get(), Crafting2x2RGUIScreen::new);
+		event.register(RecipeGeneratorModMenus.CRAFTINGTABLE_RGUI.get(), CraftingtableRGUIScreen::new);
 	}
 
 	public interface ScreenAccessor {

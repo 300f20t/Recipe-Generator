@@ -1,41 +1,6 @@
 {
   "mod_elements": [
     {
-      "name": "OpencraftingtableCTGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "opencraftingtable_ctgui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/OpencraftingtableCTGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/GUIs/CraftingTable"
-    },
-    {
       "name": "CraftingtableCTGUI",
       "type": "gui",
       "compiles": true,
@@ -718,40 +683,6 @@
         ]
       },
       "path": "~/Change selected generating method"
-    },
-    {
-      "name": "CloseWithSaveOpenedGUI",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "close_with_save_opened_gui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/recipe_generator/procedures/CloseWithSaveOpenedGUIProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     },
     {
       "name": "ChoosingTheRecipeGeneratingMethodGUIWithCommand",
@@ -3855,6 +3786,57 @@
         ]
       },
       "path": "~/GUIs/ButtonsRGUI"
+    },
+    {
+      "name": "OpenCraftingTableRGUI",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "open_crafting_table_rgui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/procedures/OpenCraftingTableRGUIProcedure.java"
+        ]
+      },
+      "path": "~/GUIs/CraftingTable"
+    },
+    {
+      "name": "CraftingtableRGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "craftingtable_rgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/recipe_generator/client/gui/CraftingtableRGUIScreen.java",
+          "src/main/java/net/mcreator/recipe_generator/world/inventory/CraftingtableRGUIMenu.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableRGUISlotMessage.java",
+          "src/main/java/net/mcreator/recipe_generator/network/CraftingtableRGUIButtonMessage.java"
+        ]
+      },
+      "path": "~/GUIs/CraftingTable"
     }
   ],
   "variable_elements": [
@@ -4751,7 +4733,26 @@
       "gui.recipe_generator.crafting_2x_2_rgui.button_none": "none",
       "gui.recipe_generator.crafting_2x_2_rgui.button_save": "Save",
       "gui.recipe_generator.crafting_2x_2_rgui.label_recipe_name": "Recipe name:",
-      "gui.recipe_generator.crafting_2x_2_rgui.button_reload": "Reload"
+      "gui.recipe_generator.crafting_2x_2_rgui.button_reload": "Reload",
+      "gui.recipe_generator.craftingtable_rgui.file_name": "generated",
+      "gui.recipe_generator.craftingtable_rgui.button_save": "Save",
+      "gui.recipe_generator.craftingtable_rgui.label_file_name": "File name:",
+      "gui.recipe_generator.craftingtable_rgui.button_close": "Close",
+      "gui.recipe_generator.craftingtable_rgui.label_recipe_name": "Recipe name:",
+      "gui.recipe_generator.craftingtable_rgui.button_generate": "Generate",
+      "gui.recipe_generator.craftingtable_rgui.button_diagonal": "diagonal",
+      "gui.recipe_generator.craftingtable_rgui.button_reload": "Reload",
+      "gui.recipe_generator.craftingtable_rgui.label_current_axis": "Current axis:",
+      "gui.recipe_generator.craftingtable_rgui.button_vertical": "vertical",
+      "gui.recipe_generator.craftingtable_rgui.label_crafttweaker_only": "(CraftTweaker only)",
+      "gui.recipe_generator.craftingtable_rgui.label_crafting": "Crafting",
+      "gui.recipe_generator.craftingtable_rgui.label_empty": "Mirror axis:",
+      "gui.recipe_generator.craftingtable_rgui.Is_mirrored": "Is mirrored?",
+      "gui.recipe_generator.craftingtable_rgui.button_horizontal": "horizontal",
+      "gui.recipe_generator.craftingtable_rgui.button_none": "none",
+      "gui.recipe_generator.craftingtable_rgui.Is_shapeless": "Is shapeless?",
+      "gui.recipe_generator.craftingtable_rgui.button_all": "all",
+      "gui.recipe_generator.craftingtable_rgui.recipe_name": "name"
     }
   },
   "metadata": {

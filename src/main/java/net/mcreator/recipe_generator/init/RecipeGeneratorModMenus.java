@@ -37,6 +37,7 @@ public class RecipeGeneratorModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<AvaritaCraftingTableRGUIMenu>> AVARITA_CRAFTING_TABLE_RGUI = REGISTRY.register("avarita_crafting_table_rgui", () -> IMenuTypeExtension.create(AvaritaCraftingTableRGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<CoosingRGUIOfBlockGUIMenu>> COOSING_RGUI_OF_BLOCK_GUI = REGISTRY.register("coosing_rgui_of_block_gui", () -> IMenuTypeExtension.create(CoosingRGUIOfBlockGUIMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<Crafting2x2RGUIMenu>> CRAFTING_2X_2_RGUI = REGISTRY.register("crafting_2x_2_rgui", () -> IMenuTypeExtension.create(Crafting2x2RGUIMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<CraftingtableRGUIMenu>> CRAFTINGTABLE_RGUI = REGISTRY.register("craftingtable_rgui", () -> IMenuTypeExtension.create(CraftingtableRGUIMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

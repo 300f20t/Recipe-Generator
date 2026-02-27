@@ -59,7 +59,7 @@ public class RguiCommandCommand {
 			if (entity != null)
 				direction = entity.getDirection();
 
-			OpencraftingtableCTGUIProcedure.execute(world, x, y, z, entity);
+			OpenCraftingTableRGUIProcedure.execute(world, x, y, z, entity);
 			return 0;
 		})).then(Commands.literal("furnace").executes(arguments -> {
 			Level world = arguments.getSource().getUnsidedLevel();
