@@ -1,15 +1,13 @@
 ## CraftTweaker
 ### Vanilla
-- **Crafting Table** - addRecipe, remove, add2x2Recipe
-- **Furnace** - addRecipe, remove
-- **Blast Furnace** - addRecipe, remove
-- **Smithing** - addTransformRecipe
+- **Crafting Table** - addRecipe
+- **WIP**
 ### Mods
 - **WIP**
 
 ## KubeJS
 ### Vanilla
-- **Crafting Table** - addRecipe(mirrored recipes not supported), remove
+- **WIP**
 
 ## DataPack
 - **WIP**
