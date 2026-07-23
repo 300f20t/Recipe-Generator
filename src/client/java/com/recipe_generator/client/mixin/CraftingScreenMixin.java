@@ -8,6 +8,7 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.inventory.CraftingMenu;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,13 +19,14 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.client.generator.crafting_table.Generator;
 
 @Mixin(CraftingScreen.class)
 @SuppressWarnings("unchecked")
 public class CraftingScreenMixin {
     
     private EditBox recipeNameField;
-	private EditBox fileNameField;
+    private EditBox fileNameField;
     
     @Inject(at = @At("RETURN"), method = "init")
     private void addUI(CallbackInfo ci) {
@@ -44,7 +46,7 @@ public class CraftingScreenMixin {
             );
             recipeNameField.setMaxLength(100);
             recipeNameField.setHint(Component.literal("Recipe name"));
-			fileNameField = new EditBox(
+            fileNameField = new EditBox(
                 Minecraft.getInstance().font,
                 centerX - 200,
                 centerY - 45,
@@ -56,9 +58,9 @@ public class CraftingScreenMixin {
             fileNameField.setHint(Component.literal("File name"));
             
             Button[] buttons = {
-                createButton("Generate", centerX + 95, centerY - 70, () -> action1()),
-                createButton("Save", centerX + 95, centerY - 45, () -> action2()),
-                createButton("Reload", centerX + 95, centerY - 20, () -> action3()),
+                createButton("Generate", centerX + 95, centerY - 70, () -> generate()),
+                createButton("Save", centerX + 95, centerY - 45, () -> save()),
+                createButton("Reload", centerX + 95, centerY - 20, () -> reload()),
         
                 createButton("Close", centerX + 95, centerY + 55, () -> screen.onClose())
             };
@@ -73,7 +75,7 @@ public class CraftingScreenMixin {
                 List<GuiEventListener> children = (List<GuiEventListener>) childrenField.get(screen);
                 renderables.add(recipeNameField);
                 children.add(recipeNameField);
-			    renderables.add(fileNameField);
+                renderables.add(fileNameField);
                 children.add(fileNameField);
                 
                 for (Button button : buttons) {
@@ -94,21 +96,24 @@ public class CraftingScreenMixin {
         .build();
     }
     
-    private void action1() {
+    private void generate() {
+        if (Minecraft.getInstance().player == null) return;
+
         String name = recipeNameField != null ? recipeNameField.getValue() : "";
-        if (Minecraft.getInstance().player != null) {
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aGenerate: " + name));
-        }
+
+        CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
+
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu, name)));
     }
     
-    private void action2() {
+    private void save() {
         String name = recipeNameField != null ? recipeNameField.getValue() : "";
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aSave: " + name));
         }
     }
 
-    private void action3() {
+    private void reload() {
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aReload"));
         }

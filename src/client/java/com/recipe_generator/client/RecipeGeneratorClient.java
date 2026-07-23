@@ -4,10 +4,16 @@ import net.fabricmc.api.ClientModInitializer;
 
 public class RecipeGeneratorClient implements ClientModInitializer {
 
-	public static boolean isUIHidden = true;
+    public enum GenerationMethod {
+        CRAFTTWEAKER(),
+        KUBEJS()
+    }
 
-	@Override
-	public void onInitializeClient() {
-		RecipeGeneratorCommand.addCommand();
-	}
+    public static boolean isUIHidden = true;
+    public static GenerationMethod genMethod = GenerationMethod.CRAFTTWEAKER;
+
+    @Override
+    public void onInitializeClient() {
+        RecipeGeneratorCommand.addCommand();
+    }
 }
