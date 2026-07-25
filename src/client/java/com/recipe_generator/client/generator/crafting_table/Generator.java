@@ -1,9 +1,10 @@
 package com.recipe_generator.client.generator.crafting_table;
 
-import net.minecraft.world.inventory.CraftingMenu;
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.inventory.Slot;
 
 public class Generator {
-    public String generate(CraftingMenu menu, String name){
-        return new CraftTweakerGenerator().generate(menu, name);
+    public String generate(NonNullList<Slot> slots, String name){
+        return new CraftTweakerGenerator().generateShaped(slots, name);
     }
 }

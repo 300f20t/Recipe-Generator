@@ -103,7 +103,7 @@ public class CraftingScreenMixin {
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
 
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu, name)));
+        Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu.slots, name)));
     }
     
     private void save() {
