@@ -4,7 +4,6 @@
 	"version": "${version}",
 	"name": "Recipe Generator",
 	"description": "The Recipe Generator mod provides a visual recipe editor in Minecraft.",
-	"accessWidener": "recipe_generator.classtweaker",
 	"authors": [
 		"300f20t"
 	],
@@ -13,7 +12,7 @@
 	},
 	"license": "MIT",
 	"icon": "assets/recipe_generator/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"com.recipe_generator.RecipeGenerator"
