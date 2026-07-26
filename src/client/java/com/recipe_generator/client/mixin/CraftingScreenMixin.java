@@ -9,17 +9,21 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.CraftingMenu;
+import net.minecraft.world.item.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.reflect.Field;
 import java.util.List;
 
 import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
 import com.recipe_generator.client.generator.crafting_table.Generator;
+import com.recipe_generator.client.util.FileSaver;
 
 @Mixin(CraftingScreen.class)
 @SuppressWarnings("unchecked")
@@ -99,23 +103,108 @@ public class CraftingScreenMixin {
     private void generate() {
         if (Minecraft.getInstance().player == null) return;
 
-        String name = recipeNameField != null ? recipeNameField.getValue() : "";
+        String name = recipeNameField != null ? recipeNameField.getValue().trim() : "";
+        
+        if (name.isEmpty()) {
+            name = generateName();
+            if (recipeNameField != null) {
+                recipeNameField.setValue(name);
+            }
+        }
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
 
-        Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu.slots, name)));
+        Minecraft.getInstance().player.sendSystemMessage(
+            Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu.slots, name))
+        );
     }
     
     private void save() {
-        String name = recipeNameField != null ? recipeNameField.getValue() : "";
-        if (Minecraft.getInstance().player != null) {
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aSave: " + name));
+        if (Minecraft.getInstance().player == null) return;
+
+        CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
+        String name = fileNameField != null ? fileNameField.getValue().trim() : "";
+
+        if (name.isEmpty()) {
+            name = generateName();
+            if (fileNameField != null) {
+                fileNameField.setValue(name);
+            }
         }
+        
+        String script = new Generator().generate(menu.slots, name);
+
+        GenerationMethod method = RecipeGeneratorClient.genMethod;
+        String fileName = name + method.getExtension();
+        String folder = method.getFolder();
+
+        FileSaver.save(script, fileName, folder);
+        
+        Minecraft.getInstance().player.sendSystemMessage(
+            Component.literal("§aSaved as §f" + fileName + "§a to §f" + folder)
+        );
     }
 
     private void reload() {
-        if (Minecraft.getInstance().player != null) {
-            Minecraft.getInstance().player.sendSystemMessage(Component.literal("§aReload"));
+        if (Minecraft.getInstance().player == null) return;
+
+        Minecraft.getInstance().player.connection.sendCommand("reload");
+
+        Minecraft.getInstance().player.sendSystemMessage(
+            Component.literal("§aReload command sent")
+        );
+    }
+
+    @Inject(at = @At("HEAD"), method = "keyPressed", cancellable = true)
+    private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        if (recipeNameField != null && recipeNameField.isFocused()) {
+            if (recipeNameField.keyPressed(keyCode, scanCode, modifiers)) {
+                cir.setReturnValue(true);
+                return;
+            }
+            cir.setReturnValue(false);
+            return;
         }
+        if (fileNameField != null && fileNameField.isFocused()) {
+            if (fileNameField.keyPressed(keyCode, scanCode, modifiers)) {
+                cir.setReturnValue(true);
+                return;
+            }
+            cir.setReturnValue(false);
+            return;
+        }
+    }
+    
+    @Inject(at = @At("HEAD"), method = "charTyped", cancellable = true)
+    private void onCharTyped(char codePoint, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        if (recipeNameField != null && recipeNameField.isFocused()) {
+            if (recipeNameField.charTyped(codePoint, modifiers)) {
+                cir.setReturnValue(true);
+                return;
+            }
+            cir.setReturnValue(false);
+            return;
+        }
+        if (fileNameField != null && fileNameField.isFocused()) {
+            if (fileNameField.charTyped(codePoint, modifiers)) {
+                cir.setReturnValue(true);
+                return;
+            }
+            cir.setReturnValue(false);
+            return;
+        }
+    }
+
+    private String generateName() {
+        String baseName = "recipe_" + System.currentTimeMillis();   
+
+        CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
+        ItemStack result = menu.slots.get(0).getItem();
+        if (!result.isEmpty()) {
+            String itemName = result.getItem().getDescriptionId().replace("block.minecraft.", "").replace("item.minecraft.", "");
+            baseName = itemName + "_" + System.currentTimeMillis();
+        }
+    
+        return baseName;
     }
 }
