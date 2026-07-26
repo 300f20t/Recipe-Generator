@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.recipe_generator.client.RecipeGeneratorClient;
@@ -31,6 +32,7 @@ public class CraftingScreenMixin {
     
     private EditBox recipeNameField;
     private EditBox fileNameField;
+    private List<Button> uiButtons = new ArrayList<>();
     
     @Inject(at = @At("RETURN"), method = "init")
     private void addUI(CallbackInfo ci) {
@@ -69,6 +71,10 @@ public class CraftingScreenMixin {
                 createButton("Close", centerX + 95, centerY + 55, () -> screen.onClose())
             };
 
+            for (Button button : buttons) {
+                uiButtons.add(button);
+            }
+
             if (!RecipeGeneratorClient.isUIHidden) {
                 Field renderablesField = Screen.class.getDeclaredField("renderables");
                 renderablesField.setAccessible(true);
@@ -89,6 +95,24 @@ public class CraftingScreenMixin {
             }
 
         } catch (Exception ignored) {}
+    }
+
+    @Inject(at = @At("HEAD"), method = "render")
+    private void onRender(CallbackInfo ci) {
+        CraftingScreen screen = (CraftingScreen)(Object)this;
+        boolean bookVisible = screen.getRecipeBookComponent().isVisible();
+        boolean shouldShow = !RecipeGeneratorClient.isUIHidden && !bookVisible;
+
+        if (recipeNameField != null) {
+            recipeNameField.visible = shouldShow;
+            recipeNameField.active = shouldShow;
+            fileNameField.visible = shouldShow;
+            fileNameField.active = shouldShow;
+            for (Button btn : uiButtons) {
+                btn.visible = shouldShow;
+                btn.active = shouldShow;
+            }
+        }
     }
     
     private Button createButton(String text, int x, int y, Runnable action) {
