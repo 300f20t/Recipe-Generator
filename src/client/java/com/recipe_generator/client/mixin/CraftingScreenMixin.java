@@ -9,7 +9,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.CraftingMenu;
-import net.minecraft.world.item.ItemStack;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,6 +24,7 @@ import com.recipe_generator.client.RecipeGeneratorClient;
 import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
 import com.recipe_generator.client.generator.crafting_table.Generator;
 import com.recipe_generator.client.util.FileSaver;
+import com.recipe_generator.client.util.NameGenerator;
 
 @Mixin(CraftingScreen.class)
 @SuppressWarnings("unchecked")
@@ -130,7 +130,7 @@ public class CraftingScreenMixin {
         String name = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         
         if (name.isEmpty()) {
-            name = generateName();
+            name = new NameGenerator().generateName();
             if (recipeNameField != null) {
                 recipeNameField.setValue(name);
             }
@@ -150,7 +150,7 @@ public class CraftingScreenMixin {
         String name = fileNameField != null ? fileNameField.getValue().trim() : "";
 
         if (name.isEmpty()) {
-            name = generateName();
+            name = new NameGenerator().generateName();
             if (fileNameField != null) {
                 fileNameField.setValue(name);
             }
@@ -158,7 +158,7 @@ public class CraftingScreenMixin {
         
         String script = new Generator().generate(menu.slots, name);
 
-        GenerationMethod method = RecipeGeneratorClient.genMethod;
+        GenerationMethod method = RecipeGeneratorClient.generationMethod;
         String fileName = name + method.getExtension();
         String folder = method.getFolder();
 
@@ -217,18 +217,5 @@ public class CraftingScreenMixin {
             cir.setReturnValue(false);
             return;
         }
-    }
-
-    private String generateName() {
-        String baseName = "recipe_" + System.currentTimeMillis();   
-
-        CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
-        ItemStack result = menu.slots.get(0).getItem();
-        if (!result.isEmpty()) {
-            String itemName = result.getItem().getDescriptionId().replace("block.minecraft.", "").replace("item.minecraft.", "");
-            baseName = itemName + "_" + System.currentTimeMillis();
-        }
-    
-        return baseName;
     }
 }
