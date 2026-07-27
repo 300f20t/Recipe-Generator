@@ -7,8 +7,8 @@ import net.minecraft.world.item.ItemStack;
 import com.recipe_generator.client.util.GridGenerator;
 import com.recipe_generator.client.util.ItemFormatter;
 
-public class CraftTweakerGenerator {
-    public String generateShaped(NonNullList<Slot> slots, String name) {
+public class CraftingTableShapedCraftTweakerGenerator {
+    public String generate(NonNullList<Slot> slots, String name) {
         ItemStack resultItem = slots.get(0).getItem();
 
         String result = ItemFormatter.formatCraftTweaker(resultItem, resultItem.getCount());

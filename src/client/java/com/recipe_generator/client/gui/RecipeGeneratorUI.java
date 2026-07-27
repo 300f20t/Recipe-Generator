@@ -16,7 +16,8 @@ import java.util.List;
 
 import com.recipe_generator.client.RecipeGeneratorClient;
 import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
-import com.recipe_generator.client.generator.crafting_table.Generator;
+import com.recipe_generator.client.generator.crafting_table.CraftingTableGenerator;
+import com.recipe_generator.client.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.client.util.FileSaver;
 import com.recipe_generator.client.util.NameGenerator;
 
@@ -164,7 +165,7 @@ public class RecipeGeneratorUI {
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aGenerated recipe: \n§f" + new Generator().generate(menu.slots, name))
+            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, name, RecipeType.SHAPED))
         );
     }
 
@@ -181,7 +182,7 @@ public class RecipeGeneratorUI {
             }
         }
 
-        String script = new Generator().generate(menu.slots, name);
+        String script = new CraftingTableGenerator().generate(menu.slots, name, RecipeType.SHAPED);
         GenerationMethod method = RecipeGeneratorClient.generationMethod;
         FileSaver.save(script, name + method.getExtension(), method.getFolder());
 
