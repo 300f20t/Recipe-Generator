@@ -28,6 +28,8 @@ public class RecipeGeneratorUI {
     private final List<Button> buttons = new ArrayList<>();
     private final CraftingScreen screen;
 
+    private RecipeType selectedType = RecipeType.SHAPED;
+
     private final int centerX;
     private final int centerY;
 
@@ -82,6 +84,8 @@ public class RecipeGeneratorUI {
         .build();
     }
 
+    // Fix it later
+    @SuppressWarnings("unchecked")
     public void addToScreen() {
         try {
             Field renderablesField = Screen.class.getDeclaredField("renderables");
