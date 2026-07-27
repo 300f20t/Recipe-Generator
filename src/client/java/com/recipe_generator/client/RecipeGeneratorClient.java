@@ -6,7 +6,7 @@ public class RecipeGeneratorClient implements ClientModInitializer {
 
     public enum GenerationMethod {
         CRAFTTWEAKER("scripts", ".zs"),
-        KUBEJS("", "");
+        KUBEJS("kubejs/server_scripts", ".js");
 
         private final String folder;
         private final String extension;
@@ -26,7 +26,7 @@ public class RecipeGeneratorClient implements ClientModInitializer {
     }
 
     public static boolean isUIHidden = true;
-    public static GenerationMethod genMethod = GenerationMethod.CRAFTTWEAKER;
+    public static GenerationMethod generationMethod = GenerationMethod.CRAFTTWEAKER;
 
     @Override
     public void onInitializeClient() {
