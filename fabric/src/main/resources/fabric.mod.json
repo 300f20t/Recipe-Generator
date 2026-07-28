@@ -1,0 +1,41 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://github.com/300f20t/Recipe-Generator"
+    },
+    "license": "${license}",
+    "icon": "assets/${mod_id}/icon.png",
+    "environment": "client",
+    "entrypoints": {
+		"main": [
+			"com.recipe_generator.RecipeGenerator"
+		],
+		"client": [
+			"com.recipe_generator.client.RecipeGeneratorClient"
+		]
+	},
+    "mixins": [
+		"recipe_generator.mixins.json",
+		{
+			"config": "recipe_generator.client.mixins.json",
+			"environment": "client"
+		}
+	],
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "${minecraft_version}",
+        "java": ">=${java_version}"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  
