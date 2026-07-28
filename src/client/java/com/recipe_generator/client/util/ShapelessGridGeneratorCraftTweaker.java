@@ -7,19 +7,20 @@ import net.minecraft.world.item.ItemStack;
 public class ShapelessGridGeneratorCraftTweaker {
     public String generate(NonNullList<Slot> slots, int gridSize) {
         StringBuilder pattern = new StringBuilder();
-
         pattern.append("    ");
 
-        for (int i = 0; i <= gridSize; i++) {
+        boolean first = true;
+        for (int i = 1; i <= gridSize; i++) {
             ItemStack item = slots.get(i).getItem();
 
             if (!item.isEmpty()) {
+                if (!first) {
+                    pattern.append(", ");
+                }
                 pattern.append(ItemFormatterCraftTweaker.format(item));
-                pattern.append(",");
+                first = false;
             }
         }
-
-        pattern.append("\n");
 
         return pattern.toString();
     }

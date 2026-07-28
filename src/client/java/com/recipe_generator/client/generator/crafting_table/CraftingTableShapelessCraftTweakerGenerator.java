@@ -15,7 +15,7 @@ public class CraftingTableShapelessCraftTweakerGenerator {
         String pattern = new ShapelessGridGeneratorCraftTweaker().generate(slots, 9);
 
         return String.format("""
-            craftingTable.addShaped("%s", %s, [
+            craftingTable.addShapeless("%s", %s, [
             %s
             ]);
             """, name, result, pattern);

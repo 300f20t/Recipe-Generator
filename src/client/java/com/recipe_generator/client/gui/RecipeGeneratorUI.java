@@ -2,6 +2,7 @@ package com.recipe_generator.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -25,6 +26,8 @@ public class RecipeGeneratorUI {
     private EditBox recipeNameField;
     private EditBox fileNameField;
 
+    private Checkbox shapelessCheckbox;
+
     private final List<Button> buttons = new ArrayList<>();
     private final CraftingScreen screen;
 
@@ -42,6 +45,7 @@ public class RecipeGeneratorUI {
     public void init() {
         createFields();
         createButtons();
+        createCheckbox();
     }
 
     private void createFields() {
@@ -84,6 +88,19 @@ public class RecipeGeneratorUI {
         .build();
     }
 
+    private void createCheckbox() {
+        shapelessCheckbox = Checkbox.builder(
+            Component.literal("Is shapeless?"),
+            Minecraft.getInstance().font
+        )
+        .pos(centerX - 200, centerY - 20)
+        .selected(false)
+        .onValueChange((checkbox, selected) -> {
+            selectedType = selected ? RecipeType.SHAPELESS : RecipeType.SHAPED;
+        })
+        .build();
+    }
+
     // Fix it later
     @SuppressWarnings("unchecked")
     public void addToScreen() {
@@ -100,6 +117,9 @@ public class RecipeGeneratorUI {
             children.add(recipeNameField);
             renderables.add(fileNameField);
             children.add(fileNameField);
+
+            renderables.add(shapelessCheckbox);
+            children.add(shapelessCheckbox);
             
             for (Button button : buttons) {
                 renderables.add(button);
@@ -117,6 +137,10 @@ public class RecipeGeneratorUI {
             recipeNameField.active = shouldShow;
             fileNameField.visible = shouldShow;
             fileNameField.active = shouldShow;
+
+            shapelessCheckbox.visible = shouldShow;
+            shapelessCheckbox.active = shouldShow;
+
             for (Button btn : buttons) {
                 btn.visible = shouldShow;
                 btn.active = shouldShow;
@@ -169,7 +193,7 @@ public class RecipeGeneratorUI {
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, name, RecipeType.SHAPED))
+            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, name, selectedType))
         );
     }
 
@@ -186,7 +210,7 @@ public class RecipeGeneratorUI {
             }
         }
 
-        String script = new CraftingTableGenerator().generate(menu.slots, name, RecipeType.SHAPED);
+        String script = new CraftingTableGenerator().generate(menu.slots, name, selectedType);
         GenerationMethod method = RecipeGeneratorClient.generationMethod;
         FileSaver.save(script, name + method.getExtension(), method.getFolder());
 
