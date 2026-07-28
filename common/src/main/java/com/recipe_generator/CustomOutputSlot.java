@@ -1,4 +1,4 @@
-package com.recipe_generator.client;
+package com.recipe_generator;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;

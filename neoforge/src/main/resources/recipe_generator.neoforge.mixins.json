@@ -4,6 +4,10 @@
   "package": "com.recipe_generator.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [],
+  "client": [
+    "CraftingScreenMixin",
+    "OutputCraftingSlotMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

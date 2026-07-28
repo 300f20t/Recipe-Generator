@@ -1,4 +1,4 @@
-package com.recipe_generator.client.mixin;
+package com.recipe_generator.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.recipe_generator.CustomOutputSlot;
-import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.RecipeGeneratorClient;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
