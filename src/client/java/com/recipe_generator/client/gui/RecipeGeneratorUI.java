@@ -183,17 +183,17 @@ public class RecipeGeneratorUI {
     private void generate() {
         if (Minecraft.getInstance().player == null) return;
 
-        String name = recipeNameField != null ? recipeNameField.getValue().trim() : "";
-        if (name.isEmpty()) {
-            name = new NameGenerator().generateName();
+        String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
+        if (recipeName.isEmpty()) {
+            recipeName = new NameGenerator().generateName();
             if (recipeNameField != null) {
-                recipeNameField.setValue(name);
+                recipeNameField.setValue(recipeName);
             }
         }
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, name, selectedType))
+            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType))
         );
     }
 
@@ -201,21 +201,30 @@ public class RecipeGeneratorUI {
         if (Minecraft.getInstance().player == null) return;
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
-        String name = fileNameField != null ? fileNameField.getValue().trim() : "";
+        String fileName = fileNameField != null ? fileNameField.getValue().trim() : "";
 
-        if (name.isEmpty()) {
-            name = new NameGenerator().generateName();
+        if (fileName.isEmpty()) {
+            fileName = new NameGenerator().generateName();
             if (fileNameField != null) {
-                fileNameField.setValue(name);
+                fileNameField.setValue(fileName);
             }
         }
 
-        String script = new CraftingTableGenerator().generate(menu.slots, name, selectedType);
+        String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
+        
+        if (recipeName.isEmpty()) {
+            recipeName = new NameGenerator().generateName();
+            if (recipeNameField != null) {
+                recipeNameField.setValue(recipeName);
+            }
+        }
+
+        String script = new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType);
         GenerationMethod method = RecipeGeneratorClient.generationMethod;
-        FileSaver.save(script, name + method.getExtension(), method.getFolder());
+        FileSaver.save(script, fileName + method.getExtension(), method.getFolder());
 
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aSaved as §f" + name + method.getExtension())
+            Component.literal("§aSaved as §f" + fileName + method.getExtension())
         );
     }
 
