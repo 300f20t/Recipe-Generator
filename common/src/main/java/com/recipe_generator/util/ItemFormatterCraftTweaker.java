@@ -1,4 +1,4 @@
-package com.recipe_generator.client.util;
+package com.recipe_generator.util;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;

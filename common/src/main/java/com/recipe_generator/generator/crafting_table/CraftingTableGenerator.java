@@ -1,4 +1,4 @@
-package com.recipe_generator.client.generator.crafting_table;
+package com.recipe_generator.generator.crafting_table;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.inventory.Slot;

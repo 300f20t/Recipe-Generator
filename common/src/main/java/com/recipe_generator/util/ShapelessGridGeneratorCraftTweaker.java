@@ -1,4 +1,4 @@
-package com.recipe_generator.client.util;
+package com.recipe_generator.util;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.inventory.Slot;

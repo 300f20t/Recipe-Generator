@@ -1,21 +1,21 @@
-package com.recipe_generator.client.generator.crafting_table;
+package com.recipe_generator.generator.crafting_table;
 
-import com.recipe_generator.client.util.ItemFormatterCraftTweaker;
-import com.recipe_generator.client.util.ShapelessGridGeneratorCraftTweaker;
+import com.recipe_generator.util.ItemFormatterCraftTweaker;
+import com.recipe_generator.util.ShapedGridGeneratorCraftTweaker;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class CraftingTableShapelessCraftTweakerGenerator {
+public class CraftingTableShapedCraftTweakerGenerator {
     public String generate(NonNullList<Slot> slots, String name) {
         ItemStack resultItem = slots.get(0).getItem();
 
         String result = ItemFormatterCraftTweaker.format(resultItem, resultItem.getCount());
-        String pattern = new ShapelessGridGeneratorCraftTweaker().generate(slots, 9);
+        String pattern = new ShapedGridGeneratorCraftTweaker().generate(slots, 3, 3);
 
         return String.format("""
-            craftingTable.addShapeless("%s", %s, [
+            craftingTable.addShaped("%s", %s, [
             %s
             ]);
             """, name, result, pattern);

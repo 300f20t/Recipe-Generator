@@ -17,10 +17,9 @@ import java.util.List;
 
 import com.recipe_generator.client.RecipeGeneratorClient;
 import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
-import com.recipe_generator.client.generator.crafting_table.CraftingTableGenerator;
-import com.recipe_generator.client.generator.crafting_table.CraftingTableGenerator.RecipeType;
-import com.recipe_generator.client.util.FileSaver;
-import com.recipe_generator.client.util.NameGenerator;
+import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
+import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
+import com.recipe_generator.platform.Services;
 
 public class RecipeGeneratorUI {
     private EditBox recipeNameField;
@@ -185,7 +184,7 @@ public class RecipeGeneratorUI {
 
         String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         if (recipeName.isEmpty()) {
-            recipeName = new NameGenerator().generateName();
+            recipeName = Services.NAME_GENERATOR.generateName();
             if (recipeNameField != null) {
                 recipeNameField.setValue(recipeName);
             }
@@ -204,7 +203,7 @@ public class RecipeGeneratorUI {
         String fileName = fileNameField != null ? fileNameField.getValue().trim() : "";
 
         if (fileName.isEmpty()) {
-            fileName = new NameGenerator().generateName();
+            fileName = Services.NAME_GENERATOR.generateName();
             if (fileNameField != null) {
                 fileNameField.setValue(fileName);
             }
@@ -213,7 +212,7 @@ public class RecipeGeneratorUI {
         String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         
         if (recipeName.isEmpty()) {
-            recipeName = new NameGenerator().generateName();
+            recipeName = Services.NAME_GENERATOR.generateName();
             if (recipeNameField != null) {
                 recipeNameField.setValue(recipeName);
             }
@@ -221,7 +220,7 @@ public class RecipeGeneratorUI {
 
         String script = new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType);
         GenerationMethod method = RecipeGeneratorClient.generationMethod;
-        FileSaver.save(script, fileName + method.getExtension(), method.getFolder());
+        Services.FILE_SAVER.save(script, fileName + method.getExtension(), method.getFolder());
 
         Minecraft.getInstance().player.sendSystemMessage(
             Component.literal("§aSaved as §f" + fileName + method.getExtension())
