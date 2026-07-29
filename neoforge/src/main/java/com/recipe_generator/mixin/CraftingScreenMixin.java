@@ -1,5 +1,6 @@
 package com.recipe_generator.mixin;
 
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +29,7 @@ public class CraftingScreenMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "render")
-    private void onRender(CallbackInfo ci) {
+    private void onRender(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
         if (recipeGeneratorUI == null) return;
         CraftingScreen screen = (CraftingScreen)(Object)this;
         recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
