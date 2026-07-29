@@ -1,4 +1,4 @@
-package com.recipe_generator.gui;
+package com.recipe_generator.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -15,8 +15,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.recipe_generator.RecipeGeneratorClient;
-import com.recipe_generator.RecipeGeneratorClient.GenerationMethod;
+import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;

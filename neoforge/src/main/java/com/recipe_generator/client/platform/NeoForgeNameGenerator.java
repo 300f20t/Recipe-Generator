@@ -1,4 +1,4 @@
-package com.recipe_generator.platform;
+package com.recipe_generator.client.platform;
 
 import com.recipe_generator.platform.services.INameGenerator;
 

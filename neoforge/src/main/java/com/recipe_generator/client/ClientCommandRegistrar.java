@@ -1,4 +1,6 @@
-package com.recipe_generator;
+package com.recipe_generator.client;
+
+import com.recipe_generator.Constants;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

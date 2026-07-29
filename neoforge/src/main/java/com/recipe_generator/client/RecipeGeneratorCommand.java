@@ -1,6 +1,7 @@
-package com.recipe_generator;
+package com.recipe_generator.client;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.client.event.RegisterClientCommandsEvent;

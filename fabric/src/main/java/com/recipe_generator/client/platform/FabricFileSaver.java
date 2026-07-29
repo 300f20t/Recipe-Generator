@@ -1,4 +1,4 @@
-package com.recipe_generator.platform;
+package com.recipe_generator.client.platform;
 
 import net.fabricmc.loader.api.FabricLoader;
 import java.io.IOException;

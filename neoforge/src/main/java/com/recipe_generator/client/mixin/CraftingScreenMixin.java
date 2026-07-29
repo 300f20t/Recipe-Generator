@@ -1,4 +1,4 @@
-package com.recipe_generator.mixin;
+package com.recipe_generator.client.mixin;
 
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.recipe_generator.RecipeGeneratorClient;
-import com.recipe_generator.gui.RecipeGeneratorUI;
+import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.client.gui.RecipeGeneratorUI;
 
 @Mixin(CraftingScreen.class)
 public class CraftingScreenMixin {
