@@ -22,12 +22,11 @@
 		]
 	},
     "mixins": [
-		"recipe_generator.mixins.json",
-		{
-			"config": "recipe_generator.client.mixins.json",
-			"environment": "client"
-		}
-	],
+        {
+            "config": "recipe_generator.fabric.mixins.json",
+            "refmap": "recipe_generator.refmap.json"
+        }
+    ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",

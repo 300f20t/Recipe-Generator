@@ -6,12 +6,10 @@ import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.CraftingMenu;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +18,7 @@ import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
+import com.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
 public class RecipeGeneratorUI {
     private EditBox recipeNameField;
@@ -100,32 +99,20 @@ public class RecipeGeneratorUI {
         .build();
     }
 
-    // Fix it later
-    @SuppressWarnings("unchecked")
     public void addToScreen() {
-        try {
-            Field renderablesField = Screen.class.getDeclaredField("renderables");
-            renderablesField.setAccessible(true);
-            List<Renderable> renderables = (List<Renderable>) renderablesField.get(screen);
-            
-            Field childrenField = Screen.class.getDeclaredField("children");
-            childrenField.setAccessible(true);
-            List<GuiEventListener> children = (List<GuiEventListener>) childrenField.get(screen);
-            
-            renderables.add(recipeNameField);
-            children.add(recipeNameField);
-            renderables.add(fileNameField);
-            children.add(fileNameField);
-
-            renderables.add(shapelessCheckbox);
-            children.add(shapelessCheckbox);
-            
-            for (Button button : buttons) {
-                renderables.add(button);
-                children.add(button);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        ScreenAccessor accessor = (ScreenAccessor) screen;
+        List<Renderable> renderables = accessor.getRenderables();
+        List<GuiEventListener> children = accessor.getChildren();
+        
+        renderables.add(recipeNameField);
+        children.add(recipeNameField);
+        renderables.add(fileNameField);
+        children.add(fileNameField);
+        renderables.add(shapelessCheckbox);
+        children.add(shapelessCheckbox);
+        for (Button button : buttons) {
+            renderables.add(button);
+            children.add(button);
         }
     }
 
@@ -149,15 +136,11 @@ public class RecipeGeneratorUI {
 
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (recipeNameField != null && recipeNameField.isFocused()) {
-            if (recipeNameField.keyPressed(keyCode, scanCode, modifiers)) {
-                return true;
-            }
+            recipeNameField.keyPressed(keyCode, scanCode, modifiers);
             return true;
         }
         if (fileNameField != null && fileNameField.isFocused()) {
-            if (fileNameField.keyPressed(keyCode, scanCode, modifiers)) {
-                return true;
-            }
+            fileNameField.keyPressed(keyCode, scanCode, modifiers);
             return true;
         }
         return false;
@@ -165,15 +148,11 @@ public class RecipeGeneratorUI {
 
     public boolean charTyped(char codePoint, int modifiers) {
         if (recipeNameField != null && recipeNameField.isFocused()) {
-            if (recipeNameField.charTyped(codePoint, modifiers)) {
-                return true;
-            }
+            recipeNameField.charTyped(codePoint, modifiers);
             return true;
         }
         if (fileNameField != null && fileNameField.isFocused()) {
-            if (fileNameField.charTyped(codePoint, modifiers)) {
-                return true;
-            }
+            fileNameField.charTyped(codePoint, modifiers);
             return true;
         }
         return false;
