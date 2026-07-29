@@ -13,8 +13,8 @@ import net.minecraft.world.inventory.CraftingMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.recipe_generator.client.RecipeGeneratorClient;
-import com.recipe_generator.client.RecipeGeneratorClient.GenerationMethod;
+import com.recipe_generator.CommonClass;
+import com.recipe_generator.Constants.GenerationMethod;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
@@ -117,7 +117,7 @@ public class RecipeGeneratorUI {
     }
 
     public void updateVisibility(boolean bookVisible) {
-        boolean shouldShow = !RecipeGeneratorClient.isUIHidden && !bookVisible;
+        boolean shouldShow = !CommonClass.isUIHidden && !bookVisible;
         if (recipeNameField != null) {
             recipeNameField.visible = shouldShow;
             recipeNameField.active = shouldShow;
@@ -198,7 +198,7 @@ public class RecipeGeneratorUI {
         }
 
         String script = new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType);
-        GenerationMethod method = RecipeGeneratorClient.generationMethod;
+        GenerationMethod method = CommonClass.generationMethod;
         Services.FILE_SAVER.save(script, fileName + method.getExtension(), method.getFolder());
 
         Minecraft.getInstance().player.sendSystemMessage(

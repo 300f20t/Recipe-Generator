@@ -1,6 +1,7 @@
 package com.recipe_generator.client;
 
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.recipe_generator.CommonClass;
 
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
@@ -10,12 +11,12 @@ public class RecipeGeneratorCommand {
     public static void addCommand(RegisterClientCommandsEvent event) {
         var command = LiteralArgumentBuilder.<CommandSourceStack>literal("rgui")
             .executes(ctx -> {
-                if (RecipeGeneratorClient.isUIHidden) {
+                if (CommonClass.isUIHidden) {
                     ctx.getSource().sendSystemMessage(Component.literal("Recipe Generator GUI is now shown"));
-                    RecipeGeneratorClient.isUIHidden = false;
+                    CommonClass.isUIHidden = false;
                 } else {
                     ctx.getSource().sendSystemMessage(Component.literal("Recipe Generator GUI is now hidden"));
-                    RecipeGeneratorClient.isUIHidden = true;
+                    CommonClass.isUIHidden = true;
                 }
                 return 1;
             });

@@ -23,6 +23,10 @@
 	},
     "mixins": [
         {
+            "config": "recipe_generator.mixins.json",
+            "refmap": "recipe_generator.refmap.json"
+        },
+        {
             "config": "recipe_generator.fabric.mixins.json",
             "refmap": "recipe_generator.refmap.json"
         }

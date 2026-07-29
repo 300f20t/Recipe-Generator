@@ -1,6 +1,7 @@
 package com.recipe_generator;
 
-import com.recipe_generator.platform.FabricPlatformHelper;
+import com.recipe_generator.client.platform.FabricPlatformHelper;
+
 import net.fabricmc.api.ModInitializer;
 
 public class RecipeGenerator implements ModInitializer {

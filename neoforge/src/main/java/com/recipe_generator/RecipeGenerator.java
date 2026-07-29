@@ -1,6 +1,7 @@
 package com.recipe_generator;
 
-import com.recipe_generator.platform.NeoForgePlatformHelper;
+import com.recipe_generator.client.platform.NeoForgePlatformHelper;
+
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 

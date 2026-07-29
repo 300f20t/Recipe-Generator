@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import com.recipe_generator.client.RecipeGeneratorClient;
+import com.recipe_generator.CommonClass;
 import com.recipe_generator.client.gui.RecipeGeneratorUI;
 
 @Mixin(CraftingScreen.class)
@@ -18,7 +18,7 @@ public class CraftingScreenMixin {
     
     @Inject(at = @At("RETURN"), method = "init")
     private void addUI(CallbackInfo ci) {
-        if (RecipeGeneratorClient.isUIHidden) return;
+        if (CommonClass.isUIHidden) return;
         
         CraftingScreen screen = (CraftingScreen)(Object)this;
         recipeGeneratorUI = new RecipeGeneratorUI(screen);

@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import com.recipe_generator.CommonClass;
 import com.recipe_generator.CustomOutputSlot;
-import com.recipe_generator.client.RecipeGeneratorClient;
 
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -28,7 +28,7 @@ public class OutputCraftingSlotMixin {
     @Inject(at = @At("RETURN"), method = "<init>(ILnet/minecraft/world/entity/player/Inventory;Lnet/minecraft/world/inventory/ContainerLevelAccess;)V")
     private void addOutputSlot(int i, Inventory inv, ContainerLevelAccess access, CallbackInfo ci) {
         CraftingMenu menu = (CraftingMenu)(Object)this;
-        if (!RecipeGeneratorClient.isUIHidden) {
+        if (!CommonClass.isUIHidden) {
             Slot newSlot = new CustomOutputSlot(
                 this.resultSlots,
                 0,
