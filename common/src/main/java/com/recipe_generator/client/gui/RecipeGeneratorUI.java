@@ -15,8 +15,10 @@ import java.util.List;
 
 import com.recipe_generator.CommonClass;
 import com.recipe_generator.Constants.GenerationMethod;
+import com.recipe_generator.api.RecipeParams;
 import com.recipe_generator.api.SlotsData;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
+import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
 import com.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
@@ -29,7 +31,7 @@ public class RecipeGeneratorUI {
     private final List<Button> buttons = new ArrayList<>();
     private final CraftingScreen screen;
 
-    private String selectedType = "shaped";
+    private RecipeType selectedType = RecipeType.SHAPED;
 
     private final int centerX;
     private final int centerY;
@@ -94,7 +96,7 @@ public class RecipeGeneratorUI {
         .pos(centerX - 200, centerY - 20)
         .selected(false)
         .onValueChange((checkbox, selected) -> {
-            selectedType = selected ? "shapeless" : "shaped";
+            selectedType = selected ? RecipeType.SHAPELESS : RecipeType.SHAPED;
         })
         .build();
     }
@@ -173,8 +175,10 @@ public class RecipeGeneratorUI {
 
         SlotsData slots = SlotsData.fromSlots(menu.slots, 10);
 
+        RecipeParams params = new RecipeParams().set("type", selectedType);
+
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(slots, recipeName, selectedType))
+            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(slots, recipeName, params))
         );
     }
 
@@ -202,7 +206,9 @@ public class RecipeGeneratorUI {
 
         SlotsData slots = SlotsData.fromSlots(menu.slots, 10);
 
-        String script = new CraftingTableGenerator().generate(slots, recipeName, selectedType);
+        RecipeParams params = new RecipeParams().set("type", selectedType);
+
+        String script = new CraftingTableGenerator().generate(slots, recipeName, params);
         GenerationMethod method = CommonClass.generationMethod;
         Services.FILE_SAVER.save(script, fileName + method.getExtension(), method.getFolder());
 

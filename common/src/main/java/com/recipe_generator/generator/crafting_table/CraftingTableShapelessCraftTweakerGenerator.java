@@ -6,8 +6,8 @@ import com.recipe_generator.util.ShapelessGridGeneratorCraftTweaker;
 
 import net.minecraft.world.item.ItemStack;
 
-public class CraftingTableShapelessCraftTweakerGenerator {
-    public String generate(SlotsData slots, String name) {
+class CraftingTableShapelessCraftTweakerGenerator {
+    protected String generate(SlotsData slots, String name) {
         ItemStack resultItem = slots.getItem(0);
 
         String result = ItemFormatterCraftTweaker.format(resultItem, resultItem.getCount());

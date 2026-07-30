@@ -34,9 +34,7 @@ public class SlotsData {
         for (int i = 0; i < maxSlots; i++) {
             Slot slot = slots.get(i);
             ItemStack stack = slot.getItem();
-            if (!stack.isEmpty()) {
-                data.addItem(stack);
-            }
+            data.addItem(stack);
         }
 
         return data;

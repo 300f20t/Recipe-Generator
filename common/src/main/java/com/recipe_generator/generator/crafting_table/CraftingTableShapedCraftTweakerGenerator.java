@@ -6,8 +6,8 @@ import com.recipe_generator.util.ShapedGridGeneratorCraftTweaker;
 
 import net.minecraft.world.item.ItemStack;
 
-public class CraftingTableShapedCraftTweakerGenerator {
-    public String generate(SlotsData slots, String name) {
+class CraftingTableShapedCraftTweakerGenerator {
+    protected String generate(SlotsData slots, String name) {
         ItemStack resultItem = slots.getItem(0);
         String result = ItemFormatterCraftTweaker.format(resultItem, resultItem.getCount());
         String pattern = new ShapedGridGeneratorCraftTweaker().generate(slots, 3, 3);
