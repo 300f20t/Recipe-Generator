@@ -2,7 +2,6 @@ package com.recipe_generator.platform;
 
 import com.recipe_generator.Constants;
 import com.recipe_generator.platform.services.IFileSaver;
-import com.recipe_generator.platform.services.INameGenerator;
 import com.recipe_generator.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
@@ -11,7 +10,6 @@ public class Services {
 
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IFileSaver FILE_SAVER = load(IFileSaver.class);
-    public static final INameGenerator NAME_GENERATOR = load(INameGenerator.class);
 
     public static <T> T load(Class<T> clazz) {
 

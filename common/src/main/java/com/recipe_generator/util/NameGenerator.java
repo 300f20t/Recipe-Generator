@@ -1,15 +1,12 @@
-package com.recipe_generator.client.platform;
-
-import com.recipe_generator.platform.services.INameGenerator;
+package com.recipe_generator.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.item.ItemStack;
 
-public class FabricNameGenerator implements INameGenerator {
-    @Override
-    public String generateName() {
+public class NameGenerator {
+    public static String generateName() {
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
         ItemStack result = menu.slots.get(0).getItem();
         

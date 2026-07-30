@@ -20,6 +20,7 @@ import com.recipe_generator.api.SlotsData;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
+import com.recipe_generator.util.NameGenerator;
 import com.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
 public class RecipeGeneratorUI {
@@ -165,7 +166,7 @@ public class RecipeGeneratorUI {
 
         String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         if (recipeName.isEmpty()) {
-            recipeName = Services.NAME_GENERATOR.generateName();
+            recipeName = NameGenerator.generateName();
             if (recipeNameField != null) {
                 recipeNameField.setValue(recipeName);
             }
@@ -189,7 +190,7 @@ public class RecipeGeneratorUI {
         String fileName = fileNameField != null ? fileNameField.getValue().trim() : "";
 
         if (fileName.isEmpty()) {
-            fileName = Services.NAME_GENERATOR.generateName();
+            fileName = NameGenerator.generateName();
             if (fileNameField != null) {
                 fileNameField.setValue(fileName);
             }
@@ -198,7 +199,7 @@ public class RecipeGeneratorUI {
         String recipeName = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         
         if (recipeName.isEmpty()) {
-            recipeName = Services.NAME_GENERATOR.generateName();
+            recipeName = NameGenerator.generateName();
             if (recipeNameField != null) {
                 recipeNameField.setValue(recipeName);
             }
