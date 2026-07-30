@@ -15,8 +15,8 @@ import java.util.List;
 
 import com.recipe_generator.CommonClass;
 import com.recipe_generator.Constants.GenerationMethod;
+import com.recipe_generator.api.SlotsData;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
-import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
 import com.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
@@ -29,7 +29,7 @@ public class RecipeGeneratorUI {
     private final List<Button> buttons = new ArrayList<>();
     private final CraftingScreen screen;
 
-    private RecipeType selectedType = RecipeType.SHAPED;
+    private String selectedType = "shaped";
 
     private final int centerX;
     private final int centerY;
@@ -94,7 +94,7 @@ public class RecipeGeneratorUI {
         .pos(centerX - 200, centerY - 20)
         .selected(false)
         .onValueChange((checkbox, selected) -> {
-            selectedType = selected ? RecipeType.SHAPELESS : RecipeType.SHAPED;
+            selectedType = selected ? "shapeless" : "shaped";
         })
         .build();
     }
@@ -170,8 +170,11 @@ public class RecipeGeneratorUI {
         }
 
         CraftingMenu menu = ((CraftingScreen) Minecraft.getInstance().screen).getMenu();
+
+        SlotsData slots = SlotsData.fromSlots(menu.slots, 10);
+
         Minecraft.getInstance().player.sendSystemMessage(
-            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType))
+            Component.literal("§aGenerated recipe: \n§f" + new CraftingTableGenerator().generate(slots, recipeName, selectedType))
         );
     }
 
@@ -197,7 +200,9 @@ public class RecipeGeneratorUI {
             }
         }
 
-        String script = new CraftingTableGenerator().generate(menu.slots, recipeName, selectedType);
+        SlotsData slots = SlotsData.fromSlots(menu.slots, 10);
+
+        String script = new CraftingTableGenerator().generate(slots, recipeName, selectedType);
         GenerationMethod method = CommonClass.generationMethod;
         Services.FILE_SAVER.save(script, fileName + method.getExtension(), method.getFolder());
 

@@ -1,17 +1,17 @@
 package com.recipe_generator.util;
 
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.inventory.Slot;
+import com.recipe_generator.api.SlotsData;
+
 import net.minecraft.world.item.ItemStack;
 
 public class ShapelessGridGeneratorCraftTweaker {
-    public String generate(NonNullList<Slot> slots, int gridSize) {
+    public String generate(SlotsData slots, int gridSize) {
         StringBuilder pattern = new StringBuilder();
         pattern.append("    ");
 
         boolean first = true;
         for (int i = 1; i <= gridSize; i++) {
-            ItemStack item = slots.get(i).getItem();
+            ItemStack item = slots.getItem(i);
 
             if (!item.isEmpty()) {
                 if (!first) {
