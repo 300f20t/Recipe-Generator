@@ -1,4 +1,4 @@
-package com.recipe_generator.client.mixin;
+package com.recipe_generator.client.mixin.crafting_table;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

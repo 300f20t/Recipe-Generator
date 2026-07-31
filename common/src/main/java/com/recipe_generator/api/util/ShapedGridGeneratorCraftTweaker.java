@@ -1,4 +1,4 @@
-package com.recipe_generator.util;
+package com.recipe_generator.api.util;
 
 import com.recipe_generator.api.SlotsData;
 

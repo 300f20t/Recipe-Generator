@@ -1,4 +1,4 @@
-package com.recipe_generator.client.gui;
+package com.recipe_generator.api.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
@@ -20,7 +20,7 @@ import com.recipe_generator.api.SlotsData;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator;
 import com.recipe_generator.generator.crafting_table.CraftingTableGenerator.RecipeType;
 import com.recipe_generator.platform.Services;
-import com.recipe_generator.util.NameGenerator;
+import com.recipe_generator.api.util.NameGenerator;
 import com.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
 public class RecipeGeneratorUI {

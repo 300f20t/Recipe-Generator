@@ -1,4 +1,4 @@
-package com.recipe_generator.util;
+package com.recipe_generator.api.util;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;

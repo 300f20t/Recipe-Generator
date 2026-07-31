@@ -1,8 +1,8 @@
 package com.recipe_generator.generator.crafting_table;
 
 import com.recipe_generator.api.SlotsData;
-import com.recipe_generator.util.ItemFormatterCraftTweaker;
-import com.recipe_generator.util.ShapedGridGeneratorCraftTweaker;
+import com.recipe_generator.api.util.ItemFormatterCraftTweaker;
+import com.recipe_generator.api.util.ShapedGridGeneratorCraftTweaker;
 
 import net.minecraft.world.item.ItemStack;
 
