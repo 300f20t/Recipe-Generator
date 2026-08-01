@@ -8,7 +8,9 @@
     "accessor.ScreenAccessor",
     
     "crafting_table.CraftingScreenMixin",
-    "crafting_table.OutputCraftingSlotMixin"
+    "crafting_table.OutputCraftingSlotMixin",
+
+    "abstract_furnace.AbstractFurnaceScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -9,19 +9,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.recipe_generator.CommonClass;
-import com.recipe_generator.api.client.gui.RecipeGeneratorUI;
+import com.recipe_generator.client.gui.crafting_table.CraftingTableRecipeGeneratorUI;
 
 @Mixin(CraftingScreen.class)
 public class CraftingScreenMixin {
     
-    private RecipeGeneratorUI recipeGeneratorUI;
+    private CraftingTableRecipeGeneratorUI recipeGeneratorUI;
     
     @Inject(at = @At("RETURN"), method = "init")
     private void addUI(CallbackInfo ci) {
         if (CommonClass.isUIHidden) return;
         
         CraftingScreen screen = (CraftingScreen)(Object)this;
-        recipeGeneratorUI = new RecipeGeneratorUI(screen);
+        recipeGeneratorUI = new CraftingTableRecipeGeneratorUI(screen);
         recipeGeneratorUI.init();
         recipeGeneratorUI.addToScreen();
         recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
