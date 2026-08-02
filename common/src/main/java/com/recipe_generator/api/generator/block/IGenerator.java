@@ -4,5 +4,5 @@ import com.recipe_generator.api.RecipeParams;
 import com.recipe_generator.api.SlotsData;
 
 public interface IGenerator { 
-    String generate(SlotsData slots, String name, RecipeParams params);
+    public String generate(SlotsData slots, String name, RecipeParams params);
 }

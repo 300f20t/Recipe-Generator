@@ -9,6 +9,8 @@ import com.recipe_generator.CommonClass;
 import com.recipe_generator.client.gui.abstract_furnace.AbstractFurnaceRecipeGeneratorUI;
 
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
+import net.minecraft.client.gui.screens.inventory.BlastFurnaceScreen;
+import net.minecraft.client.gui.screens.inventory.SmokerScreen;
 import net.minecraft.world.inventory.AbstractFurnaceMenu;
 
 
@@ -20,9 +22,17 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
     @Inject(at = @At("RETURN"), method = "init")
     private void addUI(CallbackInfo ci) {
         if (CommonClass.isUIHidden) return;
-        
+
         AbstractFurnaceScreen<T> screen = (AbstractFurnaceScreen<T>)(Object)this;
-        recipeGeneratorUI = new AbstractFurnaceRecipeGeneratorUI<T>(screen);
+
+        String furnaceType = "furnace";
+        if (screen instanceof BlastFurnaceScreen) {
+            furnaceType = "blastFurnace";
+        } else if (screen instanceof SmokerScreen) {
+            furnaceType = "smoker";
+        }
+        
+        recipeGeneratorUI = new AbstractFurnaceRecipeGeneratorUI<T>(screen, furnaceType);
         recipeGeneratorUI.init();
         recipeGeneratorUI.addToScreen();
         recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
