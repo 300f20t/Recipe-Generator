@@ -25,9 +25,9 @@ A visual recipe editor for Minecraft that generates scripts for **CraftTweaker**
 
 ### Vanilla
 - ✅ Crafting Table
-- ⏳ Furnace (planned)
-- ⏳ Blast Furnace (planned)
-- ⏳ Smoker (planned)
+- ✅ Furnace
+- ✅ Blast Furnace
+- ✅ Smoker
 
 ## Supported Generators
 
