@@ -4,6 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.recipe_generator.CommonClass;
 import com.recipe_generator.client.gui.abstract_furnace.AbstractFurnaceRecipeGeneratorUI;
@@ -44,5 +45,15 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
         if (recipeGeneratorUI == null) return;
         AbstractFurnaceScreen<T> screen = (AbstractFurnaceScreen<T>)(Object)this;
         recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
+    }
+
+    @Inject(at = @At("HEAD"), method = "keyPressed", cancellable = true)
+    private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        if (recipeGeneratorUI != null && (
+            recipeGeneratorUI.keyPressed(keyCode, scanCode, modifiers) || 
+            recipeGeneratorUI.furnaceKeyPressed(keyCode, scanCode, modifiers)
+        )) {
+            cir.setReturnValue(true);
+        }
     }
 }

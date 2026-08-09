@@ -40,11 +40,4 @@ public class CraftingScreenMixin {
             cir.setReturnValue(true);
         }
     }
-
-    @Inject(at = @At("HEAD"), method = "charTyped", cancellable = true)
-    private void onCharTyped(char codePoint, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if (recipeGeneratorUI != null && recipeGeneratorUI.charTyped(codePoint, modifiers)) {
-            cir.setReturnValue(true);
-        }
-    }
 }

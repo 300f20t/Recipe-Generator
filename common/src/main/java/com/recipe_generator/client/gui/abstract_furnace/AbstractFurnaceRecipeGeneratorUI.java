@@ -67,6 +67,18 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         }
     }
 
+    public boolean furnaceKeyPressed(int keyCode, int scanCode, int modifiers) {
+        if (cookingTimeField != null && cookingTimeField.isFocused()) {
+            cookingTimeField.keyPressed(keyCode, scanCode, modifiers);
+            return true;
+        }
+        if (experienceField != null && experienceField.isFocused()) {
+            experienceField.keyPressed(keyCode, scanCode, modifiers);
+            return true;
+        }
+        return false;
+    }
+
     private int parseCookingTime(String value) {
         if (value.isEmpty()) return 200;
         try {

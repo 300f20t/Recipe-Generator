@@ -137,18 +137,6 @@ public abstract class RecipeGeneratorUI {
         return false;
     }
 
-    public boolean charTyped(char codePoint, int modifiers) {
-        if (recipeNameField != null && recipeNameField.isFocused()) {
-            recipeNameField.charTyped(codePoint, modifiers);
-            return true;
-        }
-        if (fileNameField != null && fileNameField.isFocused()) {
-            fileNameField.charTyped(codePoint, modifiers);
-            return true;
-        }
-        return false;
-    }
-
     protected String getRecipeName() {
         String name = recipeNameField != null ? recipeNameField.getValue().trim() : "";
         if (name.isEmpty()) {
