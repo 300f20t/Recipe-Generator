@@ -15,10 +15,10 @@
     "environment": "client",
     "entrypoints": {
 		"main": [
-			"com.recipe_generator.RecipeGenerator"
+			"io.github.ftincdev.recipe_generator.RecipeGenerator"
 		],
 		"client": [
-			"com.recipe_generator.client.RecipeGeneratorClient"
+			"io.github.ftincdev.recipe_generator.client.RecipeGeneratorClient"
 		]
 	},
     "mixins": [
