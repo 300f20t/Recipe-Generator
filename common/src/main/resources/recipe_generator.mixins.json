@@ -11,8 +11,7 @@
     "crafting_table.CraftingScreenMixin",
     "crafting_table.OutputCraftingSlotMixin",
 
-    "abstract_furnace.AbstractFurnaceScreenMixin",
-    "abstract_furnace.AbstractFurnaceScreenClickMixin"
+    "abstract_furnace.AbstractFurnaceScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

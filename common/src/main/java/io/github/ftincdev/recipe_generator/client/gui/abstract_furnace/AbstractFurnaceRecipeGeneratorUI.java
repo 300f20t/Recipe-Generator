@@ -3,12 +3,16 @@ package io.github.ftincdev.recipe_generator.client.gui.abstract_furnace;
 import io.github.ftincdev.recipe_generator.api.RecipeParams;
 import io.github.ftincdev.recipe_generator.api.SlotsData;
 import io.github.ftincdev.recipe_generator.api.client.gui.RecipeGeneratorUI;
+import io.github.ftincdev.recipe_generator.api.VirtualSlot;
+import io.github.ftincdev.recipe_generator.api.ResultVirtualSlot;
 import io.github.ftincdev.recipe_generator.generator.abstract_furnace.AbstractFurnaceGenerator;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.AbstractFurnaceMenu;
+import net.minecraft.world.item.ItemStack;
 
 import io.github.ftincdev.recipe_generator.CommonClass;
 
@@ -19,10 +23,32 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     private EditBox cookingTimeField;
     private EditBox experienceField;
 
+    private final VirtualSlot inputSlot = new VirtualSlot(56, 17);
+    private final ResultVirtualSlot resultSlot = new ResultVirtualSlot(116, 35);
+
+    private int leftPos;
+    private int topPos;
+
     public AbstractFurnaceRecipeGeneratorUI(AbstractFurnaceScreen<T> screen, String furnaceType) {
         super(screen);
         this.screen = screen;
         this.furnaceType = furnaceType;
+    }
+
+    public void setPositions(int leftPos, int topPos) {
+        this.leftPos = leftPos;
+        this.topPos = topPos;
+    }
+
+    public void renderVirtualSlots(GuiGraphics guiGraphics) {
+        inputSlot.render(guiGraphics, leftPos, topPos);
+        resultSlot.render(guiGraphics, leftPos, topPos);
+    }
+
+    public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
+        if (inputSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        if (resultSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        return false;
     }
 
     @Override
@@ -106,6 +132,20 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
 
         String recipeName = getRecipeName();
         AbstractFurnaceMenu menu = screen.getMenu();
+
+        ItemStack input = inputSlot.getItem();
+        ItemStack result = resultSlot.getItem();
+
+        if (input.isEmpty()) {
+            sendMessage("§cPlace the item in the ingredient slot!");
+            return;
+        }
+
+        if (result.isEmpty()) {
+            sendMessage("§cPlace the item in the result slot!");
+            return;
+        }
+
         SlotsData slots = SlotsData.fromSlots(menu.slots, 3);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
@@ -116,8 +156,8 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
             .set("cookingTime", cookingTime)
             .set("experience", experience);
 
-        String result = new AbstractFurnaceGenerator().generate(slots, recipeName, params);
-        sendMessage("§aGenerated recipe: \n§f" + result);
+        String generated = new AbstractFurnaceGenerator().generate(slots, recipeName, params);
+        sendMessage("§aGenerated recipe: \n§f" + generated);
     }
 
     @Override
@@ -127,6 +167,20 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         AbstractFurnaceMenu menu = screen.getMenu();
         String fileName = getFileName();
         String recipeName = getRecipeName();
+
+        ItemStack input = inputSlot.getItem();
+        ItemStack result = resultSlot.getItem();
+
+        if (input.isEmpty()) {
+            sendMessage("§cPlace the item in the ingredient slot!");
+            return;
+        }
+
+        if (result.isEmpty()) {
+            sendMessage("§cPlace the item in the result slot!");
+            return;
+        }
+
         SlotsData slots = SlotsData.fromSlots(menu.slots, 3);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
@@ -139,5 +193,18 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
 
         String script = new AbstractFurnaceGenerator().generate(slots, recipeName, params);
         saveScript(script, fileName);
+    }
+
+    public ItemStack getInputItem() {
+        return inputSlot.getItem();
+    }
+
+    public ItemStack getResultItem() {
+        return resultSlot.getItem();
+    }
+
+    public void clearSlots() {
+        inputSlot.clear();
+        resultSlot.clear();
     }
 }
