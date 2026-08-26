@@ -59,10 +59,10 @@ public class SlotsData {
         return data;
     }
 
-    public static SlotsData fromVirtualSlots(VirtualSlot[] inputSlots, VirtualSlot resultSlot) {
+    public static SlotsData fromVirtualSlots(IVirtualSlot[] inputSlots, IVirtualSlot resultSlot) {
         SlotsData data = new SlotsData();
 
-        for (VirtualSlot slot : inputSlots) {
+        for (IVirtualSlot slot : inputSlots) {
             data.addItem(slot.getItem().copy());
         }
         data.setMaxSlots(inputSlots.length + 1);

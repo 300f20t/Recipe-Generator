@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
-public class VirtualSlot {
+public class VirtualSlot implements IVirtualSlot {
     protected ItemStack item = ItemStack.EMPTY;
     protected final int x;
     protected final int y;
@@ -16,6 +16,7 @@ public class VirtualSlot {
         this.y = y;
     }
 
+    @Override
     public void render(GuiGraphics guiGraphics, int leftPos, int topPos) {
         int screenX = leftPos + x;
         int screenY = topPos + y;
@@ -28,31 +29,45 @@ public class VirtualSlot {
         }
     }
 
+    @Override
     public boolean handleClick(double mouseX, double mouseY, int leftPos, int topPos) {
         int screenX = leftPos + x;
         int screenY = topPos + y;
-        
+
         if (mouseX >= screenX && mouseX <= screenX + size &&
             mouseY >= screenY && mouseY <= screenY + size) {
-            
+
             Player player = Minecraft.getInstance().player;
             if (player == null) return false;
-            
+
             item = player.containerMenu.getCarried().copy();
             return true;
         }
         return false;
     }
 
+    @Override
     public ItemStack getItem() {
         return item;
     }
 
+    @Override
     public boolean isEmpty() {
         return item.isEmpty();
     }
 
+    @Override
     public void clear() {
         item = ItemStack.EMPTY;
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
     }
 }
