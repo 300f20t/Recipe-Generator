@@ -14,22 +14,16 @@
     "icon": "assets/${mod_id}/icon.png",
     "environment": "client",
     "entrypoints": {
-		"main": [
-			"io.github.ftincdev.recipe_generator.RecipeGenerator"
-		],
-		"client": [
-			"io.github.ftincdev.recipe_generator.client.RecipeGeneratorClient"
-		]
-	},
+        "main": [
+            "io.github.ftincdev.recipe_generator.RecipeGenerator"
+        ],
+        "client": [
+            "io.github.ftincdev.recipe_generator.client.RecipeGeneratorClient"
+        ]
+    },
     "mixins": [
-        {
-            "config": "recipe_generator.mixins.json",
-            "refmap": "recipe_generator.refmap.json"
-        },
-        {
-            "config": "recipe_generator.fabric.mixins.json",
-            "refmap": "recipe_generator.refmap.json"
-        }
+        "recipe_generator.mixins.json",
+        "recipe_generator.fabric.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
@@ -41,4 +35,3 @@
         "another-mod": "*"
     }
 }
-  
