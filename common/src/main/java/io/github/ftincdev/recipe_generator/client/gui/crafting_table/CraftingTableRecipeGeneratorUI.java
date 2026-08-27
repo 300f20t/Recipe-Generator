@@ -21,16 +21,16 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     private RecipeType selectedType = RecipeType.SHAPED;
 
     private final VirtualSlot[] inputSlots = new VirtualSlot[9];
-    private final VirtualSlot resultSlot = new ResultVirtualSlot(124, 35);
+    private final ResultVirtualSlot[] resultSlots = new ResultVirtualSlot[1];
     private int leftPos;
     private int topPos;
 
     public CraftingTableRecipeGeneratorUI(CraftingScreen screen) {
         super(screen);
-        initInputSlots();
+        initSlots();
     }
 
-    private void initInputSlots() {
+    private void initSlots() {
         int baseX = 30;
         int baseY = 17;
         int slotSize = 18;
@@ -43,6 +43,8 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
                 inputSlots[index] = new VirtualSlot(x, y);
             }
         }
+
+        resultSlots[0] = new ResultVirtualSlot(124, 35);
     }
 
     public void setPositions(int leftPos, int topPos) {
@@ -54,7 +56,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         for (VirtualSlot slot : inputSlots) {
             slot.render(guiGraphics, leftPos, topPos);
         }
-        resultSlot.render(guiGraphics, leftPos, topPos);
+        resultSlots[0].render(guiGraphics, leftPos, topPos);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
@@ -63,7 +65,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
                 return true;
             }
         }
-        return resultSlot.handleClick(mouseX, mouseY, leftPos, topPos);
+        return resultSlots[0].handleClick(mouseX, mouseY, leftPos, topPos);
     }
 
     @Override
@@ -97,7 +99,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     }
 
     private SlotsData getSlotsData() {
-        return SlotsData.fromVirtualSlots(inputSlots, resultSlot);
+        return SlotsData.fromVirtualSlots(inputSlots, resultSlots);
     }
 
     @Override
@@ -106,7 +108,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
 
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlot.getItem();
+        ItemStack result = resultSlots[0].getItem();
         if (result.isEmpty()) {
             sendMessage("§cPlace an item in the result slot!");
             return;
@@ -126,7 +128,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         String fileName = getFileName();
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlot.getItem();
+        ItemStack result = resultSlots[0].getItem();
         if (result.isEmpty()) {
             sendMessage("§cPlace an item in the result slot!");
             return;
@@ -140,13 +142,13 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     }
 
     public ItemStack getResultItem() {
-        return resultSlot.getItem();
+        return resultSlots[0].getItem();
     }
 
     public void clearSlots() {
         for (VirtualSlot slot : inputSlots) {
             slot.clear();
         }
-        resultSlot.clear();
+        resultSlots[0].clear();
     }
 }

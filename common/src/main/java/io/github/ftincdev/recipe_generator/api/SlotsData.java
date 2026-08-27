@@ -48,26 +48,30 @@ public class SlotsData {
         return data;
     }
 
-    public static SlotsData fromArray(ItemStack[] stacks) {
+    public static SlotsData fromVirtualSlots(IVirtualSlot[] inputSlots, IVirtualSlot[] resultSlots) {
         SlotsData data = new SlotsData();
-        data.setMaxSlots(stacks.length);
-
-        for (ItemStack stack : stacks) {
-            data.addItem(stack.copy());
-        }
-
-        return data;
-    }
-
-    public static SlotsData fromVirtualSlots(IVirtualSlot[] inputSlots, IVirtualSlot resultSlot) {
-        SlotsData data = new SlotsData();
-
-        for (IVirtualSlot slot : inputSlots) {
-            data.addItem(slot.getItem().copy());
-        }
         data.setMaxSlots(inputSlots.length + 1);
-        data.addItem(resultSlot.getItem().copy());
 
+        for (int i = 0; i < resultSlots.length; i++) {
+            if (i < resultSlots.length) {
+                IVirtualSlot slot = resultSlots[i];
+                ItemStack stack = slot.getItem();
+                data.addItem(stack.copy());
+            } else {
+                data.addItem(ItemStack.EMPTY);
+            }
+        }
+
+        for (int i = 0; i < inputSlots.length; i++) {
+            if (i < inputSlots.length) {
+                IVirtualSlot slot = inputSlots[i];
+                ItemStack stack = slot.getItem();
+                data.addItem(stack.copy());
+            } else {
+                data.addItem(ItemStack.EMPTY);
+            }
+        }
+        
         return data;
     }
 }
