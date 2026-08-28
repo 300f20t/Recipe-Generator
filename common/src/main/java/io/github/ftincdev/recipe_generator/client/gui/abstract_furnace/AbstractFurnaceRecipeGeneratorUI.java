@@ -36,15 +36,25 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         this.topPos = topPos;
     }
 
-    public void renderVirtualSlots(GuiGraphics guiGraphics) {
-        inputSlot.render(guiGraphics, leftPos, topPos);
-        resultSlot.render(guiGraphics, leftPos, topPos);
+    public void renderVirtualSlots(GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        boolean hovered = isHoveringSlot(inputSlot, mouseX, mouseY);
+        inputSlot.render(guiGraphics, leftPos, topPos, hovered);
+
+        boolean resultHovered = isHoveringSlot(resultSlot, mouseX, mouseY);
+        resultSlot.render(guiGraphics, leftPos, topPos, resultHovered);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
         if (inputSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
         if (resultSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
         return false;
+    }
+
+    public boolean isHoveringSlot(VirtualSlot slot, double mouseX, double mouseY) {
+        int screenX = leftPos + slot.getX();
+        int screenY = topPos + slot.getY();
+        return mouseX >= screenX && mouseX <= screenX + 16 &&
+               mouseY >= screenY && mouseY <= screenY + 16;
     }
 
     @Override

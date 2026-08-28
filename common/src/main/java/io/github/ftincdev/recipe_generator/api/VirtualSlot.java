@@ -17,13 +17,16 @@ public class VirtualSlot implements IVirtualSlot {
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int leftPos, int topPos) {
+    public void render(GuiGraphics guiGraphics, int leftPos, int topPos, boolean isHovered) {
         int screenX = leftPos + x;
         int screenY = topPos + y;
-
-        guiGraphics.fill(screenX - 1, screenY - 1, screenX + size + 1, screenY + size + 1, 0xFF8B8B8B);
-        guiGraphics.fill(screenX, screenY, screenX + size, screenY + size, 0xFF2B2B2B);
-
+    
+        int borderColor = isHovered ? 0xFFFFFFFF : 0xFF8B8B8B;
+        int bgColor = isHovered ? 0x6633BBFF : 0xFF2B2B2B;
+    
+        guiGraphics.fill(screenX - 1, screenY - 1, screenX + size + 1, screenY + size + 1, borderColor);
+        guiGraphics.fill(screenX, screenY, screenX + size, screenY + size, bgColor);
+    
         if (!item.isEmpty()) {
             guiGraphics.renderItem(item, screenX, screenY);
         }

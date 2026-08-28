@@ -52,12 +52,11 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
         recipeGeneratorUI.setPositions(accessor.getLeftPos(), accessor.getTopPos());
     }
 
-    @SuppressWarnings("unchecked")
-    @Inject(at = @At("HEAD"), method = "render")
-    private void onRender(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
-        if (recipeGeneratorUI == null) return;
-        recipeGeneratorUI.renderVirtualSlots(guiGraphics);
-        recipeGeneratorUI.updateVisibility(((AbstractFurnaceScreen<T>)(Object)this).getRecipeBookComponent().isVisible());
+    @Inject(at = @At("TAIL"), method = "render")
+    private void onRenderTail(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick, CallbackInfo ci) {
+        if (recipeGeneratorUI != null) {
+            recipeGeneratorUI.renderVirtualSlots(guiGraphics, mouseX, mouseY);
+        }
     }
 
     @Inject(at = @At("HEAD"), method = "keyPressed", cancellable = true)

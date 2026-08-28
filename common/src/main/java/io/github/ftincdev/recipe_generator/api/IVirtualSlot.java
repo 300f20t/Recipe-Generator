@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 
 public interface IVirtualSlot {
     
-    void render(GuiGraphics guiGraphics, int leftPos, int topPos);
+    void render(GuiGraphics guiGraphics, int leftPos, int topPos, boolean isHovered);
     
     boolean handleClick(double mouseX, double mouseY, int leftPos, int topPos);
     

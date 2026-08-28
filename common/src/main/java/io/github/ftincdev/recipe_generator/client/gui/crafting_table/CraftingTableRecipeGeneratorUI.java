@@ -50,11 +50,14 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         this.topPos = topPos;
     }
 
-    public void renderVirtualSlots(GuiGraphics guiGraphics) {
+    public void renderVirtualSlots(GuiGraphics guiGraphics, double mouseX, double mouseY) {
         for (VirtualSlot slot : inputSlots) {
-            slot.render(guiGraphics, leftPos, topPos);
+            boolean hovered = isHoveringSlot(slot, mouseX, mouseY);
+            slot.render(guiGraphics, leftPos, topPos, hovered);
         }
-        resultSlot.render(guiGraphics, leftPos, topPos);
+
+        boolean resultHovered = isHoveringSlot(resultSlot, mouseX, mouseY);
+        resultSlot.render(guiGraphics, leftPos, topPos, resultHovered);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
@@ -64,6 +67,13 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
             }
         }
         return resultSlot.handleClick(mouseX, mouseY, leftPos, topPos);
+    }
+
+    public boolean isHoveringSlot(VirtualSlot slot, double mouseX, double mouseY) {
+        int screenX = leftPos + slot.getX();
+        int screenY = topPos + slot.getY();
+        return mouseX >= screenX && mouseX <= screenX + 16 &&
+               mouseY >= screenY && mouseY <= screenY + 16;
     }
 
     @Override
