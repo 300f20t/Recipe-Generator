@@ -21,7 +21,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     private RecipeType selectedType = RecipeType.SHAPED;
 
     private final VirtualSlot[] inputSlots = new VirtualSlot[9];
-    private final ResultVirtualSlot[] resultSlots = new ResultVirtualSlot[1];
+    private final ResultVirtualSlot resultSlot = new ResultVirtualSlot(124, 35);
     private int leftPos;
     private int topPos;
 
@@ -43,8 +43,6 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
                 inputSlots[index] = new VirtualSlot(x, y);
             }
         }
-
-        resultSlots[0] = new ResultVirtualSlot(124, 35);
     }
 
     public void setPositions(int leftPos, int topPos) {
@@ -56,7 +54,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         for (VirtualSlot slot : inputSlots) {
             slot.render(guiGraphics, leftPos, topPos);
         }
-        resultSlots[0].render(guiGraphics, leftPos, topPos);
+        resultSlot.render(guiGraphics, leftPos, topPos);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
@@ -65,7 +63,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
                 return true;
             }
         }
-        return resultSlots[0].handleClick(mouseX, mouseY, leftPos, topPos);
+        return resultSlot.handleClick(mouseX, mouseY, leftPos, topPos);
     }
 
     @Override
@@ -99,7 +97,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     }
 
     private SlotsData getSlotsData() {
-        return SlotsData.fromVirtualSlots(inputSlots, resultSlots);
+        return SlotsData.fromVirtualSlots(inputSlots, resultSlot);
     }
 
     @Override
@@ -108,7 +106,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
 
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlots[0].getItem();
+        ItemStack result = resultSlot.getItem();
         if (result.isEmpty()) {
             sendMessage("§cPlace an item in the result slot!");
             return;
@@ -128,7 +126,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         String fileName = getFileName();
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlots[0].getItem();
+        ItemStack result = resultSlot.getItem();
         if (result.isEmpty()) {
             sendMessage("§cPlace an item in the result slot!");
             return;

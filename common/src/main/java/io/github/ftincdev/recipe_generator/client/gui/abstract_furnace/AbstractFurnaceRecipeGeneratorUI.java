@@ -20,8 +20,8 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     private EditBox cookingTimeField;
     private EditBox experienceField;
 
-    private final VirtualSlot[] inputSlots = new VirtualSlot[1];
-    private final ResultVirtualSlot[] resultSlots = new ResultVirtualSlot[1];
+    private final VirtualSlot inputSlot = new VirtualSlot(56, 17);
+    private final ResultVirtualSlot resultSlot = new ResultVirtualSlot(116, 35);
 
     private int leftPos;
     private int topPos;
@@ -29,12 +29,6 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     public AbstractFurnaceRecipeGeneratorUI(AbstractFurnaceScreen<T> screen, String furnaceType) {
         super(screen);
         this.furnaceType = furnaceType;
-        initSlots();
-    }
-
-    private void initSlots() {
-        inputSlots[0] = new VirtualSlot(56, 17);
-        resultSlots[0] = new ResultVirtualSlot(116, 35);
     }
 
     public void setPositions(int leftPos, int topPos) {
@@ -43,13 +37,13 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     }
 
     public void renderVirtualSlots(GuiGraphics guiGraphics) {
-        inputSlots[0].render(guiGraphics, leftPos, topPos);
-        resultSlots[0].render(guiGraphics, leftPos, topPos);
+        inputSlot.render(guiGraphics, leftPos, topPos);
+        resultSlot.render(guiGraphics, leftPos, topPos);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
-        if (inputSlots[0].handleClick(mouseX, mouseY, leftPos, topPos)) return true;
-        if (resultSlots[0].handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        if (inputSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        if (resultSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
         return false;
     }
 
@@ -134,17 +128,17 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
 
         String recipeName = getRecipeName();
 
-        if (inputSlots[0].isEmpty()) {
+        if (inputSlot.isEmpty()) {
             sendMessage("§cPlace the item in the ingredient slot!");
             return;
         }
 
-        if (resultSlots[0].isEmpty()) {
+        if (resultSlot.isEmpty()) {
             sendMessage("§cPlace the item in the result slot!");
             return;
         }
 
-        SlotsData slots = SlotsData.fromVirtualSlots(inputSlots, resultSlots);
+        SlotsData slots = SlotsData.fromVirtualSlots(inputSlot, resultSlot);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
         float experience = parseExperience(experienceField.getValue().trim());
@@ -165,17 +159,17 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         String fileName = getFileName();
         String recipeName = getRecipeName();
 
-        if (inputSlots[0].isEmpty()) {
+        if (inputSlot.isEmpty()) {
             sendMessage("§cPlace the item in the ingredient slot!");
             return;
         }
 
-        if (resultSlots[0].isEmpty()) {
+        if (resultSlot.isEmpty()) {
             sendMessage("§cPlace the item in the result slot!");
             return;
         }
 
-        SlotsData slots = SlotsData.fromVirtualSlots(inputSlots, resultSlots);
+        SlotsData slots = SlotsData.fromVirtualSlots(inputSlot, resultSlot);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
         float experience = parseExperience(experienceField.getValue().trim());

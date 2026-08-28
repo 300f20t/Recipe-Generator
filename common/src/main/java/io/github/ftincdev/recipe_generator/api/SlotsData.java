@@ -29,7 +29,7 @@ public class SlotsData {
         return maxSlots;
     }
 
-    public static SlotsData fromVirtualSlots(IVirtualSlot[] inputSlots, IVirtualSlot[] resultSlots) {
+    public static SlotsData fromVirtualSlots(VirtualSlot[] inputSlots, ResultVirtualSlot[] resultSlots) {
         SlotsData data = new SlotsData();
         data.setMaxSlots(inputSlots.length + resultSlots.length);
 
@@ -54,5 +54,25 @@ public class SlotsData {
         }
 
         return data;
+    }
+
+    public static SlotsData fromVirtualSlots(VirtualSlot[] inputSlots, ResultVirtualSlot resultSlot) {
+        ResultVirtualSlot[] resultSlots = new ResultVirtualSlot[1];
+        resultSlots[0] = resultSlot;
+        return fromVirtualSlots(inputSlots, resultSlots);
+    }
+
+    public static SlotsData fromVirtualSlots(VirtualSlot inputSlot, ResultVirtualSlot[] resultSlots) {
+        VirtualSlot[] inputSlots = new VirtualSlot[1];
+        inputSlots[0] = inputSlot;
+        return fromVirtualSlots(inputSlots, resultSlots);
+    }
+
+    public static SlotsData fromVirtualSlots(VirtualSlot inputSlot, ResultVirtualSlot resultSlot) {
+        VirtualSlot[] inputSlots = new VirtualSlot[1];
+        ResultVirtualSlot[] resultSlots = new ResultVirtualSlot[1];
+        inputSlots[0] = inputSlot;
+        resultSlots[0] = resultSlot;
+        return fromVirtualSlots(inputSlots, resultSlots);
     }
 }
