@@ -140,15 +140,4 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         String script = new CraftingTableGenerator().generate(slots, recipeName, params);
         saveScript(script, fileName);
     }
-
-    public ItemStack getResultItem() {
-        return resultSlots[0].getItem();
-    }
-
-    public void clearSlots() {
-        for (VirtualSlot slot : inputSlots) {
-            slot.clear();
-        }
-        resultSlots[0].clear();
-    }
 }

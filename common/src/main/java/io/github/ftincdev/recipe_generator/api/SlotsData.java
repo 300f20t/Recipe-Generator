@@ -3,8 +3,6 @@ package io.github.ftincdev.recipe_generator.api;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
 public class SlotsData {
@@ -31,26 +29,9 @@ public class SlotsData {
         return maxSlots;
     }
 
-    public static SlotsData fromSlots(NonNullList<Slot> slots, int maxSlots) {
-        SlotsData data = new SlotsData();
-        data.setMaxSlots(maxSlots);
-
-        for (int i = 0; i < maxSlots; i++) {
-            if (i < slots.size()) {
-                Slot slot = slots.get(i);
-                ItemStack stack = slot.getItem();
-                data.addItem(stack.copy());
-            } else {
-                data.addItem(ItemStack.EMPTY);
-            }
-        }
-
-        return data;
-    }
-
     public static SlotsData fromVirtualSlots(IVirtualSlot[] inputSlots, IVirtualSlot[] resultSlots) {
         SlotsData data = new SlotsData();
-        data.setMaxSlots(inputSlots.length + 1);
+        data.setMaxSlots(inputSlots.length + resultSlots.length);
 
         for (int i = 0; i < resultSlots.length; i++) {
             if (i < resultSlots.length) {
@@ -71,7 +52,7 @@ public class SlotsData {
                 data.addItem(ItemStack.EMPTY);
             }
         }
-        
+
         return data;
     }
 }

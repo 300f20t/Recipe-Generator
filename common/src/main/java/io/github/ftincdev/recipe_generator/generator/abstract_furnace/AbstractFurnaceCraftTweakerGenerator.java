@@ -10,8 +10,8 @@ import net.minecraft.world.item.ItemStack;
 
 class AbstractFurnaceCraftTweakerGenerator {
     protected String generate(SlotsData slots, String name, RecipeParams params) {
-        ItemStack inputItem = slots.getItem(0);
-        ItemStack resultItem = slots.getItem(2);
+        ItemStack inputItem = slots.getItem(1);
+        ItemStack resultItem = slots.getItem(0);
         
         String input = ItemFormatterCraftTweaker.format(inputItem);
         String result = ItemFormatterCraftTweaker.format(resultItem, resultItem.getCount());
