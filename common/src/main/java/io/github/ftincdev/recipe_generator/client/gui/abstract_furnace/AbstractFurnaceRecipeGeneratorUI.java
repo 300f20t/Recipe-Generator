@@ -129,12 +129,12 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         String recipeName = getRecipeName();
 
         if (inputSlot.isEmpty()) {
-            sendMessage("§cPlace the item in the ingredient slot!");
+            sendMessage(Component.translatable("recipe_generator.message.input_empty"));
             return;
         }
 
         if (resultSlot.isEmpty()) {
-            sendMessage("§cPlace the item in the result slot!");
+            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 
@@ -160,12 +160,12 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         String recipeName = getRecipeName();
 
         if (inputSlot.isEmpty()) {
-            sendMessage("§cPlace the item in the ingredient slot!");
+            sendMessage(Component.translatable("recipe_generator.message.input_empty"));
             return;
         }
 
         if (resultSlot.isEmpty()) {
-            sendMessage("§cPlace the item in the result slot!");
+            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 

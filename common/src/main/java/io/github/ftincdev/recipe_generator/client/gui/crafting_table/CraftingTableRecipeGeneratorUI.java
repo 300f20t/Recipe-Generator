@@ -108,7 +108,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
 
         ItemStack result = resultSlot.getItem();
         if (result.isEmpty()) {
-            sendMessage("§cPlace an item in the result slot!");
+            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 
@@ -128,7 +128,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
 
         ItemStack result = resultSlot.getItem();
         if (result.isEmpty()) {
-            sendMessage("§cPlace an item in the result slot!");
+            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 

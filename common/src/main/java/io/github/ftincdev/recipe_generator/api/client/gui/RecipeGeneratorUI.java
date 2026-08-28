@@ -169,6 +169,12 @@ public abstract class RecipeGeneratorUI {
         }
     }
 
+    protected void sendMessage(Component message) {
+        if (Minecraft.getInstance().player != null) {
+            Minecraft.getInstance().player.sendSystemMessage(message);
+        }
+    }
+    
     protected void sendMessage(String message) {
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.sendSystemMessage(Component.literal(message));
