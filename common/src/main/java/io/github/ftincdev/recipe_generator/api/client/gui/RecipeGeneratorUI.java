@@ -87,8 +87,8 @@ public abstract class RecipeGeneratorUI {
     }
 
     protected void createButtons() {
-        addButton(createButton("Generate", centerX + 95, centerY - 70, this::generate));
-        addButton(createButton("Save", centerX + 95, centerY - 45, this::save));
+        addButton(createButton("Generate", centerX + 95, centerY - 70, this::generateButton));
+        addButton(createButton("Save", centerX + 95, centerY - 45, this::saveButton));
         addButton(createButton("Reload", centerX + 95, centerY - 20, this::reload));
         addButton(createButton("Close", centerX + 95, centerY + 55, screen::onClose));
     }
@@ -164,7 +164,7 @@ public abstract class RecipeGeneratorUI {
         Services.FILE_SAVER.save(script, fileName + method.getExtension(), method.getFolder());
         if (Minecraft.getInstance().player != null) {
             Minecraft.getInstance().player.sendSystemMessage(
-                Component.literal("§aSaved as §f" + fileName + method.getExtension())
+                Component.literal(Component.translatable("recipe_generator.message.save_script") + fileName + method.getExtension())
             );
         }
     }
@@ -188,6 +188,6 @@ public abstract class RecipeGeneratorUI {
     }
 
     public abstract void init();
-    protected abstract void generate();
-    protected abstract void save();
+    protected abstract void generateButton();
+    protected abstract void saveButton();
 }

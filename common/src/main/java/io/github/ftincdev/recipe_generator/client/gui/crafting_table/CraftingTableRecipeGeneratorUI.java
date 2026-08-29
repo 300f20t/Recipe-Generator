@@ -12,7 +12,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.ItemStack;
 
 import io.github.ftincdev.recipe_generator.CommonClass;
 
@@ -104,40 +103,41 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         }
     }
 
-    @Override
-    protected void generate() {
-        if (Minecraft.getInstance().player == null) return;
+    private boolean validateRecipe() {
+        if (Minecraft.getInstance().player == null) return false;
 
-        String recipeName = getRecipeName();
-
-        ItemStack result = slots[0].getItem();
-        if (result.isEmpty()) {
+        if (slots[0].getItem().isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
-            return;
+            return false;
         }
+
+        return true;
+    }
+
+    private String generate() {
+        String recipeName = getRecipeName();
 
         RecipeParams params = new RecipeParams().set("type", selectedType);
 
-        String generated = new CraftingTableGenerator().generate(slots, recipeName, params);
-        sendMessage("§aGenerated recipe: \n§f" + generated);
+        return new CraftingTableGenerator().generate(slots, recipeName, params);
     }
 
     @Override
-    protected void save() {
-        if (Minecraft.getInstance().player == null) return;
+    protected void generateButton() {
+        if (!validateRecipe()) return;
+
+        String generated = generate();
+
+        sendMessage(Component.translatable("recipe_generator.message.generate_recipe") + generated);
+    }
+
+    @Override
+    protected void saveButton() {
+        if (!validateRecipe()) return;
 
         String fileName = getFileName();
-        String recipeName = getRecipeName();
+        String generated = generate();
 
-        ItemStack result = slots[0].getItem();
-        if (result.isEmpty()) {
-            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
-            return;
-        }
-
-        RecipeParams params = new RecipeParams().set("type", selectedType);
-
-        String script = new CraftingTableGenerator().generate(slots, recipeName, params);
-        saveScript(script, fileName);
+        saveScript(generated, fileName);
     }
 }

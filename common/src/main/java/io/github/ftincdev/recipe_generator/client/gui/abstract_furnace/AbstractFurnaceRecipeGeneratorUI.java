@@ -136,21 +136,24 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         }
     }
 
-    @Override
-    protected void generate() {
-        if (Minecraft.getInstance().player == null) return;
-
-        String recipeName = getRecipeName();
+    private boolean validateRecipe() {
+        if (Minecraft.getInstance().player == null) return false;
 
         if (slots[0].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.input_empty"));
-            return;
+            return false;
         }
 
         if (slots[1].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
-            return;
+            return false;
         }
+
+        return true;
+    }
+
+    private String generate() {
+        String recipeName = getRecipeName();
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
         float experience = parseExperience(experienceField.getValue().trim());
@@ -160,36 +163,25 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
             .set("cookingTime", cookingTime)
             .set("experience", experience);
 
-        String generated = new AbstractFurnaceGenerator().generate(slots, recipeName, params);
-        sendMessage("§aGenerated recipe: \n§f" + generated);
+        return new AbstractFurnaceGenerator().generate(slots, recipeName, params);
     }
 
     @Override
-    protected void save() {
-        if (Minecraft.getInstance().player == null) return;
+    protected void generateButton() {
+        if (!validateRecipe()) return;
 
+        String generated = generate();
+
+        sendMessage(Component.translatable("recipe_generator.message.save_script") + generated);
+    }
+
+    @Override
+    protected void saveButton() {
+        if (!validateRecipe()) return;
+
+        String generated = generate();
         String fileName = getFileName();
-        String recipeName = getRecipeName();
 
-        if (slots[0].isEmpty()) {
-            sendMessage(Component.translatable("recipe_generator.message.input_empty"));
-            return;
-        }
-
-        if (slots[1].isEmpty()) {
-            sendMessage(Component.translatable("recipe_generator.message.result_empty"));
-            return;
-        }
-
-        int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
-        float experience = parseExperience(experienceField.getValue().trim());
-
-        RecipeParams params = new RecipeParams()
-            .set("furnaceType", furnaceType)
-            .set("cookingTime", cookingTime)
-            .set("experience", experience);
-
-        String script = new AbstractFurnaceGenerator().generate(slots, recipeName, params);
-        saveScript(script, fileName);
+        saveScript(generated, fileName);
     }
 }

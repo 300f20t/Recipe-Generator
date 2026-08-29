@@ -1,4 +1,6 @@
 {
     "recipe_generator.message.result_empty": "§cPlace an item in the result slot!",
-    "recipe_generator.message.input_empty": "§cPlace an item in the ingredient slot!"
+    "recipe_generator.message.input_empty": "§cPlace an item in the ingredient slot!",
+    "recipe_generator.message.generate_recipe": "§aGenerated recipe: \n§f",
+    "recipe_generator.message.save_script": "§aSaved as §f"
 }
