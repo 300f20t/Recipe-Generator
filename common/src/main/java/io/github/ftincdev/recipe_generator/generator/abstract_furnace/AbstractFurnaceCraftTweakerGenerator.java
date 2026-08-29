@@ -3,15 +3,14 @@ package io.github.ftincdev.recipe_generator.generator.abstract_furnace;
 import java.util.Locale;
 
 import io.github.ftincdev.recipe_generator.api.util.ItemFormatterCraftTweaker;
-
+import io.github.ftincdev.recipe_generator.api.IVirtualSlot;
 import io.github.ftincdev.recipe_generator.api.RecipeParams;
-import io.github.ftincdev.recipe_generator.api.SlotsData;
 import net.minecraft.world.item.ItemStack;
 
 class AbstractFurnaceCraftTweakerGenerator {
-    protected String generate(SlotsData slots, String name, RecipeParams params) {
-        ItemStack inputItem = slots.getItem(1);
-        ItemStack resultItem = slots.getItem(0);
+    protected String generate(IVirtualSlot[] slots, String name, RecipeParams params) {
+        ItemStack inputItem = slots[0].getItem();
+        ItemStack resultItem = slots[1].getItem();
         
         String input = ItemFormatterCraftTweaker.format(inputItem);
         String result = ItemFormatterCraftTweaker.format(resultItem, resultItem.getCount());

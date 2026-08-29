@@ -1,7 +1,7 @@
 package io.github.ftincdev.recipe_generator.client.gui.abstract_furnace;
 
+import io.github.ftincdev.recipe_generator.api.IVirtualSlot;
 import io.github.ftincdev.recipe_generator.api.RecipeParams;
-import io.github.ftincdev.recipe_generator.api.SlotsData;
 import io.github.ftincdev.recipe_generator.api.client.gui.RecipeGeneratorUI;
 import io.github.ftincdev.recipe_generator.api.VirtualSlot;
 import io.github.ftincdev.recipe_generator.api.ResultVirtualSlot;
@@ -20,8 +20,7 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     private EditBox cookingTimeField;
     private EditBox experienceField;
 
-    private final VirtualSlot inputSlot = new VirtualSlot(56, 17);
-    private final ResultVirtualSlot resultSlot = new ResultVirtualSlot(116, 35);
+    private final IVirtualSlot[] slots = new IVirtualSlot[2];
 
     private int leftPos;
     private int topPos;
@@ -29,6 +28,12 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     public AbstractFurnaceRecipeGeneratorUI(AbstractFurnaceScreen<T> screen, String furnaceType) {
         super(screen);
         this.furnaceType = furnaceType;
+        initSlots();
+    }
+
+    private void initSlots() {
+        slots[0] = new VirtualSlot(56, 17);
+        slots[1] = new ResultVirtualSlot(116, 35);
     }
 
     public void setPositions(int leftPos, int topPos) {
@@ -37,20 +42,19 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
     }
 
     public void renderVirtualSlots(GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        boolean hovered = isHoveringSlot(inputSlot, mouseX, mouseY);
-        inputSlot.render(guiGraphics, leftPos, topPos, hovered);
-
-        boolean resultHovered = isHoveringSlot(resultSlot, mouseX, mouseY);
-        resultSlot.render(guiGraphics, leftPos, topPos, resultHovered);
+        for (IVirtualSlot slot : slots) {
+            boolean hovered = isHoveringSlot(slot, mouseX, mouseY);
+            slot.render(guiGraphics, leftPos, topPos, hovered);
+        }
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
-        if (inputSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
-        if (resultSlot.handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        if (slots[0].handleClick(mouseX, mouseY, leftPos, topPos)) return true;
+        if (slots[1].handleClick(mouseX, mouseY, leftPos, topPos)) return true;
         return false;
     }
 
-    public boolean isHoveringSlot(VirtualSlot slot, double mouseX, double mouseY) {
+    public boolean isHoveringSlot(IVirtualSlot slot, double mouseX, double mouseY) {
         int screenX = leftPos + slot.getX();
         int screenY = topPos + slot.getY();
         return mouseX >= screenX && mouseX <= screenX + 16 &&
@@ -138,17 +142,15 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
 
         String recipeName = getRecipeName();
 
-        if (inputSlot.isEmpty()) {
+        if (slots[0].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.input_empty"));
             return;
         }
 
-        if (resultSlot.isEmpty()) {
+        if (slots[1].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
-
-        SlotsData slots = SlotsData.fromVirtualSlots(inputSlot, resultSlot);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
         float experience = parseExperience(experienceField.getValue().trim());
@@ -169,17 +171,15 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         String fileName = getFileName();
         String recipeName = getRecipeName();
 
-        if (inputSlot.isEmpty()) {
+        if (slots[0].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.input_empty"));
             return;
         }
 
-        if (resultSlot.isEmpty()) {
+        if (slots[1].isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
-
-        SlotsData slots = SlotsData.fromVirtualSlots(inputSlot, resultSlot);
 
         int cookingTime = parseCookingTime(cookingTimeField.getValue().trim());
         float experience = parseExperience(experienceField.getValue().trim());

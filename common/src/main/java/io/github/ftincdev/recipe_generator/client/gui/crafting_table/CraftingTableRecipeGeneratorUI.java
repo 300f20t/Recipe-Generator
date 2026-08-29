@@ -1,7 +1,7 @@
 package io.github.ftincdev.recipe_generator.client.gui.crafting_table;
 
 import io.github.ftincdev.recipe_generator.api.RecipeParams;
-import io.github.ftincdev.recipe_generator.api.SlotsData;
+import io.github.ftincdev.recipe_generator.api.IVirtualSlot;
 import io.github.ftincdev.recipe_generator.api.VirtualSlot;
 import io.github.ftincdev.recipe_generator.api.ResultVirtualSlot;
 import io.github.ftincdev.recipe_generator.api.client.gui.RecipeGeneratorUI;
@@ -20,8 +20,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     private Checkbox shapelessCheckbox;
     private RecipeType selectedType = RecipeType.SHAPED;
 
-    private final VirtualSlot[] inputSlots = new VirtualSlot[9];
-    private final ResultVirtualSlot resultSlot = new ResultVirtualSlot(124, 35);
+    private final IVirtualSlot[] slots = new IVirtualSlot[10];
     private int leftPos;
     private int topPos;
 
@@ -35,12 +34,14 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         int baseY = 17;
         int slotSize = 18;
 
+        slots[0] = new ResultVirtualSlot(124, 35);
+
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 int index = row * 3 + col;
                 int x = baseX + col * slotSize;
                 int y = baseY + row * slotSize;
-                inputSlots[index] = new VirtualSlot(x, y);
+                slots[index + 1] = new VirtualSlot(x, y);
             }
         }
     }
@@ -51,25 +52,22 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     }
 
     public void renderVirtualSlots(GuiGraphics guiGraphics, double mouseX, double mouseY) {
-        for (VirtualSlot slot : inputSlots) {
+        for (IVirtualSlot slot : slots) {
             boolean hovered = isHoveringSlot(slot, mouseX, mouseY);
             slot.render(guiGraphics, leftPos, topPos, hovered);
         }
-
-        boolean resultHovered = isHoveringSlot(resultSlot, mouseX, mouseY);
-        resultSlot.render(guiGraphics, leftPos, topPos, resultHovered);
     }
 
     public boolean handleVirtualSlotClick(double mouseX, double mouseY) {
-        for (VirtualSlot slot : inputSlots) {
+        for (IVirtualSlot slot : slots) {
             if (slot.handleClick(mouseX, mouseY, leftPos, topPos)) {
                 return true;
             }
         }
-        return resultSlot.handleClick(mouseX, mouseY, leftPos, topPos);
+        return false;
     }
 
-    public boolean isHoveringSlot(VirtualSlot slot, double mouseX, double mouseY) {
+    public boolean isHoveringSlot(IVirtualSlot slot, double mouseX, double mouseY) {
         int screenX = leftPos + slot.getX();
         int screenY = topPos + slot.getY();
         return mouseX >= screenX && mouseX <= screenX + 16 &&
@@ -106,23 +104,18 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         }
     }
 
-    private SlotsData getSlotsData() {
-        return SlotsData.fromVirtualSlots(inputSlots, resultSlot);
-    }
-
     @Override
     protected void generate() {
         if (Minecraft.getInstance().player == null) return;
 
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlot.getItem();
+        ItemStack result = slots[0].getItem();
         if (result.isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 
-        SlotsData slots = getSlotsData();
         RecipeParams params = new RecipeParams().set("type", selectedType);
 
         String generated = new CraftingTableGenerator().generate(slots, recipeName, params);
@@ -136,13 +129,12 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
         String fileName = getFileName();
         String recipeName = getRecipeName();
 
-        ItemStack result = resultSlot.getItem();
+        ItemStack result = slots[0].getItem();
         if (result.isEmpty()) {
             sendMessage(Component.translatable("recipe_generator.message.result_empty"));
             return;
         }
 
-        SlotsData slots = getSlotsData();
         RecipeParams params = new RecipeParams().set("type", selectedType);
 
         String script = new CraftingTableGenerator().generate(slots, recipeName, params);
