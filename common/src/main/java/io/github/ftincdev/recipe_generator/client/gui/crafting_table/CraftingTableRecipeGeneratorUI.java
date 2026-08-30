@@ -128,7 +128,7 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
 
         String generated = generate();
 
-        sendMessage(Component.translatable("recipe_generator.message.generate_recipe") + generated);
+        sendMessage(Component.translatable("recipe_generator.message.generate_recipe").getString() + generated);
     }
 
     @Override

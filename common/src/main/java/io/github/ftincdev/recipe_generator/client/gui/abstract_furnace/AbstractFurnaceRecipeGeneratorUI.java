@@ -172,7 +172,7 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
 
         String generated = generate();
 
-        sendMessage(Component.translatable("recipe_generator.message.save_script") + generated);
+        sendMessage(Component.translatable("recipe_generator.message.save_script").getString() + generated);
     }
 
     @Override
