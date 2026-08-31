@@ -115,16 +115,6 @@ public abstract class RecipeGeneratorUI {
         buttons.clear();
     }
 
-    public void updateVisibility(boolean bookVisible) {
-        boolean shouldShow = !CommonClass.isUIHidden && !bookVisible;
-        for (Renderable renderable : renderables) {
-            if (renderable instanceof net.minecraft.client.gui.components.AbstractWidget widget) {
-                widget.visible = shouldShow;
-                widget.active = shouldShow;
-            }
-        }
-    }
-
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (recipeNameField != null && recipeNameField.isFocused()) {
             recipeNameField.keyPressed(keyCode, scanCode, modifiers);

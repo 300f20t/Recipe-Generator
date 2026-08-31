@@ -12,7 +12,6 @@ import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.AbstractFurnaceMenu;
-import io.github.ftincdev.recipe_generator.CommonClass;
 
 public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> extends RecipeGeneratorUI {
     private final String furnaceType;
@@ -90,18 +89,6 @@ public class AbstractFurnaceRecipeGeneratorUI<T extends AbstractFurnaceMenu> ext
         ));
         experienceField.setMaxLength(10);
         experienceField.setHint(Component.literal("XP"));
-    }
-
-    @Override
-    public void updateVisibility(boolean bookVisible) {
-        super.updateVisibility(bookVisible);
-        boolean shouldShow = !CommonClass.isUIHidden && !bookVisible;
-        if (cookingTimeField != null) {
-            cookingTimeField.visible = shouldShow;
-            cookingTimeField.active = shouldShow;
-            experienceField.visible = shouldShow;
-            experienceField.active = shouldShow;
-        }
     }
 
     public boolean furnaceKeyPressed(int keyCode, int scanCode, int modifiers) {

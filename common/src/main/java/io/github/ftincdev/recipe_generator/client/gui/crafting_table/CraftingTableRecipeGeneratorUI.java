@@ -13,10 +13,10 @@ import net.minecraft.client.gui.components.Checkbox;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
 
-import io.github.ftincdev.recipe_generator.CommonClass;
-
 public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
+    @SuppressWarnings("unused")
     private Checkbox shapelessCheckbox;
+    
     private RecipeType selectedType = RecipeType.SHAPED;
 
     private final IVirtualSlot[] slots = new IVirtualSlot[10];
@@ -91,16 +91,6 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
             selectedType = selected ? RecipeType.SHAPELESS : RecipeType.SHAPED;
         })
         .build());
-    }
-
-    @Override
-    public void updateVisibility(boolean bookVisible) {
-        super.updateVisibility(bookVisible);
-        boolean shouldShow = !CommonClass.isUIHidden && !bookVisible;
-        if (shapelessCheckbox != null) {
-            shapelessCheckbox.visible = shouldShow;
-            shapelessCheckbox.active = shouldShow;
-        }
     }
 
     private boolean validateRecipe() {

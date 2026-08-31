@@ -65,8 +65,6 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
         recipeGeneratorUI = new AbstractFurnaceRecipeGeneratorUI<T>(screen, furnaceType);
         recipeGeneratorUI.init();
         recipeGeneratorUI.addToScreen();
-        recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
-        
         recipeGeneratorUI.setPositions(accessor.getLeftPos(), accessor.getTopPos());
     }
 
