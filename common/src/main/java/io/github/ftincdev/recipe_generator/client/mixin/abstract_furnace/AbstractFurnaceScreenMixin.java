@@ -10,6 +10,8 @@ import io.github.ftincdev.recipe_generator.CommonClass;
 import io.github.ftincdev.recipe_generator.client.gui.abstract_furnace.AbstractFurnaceRecipeGeneratorUI;
 import io.github.ftincdev.recipe_generator.client.mixin.accessor.AbstractContainerScreenAccessor;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
 import net.minecraft.client.gui.screens.inventory.BlastFurnaceScreen;
 import net.minecraft.client.gui.screens.inventory.SmokerScreen;
@@ -17,6 +19,7 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.AbstractFurnaceMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import io.github.ftincdev.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
 @Mixin(AbstractFurnaceScreen.class)
 public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
@@ -29,6 +32,22 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
 
         AbstractFurnaceScreen<T> screen = (AbstractFurnaceScreen<T>)(Object)this;
         AbstractFurnaceMenu menu = screen.getMenu();
+
+        if (screen.getRecipeBookComponent().isVisible()) {
+            screen.getRecipeBookComponent().toggleVisibility();
+        }
+
+        AbstractContainerScreenAccessor accessor = (AbstractContainerScreenAccessor) screen;
+
+        accessor.setLeftPos(screen.getRecipeBookComponent().updateScreenPosition(screen.width, accessor.getImageWidth()));
+
+        ScreenAccessor screenAccessor = (ScreenAccessor) screen;
+        for (Renderable renderable : screenAccessor.getRenderables()) {
+            if (renderable instanceof ImageButton button) {
+                button.visible = false;
+                button.active = false;
+            }
+        }
 
         for (int i = 0; i < 3; i++) {
             menu.slots.get(i).set(ItemStack.EMPTY);
@@ -48,7 +67,6 @@ public class AbstractFurnaceScreenMixin<T extends AbstractFurnaceMenu> {
         recipeGeneratorUI.addToScreen();
         recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
         
-        AbstractContainerScreenAccessor accessor = (AbstractContainerScreenAccessor) screen;
         recipeGeneratorUI.setPositions(accessor.getLeftPos(), accessor.getTopPos());
     }
 

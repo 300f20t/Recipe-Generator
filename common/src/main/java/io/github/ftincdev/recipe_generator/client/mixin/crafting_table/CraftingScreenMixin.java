@@ -10,11 +10,14 @@ import io.github.ftincdev.recipe_generator.CommonClass;
 import io.github.ftincdev.recipe_generator.client.gui.crafting_table.CraftingTableRecipeGeneratorUI;
 import io.github.ftincdev.recipe_generator.client.mixin.accessor.AbstractContainerScreenAccessor;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.CraftingMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import io.github.ftincdev.recipe_generator.client.mixin.accessor.ScreenAccessor;
 
 @Mixin(CraftingScreen.class)
 public class CraftingScreenMixin {
@@ -28,6 +31,22 @@ public class CraftingScreenMixin {
         CraftingScreen screen = (CraftingScreen)(Object)this;
         CraftingMenu menu = screen.getMenu();
 
+        if (screen.getRecipeBookComponent().isVisible()) {
+            screen.getRecipeBookComponent().toggleVisibility();
+        }
+        
+        AbstractContainerScreenAccessor accessor = (AbstractContainerScreenAccessor) screen;
+
+        accessor.setLeftPos(screen.getRecipeBookComponent().updateScreenPosition(screen.width, accessor.getImageWidth()));
+
+        ScreenAccessor screenAccessor = (ScreenAccessor) screen;
+        for (Renderable renderable : screenAccessor.getRenderables()) {
+            if (renderable instanceof ImageButton button) {
+                button.visible = false;
+                button.active = false;
+            }
+        }
+
         for (int i = 0; i < 10; i++) {
             menu.slots.get(i).set(ItemStack.EMPTY);
             Slot emptySlot = new Slot(new SimpleContainer(1), 0, -1000, -1000);
@@ -37,9 +56,6 @@ public class CraftingScreenMixin {
         recipeGeneratorUI = new CraftingTableRecipeGeneratorUI(screen);
         recipeGeneratorUI.init();
         recipeGeneratorUI.addToScreen();
-        recipeGeneratorUI.updateVisibility(screen.getRecipeBookComponent().isVisible());
-        
-        AbstractContainerScreenAccessor accessor = (AbstractContainerScreenAccessor) screen;
         recipeGeneratorUI.setPositions(accessor.getLeftPos(), accessor.getTopPos());
     }
 
