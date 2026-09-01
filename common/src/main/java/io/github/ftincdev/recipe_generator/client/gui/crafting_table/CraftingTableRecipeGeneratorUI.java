@@ -14,9 +14,6 @@ import net.minecraft.client.gui.screens.inventory.CraftingScreen;
 import net.minecraft.network.chat.Component;
 
 public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
-    @SuppressWarnings("unused")
-    private Checkbox shapelessCheckbox;
-    
     private RecipeType selectedType = RecipeType.SHAPED;
 
     private final IVirtualSlot[] slots = new IVirtualSlot[10];
@@ -81,8 +78,8 @@ public class CraftingTableRecipeGeneratorUI extends RecipeGeneratorUI {
     }
 
     private void createCheckbox() {
-        shapelessCheckbox = addComponent(Checkbox.builder(
-            Component.literal("Is shapeless?"),
+        addComponent(Checkbox.builder(
+            Component.translatable("recipe_generator.message.is_shapeless"),
             Minecraft.getInstance().font
         )
         .pos(centerX - 200, centerY - 20)
