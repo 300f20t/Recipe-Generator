@@ -24,17 +24,22 @@ A visual recipe editor for Minecraft that generates scripts for **CraftTweaker**
 ## Supported Blocks
 
 ### Vanilla
-- ✅ Crafting Table
-- ✅ Furnace
-- ✅ Blast Furnace
-- ✅ Smoker
+
+| Block           |   Add recipe  | Remove recipe |
+|-----------------|---------------|---------------|
+| Crafting Table  | ✅            | ⏳ Planned   |
+| Furnace         | ✅            | ⏳ Planned   |
+| Blast Furnace   | ✅            | ⏳ Planned   |
+| Smoker          | ✅            | ⏳ Planned   |
+| Smithing table  | ⏳ Planned    | ❌           |
+| Campfire        | ❌            | ❌           |
 
 ## Supported Generators
 
-| Generator | Status |
-|-----------|--------|
-| CraftTweaker | ✅ |
-| KubeJS | ⏳ Planned |
+| Generator    | Status      |
+|--------------|-------------|
+| CraftTweaker | ✅         |
+| KubeJS       | ⏳ Planned |
 
 ## Requirements
 
