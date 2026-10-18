@@ -6,6 +6,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
 public class VirtualSlot implements IVirtualSlot {
+    protected static final int BORDER_COLOR = 0xFF8B8B8B;
+    protected static final int BORDER_COLOR_HOVERED = 0xFFFFFFFF;
+
+    protected static final int BACKGROUND_COLOR = 0xFF2B2B2B;
+    protected static final int BACKGROUND_COLOR_HOVERED = 0xFF5FDAE8;
+
     protected ItemStack item = ItemStack.EMPTY;
     protected final int x;
     protected final int y;
@@ -21,8 +27,8 @@ public class VirtualSlot implements IVirtualSlot {
         int screenX = leftPos + x;
         int screenY = topPos + y;
     
-        int borderColor = isHovered ? 0xFFFFFFFF : 0xFF8B8B8B;
-        int bgColor = isHovered ? 0x6633BBFF : 0xFF2B2B2B;
+        int borderColor = isHovered ? BORDER_COLOR_HOVERED : BORDER_COLOR;
+        int bgColor = isHovered ? BACKGROUND_COLOR_HOVERED : BACKGROUND_COLOR;
     
         guiGraphics.fill(screenX - 1, screenY - 1, screenX + size + 1, screenY + size + 1, borderColor);
         guiGraphics.fill(screenX, screenY, screenX + size, screenY + size, bgColor);
