@@ -7,15 +7,18 @@ import net.minecraft.world.item.ItemStack;
 
 public class VirtualSlot implements IVirtualSlot {
     protected static final int BORDER_COLOR = 0xFF8B8B8B;
-    protected static final int BORDER_COLOR_HOVERED = 0xFFFFFFFF;
-
     protected static final int BACKGROUND_COLOR = 0xFF2B2B2B;
-    protected static final int BACKGROUND_COLOR_HOVERED = 0xFF5FDAE8;
+
+    protected static final int COLOR_HOVERED = 0x6633BBFF;
+
+    protected static final int BASE_SIZE = 16;
+
+    private static final int SIZE = 16;
+    private static final int OFFSET = (SIZE - BASE_SIZE) / 2;
 
     protected ItemStack item = ItemStack.EMPTY;
     protected final int x;
     protected final int y;
-    protected final int size = 16;
 
     public VirtualSlot(int x, int y) {
         this.x = x;
@@ -24,14 +27,15 @@ public class VirtualSlot implements IVirtualSlot {
 
     @Override
     public void render(GuiGraphics guiGraphics, int leftPos, int topPos, boolean isHovered) {
-        int screenX = leftPos + x;
-        int screenY = topPos + y;
+        int screenX = leftPos + x - OFFSET;
+        int screenY = topPos + y - OFFSET;
     
-        int borderColor = isHovered ? BORDER_COLOR_HOVERED : BORDER_COLOR;
-        int bgColor = isHovered ? BACKGROUND_COLOR_HOVERED : BACKGROUND_COLOR;
-    
-        guiGraphics.fill(screenX - 1, screenY - 1, screenX + size + 1, screenY + size + 1, borderColor);
-        guiGraphics.fill(screenX, screenY, screenX + size, screenY + size, bgColor);
+        guiGraphics.fill(screenX - 1, screenY - 1, screenX + SIZE + 1, screenY + SIZE + 1, BORDER_COLOR);
+        guiGraphics.fill(screenX, screenY, screenX + SIZE, screenY + SIZE, BACKGROUND_COLOR);
+
+        if (isHovered) {
+            guiGraphics.fill(screenX, screenY, screenX + SIZE, screenY + SIZE, COLOR_HOVERED);
+        }
     
         if (!item.isEmpty()) {
             guiGraphics.renderItem(item, screenX, screenY);
@@ -43,8 +47,8 @@ public class VirtualSlot implements IVirtualSlot {
         int screenX = leftPos + x;
         int screenY = topPos + y;
 
-        if (mouseX >= screenX && mouseX <= screenX + size &&
-            mouseY >= screenY && mouseY <= screenY + size) {
+        if (mouseX >= screenX && mouseX <= screenX + SIZE &&
+            mouseY >= screenY && mouseY <= screenY + SIZE) {
 
             Player player = Minecraft.getInstance().player;
             if (player == null) return false;
