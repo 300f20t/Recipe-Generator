@@ -12,9 +12,8 @@ public class VirtualSlot implements IVirtualSlot {
     protected static final int COLOR_HOVERED = 0x6633BBFF;
 
     protected static final int BASE_SIZE = 16;
-
-    private static final int SIZE = 16;
-    private static final int OFFSET = (SIZE - BASE_SIZE) / 2;
+    protected static final int SIZE = BASE_SIZE;
+    protected static final int OFFSET = (SIZE - BASE_SIZE) / 2;
 
     protected ItemStack item = ItemStack.EMPTY;
     protected final int x;
